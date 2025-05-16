@@ -1,0 +1,1098 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Departments" xml:space="preserve">
+    <value>Departments</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Terms</value>
+  </data>
+  <data name="Request Purchase Book" xml:space="preserve">
+    <value>Request Purchase Book</value>
+  </data>
+  <data name="Complaints" xml:space="preserve">
+    <value>Complaints</value>
+  </data>
+  <data name="Renewal Application" xml:space="preserve">
+    <value>Renewal Application</value>
+  </data>
+  <data name="Transfer Student" xml:space="preserve">
+    <value>Transfer Student</value>
+  </data>
+  <data name="Vacation Order" xml:space="preserve">
+    <value>Vacation Order</value>
+  </data>
+  <data name="Forms" xml:space="preserve">
+    <value>Forms</value>
+  </data>
+  <data name="Departments &amp; Private Lessons" xml:space="preserve">
+    <value>Departments &amp; Private Lessons</value>
+  </data>
+  <data name="Teachers" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Academies Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Usages" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AddArticle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AddBlock" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AddEvent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Add Menu Categories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Payment Methods" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Administrator" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AgeCategories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ArticleCategories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Articles" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ArticlesList" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Audit Trails" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AwayMatchs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Block Categories List" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Blocks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Blocks List" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Board of Directors" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Brands" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Catalog Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Championship" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Championship Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Championship Types" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Championships" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Championships Classifications" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Championships Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Positions" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ChampionshipsTypes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cities" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Clubs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Clubs Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Clubs Registration Requests" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Coachs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Coachs Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Coachs Registration Requests" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Coachs Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Coachs_Employees Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Committees" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Communication" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Contact Us" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cup of His Highness the President of the State" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cup of the Head of State" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Decisions" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Document Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Document Store" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Document Types" xml:space="preserve">
+    <value />
+  </data>
+  <data name="E-Services Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Employees" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Employees Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Employees Registration Requests" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EventCategories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Events" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Events Organizing" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EventsList" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Explore" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FAQs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GeneralSettings Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HomeMatchs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Ice Dance Championships Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Ice Hockey Championships Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Ice Skating Championships Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Licenses" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Mail" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Manage Team" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Match Table" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Matchs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Members of Board" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu Categories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menus" xml:space="preserve">
+    <value />
+  </data>
+  <data name="National Teams" xml:space="preserve">
+    <value />
+  </data>
+  <data name="National Teams Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Nations" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Owners" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OwnersManagement Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Pages" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Passports" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LeaveTypes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Players" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Players Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Players Registration Requests" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Players Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PlayersManagement Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Leaves" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Princedoms" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Quick Start Guide" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Advances" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Advances Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Advances Registration Requests" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Registeration Request" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Registration Requests" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Requests Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RequestStatuss" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resources" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Rounds" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Public Facilities" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Seasons" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Season Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Supplier Companies" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Service Types" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Services Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sexs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sport Activities" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sport Councel" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Standings" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Swagger" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Monthly Evaluation" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Over Time" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Employee Notes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Leave Types" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Advance Types" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Project Statuses" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Unit Types" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Task Categories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Attendance" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Realty Statuses" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Company Requests" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Web Settings" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebSite Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Clients Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Companies" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Individuals" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Realty Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Tasks Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Human Resources" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sections" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Sections Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Realty Types" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Services Types" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Real Estate" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Realty Broker Client" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Suppliers Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Supplier Companies List" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Supplier Companies Requests" xml:space="preserve">
+    <value />
+  </data>
+  <data name="contactus" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Payments Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Real Estate Brokers" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Appointment Books Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Orders Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Realty Reservaions Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Product Categories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Units" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Real Estates Calendar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Tasks Calendar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Realty Broker Comapny" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Reservations Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PaymentMethods" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Banks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Pages Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Currencies" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CheckTypes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Companies Tasks Calendar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Employees Tasks Calendar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Buildings" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Facilities" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Realty Reservations" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RoomsCounts" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Appointment Books Calendar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Service Orders Calendar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Permits Calendar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Realty Reservaions Calendar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Notifications Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Toggle right-to-left/left-to-right" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Company Clients Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Employees Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Supplier Companies Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RealtyBrokers Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Shortend Company Clients Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Shortend Employees Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Shortend RealtyBrokers Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Shortend Supplier Companies Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Set As Seen" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Interest Records" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Modifications Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Permits Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Real Estate Brokers Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Company Clients Reports" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Detailed Company Clients Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Detailed Employees Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Detailed RealtyBrokers Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Detailed Supplier Companies Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Employees Reports" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RealtyBrokers Reports" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Supplier Companies Reports" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Modifications Calendar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Default Owner For Real Estate" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Suppliers and Maintenance Companies" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Terms &amp; Conditions" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BuildingOccupationTypes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BuildingTypes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CausesOfDropout" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ChronicDiseases" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Classes And Branches" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Classrooms" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ClassroomSecondLanguage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ClassroomSex" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DistanceFromSchool" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EmergencyDiseases" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EndOfYearResultsTypes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FamilyProperties" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Indexes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Manage Indexes." xml:space="preserve">
+    <value />
+  </data>
+  <data name="Nationalities" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PayTypes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RewardsAndPenalties" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SanitaryFacilitiesStatus" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SchoolBuildingIndexes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SocialCharacteristicsOfStudent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StagesAndCourses" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StudentDiseases" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StudentRegistrationStatus" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StudentsIndexes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StudentWorkIndexes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StudyStages" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TypesOfAbsence" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TypesOfBuildingRooms" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TypesOfFurniture" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TypesOfSchoolHours" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TypesOfTransportation" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Vaccines" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AttendanceIndexes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Religions" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NoticeTypes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Exams" xml:space="preserve">
+    <value />
+  </data>
+  <data name="School Details" xml:space="preserve">
+    <value />
+  </data>
+  <data name="School Managment" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TypesOfHealthFacility" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TypesOfHealthCourse" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TypesOfMaintenanceWork" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TypesOfLeaves" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ClassSubjects" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Class Subjects Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Transport Shifts" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Schedules" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Blocks Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menus Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebSite Managment" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Students" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Students Affairs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Students FollowUp" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Educational FollowUp" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Notes And Circulars" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Students And Branches Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Students Enrollments Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Distribution Of Students Into Branches" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Distribution Of Students Into Classes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value />
+  </data>
+  <data name="General Settings" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Employee Work Hours" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Student Marks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Student Affairs" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Semeters" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Financial Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Installments" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Financial Statement" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Order Class Subjects" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Review Student Marks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Success Rules" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Facilities Managment" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Furnitures" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Rooms" xml:space="preserve">
+    <value />
+  </data>
+  <data name="New Students Registration" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Teatchers" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Student Results" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Student Success Aid" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Previous Years Archive" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Financial Statement Archive" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Class Subject Marks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="First Grade Completion" xml:space="preserve">
+    <value />
+  </data>
+  <data name="First Grade Completion Report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="New Students" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Placement Tests" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DocumentType" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Subjects Of Placement Test" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Instructor Info" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Instructor Schedule" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Homework" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Close Season" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Class Subject Notes" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Student Info" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Subjects" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Installment Payments" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Attendance Management" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Students Attendance" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Student Points" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Suppliers and Maintenance Companies1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Student's Points" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Student Registration Requests" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Parents" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Free Trial Lessons" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Change Date Of Lesson Application" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Excellence" xml:space="preserve">
+    <value />
+  </data>
+  <data name="More Information" xml:space="preserve">
+    <value />
+  </data>
+</root>

@@ -1,0 +1,51 @@
+﻿[
+  {
+    "NameEn": "Session 1",
+    "NameAr": "الحصة الأولى",
+    "Order": 1,
+    "IsActive": true,
+    "Deleted": false
+  },
+  {
+    "NameEn": "Session 2",
+    "NameAr": "الحصة الثانية",
+    "Order": 2,
+    "IsActive": true,
+    "Deleted": false
+  },
+  {
+    "NameEn": "Session 3",
+    "NameAr": "الحصة الثالثة",
+    "Order": 3,
+    "IsActive": true,
+    "Deleted": false
+  },
+  {
+    "NameEn": "Session 4",
+    "NameAr": "الحصة الرابعة",
+    "Order": 4,
+    "IsActive": true,
+    "Deleted": false
+  },
+  {
+    "NameEn": "Session 5",
+    "NameAr": "الحصة الخامسة",
+    "Order": 5,
+    "IsActive": true,
+    "Deleted": false
+  },
+  {
+    "NameEn": "Session 6",
+    "NameAr": "الحصة السادسة",
+    "Order": 6,
+    "IsActive": true,
+    "Deleted": false
+  },
+  {
+    "NameEn": "Session 7",
+    "NameAr": "الحصة السابعة",
+    "Order": 7,
+    "IsActive": true,
+    "Deleted": false
+  }
+]
