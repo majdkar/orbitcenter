@@ -361,35 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/src/Server/Files
 
-/src/Server/appsettings.Development.json
-/src/Server/appsettings.json
-/src/Infrastructure/Migrations
 
-/src/Infrastructure/Migrations/BlazorHeroContextModelSnapshot.cs
-/src/Infrastructure/Migrations/20250417183233_Init_DB.cs
-/src/Infrastructure/Migrations/20250417183233_Init_DB.Designer.cs
-/src/Infrastructure/Migrations/20250417192930_AlterSections.cs
-/src/Infrastructure/Migrations/20250417192930_AlterSections.Designer.cs
-/src/Infrastructure/Migrations/20250417205731_AddTerm1.cs
-/src/Infrastructure/Migrations/20250417205731_AddTerm1.Designer.cs
-/src/Infrastructure/Migrations/20250420190348_add_Subjects.cs
-/src/Infrastructure/Migrations/20250420190348_add_Subjects.Designer.cs
-/src/Infrastructure/Migrations/20250422070010_ModifyStudent.cs
-/src/Infrastructure/Migrations/20250422070010_ModifyStudent.Designer.cs
-/src/Infrastructure/Migrations/20250423102018_AddPartForms.cs
-/src/Infrastructure/Migrations/20250423102018_AddPartForms.Designer.cs
-/src/Infrastructure/Migrations/20250417183233_Init_DB.cs
-/src/Infrastructure/Migrations/20250417183233_Init_DB.Designer.cs
-/src/Infrastructure/Migrations/20250417192930_AlterSections.cs
-/src/Infrastructure/Migrations/20250417192930_AlterSections.Designer.cs
-/src/Infrastructure/Migrations/20250417205731_AddTerm1.cs
-/src/Infrastructure/Migrations/20250417205731_AddTerm1.Designer.cs
-/src/Infrastructure/Migrations/20250420190348_add_Subjects.cs
-/src/Infrastructure/Migrations/20250420190348_add_Subjects.Designer.cs
-/src/Infrastructure/Migrations/20250422070010_ModifyStudent.cs
-/src/Infrastructure/Migrations/20250422070010_ModifyStudent.Designer.cs
-/src/Infrastructure/Migrations/20250423102018_AddPartForms.cs
-/src/Infrastructure/Migrations/20250423102018_AddPartForms.Designer.cs
-/src/Infrastructure/Migrations/BlazorHeroContextModelSnapshot.cs
+

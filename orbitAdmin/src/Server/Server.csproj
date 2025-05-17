@@ -73,7 +73,9 @@
 	<ItemGroup>
 	  <Folder Include="Files\Documents\" />
 	  <Folder Include="Files\Images\" />
-	  <Folder Include="Files\UploadFiles\" />
+	  <Folder Include="Files\UploadFiles\MenusFiles\" />
+	  <Folder Include="Files\UploadFiles\BlocksFiles\" />
+	  <Folder Include="Files\UploadFiles\PagesFiles\" />
 	  <Folder Include="Logs\" />
 	</ItemGroup>
 
