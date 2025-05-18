@@ -123,9 +123,47 @@
   <data name="Teachers" xml:space="preserve">
     <value>Teachers</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Administrator" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="Add Menu Categories" xml:space="preserve">
+    <value>Add Menu Categories</value>
+  </data>
+  <data name="Administrator" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="Block Categories List" xml:space="preserve">
+    <value>Block Categories List</value>
+  </data>
+  <data name="Blocks List" xml:space="preserve">
+    <value>Blocks List</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Menu Categories" xml:space="preserve">
+    <value>Menu Categories</value>
+  </data>
+  <data name="Pages" xml:space="preserve">
+    <value>Pages</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Swagger" xml:space="preserve">
+    <value>Swagger</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="WebSite Management" xml:space="preserve">
+    <value>WebSite Management</value>
+  </data>
+  <data name="Pages Management" xml:space="preserve">
+    <value>Pages Management</value>
+  </data>
+  <data name="Blocks Management" xml:space="preserve">
+    <value>Blocks Management</value>
+  </data>
+  <data name="Menus Management" xml:space="preserve">
+    <value>Menus Management</value>
   </data>
   <data name="Change Date Of Lesson Application" xml:space="preserve">
     <value>Change Date Of Lesson Application</value>

@@ -169,13 +169,13 @@
     <value />
   </data>
   <data name="Add Menu Categories" xml:space="preserve">
-    <value />
+    <value>Add Menu Categories</value>
   </data>
   <data name="Payment Methods" xml:space="preserve">
     <value />
   </data>
   <data name="Administrator" xml:space="preserve">
-    <value />
+    <value>Administrator</value>
   </data>
   <data name="AgeCategories" xml:space="preserve">
     <value />
@@ -196,13 +196,13 @@
     <value />
   </data>
   <data name="Block Categories List" xml:space="preserve">
-    <value />
+    <value>Block Categories List</value>
   </data>
   <data name="Blocks" xml:space="preserve">
     <value />
   </data>
   <data name="Blocks List" xml:space="preserve">
-    <value />
+    <value>Blocks List</value>
   </data>
   <data name="Board of Directors" xml:space="preserve">
     <value />
@@ -340,7 +340,7 @@
     <value />
   </data>
   <data name="Home" xml:space="preserve">
-    <value />
+    <value>Home</value>
   </data>
   <data name="HomeMatchs" xml:space="preserve">
     <value />
@@ -376,7 +376,7 @@
     <value />
   </data>
   <data name="Menu Categories" xml:space="preserve">
-    <value />
+    <value>Menu Categories</value>
   </data>
   <data name="Menus" xml:space="preserve">
     <value />
@@ -400,7 +400,7 @@
     <value />
   </data>
   <data name="Pages" xml:space="preserve">
-    <value />
+    <value>Pages</value>
   </data>
   <data name="Passports" xml:space="preserve">
     <value />
@@ -466,7 +466,7 @@
     <value />
   </data>
   <data name="Roles" xml:space="preserve">
-    <value />
+    <value>Roles</value>
   </data>
   <data name="Rounds" xml:space="preserve">
     <value />
@@ -502,7 +502,7 @@
     <value />
   </data>
   <data name="Swagger" xml:space="preserve">
-    <value />
+    <value>Swagger</value>
   </data>
   <data name="Monthly Evaluation" xml:space="preserve">
     <value />
@@ -538,13 +538,13 @@
     <value />
   </data>
   <data name="Users" xml:space="preserve">
-    <value />
+    <value>Users</value>
   </data>
   <data name="Web Settings" xml:space="preserve">
     <value />
   </data>
   <data name="WebSite Management" xml:space="preserve">
-    <value />
+    <value>WebSite Management</value>
   </data>
   <data name="Clients Management" xml:space="preserve">
     <value />
@@ -646,7 +646,7 @@
     <value />
   </data>
   <data name="Pages Management" xml:space="preserve">
-    <value />
+    <value>Pages Management</value>
   </data>
   <data name="Currencies" xml:space="preserve">
     <value />
@@ -907,10 +907,10 @@
     <value />
   </data>
   <data name="Blocks Management" xml:space="preserve">
-    <value />
+    <value>Blocks Management</value>
   </data>
   <data name="Menus Management" xml:space="preserve">
-    <value />
+    <value>Menus Management</value>
   </data>
   <data name="WebSite Managment" xml:space="preserve">
     <value />
@@ -1093,6 +1093,18 @@
     <value />
   </data>
   <data name="More Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Evaluations" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Courses Categories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Courses Managment" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Courses" xml:space="preserve">
     <value />
   </data>
 </root>
