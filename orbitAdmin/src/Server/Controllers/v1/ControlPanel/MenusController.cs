@@ -124,6 +124,8 @@ namespace SchoolV01.Api.Controllers
             }
         }
 
+
+
         [HttpGet("{id:int}")]
         public async Task<ActionResult<MenuViewModel>> Get(int id)
         {

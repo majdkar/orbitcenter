@@ -51,6 +51,7 @@ namespace SchoolV01.Shared.ViewModels.Blocks
         public bool IsActive { get; set; }
 
         public int RecordOrder { get; set; }
+        public int? ParentId { get; set; }
 
     }
 

@@ -132,6 +132,18 @@
   <data name="Arabic Description" xml:space="preserve">
     <value>Arabic Description</value>
   </data>
+  <data name="Arabic Description1" xml:space="preserve">
+    <value>Arabic Description 1</value>
+  </data>
+  <data name="Arabic Description2" xml:space="preserve">
+    <value>Arabic Description 2</value>
+  </data>
+  <data name="Arabic Description3" xml:space="preserve">
+    <value>Arabic Description 3</value>
+  </data>
+  <data name="Arabic Description4" xml:space="preserve">
+    <value>Arabic Description 4</value>
+  </data>
   <data name="Arabic Name" xml:space="preserve">
     <value>Arabic Name</value>
   </data>
@@ -149,6 +161,15 @@
   </data>
   <data name="BlockPhoto" xml:space="preserve">
     <value>Block's Photo</value>
+  </data>
+  <data name="BlockPhoto1" xml:space="preserve">
+    <value>Block's Photo 1</value>
+  </data>
+  <data name="BlockPhoto2" xml:space="preserve">
+    <value>Block's Photo 2</value>
+  </data>
+  <data name="BlockPhoto3" xml:space="preserve">
+    <value>Block's Photo 3</value>
   </data>
   <data name="BlocksByCategoryDescription" xml:space="preserve">
     <value>Review Avaliable Blocks of Category</value>
@@ -182,6 +203,18 @@
   </data>
   <data name="English Description" xml:space="preserve">
     <value>English Description</value>
+  </data>
+  <data name="English Description1" xml:space="preserve">
+    <value>English Description 1</value>
+  </data>
+  <data name="English Description2" xml:space="preserve">
+    <value>English Description 2</value>
+  </data>
+  <data name="English Description3" xml:space="preserve">
+    <value>English Description 3</value>
+  </data>
+  <data name="English Description4" xml:space="preserve">
+    <value>English Description 4</value>
   </data>
   <data name="English Name" xml:space="preserve">
     <value>English Name</value>
@@ -300,10 +333,28 @@
   <data name="German Description3" xml:space="preserve">
     <value>German Description 3</value>
   </data>
+  <data name="German Description4" xml:space="preserve">
+    <value>German Description 4</value>
+  </data>
   <data name="German Name" xml:space="preserve">
     <value>German Name</value>
   </data>
   <data name="Visible For User" xml:space="preserve">
     <value>Visible For User</value>
+  </data>
+  <data name="AddBlock" xml:space="preserve">
+    <value>AddBlock</value>
+  </data>
+  <data name="ParentName" xml:space="preserve">
+    <value>ParentName</value>
+  </data>
+  <data name="SubBlocks" xml:space="preserve">
+    <value>Sub Blocks</value>
+  </data>
+  <data name="Home Block" xml:space="preserve">
+    <value>Home Block</value>
+  </data>
+  <data name="UpdateBlock" xml:space="preserve">
+    <value>Update Block</value>
   </data>
 </root>

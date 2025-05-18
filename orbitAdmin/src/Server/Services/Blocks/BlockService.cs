@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SchoolV01.Shared.ViewModels.Menus;
 
 namespace SchoolV01.Application.Services
 {
@@ -132,7 +133,7 @@ namespace SchoolV01.Application.Services
                     blockEntity.DescriptionEn1 = blockUpdateModel.DescriptionEn1 ?? blockEntity.DescriptionEn1;
                     blockEntity.DescriptionEn2 = blockUpdateModel.DescriptionEn2 ?? blockEntity.DescriptionEn2;
                     blockEntity.DescriptionEn3 = blockUpdateModel.DescriptionEn3 ?? blockEntity.DescriptionEn3;
-                    blockEntity.NameGe = blockUpdateModel.NameEn ?? blockEntity.NameGe;
+                    blockEntity.NameGe = blockUpdateModel.NameGe ?? blockEntity.NameGe;
                     blockEntity.DescriptionGe = blockUpdateModel.DescriptionGe ?? blockEntity.DescriptionGe;
                     blockEntity.DescriptionGe1 = blockUpdateModel.DescriptionGe1 ?? blockEntity.DescriptionGe1;
                     blockEntity.DescriptionGe2 = blockUpdateModel.DescriptionGe2 ?? blockEntity.DescriptionGe2;
@@ -148,7 +149,8 @@ namespace SchoolV01.Application.Services
                     blockEntity.Url1 = blockUpdateModel.Url1?? blockEntity.Url1;
                     blockEntity.IsVisible = blockUpdateModel.IsVisible;
                     blockEntity.IsActive = blockUpdateModel.IsActive;
-                   
+                    blockEntity.ParentId = blockUpdateModel.ParentId;
+
                     blockEntity.Image1 = blockUpdateModel.Image1 ?? blockEntity.Image1;
                     blockEntity.Image2 = blockUpdateModel.Image2 ?? blockEntity.Image2;
                     blockEntity.Image3 = blockUpdateModel.Image3 ?? blockEntity.Image3;

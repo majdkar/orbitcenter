@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolV01.Infrastructure.Contexts;
 
@@ -11,9 +12,11 @@ using SchoolV01.Infrastructure.Contexts;
 namespace SchoolV01.Infrastructure.Migrations
 {
     [DbContext(typeof(BlazorHeroContext))]
-    partial class BlazorHeroContextModelSnapshot : ModelSnapshot
+    [Migration("20250516160802_Add_InitDB")]
+    partial class Add_InitDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,9 +193,6 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Property<string>("NameGe")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ParentId")
-                        .HasColumnType("int");
-
                     b.Property<int>("RecordOrder")
                         .HasColumnType("int");
 
@@ -208,8 +208,6 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("ParentId");
 
                     b.ToTable("Blocks");
                 });
@@ -1170,13 +1168,7 @@ namespace SchoolV01.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SchoolV01.Core.Entities.Block", "Parent")
-                        .WithMany()
-                        .HasForeignKey("ParentId");
-
                     b.Navigation("BlockCategory");
-
-                    b.Navigation("Parent");
                 });
 
             modelBuilder.Entity("SchoolV01.Core.Entities.BlockAttachement", b =>

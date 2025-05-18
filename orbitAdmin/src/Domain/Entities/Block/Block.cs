@@ -59,6 +59,11 @@ namespace SchoolV01.Core.Entities
 
         public int RecordOrder { get; set; }
 
+
+        [InverseProperty("Children")]
+        public int? ParentId { get; set; }
+        public Block Parent { get; set; }
+
         public List<BlockPhoto> BlockPhotos { get; set; }
         public List<BlockAttachement> BlockAttachements { get; set; }
     }

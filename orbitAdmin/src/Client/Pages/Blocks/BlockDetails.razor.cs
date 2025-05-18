@@ -15,6 +15,9 @@ using SchoolV01.Shared.Constants;
 
 using SchoolV01.Client.Shared.Components;
 using System.Linq;
+using SchoolV01.Shared.ViewModels.Menus;
+using SchoolV01.Shared.Wrapper;
+using System.Security.Claims;
 
 namespace SchoolV01.Client.Pages.Blocks
 {
@@ -29,6 +32,7 @@ namespace SchoolV01.Client.Pages.Blocks
 
         private BlockUpdateModel BlockModel { get; set; } = new();
         private IEnumerable<BlockCategoryViewModel> categories = new List<BlockCategoryViewModel>();
+        private IEnumerable<BlockViewModel> _parentBlocks;
 
         private IList<IBrowserFile> _images = new List<IBrowserFile>();
         private IList<IBrowserFile> _images1 = new List<IBrowserFile>();
@@ -36,7 +40,9 @@ namespace SchoolV01.Client.Pages.Blocks
         private IList<IBrowserFile> _images3 = new List<IBrowserFile>();
 
         private IList<IBrowserFile> _files = new List<IBrowserFile>();
+        private ClaimsPrincipal _currentUser;
 
+        public int parentId { get; set; } = 0;
 
         private FileUploadModel fileUploadModel;
         private FileUploadModel imageUploadModel;
@@ -70,11 +76,16 @@ namespace SchoolV01.Client.Pages.Blocks
         readonly TextEditorConfig editorAr3 = new("#editorAr3");
         readonly TextEditorConfig editorEn3 = new("#editorEn3");
         readonly TextEditorConfig editorSe3 = new("#editorSe3");
+        private bool _isAdmin;
 
         protected async override Task OnInitializedAsync()
         {
             await LoadCategories();
+            await LoadBlocks();
             BlockModel.CategoryId = CategoryId;
+            parentId = BlockModel.ParentId.HasValue ? BlockModel.ParentId.Value : 0;
+            _currentUser = await _authenticationManager.CurrentUser();
+            _isAdmin = _currentUser.IsInRole("Administrator");
         }
 
         protected override async Task OnParametersSetAsync()
@@ -140,10 +151,55 @@ namespace SchoolV01.Client.Pages.Blocks
             }
         }
 
+
+        private async Task LoadBlocks()
+        {
+            PagedResponse<BlockViewModel> response = null;
+            //HttpResponseMessage response = null;
+            try
+            {
+
+                var requestUri = EndPoints.GetAll(EndPoints.Blocks, "", null) + $"?categoryId={BlockModel.CategoryId}";
+
+                response = await _httpClient.GetFromJsonAsync<PagedResponse<BlockViewModel>>(requestUri);
+
+                if (response != null)
+                {
+                    _parentBlocks = response.Items.Where(x => x.Id != BlockModel.Id && x.ParentId == null);
+                }
+                else
+                {
+                    _snackBar.Add("Error retrieving data");
+                }
+
+                //response = (List<MenuViewModel>)await _httpClient.GetFromJsonAsync<List<MenuViewModel>>(EndPoints.MenuSelect);
+                //response = await _httpClient.GetAsync(EndPoints.MenuSelect);
+
+            }
+            catch (Exception)
+            {
+                _snackBar.Add("Error retrieving data: ");
+            }
+            finally
+            {
+
+            }
+
+
+        }
+
         private async Task SaveAsync()
         {
 
             _processing = true;
+
+            if (parentId == 0)
+                BlockModel.ParentId = null;
+            else
+                BlockModel.ParentId = parentId;
+
+
+
             var generatedImageName = await UploadFile(_images, imageUploadModel, (int)Enums.UploadFileTypeEnum.Image);
             var fullImagePath = Path.Combine(Constants.UploadFolderName, Enums.FileLocation.BlocksFiles.ToString(), generatedImageName);
             var generatedImageName1 = await UploadFile(_images1, imageUploadModel1, (int)Enums.UploadFileTypeEnum.Image);

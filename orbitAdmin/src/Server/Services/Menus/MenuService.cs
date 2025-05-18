@@ -120,8 +120,8 @@ namespace SchoolV01.Application.Services
                     menuEntity.DescriptionAr = menuUpdateModel.DescriptionAr;
                     menuEntity.NameEn = menuUpdateModel.NameEn;
                     menuEntity.DescriptionEn = menuUpdateModel.DescriptionEn;
-                    menuEntity.NameGe = menuUpdateModel.NameEn;
-                    menuEntity.DescriptionGe = menuUpdateModel.DescriptionEn;
+                    menuEntity.NameGe = menuUpdateModel.NameGe;
+                    menuEntity.DescriptionGe = menuUpdateModel.DescriptionGe;
                     menuEntity.Type = menuUpdateModel.Type;
                     menuEntity.Image = menuUpdateModel.Image;
                     menuEntity.File = menuUpdateModel.File;

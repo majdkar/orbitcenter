@@ -130,7 +130,19 @@
     <value>ألبوم الصور</value>
   </data>
   <data name="Arabic Description" xml:space="preserve">
-    <value>الوصف العربي</value>
+    <value>المحتوى العربي</value>
+  </data>
+  <data name="Arabic Description1" xml:space="preserve">
+    <value>1 المحتوى العربي  </value>
+  </data>
+  <data name="Arabic Description2" xml:space="preserve">
+    <value>  2 المحتوى العربي</value>
+  </data>
+  <data name="Arabic Description3" xml:space="preserve">
+    <value>  3 المحتوى العربي</value>
+  </data>
+  <data name="Arabic Description4" xml:space="preserve">
+    <value> المحتوى العربي 4</value>
   </data>
   <data name="Arabic Name" xml:space="preserve">
     <value>الاسم العربي</value>
@@ -149,6 +161,15 @@
   </data>
   <data name="BlockPhoto" xml:space="preserve">
     <value>صورة الكتلة</value>
+  </data>
+  <data name="BlockPhoto1" xml:space="preserve">
+    <value>صورة الكتلة 1 </value>
+  </data>
+  <data name="BlockPhoto2" xml:space="preserve">
+    <value>صورة الكتلة 2</value>
+  </data>
+  <data name="BlockPhoto3" xml:space="preserve">
+    <value>صورة الكتلة 3</value>
   </data>
   <data name="BlocksByCategoryDescription" xml:space="preserve">
     <value>استعراض الكتل المتوفرة من الصنف </value>
@@ -181,7 +202,19 @@
     <value>تعديل</value>
   </data>
   <data name="English Description" xml:space="preserve">
-    <value>الوصف الإنجليزي</value>
+    <value>المحتوى الإنجليزي</value>
+  </data>
+  <data name="English Description1" xml:space="preserve">
+    <value>المحتوى الإنجليزي 1</value>
+  </data>
+  <data name="English Description2" xml:space="preserve">
+    <value> 2 المحتوى الإنجليزي</value>
+  </data>
+  <data name="English Description3" xml:space="preserve">
+    <value> 3 المحتوى الإنجليزي</value>
+  </data>
+  <data name="English Description4" xml:space="preserve">
+    <value> 4 المحتوى الإنجليزي</value>
   </data>
   <data name="English Name" xml:space="preserve">
     <value>الاسم الإنجليزي</value>
@@ -300,10 +333,28 @@
   <data name="German Description3" xml:space="preserve">
     <value>المحتوى الألماني 3</value>
   </data>
+  <data name="German Description4" xml:space="preserve">
+    <value>المحتوى الألماني 4</value>
+  </data>
   <data name="German Name" xml:space="preserve">
     <value>الاسم الالماني</value>
   </data>
   <data name="Visible For User" xml:space="preserve">
     <value>إظهار لزبون</value>
+  </data>
+  <data name="AddBlock" xml:space="preserve">
+    <value>إضافة كتلة</value>
+  </data>
+  <data name="ParentName" xml:space="preserve">
+    <value> الكتلة الأم</value>
+  </data>
+  <data name="SubBlocks" xml:space="preserve">
+    <value>الكتل الفرعية</value>
+  </data>
+  <data name="Home Block" xml:space="preserve">
+    <value>الكتلة الرئيسية</value>
+  </data>
+  <data name="UpdateBlock" xml:space="preserve">
+    <value>تعديل الكتلة</value>
   </data>
 </root>

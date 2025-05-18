@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Components;
 using System;
 using SchoolV01.Core.Entities;
 using System.Threading;
+using SchoolV01.Shared.ViewModels.Menus;
 
 
 namespace SchoolV01.Client.Pages.Blocks
@@ -22,6 +23,10 @@ namespace SchoolV01.Client.Pages.Blocks
     {
         [Parameter]
         public int CategoryId { get; set; } = 0; // This is a queryString parameter
+
+        public int? BlockId { get; set; }
+
+
         //[Parameter] public BlockCategoryViewModel _blockCategory { get; set; } = new();
         private IEnumerable<BlockViewModel> elements;
         private IEnumerable<BlockCategoryViewModel> categories;
@@ -77,31 +82,22 @@ namespace SchoolV01.Client.Pages.Blocks
         private async Task LoadData(TableState state, int pageNumber, int pageSize)
         {
             string[] orderings = null;
-            var requestUri = "";
             if (!string.IsNullOrEmpty(state.SortLabel))
             {
                 orderings = state.SortDirection != SortDirection.None ? new[] { $"{state.SortLabel} {state.SortDirection}" } : new[] { $"{state.SortLabel}" };
             }
-            if (((orderings == null) || (orderings.Length == 0)) && searchString == "")
-            {
-                requestUri = EndPoints.GetAllPagedByCategoryID(EndPoints.Blocks, pageNumber, pageSize, searchString, orderings, Convert.ToInt32(CategoryId));
-            }
 
-            else
-            {
-                requestUri = EndPoints.GetAllPagedByCategoryID(EndPoints.Blocks, pageNumber, pageSize, searchString, orderings, Convert.ToInt32(CategoryId));
-            }
+            var requestUri = EndPoints.GetAllWithParameter(EndPoints.Blocks + $"/GetMaster?categoryId={CategoryId}&blockId={BlockId}", searchString, orderings);
 
-            // var requestUri = EndPoints.GetAllPaged(EndPoints.Blocks, pageNumber, pageSize, searchString, orderings) + $"&categoryId={categoryId}";
-            await LoadCategories();
+
+
+
+
             var response = await _httpClient.GetFromJsonAsync<PagedResponse<BlockViewModel>>(requestUri);
             if (response != null)
             {
                 totalItems = response.TotalRecords;
                 elements = response.Items;
-
-
-
                 if (elements.FirstOrDefault(x => x.Id == selectedRowForTranslation) != null)
                     elements.FirstOrDefault(x => x.Id == selectedRowForTranslation).ShowTranslation = true;
             }
@@ -109,6 +105,7 @@ namespace SchoolV01.Client.Pages.Blocks
             {
                 _snackBar.Add("Error retrieving data");
             }
+            loaded = false;
         }
 
         private void OnSearch(string text)
@@ -163,7 +160,25 @@ namespace SchoolV01.Client.Pages.Blocks
                 _navigationManager.NavigateTo($"/block-photo-details/{id}");
             }
         }
+        private async void InvokeBlockSubModal(int? id)
+        {
+            BlockId = id;
+            searchString = string.Empty;
+            StateHasChanged();
+            if (_table != null)
+                await _table.ReloadServerData();
+            loaded = false;
+        }
 
+        private async void InvokeBackModal(int id)
+        {
+            BlockId = null;
+            searchString = string.Empty;
+            StateHasChanged();
+            if (_table != null)
+                await _table.ReloadServerData();
+            loaded = false;
+        }
         private void InvokeAddEditBlockAttachements(int id = 0)
         {
             if ((id == 0 && _canCreateWebSiteManagement) || (id != 0 && _canEditWebSiteManagement))

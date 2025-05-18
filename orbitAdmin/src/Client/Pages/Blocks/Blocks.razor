@@ -28,7 +28,12 @@
         <div class="justify-center mud-text-align-center">
            <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => InvokeAddEditBlock(0))" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Surface">@localizer["New"] </MudButton>
            <MudButton Variant="Variant.Filled" OnClick="@(() => OnSearch(""))" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@localizer["Reload"] </MudButton>
-        </div>
+
+            @if (BlockId != null)
+            {
+                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.ArrowBack" @onclick="@(() => InvokeBackModal(0))" IconColor="Color.Surface" Color="Color.Surface" Style="margin-inline:2px;">@localizer["Home Block"] </MudButton>
+            }
+       </div>
         <MudSpacer />
         <MudTextField T="string" ValueChanged="@(s=>OnSearch(s))" Placeholder=@localizer["Search"] Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
     </ToolBarContent>
@@ -59,6 +64,9 @@
             {
                 <MudButton Variant="Variant.Filled" Color="Color.Info" Size="Size.Small" @onclick="@(() => InvokeAddEditBlockAttachements(@context.Id))" Style="margin-inline:1px;">@localizer["Attachements"]</MudButton>
             }
+
+            <MudButton Variant="Variant.Filled" Color="Color.Info" Size="Size.Small" @onclick="@(() => InvokeBlockSubModal(@context.Id))" Style="margin-inline:2px;">@localizer["SubBlocks"]</MudButton>
+
         </MudTd>
     </RowTemplate>
     <PagerContent>

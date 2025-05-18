@@ -12,8 +12,8 @@ using SchoolV01.Infrastructure.Contexts;
 namespace SchoolV01.Infrastructure.Migrations
 {
     [DbContext(typeof(BlazorHeroContext))]
-    [Migration("20250517105051_Add_InitDB")]
-    partial class Add_InitDB
+    [Migration("20250518212237_alterBlock")]
+    partial class alterBlock
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -193,6 +193,9 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Property<string>("NameGe")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
                     b.Property<int>("RecordOrder")
                         .HasColumnType("int");
 
@@ -208,6 +211,8 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("ParentId");
 
                     b.ToTable("Blocks");
                 });
@@ -1168,7 +1173,13 @@ namespace SchoolV01.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SchoolV01.Core.Entities.Block", "Parent")
+                        .WithMany()
+                        .HasForeignKey("ParentId");
+
                     b.Navigation("BlockCategory");
+
+                    b.Navigation("Parent");
                 });
 
             modelBuilder.Entity("SchoolV01.Core.Entities.BlockAttachement", b =>

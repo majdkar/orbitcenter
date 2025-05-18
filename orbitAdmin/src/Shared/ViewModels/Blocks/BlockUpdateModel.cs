@@ -53,6 +53,7 @@ namespace SchoolV01.Shared.ViewModels.Blocks
         public string File { get; set; }
 
         public bool IsActive { get; set; }
+        public int? ParentId { get; set; }
 
         public int RecordOrder { get; set; }
         public virtual List<BlockPhotoViewModel> BlockPhotos { get; set; }

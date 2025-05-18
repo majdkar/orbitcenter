@@ -88,7 +88,7 @@
                         </MudItem>
 
                         <MudItem xs="12" md="12">
-                            <MudText>@localizer["Arabic Description 3"]</MudText>
+                            <MudText>@localizer["Arabic Description3"]</MudText>
                             <Editor Id="editorAr2" Field="() => BlockModel.DescriptionAr2" @bind-Value="BlockModel.DescriptionAr2" Inline=false
                                     Conf="@editorAr2.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
                         </MudItem>
@@ -131,6 +131,21 @@
                         <MudItem xs="12" md="6">
                             <MudNumericField For="@(() => BlockModel.RecordOrder)" @bind-Value="BlockModel.RecordOrder" Label="@localizer["RecordOrder"]" Variant="Variant.Outlined" Min="0" />
                         </MudItem>
+
+
+                        <MudItem xs="12" md="6">
+                            @if (_parentBlocks != null)
+                            {
+                                <MudSelect Disabled="!_isAdmin" @bind-Value="@parentId" T="int" Label="@localizer["ParentName"]">
+                                    <MudSelectItem T="int" Value="0">N/A</MudSelectItem>
+                                    @foreach (var block in _parentBlocks)
+                                    {
+                                        <MudSelectItem T="int" Value="@block.Id">@block.NameAr</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            }
+                        </MudItem>
+
 
                         <MudItem xs="12" md="6">
                             @if (categories != null)
@@ -261,7 +276,7 @@
                     </MudAvatar>
                 </CardHeaderAvatar>
                 <CardHeaderContent>
-                    <MudText Typo="Typo.body1">@localizer["BlockPhoto 1"]</MudText>
+                    <MudText Typo="Typo.body1">@localizer["BlockPhoto1"]</MudText>
                 </CardHeaderContent>
             </MudCardHeader>
             @if (!string.IsNullOrEmpty(@imageUrlForPreview1))
@@ -298,7 +313,7 @@
                     </MudAvatar>
                 </CardHeaderAvatar>
                 <CardHeaderContent>
-                    <MudText Typo="Typo.body1">@localizer["BlockPhoto 2"]</MudText>
+                    <MudText Typo="Typo.body1">@localizer["BlockPhoto2"]</MudText>
                 </CardHeaderContent>
             </MudCardHeader>
             @if (!string.IsNullOrEmpty(@imageUrlForPreview2))
@@ -336,7 +351,7 @@
                     </MudAvatar>
                 </CardHeaderAvatar>
                 <CardHeaderContent>
-                    <MudText Typo="Typo.body1">@localizer["BlockPhoto 3"]</MudText>
+                    <MudText Typo="Typo.body1">@localizer["BlockPhoto3"]</MudText>
                 </CardHeaderContent>
             </MudCardHeader>
             @if (!string.IsNullOrEmpty(@imageUrlForPreview3))

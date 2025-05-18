@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using SchoolV01.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
+using SchoolV01.Shared.ViewModels.Menus;
 
 namespace SchoolV01.Api.Controllers
 {
@@ -54,6 +55,57 @@ namespace SchoolV01.Api.Controllers
                     "Error retrieving data");
             }
         }
+
+
+        [HttpGet("GetMaster")]
+        public async Task<IActionResult> GetMaster(string categoryId, int? blockId, string searchString, string orderBy)
+        {
+            try
+            {
+                int convertedCategoryId;
+                var isConvertable = Int32.TryParse(categoryId, out convertedCategoryId);
+
+                if (!isConvertable)
+                {
+                    return BadRequest($"try correct category Id!");
+                }
+
+                var filteredData = await blockService.GetPagedBlocks(searchString, orderBy);
+
+                if (convertedCategoryId != 0)
+                {
+                    filteredData = filteredData.Where(x => x.CategoryId == convertedCategoryId && x.ParentId == blockId).OrderBy(x => x.RecordOrder).ToList();
+                }
+
+                var response = new PagedResponse<BlockViewModel>(filteredData, 0, 10, filteredData.Count());
+                return Ok(response);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data");
+            }
+        }
+
+        [HttpGet]
+        [Route("NoCategory")]
+        public async Task<IActionResult> Get(string searchString, string orderBy)
+        {
+            try
+            {
+                var filteredData = await blockService.GetPagedBlocks(searchString, orderBy);
+                var response = new PagedResponse<BlockViewModel>(filteredData, 0, 10, filteredData.Count());
+                return Ok(response);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data");
+            }
+        }
+
+
+
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<BlockViewModel>> Get(int id)
