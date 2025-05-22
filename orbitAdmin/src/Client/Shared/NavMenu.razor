@@ -73,6 +73,27 @@
         </MudNavLink>
 
     }
+
+
+    @if (_canViewProducts || _canViewProductCategories)
+    {
+        <MudNavGroup Title="@_localizer["Services Managment"]" Icon="@Icons.Material.Outlined.RoomService">
+            @if (_canViewProductCategories)
+            {
+
+                <MudNavLink Href="/general-settings/Product-Categories/0" Icon="@Icons.Material.Outlined.DesignServices">
+                    @_localizer["Product Categories"]
+                </MudNavLink>
+            }
+            @if (_canViewProducts)
+            {
+                <MudNavLink Href="/products" Icon="@Icons.Material.Outlined.CleaningServices">
+                    @_localizer["Products List"]
+                </MudNavLink>
+            }
+
+        </MudNavGroup>
+    }
  
 
     @if (_isAdmin)
@@ -114,6 +135,8 @@
     private bool _canViewRoles;
     private bool _canViewUsers;
     private bool _canViewChat;
+    private bool _canViewProducts;
+    private bool _canViewProductCategories;
 
     @*/*s0012s*/*@
     private bool _canViewOwners;
@@ -135,6 +158,8 @@
         _canViewRoles = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Roles.View)).Succeeded;
         _canViewUsers = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Users.View)).Succeeded;
         _canViewChat = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Communication.Chat)).Succeeded;
+        _canViewProducts = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Products.View)).Succeeded;
+        _canViewProductCategories = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.ProductCategories.View)).Succeeded;
         _canViewWebSiteManagement = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.WebSiteManagement.View)).Succeeded;
         _currentUser = await _authenticationManager.CurrentUser();
         _isAdmin = _currentUser.IsInRole("Administrator");

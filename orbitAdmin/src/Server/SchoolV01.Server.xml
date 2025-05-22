@@ -460,6 +460,236 @@
             <param name="searchString"></param>
             <returns></returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged ProductCategories
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAllPagedMain(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged Main ProductCategories
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAllSonsAndClassification(System.Int32,System.Int32,System.Int32,System.String,System.String)" -->
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetById(System.Int32)">
+            <summary>
+            Get Product Category By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAll">
+            <summary>
+            Get All Categories
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetCategorySons(System.Int32)">
+            <summary>
+            Get All Category Sons
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.Post(SchoolV01.Application.Features.ProductCategories.Commands.AddEdit.AddEditProductCategoryCommand)">
+            <summary>
+            Add/Edit a ProductCategory
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.Delete(System.Int32)">
+            <summary>
+            Delete a ProductCategory
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.Export(System.String)">
+            <summary>
+            Search ProductCategories and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.GetAllByProduct(System.Int32)">
+            <summary>
+            Get All Offers By Product
+            </summary>
+            <param name="productId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.GetAllActive">
+            <summary>
+            Get All Active Offers
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All ProductOffers Paged 
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.GetAllPagedActive(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All ActiveProductOffers Paged 
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.GetActive(System.Int32)">
+            <summary>
+            Get Active Product Offer
+            </summary>
+            <param name="productId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.GetAllPagedByProduct(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All PagedOffers By Product
+            </summary>
+            <param name="productId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.GetById(System.Int32)">
+            <summary>
+            Get Product Offer By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.Post(SchoolV01.Application.Features.Products.Commands.AddEdit.AddEditProductOfferCommand)">
+            <summary>
+            Add/Edit a Product Offer
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.Delete(System.Int32)">
+            <summary>
+            Delete a Product Offer
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.GetAll">
+            <summary>
+            Get All Products
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.GetAllRecentProducts(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All  Recent Products
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.GetAllPagedProductByCategoryId(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All  Paged  Products By CategoryId
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <param name="categoryId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged Products
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.GetAllPagedSearchProduct(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Decimal,System.Decimal,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged Search Products
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <param name="productname"></param>
+            <param name="propductcategoryid"></param>
+            <param name="propductSubcategoryid"></param>
+            <param name="propductSubSubcategoryid"></param>
+            <param name="propductSubSubSubcategoryid"></param>
+            <param name="fromprice"></param> 
+            <param name="toprice"></param>        
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.GetById(System.Int32)">
+            <summary>
+            Get Product By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.Post(SchoolV01.Application.Features.Products.Commands.AddEdit.AddEditCompanyProductCommand)">
+            <summary>
+            Add/Edit a Product for company profile
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.Delete(System.Int32)">
+            <summary>
+            Delete a Product
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.Export(System.String)">
+            <summary>
+            Search Products and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.ProductsBySearch(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Decimal,System.Decimal,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All  Paged Products By Search
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <param name="nameEn"></param>
+            <param name="productParentCategoryId"></param>
+            <param name="productSubCategoryId"></param>
+            <param name="productSubSubCategoryId"></param>
+            <param name="productSubSubSubCategoryId"></param>
+            <param name="brandId"></param>
+            <param name="retailpricestart"></param>
+            <param name="retailpriceend"></param>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SchoolV01.Api.Controllers.FileUploadController.CheckFileExtension(Microsoft.AspNetCore.Http.IFormFile,SchoolV01.Shared.Enums.UploadFileTypeEnum)">
             The file extension must be jpg/bmp/png for images and txt/docx/pdf for files
         </member>

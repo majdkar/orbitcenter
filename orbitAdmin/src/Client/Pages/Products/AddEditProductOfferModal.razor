@@ -1,0 +1,121 @@
+﻿@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditProductOfferModal> _localizer
+
+<EditForm Model="@AddEditProductOfferModel" OnValidSubmit="SaveAsync">
+    <FluentValidationValidator @ref="_fluentValidationValidator" />
+    <MudDialog>
+        <TitleContent>
+            @{
+                if (AddEditProductOfferModel.Id == 0)
+                {
+                    <MudText Typo="Typo.h6">
+                        <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+                        @_localizer["Add Product Offer"]
+                    </MudText>
+                }
+                else
+                {
+                    <MudText Typo="Typo.h6">
+                        <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
+                        @_localizer["Update Product Offer"]
+                    </MudText>
+                }
+            }
+        </TitleContent>
+        <DialogContent>
+            <MudGrid>
+
+                <MudItem xs="12" md="6">
+
+                    <MudSelect Disabled="true" @bind-Value="@ParentCategoryId" T="int" Label="@_localizer["ParentCategory"]" SelectedValuesChanged="LoadProductParentCategorySons" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                        @if (_parentCategories.Count() > 0)
+                        {
+                            @foreach (var value in _parentCategories)
+                            {
+                                <MudSelectItem T="int" Value="@value.Id">@value.NameAr</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+
+                </MudItem>
+                <MudItem xs="12" md="6">
+
+                    <MudSelect Disabled="true" @bind-Value="@SubCategoryId" T="int" Label="@_localizer["SubCategory"]" SelectedValuesChanged="LoadProductSubCategorySons" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                        @if (_subCategories.Count() > 0)
+                        {
+                            @foreach (var value in _subCategories)
+                            {
+                                <MudSelectItem T="int" Value="@value.Id">@value.NameAr</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+
+                </MudItem>
+                <MudItem xs="12" md="6">
+
+                    <MudSelect Disabled="true" @bind-Value="@SubSubCategoryId" T="int" Label="@_localizer["SubSubCategory"]" SelectedValuesChanged="LoadProductSubSubCategorySons" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                        <MudSelectItem Value="0">N/A</MudSelectItem>
+                        @if (_subSubCategories.Count() > 0)
+                        {
+                            @foreach (var value in _subSubCategories)
+                            {
+                                <MudSelectItem T="int" Value="@value.Id">@value.NameAr</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+
+                </MudItem>
+                <MudItem xs="12" md="6">
+
+                    <MudSelect Disabled="true" @bind-Value="@SubSubSubCategoryId" T="int" Label="@_localizer["SubSubSubCategory"]" SelectedValuesChanged="UpdateDefaultCategoryId" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                        <MudSelectItem Value="0">N/A</MudSelectItem>
+                        @if (_subSubSubCategories.Count() > 0)
+                        {
+                            @foreach (var value in _subSubSubCategories)
+                            {
+                                <MudSelectItem T="int" Value="@value.Id">@value.NameAr</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+
+                </MudItem>
+
+
+                <MudItem xs="12" md="6">
+                    <strong>@_localizer["NameAr"] : </strong> @AddEditCompanyProductModel.NameAr
+                </MudItem> 
+                
+                <MudItem xs="12" md="6">
+                    <strong>@_localizer["NameEn"] : </strong> @AddEditCompanyProductModel.NameEn
+                </MudItem>
+
+        
+                <MudItem xs="12" md="4">
+                    <MudTextField For="@(()=>AddEditProductOfferModel.OldPrice)" @bind-Value="AddEditProductOfferModel.OldPrice" Label="@_localizer["Old Price"]" Disabled />
+                </MudItem>
+                <MudItem xs="12" md="4">
+                    <MudTextField For="@(()=>AddEditProductOfferModel.DiscountRatio)" @bind-Value="AddEditProductOfferModel.DiscountRatio" TextChanged="CalculateNewPrice" Label="@_localizer["Discount Ratio"]" />
+                </MudItem>
+                <MudItem xs="12" md="4">
+                    <MudTextField For="@(()=>AddEditProductOfferModel.NewPrice)" @bind-Value="AddEditProductOfferModel.NewPrice" Label="@_localizer["New Price"]" ReadOnly />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudDatePicker @bind-Date="AddEditProductOfferModel.StartDate" Culture="System.Globalization.CultureInfo.InvariantCulture" DateFormat="d/MM/yyyy" Label="@_localizer["Start Date"]" DisableToolbar="true" AutoClose="true" Elevation="12" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudDatePicker @bind-Date="AddEditProductOfferModel.EndDate" Culture="System.Globalization.CultureInfo.InvariantCulture" DateFormat="d/MM/yyyy" Label="@_localizer["End Date"]" DisableToolbar="true" AutoClose="true" Elevation="12" />
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudButton DisableElevation Variant="Variant.Filled" OnClick="Cancel">@_localizer["Cancel"]</MudButton>
+            @if (AddEditProductOfferModel.Id != 0)
+            {
+                <LoadingButton IsProcessing="@_isProcessing" ButtonText="@_localizer["Update"]" Disabled="@(!Validated)" Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Secondary"></LoadingButton>
+            }
+            else
+            {
+                <LoadingButton IsProcessing="@_isProcessing" ButtonText="@_localizer["Save"]" Disabled="@(!Validated)" Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Success"></LoadingButton>
+            }
+        </DialogActions>
+    </MudDialog>
+</EditForm>

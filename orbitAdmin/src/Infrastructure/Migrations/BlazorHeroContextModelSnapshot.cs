@@ -701,6 +701,98 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.ToTable("PagePhotos");
                 });
 
+            modelBuilder.Entity("SchoolV01.Core.Entities.ProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("DescriptionAr1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageDataURL1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageDataURL2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageDataURL3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NameAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ParentCategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Deleted");
+
+                    b.HasIndex("ParentCategoryId");
+
+                    b.ToTable("ProductCategories");
+                });
+
             modelBuilder.Entity("SchoolV01.Domain.Entities.ExtendedAttributes.DocumentExtendedAttribute", b =>
                 {
                     b.Property<int>("Id")
@@ -1054,6 +1146,174 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.ToTable("DocumentTypes");
                 });
 
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Products.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("DescriptionAr1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRecent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NameAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Plan")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("ProductDefaultCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductImageUrl1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductImageUrl2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductImageUrl3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductParentCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductSubCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductSubSubCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductSubSubSubCategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Deleted");
+
+                    b.HasIndex("ProductDefaultCategoryId");
+
+                    b.HasIndex("ProductParentCategoryId");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Products.ProductOffer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal?>("DiscountRatio")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal?>("NewPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Deleted");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductOffers");
+                });
+
             modelBuilder.Entity("SchoolV01.Domain.Models.Chat.ChatHistory<SchoolV01.Domain.Entities.Identity.BlazorHeroUser>", b =>
                 {
                     b.Property<long>("Id")
@@ -1273,6 +1533,15 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Navigation("Page");
                 });
 
+            modelBuilder.Entity("SchoolV01.Core.Entities.ProductCategory", b =>
+                {
+                    b.HasOne("SchoolV01.Core.Entities.ProductCategory", "ParentCategory")
+                        .WithMany()
+                        .HasForeignKey("ParentCategoryId");
+
+                    b.Navigation("ParentCategory");
+                });
+
             modelBuilder.Entity("SchoolV01.Domain.Entities.ExtendedAttributes.DocumentExtendedAttribute", b =>
                 {
                     b.HasOne("SchoolV01.Domain.Entities.Misc.Document", "Entity")
@@ -1302,6 +1571,32 @@ namespace SchoolV01.Infrastructure.Migrations
                         .HasForeignKey("DocumentTypeId");
 
                     b.Navigation("DocumentType");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Products.Product", b =>
+                {
+                    b.HasOne("SchoolV01.Core.Entities.ProductCategory", "ProductDefaultCategory")
+                        .WithMany()
+                        .HasForeignKey("ProductDefaultCategoryId");
+
+                    b.HasOne("SchoolV01.Core.Entities.ProductCategory", "ProductParentCategory")
+                        .WithMany()
+                        .HasForeignKey("ProductParentCategoryId");
+
+                    b.Navigation("ProductDefaultCategory");
+
+                    b.Navigation("ProductParentCategory");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Products.ProductOffer", b =>
+                {
+                    b.HasOne("SchoolV01.Domain.Entities.Products.Product", "Product")
+                        .WithMany("ProductOffers")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("SchoolV01.Domain.Models.Chat.ChatHistory<SchoolV01.Domain.Entities.Identity.BlazorHeroUser>", b =>
@@ -1375,6 +1670,11 @@ namespace SchoolV01.Infrastructure.Migrations
             modelBuilder.Entity("SchoolV01.Domain.Entities.Misc.Document", b =>
                 {
                     b.Navigation("ExtendedAttributes");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Products.Product", b =>
+                {
+                    b.Navigation("ProductOffers");
                 });
 #pragma warning restore 612, 618
         }

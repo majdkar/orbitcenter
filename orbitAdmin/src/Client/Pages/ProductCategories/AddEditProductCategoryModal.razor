@@ -1,0 +1,287 @@
+﻿@page "/ProductCategory-details/{Id:int}"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditProductCategoryModal> _localizer
+
+
+  <MudGrid>
+        <MudItem xs="12" sm="8" md="9">
+            
+<EditForm Model="@AddEditProductCategoryModel" OnValidSubmit="SaveAsync">
+    <FluentValidationValidator @ref="_fluentValidationValidator" />
+             
+    
+    <MudCard Elevation="4">
+
+<MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudAvatar Color="Color.Secondary">
+                            @if (AddEditProductCategoryModel.Id == 0)
+                            {
+                                <MudIcon Icon="@Icons.Material.Outlined.Add" />
+                            }
+                            else
+                            {
+                                <MudIcon Icon="@Icons.Material.Outlined.PublishedWithChanges" />
+                            }
+                        </MudAvatar>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        @if (AddEditProductCategoryModel.Id == 0)
+                        {
+                            <MudText Typo="Typo.body1">@_localizer["AddBlock"]</MudText>
+                        }
+                        else
+                        {
+                            <MudText Typo="Typo.body1">@_localizer["UpdateBlock"]</MudText>
+                        }
+                    </CardHeaderContent>
+                </MudCardHeader>
+   <MudCardContent>
+        <MudGrid>
+                <MudItem xs="12" md="6">
+                    <MudTextField For="@(() => AddEditProductCategoryModel.NameEn)" @bind-Value="AddEditProductCategoryModel.NameEn" Label="@_localizer["NameEn"]" />
+                </MudItem>
+
+                <MudItem xs="12" md="6">
+                    <MudTextField For="@(() => AddEditProductCategoryModel.NameAr)" @bind-Value="AddEditProductCategoryModel.NameAr" Label="@_localizer["NameAr"]" />
+                </MudItem>    
+                
+                <MudItem xs="12" md="6">
+                    <MudTextField For="@(() => AddEditProductCategoryModel.NameGe)" @bind-Value="AddEditProductCategoryModel.NameGe" Label="@_localizer["NameGe"]" />
+                </MudItem>
+
+                <MudItem xs="12" md="6">
+                    <MudTextField For="@(() => AddEditProductCategoryModel.Order)" @bind-Value="AddEditProductCategoryModel.Order" Label="@_localizer["RecordOrder"]" />
+                </MudItem>
+           
+
+
+                <MudItem xs="12" md="6">
+                    <MudAutocomplete T="int?" MaxItems="null"  Label="@_localizer["Parent Category"]" For="@(()=>AddEditProductCategoryModel.ParentCategoryId)" @bind-Value="AddEditProductCategoryModel.ParentCategoryId" ResetValueOnEmptyText="true" SearchFunc="@SearchCategories" ToStringFunc="@(i=>_ProductCategories.FirstOrDefault(b=>b.Id == i)?.NameAr ?? string.Empty)" OffsetY="true" Variant="Variant.Outlined" />
+                </MudItem>
+
+
+
+                <MudItem xs="12" md="12">
+                    <MudText Typo="Typo.body1">@_localizer["DiscriptionAr"]</MudText>
+                    <Editor Id="editorAr1" Field="() => AddEditProductCategoryModel.DescriptionAr1" @bind-Value="AddEditProductCategoryModel.DescriptionAr1" Inline=false
+                            Conf="@editorDescriptionAr1.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                </MudItem>
+
+                <MudItem xs="12" md="12">
+                    <MudText Typo="Typo.body1">@_localizer["DiscriptionAr2"]</MudText>
+                    <Editor Id="editorAr2" Field="() => AddEditProductCategoryModel.DescriptionAr2" @bind-Value="AddEditProductCategoryModel.DescriptionAr2" Inline=false
+                            Conf="@editorDescriptionAr2.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                </MudItem>
+
+                <MudItem xs="12" md="12">
+                    <MudText Typo="Typo.body1">@_localizer["DiscriptionAr3"]</MudText>
+                    <Editor Id="editorAr3" Field="() => AddEditProductCategoryModel.DescriptionAr3" @bind-Value="AddEditProductCategoryModel.DescriptionAr3" Inline=false
+                            Conf="@editorDescriptionAr3.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                </MudItem>
+
+                <MudItem xs="12" md="12">
+                    <MudText Typo="Typo.body1">@_localizer["DiscriptionAr4"]</MudText>
+                    <Editor Id="editorAr4" Field="() => AddEditProductCategoryModel.DescriptionAr4" @bind-Value="AddEditProductCategoryModel.DescriptionAr4" Inline=false
+                            Conf="@editorDescriptionAr4.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                </MudItem>
+
+
+                <MudItem xs="12" md="12">
+                   <MudText Typo="Typo.body1">@_localizer["DiscriptionEn1"]</MudText>
+                    <Editor Id="editorEn1" Field="() => AddEditProductCategoryModel.DescriptionEn1" @bind-Value="AddEditProductCategoryModel.DescriptionEn1" Inline=false
+                     Conf="@editorDescriptionEn1.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+            </MudItem>
+
+            
+                <MudItem xs="12" md="12">
+                   <MudText Typo="Typo.body1">@_localizer["DiscriptionEn2"]</MudText>
+                    <Editor Id="editorEn2" Field="() => AddEditProductCategoryModel.DescriptionEn2" @bind-Value="AddEditProductCategoryModel.DescriptionEn2" Inline=false
+                     Conf="@editorDescriptionEn2.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+            </MudItem>
+
+            
+              
+                <MudItem xs="12" md="12">
+                   <MudText Typo="Typo.body1">@_localizer["DiscriptionEn3"]</MudText>
+                    <Editor Id="editorEn3" Field="() => AddEditProductCategoryModel.DescriptionEn2" @bind-Value="AddEditProductCategoryModel.DescriptionEn3" Inline=false
+                     Conf="@editorDescriptionEn3.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+            </MudItem>
+
+            
+              
+                <MudItem xs="12" md="12">
+                   <MudText Typo="Typo.body1">@_localizer["DiscriptionEn4"]</MudText>
+                    <Editor Id="editorEn4" Field="() => AddEditProductCategoryModel.DescriptionEn2" @bind-Value="AddEditProductCategoryModel.DescriptionEn4" Inline=false
+                     Conf="@editorDescriptionEn4.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+            </MudItem>
+
+            
+              
+                <MudItem xs="12" md="12">
+                   <MudText Typo="Typo.body1">@_localizer["DiscriptionGe1"]</MudText>
+                    <Editor Id="editorGe1" Field="() => AddEditProductCategoryModel.DescriptionGe1" @bind-Value="AddEditProductCategoryModel.DescriptionGe1" Inline=false
+                     Conf="@editorDescriptionGe1.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+            </MudItem>
+
+            
+                <MudItem xs="12" md="12">
+                   <MudText Typo="Typo.body1">@_localizer["DiscriptionGe2"]</MudText>
+                    <Editor Id="editorGe2" Field="() => AddEditProductCategoryModel.DescriptionGe2" @bind-Value="AddEditProductCategoryModel.DescriptionGe2" Inline=false
+                     Conf="@editorDescriptionGe2.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+            </MudItem>
+
+            
+                <MudItem xs="12" md="12">
+                   <MudText Typo="Typo.body1">@_localizer["DiscriptionGe3"]</MudText>
+                    <Editor Id="editorGe3" Field="() => AddEditProductCategoryModel.DescriptionGe3" @bind-Value="AddEditProductCategoryModel.DescriptionGe3" Inline=false
+                     Conf="@editorDescriptionGe3.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+            </MudItem>
+
+            
+                <MudItem xs="12" md="12">
+                   <MudText Typo="Typo.body1">@_localizer["DiscriptionGe4"]</MudText>
+                    <Editor Id="editorGe4" Field="() => AddEditProductCategoryModel.DescriptionGe4" @bind-Value="AddEditProductCategoryModel.DescriptionGe4" Inline=false
+                     Conf="@editorDescriptionGe4.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+            </MudItem>
+
+
+               
+                
+            
+              </MudGrid>
+          </MudCardContent>
+        <MudCardActions Class="d-flex justify-end flex-grow-1 gap-4 mr-2">
+    
+        <MudButton DisableElevation Variant="Variant.Filled" OnClick="Cancel">@_localizer["Cancel"]</MudButton>
+        @if (AddEditProductCategoryModel.Id != 0)
+        {
+           <LoadingButton IsProcessing="@_isProcessing" ButtonText="@_localizer["Update"]" Disabled="@(!Validated)" Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Secondary"></LoadingButton>
+        }
+        else
+        {
+          <LoadingButton IsProcessing="@_isProcessing" ButtonText="@_localizer["Save"]" Disabled="@(!Validated)" Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Success"></LoadingButton>
+        }
+   
+</MudCardActions>
+
+        </MudCard>
+        </EditForm>
+        </MudItem>
+
+
+         <MudItem xs="12" sm="8" md="3">
+        
+             
+         <MudCard Elevation="4" Class="mb-5">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Secondary">
+                        <MudIcon Icon="@Icons.Material.Outlined.InsertPhoto" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.body1">@_localizer["Service Photo 1"]</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            @if (!string.IsNullOrEmpty(@imageUrlForPreview1))
+            {
+                <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@imageUrlForPreview1" Height="250" />
+            }
+            else
+            {
+                <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@noImageUrl" Height="250" />
+            }
+            <MudCardActions>
+                <InputFile id="imageInput" OnChange="UploadFiles" hidden />
+                <MudIconButton id="imageInputButton"
+                               HtmlTag="label"
+                               Variant="Variant.Text"
+                               Color="Color.Primary"
+                               Size="Size.Small"
+                               for="imageInput"
+                               Icon="@Icons.Material.Outlined.Add">
+                    @_localizer["UploadImage"]
+                </MudIconButton>
+                <MudIconButton Icon="@Icons.Material.Filled.DeleteOutline" Color="Color.Error" OnClick="DeleteURL1Async" Disabled="@disableDeleteImageButton1" />
+            </MudCardActions>
+        </MudCard>
+
+
+
+         <MudCard Elevation="4" Class="mb-5">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Secondary">
+                        <MudIcon Icon="@Icons.Material.Outlined.InsertPhoto" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.body1">@_localizer["Service Photo 2"]</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            @if (!string.IsNullOrEmpty(@imageUrlForPreview2))
+            {
+                <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@imageUrlForPreview2" Height="250" />
+            }
+            else
+            {
+                <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@noImageUrl" Height="250" />
+            }
+            <MudCardActions>
+                <InputFile id="imageInput2" OnChange="UploadFiles2" hidden />
+                <MudIconButton id="imageInputButton"
+                               HtmlTag="label"
+                               Variant="Variant.Text"
+                               Color="Color.Primary"
+                               Size="Size.Small"
+                               for="imageInput2"
+                               Icon="@Icons.Material.Outlined.Add">
+                    @_localizer["UploadImage"]
+                </MudIconButton>
+                <MudIconButton Icon="@Icons.Material.Filled.DeleteOutline" Color="Color.Error" OnClick="DeleteURL2Async" Disabled="@disableDeleteImageButton2" />
+            </MudCardActions>
+        </MudCard>
+
+
+
+         <MudCard Elevation="4" Class="mb-5">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Secondary">
+                        <MudIcon Icon="@Icons.Material.Outlined.InsertPhoto" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.body1">@_localizer["Service Photo 3"]</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            @if (!string.IsNullOrEmpty(@imageUrlForPreview3))
+            {
+                <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@imageUrlForPreview3" Height="250" />
+            }
+            else
+            {
+                <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@noImageUrl" Height="250" />
+            }
+            <MudCardActions>
+                <InputFile id="imageInput3" OnChange="UploadFiles3" hidden />
+                <MudIconButton id="imageInputButton"
+                               HtmlTag="label"
+                               Variant="Variant.Text"
+                               Color="Color.Primary"
+                               Size="Size.Small"
+                               for="imageInput3"
+                               Icon="@Icons.Material.Outlined.Add">
+                    @_localizer["UploadImage"]
+                </MudIconButton>
+                <MudIconButton Icon="@Icons.Material.Filled.DeleteOutline" Color="Color.Error" OnClick="DeleteURL3Async" Disabled="@disableDeleteImageButton3" />
+            </MudCardActions>
+        </MudCard>
+
+
+      
+        </MudItem>
+ </MudGrid>
+
+
+

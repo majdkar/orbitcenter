@@ -7,6 +7,7 @@ using SchoolV01.Domain.Contracts;
 using SchoolV01.Domain.Entities.ExtendedAttributes;
 using SchoolV01.Domain.Entities.Identity;
 using SchoolV01.Domain.Entities.Misc;
+using SchoolV01.Domain.Entities.Products;
 using SchoolV01.Domain.Models.Chat;
 using System;
 using System.Linq;
@@ -50,7 +51,11 @@ namespace SchoolV01.Infrastructure.Contexts
         public DbSet<PagePhoto> PagePhotos { get; set; }
         public DbSet<PageAttachement> PageAttachments { get; set; }
 
-       
+        // Product (Service)
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<ProductOffer> ProductOffers { get; set; }
+
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
         {
