@@ -174,4 +174,55 @@
   <data name="Upload Product Category Icon" xml:space="preserve">
     <value>تحميل أيقونة</value>
   </data>
+  <data name="DiscriptionAr1" xml:space="preserve">
+    <value> الوصف بالعربي 1</value>
+  </data>
+  <data name="DiscriptionAr2" xml:space="preserve">
+    <value> الوصف بالعربي 2</value>
+  </data>
+  <data name="DiscriptionAr3" xml:space="preserve">
+    <value> الوصف بالعربي 3</value>
+  </data>
+  <data name="DiscriptionAr4" xml:space="preserve">
+    <value> الوصف بالعربي 4</value>
+  </data>
+  <data name="DiscriptionEn" xml:space="preserve">
+    <value>الوصف بالانكليزي</value>
+  </data>
+  <data name="DiscriptionEn1" xml:space="preserve">
+    <value>الوصف بالانكليزي 1 </value>
+  </data>
+  <data name="DiscriptionEn2" xml:space="preserve">
+    <value>الوصف بالانكليزي2  </value>
+  </data>
+  <data name="DiscriptionEn3" xml:space="preserve">
+    <value>الوصف بالانكليزي 3 </value>
+  </data>
+  <data name="DiscriptionEn4" xml:space="preserve">
+    <value>الوصف بالانكليزي 4   </value>
+  </data>
+  <data name="DiscriptionGe1" xml:space="preserve">
+    <value> الوصف بالألماني 1</value>
+  </data>
+  <data name="DiscriptionGe2" xml:space="preserve">
+    <value> الوصف بالألماني 2</value>
+  </data>
+  <data name="DiscriptionGe3" xml:space="preserve">
+    <value> الوصف بالألماني 3</value>
+  </data>
+  <data name="DiscriptionGe4" xml:space="preserve">
+    <value> الوصف بالألماني 4</value>
+  </data>
+  <data name="NameGe" xml:space="preserve">
+    <value>الاسم الكامل بالاالماني</value>
+  </data>
+  <data name="ServiceCategoryPhoto1" xml:space="preserve">
+    <value>صورة فئة الخدمة 1</value>
+  </data>
+  <data name="ServiceCategoryPhoto2" xml:space="preserve">
+    <value>صورة فئة الخدمة 2</value>
+  </data>
+  <data name="ServiceCategoryPhoto3" xml:space="preserve">
+    <value>صورة فئة الخدمة 3</value>
+  </data>
 </root>

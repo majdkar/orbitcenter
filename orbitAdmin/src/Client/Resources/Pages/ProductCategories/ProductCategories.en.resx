@@ -192,4 +192,10 @@
   <data name="Upload Image" xml:space="preserve">
     <value>Upload Image</value>
   </data>
+  <data name="NameAr" xml:space="preserve">
+    <value>Arabic Name</value>
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value>English Name</value>
+  </data>
 </root>

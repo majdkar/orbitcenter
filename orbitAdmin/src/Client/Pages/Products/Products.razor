@@ -150,14 +150,14 @@
 
 
 
-<HeroTitle Title="@_localizer["Products"]" Description="@_localizer["Manage Products."]" />
+<HeroTitle Title="@_localizer["Services"]" Description="@_localizer["Manage Services."]" />
 @if (!_loaded)
 {
         <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
 }
 else
 {
-        <MudTable Elevation="25" ServerData="ServerReload" Hover="true" Dense="@_dense" Bordered="@_bordered" Striped="@_striped" @ref="_table">
+        <MudTable Elevation="25" ServerData="ServerReload" Hover="true"  @ref="_table">
             <ToolBarContent>
                 <div class="justify-center mud-text-align-center">
                 @if (_canCreateProduct)
@@ -187,7 +187,7 @@ else
             <HeaderContent>
                 <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="NameAr">@_localizer["NameAr"]</MudTableSortLabel></MudTh>
                 <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="NameEn">@_localizer["NameEn"]</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="ProductCategoryNameEn">@_localizer["Product Category"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="ProductCategoryNameEn">@_localizer["Service Category"]</MudTableSortLabel></MudTh>
 
                 <MudTh><MudTableSortLabel T="GetAllPagedProductsResponse" SortLabel="Price">@_localizer["Price"]</MudTableSortLabel></MudTh>
                 <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
@@ -288,11 +288,7 @@ else
                 }
                 </MudTd>*@
             </RowTemplate>
-            <FooterContent>
-                <MudSwitch T="bool" @bind-Checked="@_dense" Color="Color.Secondary" Style="margin-left: 5px;">@_localizer["Dense"]</MudSwitch>
-                <MudSwitch T="bool"  @bind-Checked="@_striped" Color="Color.Tertiary" Style="margin-left: 5px;">@_localizer["Striped"]</MudSwitch>
-            <MudSwitch T="bool" @bind-Checked="@_bordered" Color="Color.Warning" Style="margin-left: 5px;">@_localizer["Bordered"]</MudSwitch>
-            </FooterContent>
+        
             <PagerContent>
                 <TablePager />
             </PagerContent>

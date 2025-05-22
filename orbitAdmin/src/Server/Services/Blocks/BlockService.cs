@@ -141,7 +141,9 @@ namespace SchoolV01.Application.Services
                     blockEntity.Date = blockUpdateModel.Date;
                     blockEntity.StartDate = blockUpdateModel.StartDate;
                     blockEntity.EndDate = blockUpdateModel.EndDate;
+                    blockEntity.CreateAt = blockUpdateModel.CreateAt;
                     blockEntity.Location = blockUpdateModel.Location;
+                    blockEntity.AuthorId = blockUpdateModel.AuthorId;
                     blockEntity.RecordOrder = blockUpdateModel.RecordOrder;
                     blockEntity.Image = blockUpdateModel.Image?? blockEntity.Image;
                     blockEntity.File = blockUpdateModel.File?? blockEntity.File;

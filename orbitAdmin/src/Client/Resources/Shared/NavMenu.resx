@@ -487,7 +487,7 @@
     <value />
   </data>
   <data name="Services Management" xml:space="preserve">
-    <value />
+    <value>Services Management</value>
   </data>
   <data name="Sexs" xml:space="preserve">
     <value />
@@ -1106,5 +1106,11 @@
   </data>
   <data name="Courses" xml:space="preserve">
     <value />
+  </data>
+  <data name="Services Categories" xml:space="preserve">
+    <value>Services Categories</value>
+  </data>
+  <data name="Services List" xml:space="preserve">
+    <value>Services List</value>
   </data>
 </root>

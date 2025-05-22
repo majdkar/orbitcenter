@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add Product" xml:space="preserve">
-    <value>إضافة منتج</value>
+  <data name="Add Service" xml:space="preserve">
+    <value>إضافة خدمة</value>
   </data>
   <data name="Basic Information" xml:space="preserve">
     <value>المعلومات الأساسية</value>
@@ -156,44 +156,41 @@
   <data name="Details Product" xml:space="preserve">
     <value>تفاصيل المنتج</value>
   </data>
-  <data name="DiscriptionAboutAr" xml:space="preserve">
-    <value>الوصف بالعربي</value>
-  </data>
-  <data name="DiscriptionAboutAr1" xml:space="preserve">
+  <data name="DiscriptionAr1" xml:space="preserve">
     <value> الوصف بالعربي 1</value>
   </data>
-  <data name="DiscriptionAboutAr2" xml:space="preserve">
+  <data name="DiscriptionGe1" xml:space="preserve">
+    <value> الوصف بالألماني 1</value>
+  </data>
+  <data name="DiscriptionGe2" xml:space="preserve">
+    <value> الوصف بالألماني 2</value>
+  </data>
+  <data name="DiscriptionGe3" xml:space="preserve">
+    <value> الوصف بالألماني 3</value>
+  </data>
+  <data name="DiscriptionGe4" xml:space="preserve">
+    <value> الوصف بالألماني 4</value>
+  </data>
+  <data name="DiscriptionAr2" xml:space="preserve">
     <value> الوصف بالعربي 2</value>
   </data>
-  <data name="DiscriptionAboutAr3" xml:space="preserve">
+  <data name="DiscriptionAr3" xml:space="preserve">
     <value> الوصف بالعربي 3</value>
   </data>
-  <data name="DiscriptionAboutAr4" xml:space="preserve">
+  <data name="DiscriptionAr4" xml:space="preserve">
     <value> الوصف بالعربي 4</value>
   </data>
-  <data name="DiscriptionAboutAr5" xml:space="preserve">
-    <value>الوصف بالعربي 5</value>
-  </data>
-  <data name="DiscriptionAboutEn" xml:space="preserve">
-    <value>الوصف بالانكليزي</value>
-  </data>
-  <data name="DiscriptionAboutEn1" xml:space="preserve">
+  <data name="DiscriptionEn1" xml:space="preserve">
     <value>الوصف بالانكليزي 1 </value>
   </data>
-  <data name="DiscriptionAboutEn2" xml:space="preserve">
+  <data name="DiscriptionEn2" xml:space="preserve">
     <value>الوصف بالانكليزي2  </value>
   </data>
-  <data name="DiscriptionAboutEn3" xml:space="preserve">
+  <data name="DiscriptionEn3" xml:space="preserve">
     <value>الوصف بالانكليزي 3 </value>
   </data>
-  <data name="DiscriptionAboutEn4" xml:space="preserve">
+  <data name="DiscriptionEn4" xml:space="preserve">
     <value>الوصف بالانكليزي 4   </value>
-  </data>
-  <data name="DiscriptionAboutEn5" xml:space="preserve">
-    <value>الوصف بالانكليزي 5</value>
-  </data>
-  <data name="DiscriptionAr" xml:space="preserve">
-    <value>الوصف بالعربي</value>
   </data>
   <data name="DiscriptionBenefitsAr" xml:space="preserve">
     <value>الفوائد بالعربي</value>
@@ -275,7 +272,7 @@
   </data>
   <data name="Both Hands" xml:space="preserve">
     <value>كلا اليدين</value>
-  </data>     
+  </data>
   <data name="Hand Options" xml:space="preserve">
     <value>خيار اليد</value>
   </data>
@@ -291,8 +288,8 @@
   <data name="Product Offers" xml:space="preserve">
     <value>عروض المنتج</value>
   </data>
-  <data name="Product Prices Offers" xml:space="preserve">
-    <value>عروض أسعار المنتج</value>
+  <data name="Service Prices Offers" xml:space="preserve">
+    <value>عروض أسعار الخدمة</value>
   </data>
   <data name="Product Properties" xml:space="preserve">
     <value>خصائص المنتج</value>
@@ -339,8 +336,8 @@
   <data name="Update" xml:space="preserve">
     <value>تعديل</value>
   </data>
-  <data name="Update Product" xml:space="preserve">
-    <value>تعديل منتج</value>
+  <data name="Update Service" xml:space="preserve">
+    <value>تعديل خدمة</value>
   </data>
   <data name="Upload" xml:space="preserve">
     <value>تحميل</value>
@@ -368,5 +365,20 @@
   </data>
   <data name="Featured" xml:space="preserve">
     <value>المميزات</value>
+  </data>
+  <data name="NameGe" xml:space="preserve">
+    <value>الاسم الكامل بالاالماني</value>
+  </data>
+  <data name="Plan" xml:space="preserve">
+    <value>الخطة</value>
+  </data>
+  <data name="ServicePhoto1" xml:space="preserve">
+    <value>صورة الخدمة 1</value>
+  </data>
+  <data name="ServicePhoto2" xml:space="preserve">
+    <value>صورة الخدمة 2</value>
+  </data>
+  <data name="ServicePhoto3" xml:space="preserve">
+    <value>صورة الخدمة 3</value>
   </data>
 </root>

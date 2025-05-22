@@ -77,18 +77,18 @@
 
     @if (_canViewProducts || _canViewProductCategories)
     {
-        <MudNavGroup Title="@_localizer["Services Managment"]" Icon="@Icons.Material.Outlined.RoomService">
+        <MudNavGroup Title="@_localizer["Services Management"]" Icon="@Icons.Material.Outlined.RoomService">
             @if (_canViewProductCategories)
             {
 
                 <MudNavLink Href="/general-settings/Product-Categories/0" Icon="@Icons.Material.Outlined.DesignServices">
-                    @_localizer["Product Categories"]
+                    @_localizer["Services Categories"]
                 </MudNavLink>
             }
             @if (_canViewProducts)
             {
                 <MudNavLink Href="/products" Icon="@Icons.Material.Outlined.CleaningServices">
-                    @_localizer["Products List"]
+                    @_localizer["Services List"]
                 </MudNavLink>
             }
 

@@ -28,7 +28,10 @@ namespace SchoolV01.Client.Pages.ProductCategories
     {
 
         [Parameter]
-        public int Id { get; set; }
+        public int Id { get; set; }      
+        
+        [Parameter]
+        public int CategoryId { get; set; }
         [Inject] private IProductCategoryManager ProductCategoryManager { get; set; }
         private string imageUrlForPreview1 { get; set; } = "";
         private string imageUrlForPreview2 { get; set; } = "";
@@ -63,7 +66,7 @@ namespace SchoolV01.Client.Pages.ProductCategories
 
 
         private bool _isProcessing = false;
-        public static long maxFileSize = 1024 * 1024;
+        public static long maxFileSize = 1024 * 1024 *1024;
         public async void Cancel()
         {
             await _jsRuntime.InvokeVoidAsync("history.back", -1);
@@ -77,7 +80,7 @@ namespace SchoolV01.Client.Pages.ProductCategories
             {
                 _snackBar.Add(response.Messages[0], Severity.Success);
                 await HubConnection.SendAsync(ApplicationConstants.SignalR.SendUpdateDashboard);
-                MudDialog.Close();
+                Cancel();
             }
             else
             {
@@ -110,12 +113,26 @@ namespace SchoolV01.Client.Pages.ProductCategories
 
         private async Task LoadProductCategoriesAsync()
         {
-            _ProductCategories.Clear();
-            var data = await ProductCategoryManager.GetAllAsync();
-            if (data.Succeeded)
+            if (CategoryId == 0)
             {
-                _ProductCategories = data.Data;
+                _ProductCategories.Clear();
+                var data = await ProductCategoryManager.GetAllAsync();
+                if (data.Succeeded)
+                {
+                    _ProductCategories = data.Data;
 
+                }
+            }
+            else
+            {
+                _ProductCategories.Clear();
+                var data = await ProductCategoryManager.GetAllAsync();
+                if (data.Succeeded)
+                {
+                    _ProductCategories = data.Data;
+                    AddEditProductCategoryModel.ParentCategoryId = CategoryId;
+
+                }
             }
         }
         private async Task LoadProductCategoriesDetails()
@@ -245,8 +262,8 @@ namespace SchoolV01.Client.Pages.ProductCategories
                 //var imageFile = await e.File.RequestImageFileAsync(format, 600, 600);
                 //var buffer = new byte[imageFile.Size];
                 //await imageFile.OpenReadStream(maxFileSize).ReadAsync(buffer);
-                var buffer = new byte[_imageFile.Size];
-                await _imageFile.OpenReadStream(maxFileSize).ReadAsync(buffer);
+                var buffer = new byte[_imageFile2.Size];
+                await _imageFile2.OpenReadStream(maxFileSize).ReadAsync(buffer);
                 AddEditProductCategoryModel.ImageDataURL2 = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
                 AddEditProductCategoryModel.UploadRequestURL2 = new UploadRequest { Data = buffer, UploadType = Application.Enums.UploadType.ProductCategory, Extension = extension };
                 imageUrlForPreview2 = AddEditProductCategoryModel.ImageDataURL2;
@@ -265,8 +282,8 @@ namespace SchoolV01.Client.Pages.ProductCategories
                 //var imageFile = await e.File.RequestImageFileAsync(format, 600, 600);
                 //var buffer = new byte[imageFile.Size];
                 //await imageFile.OpenReadStream(maxFileSize).ReadAsync(buffer);
-                var buffer = new byte[_imageFile.Size];
-                await _imageFile.OpenReadStream(maxFileSize).ReadAsync(buffer);
+                var buffer = new byte[_imageFile3.Size];
+                await _imageFile3.OpenReadStream(maxFileSize).ReadAsync(buffer);
                 AddEditProductCategoryModel.ImageDataURL3 = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
                 AddEditProductCategoryModel.UploadRequestURL3 = new UploadRequest { Data = buffer, UploadType = Application.Enums.UploadType.ProductCategory, Extension = extension };
 

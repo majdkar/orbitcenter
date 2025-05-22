@@ -147,6 +147,9 @@
   <data name="Roles" xml:space="preserve">
     <value>Roles</value>
   </data>
+  <data name="Services Management" xml:space="preserve">
+    <value>Services Management</value>
+  </data>
   <data name="Swagger" xml:space="preserve">
     <value>Swagger</value>
   </data>
@@ -176,5 +179,11 @@
   </data>
   <data name="Evaluations" xml:space="preserve">
     <value>Evaluations</value>
+  </data>
+  <data name="Services Categories" xml:space="preserve">
+    <value>Services Categories</value>
+  </data>
+  <data name="Services List" xml:space="preserve">
+    <value>Services List</value>
   </data>
 </root>

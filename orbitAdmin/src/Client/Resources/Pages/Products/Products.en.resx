@@ -159,8 +159,8 @@
   <data name="Export" xml:space="preserve">
     <value>Export</value>
   </data>
-  <data name="Manage Products." xml:space="preserve">
-    <value>Manage Products.</value>
+  <data name="Manage Services." xml:space="preserve">
+    <value>Manage Services.</value>
   </data>
   <data name="NameAr" xml:space="preserve">
     <value>Arabic Name</value>
@@ -174,8 +174,11 @@
   <data name="Price" xml:space="preserve">
     <value>Price</value>
   </data>
-  <data name="Products" xml:space="preserve">
-    <value>Products</value>
+  <data name="Service Category" xml:space="preserve">
+    <value>Service Category</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
   </data>
   <data name="Products exported" xml:space="preserve">
     <value>Products exported</value>

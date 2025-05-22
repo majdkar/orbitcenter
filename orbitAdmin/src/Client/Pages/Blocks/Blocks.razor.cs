@@ -209,6 +209,8 @@ namespace SchoolV01.Client.Pages.Blocks
                     IsActive = active,
                     IsVisible = viewModel.IsVisible,
                     Url = viewModel.Url,
+                     AuthorId = viewModel.AuthorId,
+                      CreateAt = viewModel.CreateAt,
                 };
 
                 var content = HelperMethods.ToJson(BlockModel);

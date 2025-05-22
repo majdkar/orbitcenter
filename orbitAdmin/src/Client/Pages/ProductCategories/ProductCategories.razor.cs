@@ -156,9 +156,22 @@ namespace SchoolV01.Client.Pages.ProductCategories
             }
         }
 
-        private void InvokeSons(int id)
+        private async void InvokeBackModal(int id)
         {
-            _navigationManager.NavigateTo($"general-settings/Product-Categories/{id}");
+            CategoryId = 0;
+            _searchString = string.Empty;
+            StateHasChanged();
+            if (_table != null)
+                await _table.ReloadServerData();
+        }
+
+        private async void InvokeSons(int id)
+        {
+            CategoryId = id;
+            _searchString = string.Empty;
+            StateHasChanged();
+            if (_table != null)
+                await _table.ReloadServerData();
         }
         private async Task OnSearch(string text)
         {
@@ -210,9 +223,9 @@ namespace SchoolV01.Client.Pages.ProductCategories
             }
         }
 
-        private async Task InvokeModal(int id = 0)
+        private async Task InvokeModal(int id = 0,int CategoryId = 0)
         {
-            _navigationManager.NavigateTo($"ProductCategory-details/{id}");
+            _navigationManager.NavigateTo($"ProductCategory-details/{id}/{CategoryId}");
         }
 
         private async Task Delete(int id)

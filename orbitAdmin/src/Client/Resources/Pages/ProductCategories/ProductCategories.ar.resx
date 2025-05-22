@@ -198,4 +198,10 @@
   <data name="ParentCategories" xml:space="preserve">
     <value>الفئات الرئيسية</value>
   </data>
+  <data name="NameAr" xml:space="preserve">
+    <value>الاسم الكامل بالعربية</value>
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value>الاسم الكامل بالانكليزية</value>
+  </data>
 </root>

@@ -357,4 +357,10 @@
   <data name="UpdateBlock" xml:space="preserve">
     <value>تعديل الكتلة</value>
   </data>
+  <data name="CreateAt" xml:space="preserve">
+    <value>تاريخ الانشاء</value>
+  </data>
+  <data name="Author Id" xml:space="preserve">
+    <value>رقم المؤلف</value>
+  </data>
 </root>

@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add Product" xml:space="preserve">
-    <value>Add Product</value>
+  <data name="Add Service" xml:space="preserve">
+    <value>Add Service</value>
   </data>
   <data name="Basic Information" xml:space="preserve">
     <value>Basic Information</value>
@@ -150,44 +150,41 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="DiscriptionAboutAr" xml:space="preserve">
-    <value>Arabic Description</value>
-  </data>
-  <data name="DiscriptionAboutAr1" xml:space="preserve">
+  <data name="DiscriptionAr1" xml:space="preserve">
     <value>Arabic Description 1</value>
   </data>
-  <data name="DiscriptionAboutAr2" xml:space="preserve">
+  <data name="DiscriptionGe1" xml:space="preserve">
+    <value>Germmany Description 1</value>
+  </data>
+  <data name="DiscriptionGe2" xml:space="preserve">
+    <value>Germmany Description 2</value>
+  </data>
+  <data name="DiscriptionGe3" xml:space="preserve">
+    <value>Germmany Description 3</value>
+  </data>
+  <data name="DiscriptionGe4" xml:space="preserve">
+    <value>Germmany Description 4</value>
+  </data>
+  <data name="DiscriptionAr2" xml:space="preserve">
     <value>Arabic Description 2</value>
   </data>
-  <data name="DiscriptionAboutAr3" xml:space="preserve">
+  <data name="DiscriptionAr3" xml:space="preserve">
     <value>Arabic Description 3</value>
   </data>
-  <data name="DiscriptionAboutAr4" xml:space="preserve">
+  <data name="DiscriptionAr4" xml:space="preserve">
     <value>Arabic Description 4</value>
   </data>
-  <data name="DiscriptionAboutAr5" xml:space="preserve">
-    <value>Arabic Description 5</value>
-  </data>
-  <data name="DiscriptionAboutEn" xml:space="preserve">
-    <value>English Description</value>
-  </data>
-  <data name="DiscriptionAboutEn1" xml:space="preserve">
+  <data name="DiscriptionEn1" xml:space="preserve">
     <value>English Description 1</value>
   </data>
-  <data name="DiscriptionAboutEn2" xml:space="preserve">
+  <data name="DiscriptionEn2" xml:space="preserve">
     <value>English Description 2</value>
   </data>
-  <data name="DiscriptionAboutEn3" xml:space="preserve">
+  <data name="DiscriptionEn3" xml:space="preserve">
     <value>English Description 3</value>
   </data>
-  <data name="DiscriptionAboutEn4" xml:space="preserve">
+  <data name="DiscriptionEn4" xml:space="preserve">
     <value>English Description 4</value>
-  </data>
-  <data name="DiscriptionAboutEn5" xml:space="preserve">
-    <value>English Description 5</value>
-  </data>
-  <data name="DiscriptionAr" xml:space="preserve">
-    <value>Arabic Discription</value>
   </data>
   <data name="DiscriptionBenefitsAr" xml:space="preserve">
     <value>Arabic Benefits</value>
@@ -252,8 +249,8 @@
   <data name="Product Offers" xml:space="preserve">
     <value>Product Offers</value>
   </data>
-  <data name="Product Prices Offers" xml:space="preserve">
-    <value>Product Prices Offers</value>
+  <data name="Service Prices Offers" xml:space="preserve">
+    <value>Service Prices Offers</value>
   </data>
   <data name="Product Properties" xml:space="preserve">
     <value>Product Properties</value>
@@ -282,8 +279,8 @@
   <data name="Update" xml:space="preserve">
     <value>Update</value>
   </data>
-  <data name="Update Product" xml:space="preserve">
-    <value>Update Product</value>
+  <data name="Update Service" xml:space="preserve">
+    <value>Update Service</value>
   </data>
   <data name="Upload" xml:space="preserve">
     <value>Upload</value>
@@ -293,5 +290,20 @@
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Weight</value>
+  </data>
+  <data name="NameGe" xml:space="preserve">
+    <value>Gerrmany Name</value>
+  </data>
+  <data name="Plan" xml:space="preserve">
+    <value>Plan</value>
+  </data>
+  <data name="ServicePhoto1" xml:space="preserve">
+    <value>Service Photo 1</value>
+  </data>
+  <data name="ServicePhoto2" xml:space="preserve">
+    <value>Service Photo 2</value>
+  </data>
+  <data name="ServicePhoto3" xml:space="preserve">
+    <value>Service Photo 3</value>
   </data>
 </root>

@@ -58,6 +58,8 @@ namespace SchoolV01.Core.Entities
         public bool IsActive { get; set; } = true;
 
         public int RecordOrder { get; set; }
+        public int AuthorId { get; set; }
+        public DateTime? CreateAt { set; get; }
 
 
         [InverseProperty("Children")]

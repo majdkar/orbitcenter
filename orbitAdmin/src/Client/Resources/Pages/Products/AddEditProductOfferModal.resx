@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add Product Offer" xml:space="preserve">
+  <data name="Add Service Offer" xml:space="preserve">
     <value />
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -162,7 +162,7 @@
   <data name="Update" xml:space="preserve">
     <value />
   </data>
-  <data name="Update Product Offer" xml:space="preserve">
+  <data name="Update Service Offer" xml:space="preserve">
     <value />
   </data>
   <data name="Update Product Offer2" xml:space="preserve">

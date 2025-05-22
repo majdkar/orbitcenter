@@ -141,11 +141,8 @@
   <data name="NameAr" xml:space="preserve">
     <value>  Arabic Name </value>
   </data>
-  <data name=" Code" xml:space="preserve">
-    <value>  Code </value>
-  </data>
-  <data name=" PhoneCode" xml:space="preserve">
-    <value>  Phone Code </value>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
@@ -156,13 +153,67 @@
   <data name="Update ProductCategory" xml:space="preserve">
     <value>Update ProductCategory</value>
   </data>
-  <data name="Code" xml:space="preserve">
-    <value>Code</value>
-  </data>
   <data name="DescriptionEn" xml:space="preserve">
     <value>English Description</value>
   </data>
   <data name="RecordOrder" xml:space="preserve">
     <value>RecordOrder</value>
+  </data>
+  <data name=" Code" xml:space="preserve">
+    <value>  Code </value>
+  </data>
+  <data name=" PhoneCode" xml:space="preserve">
+    <value>  Phone Code </value>
+  </data>
+  <data name="DiscriptionAr1" xml:space="preserve">
+    <value>Arabic Description 1</value>
+  </data>
+  <data name="DiscriptionAr2" xml:space="preserve">
+    <value>Arabic Description 2</value>
+  </data>
+  <data name="DiscriptionAr3" xml:space="preserve">
+    <value>Arabic Description 3</value>
+  </data>
+  <data name="DiscriptionAr4" xml:space="preserve">
+    <value>Arabic Description 4</value>
+  </data>
+  <data name="DiscriptionEn" xml:space="preserve">
+    <value>English Discription</value>
+  </data>
+  <data name="DiscriptionEn1" xml:space="preserve">
+    <value>English Description 1</value>
+  </data>
+  <data name="DiscriptionEn2" xml:space="preserve">
+    <value>English Description 2</value>
+  </data>
+  <data name="DiscriptionEn3" xml:space="preserve">
+    <value>English Description 3</value>
+  </data>
+  <data name="DiscriptionEn4" xml:space="preserve">
+    <value>English Description 4</value>
+  </data>
+  <data name="DiscriptionGe1" xml:space="preserve">
+    <value>Germmany Description 1</value>
+  </data>
+  <data name="DiscriptionGe2" xml:space="preserve">
+    <value>Germmany Description 2</value>
+  </data>
+  <data name="DiscriptionGe3" xml:space="preserve">
+    <value>Germmany Description 3</value>
+  </data>
+  <data name="DiscriptionGe4" xml:space="preserve">
+    <value>Germmany Description 4</value>
+  </data>
+  <data name="NameGe" xml:space="preserve">
+    <value>Gerrmany Name</value>
+  </data>
+  <data name="ServiceCategoryPhoto1" xml:space="preserve">
+    <value>Service Category Photo 1</value>
+  </data>
+  <data name="ServiceCategoryPhoto2" xml:space="preserve">
+    <value>Service Category Photo 2</value>
+  </data>
+  <data name="ServiceCategoryPhoto3" xml:space="preserve">
+    <value>Service Category Photo 3</value>
   </data>
 </root>

@@ -171,7 +171,7 @@
   <data name="From Price" xml:space="preserve">
     <value />
   </data>
-  <data name="Manage Products." xml:space="preserve">
+  <data name="Manage Services." xml:space="preserve">
     <value />
   </data>
   <data name="NameAr" xml:space="preserve">
@@ -189,10 +189,10 @@
   <data name="Price" xml:space="preserve">
     <value />
   </data>
-  <data name="Product Category" xml:space="preserve">
+  <data name="Service Category" xml:space="preserve">
     <value />
   </data>
-  <data name="Products" xml:space="preserve">
+  <data name="Services" xml:space="preserve">
     <value />
   </data>
   <data name="Products exported" xml:space="preserve">

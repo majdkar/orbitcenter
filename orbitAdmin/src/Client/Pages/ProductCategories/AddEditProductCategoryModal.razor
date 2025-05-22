@@ -1,4 +1,4 @@
-﻿@page "/ProductCategory-details/{Id:int}"
+﻿@page "/ProductCategory-details/{Id:int}/{CategoryId:int}"
 @inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditProductCategoryModal> _localizer
 
 
@@ -27,11 +27,11 @@
                     <CardHeaderContent>
                         @if (AddEditProductCategoryModel.Id == 0)
                         {
-                            <MudText Typo="Typo.body1">@_localizer["AddBlock"]</MudText>
+                            <MudText Typo="Typo.body1">@_localizer["Add ProductCategory"]</MudText>
                         }
                         else
                         {
-                            <MudText Typo="Typo.body1">@_localizer["UpdateBlock"]</MudText>
+                            <MudText Typo="Typo.body1">@_localizer["Update ProductCategory"]</MudText>
                         }
                     </CardHeaderContent>
                 </MudCardHeader>
@@ -53,16 +53,20 @@
                     <MudTextField For="@(() => AddEditProductCategoryModel.Order)" @bind-Value="AddEditProductCategoryModel.Order" Label="@_localizer["RecordOrder"]" />
                 </MudItem>
            
-
-
-                <MudItem xs="12" md="6">
-                    <MudAutocomplete T="int?" MaxItems="null"  Label="@_localizer["Parent Category"]" For="@(()=>AddEditProductCategoryModel.ParentCategoryId)" @bind-Value="AddEditProductCategoryModel.ParentCategoryId" ResetValueOnEmptyText="true" SearchFunc="@SearchCategories" ToStringFunc="@(i=>_ProductCategories.FirstOrDefault(b=>b.Id == i)?.NameAr ?? string.Empty)" OffsetY="true" Variant="Variant.Outlined" />
+                        @if (AddEditProductCategoryModel.ParentCategoryId > 0)
+                        {
+                            <MudItem xs="12" md="6">
+                                <MudAutocomplete Disabled="true" T="int?" MaxItems="null"  Label="@_localizer["Parent Category"]" For="@(()=>AddEditProductCategoryModel.ParentCategoryId)" @bind-Value="AddEditProductCategoryModel.ParentCategoryId" ResetValueOnEmptyText="true" SearchFunc="@SearchCategories" ToStringFunc="@(i=>_ProductCategories.FirstOrDefault(b=>b.Id == i)?.NameAr ?? string.Empty)" OffsetY="true" Variant="Variant.Outlined" />
                 </MudItem>
-
+                }else{
+                          <MudItem xs="12" md="6">
+                                <MudAutocomplete  T="int?" MaxItems="null"  Label="@_localizer["Parent Category"]" For="@(()=>AddEditProductCategoryModel.ParentCategoryId)" @bind-Value="AddEditProductCategoryModel.ParentCategoryId" ResetValueOnEmptyText="true" SearchFunc="@SearchCategories" ToStringFunc="@(i=>_ProductCategories.FirstOrDefault(b=>b.Id == i)?.NameAr ?? string.Empty)" OffsetY="true" Variant="Variant.Outlined" />
+                </MudItem>
+                }
 
 
                 <MudItem xs="12" md="12">
-                    <MudText Typo="Typo.body1">@_localizer["DiscriptionAr"]</MudText>
+                            <MudText Typo="Typo.body1">@_localizer["DiscriptionAr1"]</MudText>
                     <Editor Id="editorAr1" Field="() => AddEditProductCategoryModel.DescriptionAr1" @bind-Value="AddEditProductCategoryModel.DescriptionAr1" Inline=false
                             Conf="@editorDescriptionAr1.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
                 </MudItem>
@@ -180,7 +184,7 @@
                     </MudAvatar>
                 </CardHeaderAvatar>
                 <CardHeaderContent>
-                    <MudText Typo="Typo.body1">@_localizer["Service Photo 1"]</MudText>
+                    <MudText Typo="Typo.body1">@_localizer["ServiceCategoryPhoto1"]</MudText>
                 </CardHeaderContent>
             </MudCardHeader>
             @if (!string.IsNullOrEmpty(@imageUrlForPreview1))
@@ -216,7 +220,7 @@
                     </MudAvatar>
                 </CardHeaderAvatar>
                 <CardHeaderContent>
-                    <MudText Typo="Typo.body1">@_localizer["Service Photo 2"]</MudText>
+                    <MudText Typo="Typo.body1">@_localizer["ServiceCategoryPhoto1"]</MudText>
                 </CardHeaderContent>
             </MudCardHeader>
             @if (!string.IsNullOrEmpty(@imageUrlForPreview2))
@@ -252,7 +256,7 @@
                     </MudAvatar>
                 </CardHeaderAvatar>
                 <CardHeaderContent>
-                    <MudText Typo="Typo.body1">@_localizer["Service Photo 3"]</MudText>
+                    <MudText Typo="Typo.body1">@_localizer["ServiceCategoryPhoto1"]</MudText>
                 </CardHeaderContent>
             </MudCardHeader>
             @if (!string.IsNullOrEmpty(@imageUrlForPreview3))

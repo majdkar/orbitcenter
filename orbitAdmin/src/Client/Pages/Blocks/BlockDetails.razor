@@ -177,6 +177,13 @@
                                 <MudTextField For="@(() => BlockModel.Location)" @bind-Value="BlockModel.Location" Label="@localizer["Location"]" Variant="Variant.Outlined" />
                             </MudItem>
                         }
+                        
+                        <MudItem xs="12" md="6">
+                            <MudTextField For="@(() => BlockModel.AuthorId)" @bind-Value="BlockModel.AuthorId" Label="@localizer["Author Id"]" Variant="Variant.Outlined" />
+                        </MudItem>
+                            <MudItem xs="12" md="6">
+                                <MudDatePicker For="@(()=>BlockModel.CreateAt)" @bind-Date="BlockModel.CreateAt"  Label="@localizer["CreateAt"]" DateFormat="dd/MM/yyyy" Culture="@(new CultureInfo("en-US"))" />
+                            </MudItem>
 
                         <MudItem xs="12" md="6">
                             <MudCheckBox T="bool" For="@(() => BlockModel.IsVisible)" @bind-Value="BlockModel.IsVisible" Label="@localizer["IsVisible"]" />
@@ -185,6 +192,8 @@
                         <MudItem xs="12" md="6">
                             <MudCheckBox T="bool" For="@(() => BlockModel.IsActive)" @bind-Value="BlockModel.IsActive" Label="@localizer["IsActive"]" />
                         </MudItem>
+
+
                     </MudGrid>
                 </MudCardContent>
                 <MudCardActions Class="d-flex justify-end flex-grow-1 gap-4 mr-2">

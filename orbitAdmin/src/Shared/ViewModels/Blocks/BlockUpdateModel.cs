@@ -54,7 +54,8 @@ namespace SchoolV01.Shared.ViewModels.Blocks
 
         public bool IsActive { get; set; }
         public int? ParentId { get; set; }
-
+        public int AuthorId { get; set; }
+        public DateTime? CreateAt { set; get; }
         public int RecordOrder { get; set; }
         public virtual List<BlockPhotoViewModel> BlockPhotos { get; set; }
         public virtual List<BlockAttachementViewModel> BlockAttachements { get; set; }

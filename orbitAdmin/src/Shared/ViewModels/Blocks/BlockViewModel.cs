@@ -51,7 +51,8 @@ namespace SchoolV01.Shared.ViewModels.Blocks
         public string File { get; set; }
 
         public bool IsActive { get; set; }
-
+        public int AuthorId { get; set; }
+        public DateTime? CreateAt { set; get; }
         public int RecordOrder { get; set; }
         public int? ParentId { get; set; }
 

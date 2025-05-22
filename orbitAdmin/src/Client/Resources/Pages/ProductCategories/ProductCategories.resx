@@ -117,13 +117,91 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Album" xml:space="preserve">
-    <value>Album</value>
+  <data name="Actions" xml:space="preserve">
+    <value />
   </data>
-  <data name="Back" xml:space="preserve">
-    <value>Back</value>
+  <data name="Add ProductCategory" xml:space="preserve">
+    <value />
   </data>
-  <data name="Upload Files" xml:space="preserve">
-    <value>Upload Video</value>
+  <data name="Bordered" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProductCategories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProductCategories exported" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Delete Content" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Dense" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Filtered ProductCategories exported" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ar_title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="en_title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Manage ProductCategories." xml:space="preserve">
+    <value />
+  </data>
+  <data name="No Allowed Actions" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Search for ProductCategories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Striped" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Parent Category" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Upload Image" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CategorySons" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ParentCategories" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NameAr" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value />
   </data>
 </root>

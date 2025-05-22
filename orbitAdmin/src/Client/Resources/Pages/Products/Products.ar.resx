@@ -171,8 +171,8 @@
   <data name="From Price" xml:space="preserve">
     <value>من السعر</value>
   </data>
-  <data name="Manage Products." xml:space="preserve">
-    <value>إدارة المنتجات</value>
+  <data name="Manage Services." xml:space="preserve">
+    <value>إدارة الخدمات</value>
   </data>
   <data name="NameAr" xml:space="preserve">
     <value>الاسم بالعربي</value>
@@ -189,11 +189,11 @@
   <data name="Price" xml:space="preserve">
     <value>السعر</value>
   </data>
-  <data name="Product Category" xml:space="preserve">
-    <value>فئة المنتج</value>
+  <data name="Service Category" xml:space="preserve">
+    <value>فئة الخدمة</value>
   </data>
-  <data name="Products" xml:space="preserve">
-    <value>المنتجات</value>
+  <data name="Services" xml:space="preserve">
+    <value>الخدمات</value>
   </data>
   <data name="Products exported" xml:space="preserve">
     <value>جرى التصدر</value>

@@ -117,8 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Add Product" type="System.Resources.ResXNullRef, System.Windows.Forms">
+  <data name="Add Service" xml:space="preserve">
     <value />
   </data>
   <data name="Basic Information" xml:space="preserve">
@@ -157,43 +156,40 @@
   <data name="Details Product" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutAr" xml:space="preserve">
+  <data name="DiscriptionAr1" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutAr1" xml:space="preserve">
+  <data name="DiscriptionGe1" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutAr2" type="System.Resources.ResXNullRef, System.Windows.Forms">
+  <data name="DiscriptionGe2" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutAr3" type="System.Resources.ResXNullRef, System.Windows.Forms">
+  <data name="DiscriptionGe3" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutAr4" xml:space="preserve">
+  <data name="DiscriptionGe4" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutAr5" xml:space="preserve">
+  <data name="DiscriptionAr2" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutEn" xml:space="preserve">
+  <data name="DiscriptionAr3" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutEn1" xml:space="preserve">
+  <data name="DiscriptionAr4" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutEn2" xml:space="preserve">
+  <data name="DiscriptionEn1" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutEn3" xml:space="preserve">
+  <data name="DiscriptionEn2" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutEn4" xml:space="preserve">
+  <data name="DiscriptionEn3" xml:space="preserve">
     <value />
   </data>
-  <data name="DiscriptionAboutEn5" xml:space="preserve">
-    <value />
-  </data>
-  <data name="DiscriptionAr" xml:space="preserve">
+  <data name="DiscriptionEn4" xml:space="preserve">
     <value />
   </data>
   <data name="DiscriptionBenefitsAr" xml:space="preserve">
@@ -292,7 +288,7 @@
   <data name="Product Offers" xml:space="preserve">
     <value />
   </data>
-  <data name="Product Prices Offers" xml:space="preserve">
+  <data name="Service Prices Offers" xml:space="preserve">
     <value />
   </data>
   <data name="Product Properties" xml:space="preserve">
@@ -340,7 +336,7 @@
   <data name="Update" xml:space="preserve">
     <value />
   </data>
-  <data name="Update Product" xml:space="preserve">
+  <data name="Update Service" xml:space="preserve">
     <value />
   </data>
   <data name="Upload" xml:space="preserve">
@@ -361,6 +357,7 @@
   <data name="Width" xml:space="preserve">
     <value />
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Archery Style" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
@@ -372,5 +369,20 @@
   </data>
   <data name="Back" xml:space="preserve">
     <value>رجوع</value>
+  </data>
+  <data name="NameGe" xml:space="preserve">
+    <value>NameGe</value>
+  </data>
+  <data name="Plan" xml:space="preserve">
+    <value>Plan</value>
+  </data>
+  <data name="ServicePhoto1" xml:space="preserve">
+    <value>ServicePhoto1</value>
+  </data>
+  <data name="ServicePhoto2" xml:space="preserve">
+    <value>ServicePhoto1</value>
+  </data>
+  <data name="ServicePhoto3" xml:space="preserve">
+    <value>ServicePhoto1</value>
   </data>
 </root>

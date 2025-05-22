@@ -7,20 +7,20 @@
 {
     <MudText Typo="Typo.h6" Color="Color.Primary">
         <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
-        @_localizer["Add Product"]
+        @_localizer["Add Service"]
     </MudText>
 }
 else
 {
     <MudText Typo="Typo.h6" Color="Color.Primary">
         <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
-        @_localizer["Update Product"]
+        @_localizer["Update Service"]
     </MudText>
 }
 
 <MudExpansionPanels MultiExpansion="true">
     @*basic information*@
-    <MudExpansionPanel Text=@_localizer["Basic Information"] Class="mt-6">
+    <MudExpansionPanel Text=@_localizer["Basic Information"] Class="mt-6" Expanded= "true">
         <MudGrid>
           
             
@@ -48,11 +48,11 @@ else
                     <CardHeaderContent>
                         @if (AddEditCompanyProductModel.Id == 0)
                         {
-                            <MudText Typo="Typo.body1">@_localizer["AddBlock"]</MudText>
+                                    <MudText Typo="Typo.body1">@_localizer["Add Service"]</MudText>
                         }
                         else
                         {
-                            <MudText Typo="Typo.body1">@_localizer["UpdateBlock"]</MudText>
+                                    <MudText Typo="Typo.body1">@_localizer["Update Service"]</MudText>
                         }
                     </CardHeaderContent>
                 </MudCardHeader>
@@ -134,7 +134,7 @@ else
 
 
                                     <MudItem xs="12" md="4">
-                                        <MudTextField For="@(() => AddEditCompanyProductModel.Order)" @bind-Value="AddEditCompanyProductModel.Order" Label="@_localizer["RecordOrder"]" />
+                                        <MudTextField For="@(() => AddEditCompanyProductModel.Order)" @bind-Value="AddEditCompanyProductModel.Order" Label="@_localizer["Order"]" />
                                     </MudItem>
 
 
@@ -156,7 +156,7 @@ else
 
 
                                     <MudItem xs="12" md="12">
-                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionAr"]</MudText>
+                                    <MudText Typo="Typo.body1">@_localizer["DiscriptionAr1"]</MudText>
                                         <Editor Id="editorAr1" Field="() => AddEditCompanyProductModel.DescriptionAr1" @bind-Value="AddEditCompanyProductModel.DescriptionAr1" Inline=false
                                                 Conf="@editorDescriptionAr1.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
                                     </MudItem>
@@ -277,7 +277,7 @@ else
                             </MudAvatar>
                         </CardHeaderAvatar>
                         <CardHeaderContent>
-                            <MudText Typo="Typo.body1">@_localizer["Service Photo 1"]</MudText>
+                            <MudText Typo="Typo.body1">@_localizer["ServicePhoto1"]</MudText>
                         </CardHeaderContent>
                     </MudCardHeader>
                     @if (!string.IsNullOrEmpty(@imageUrlForPreview1))
@@ -313,7 +313,7 @@ else
                             </MudAvatar>
                         </CardHeaderAvatar>
                         <CardHeaderContent>
-                            <MudText Typo="Typo.body1">@_localizer["Service Photo 2"]</MudText>
+                            <MudText Typo="Typo.body1">@_localizer["ServicePhoto2"]</MudText>
                         </CardHeaderContent>
                     </MudCardHeader>
                     @if (!string.IsNullOrEmpty(@imageUrlForPreview2))
@@ -349,7 +349,7 @@ else
                             </MudAvatar>
                         </CardHeaderAvatar>
                         <CardHeaderContent>
-                            <MudText Typo="Typo.body1">@_localizer["Service Photo 3"]</MudText>
+                            <MudText Typo="Typo.body1">@_localizer["ServicePhoto3"]</MudText>
                         </CardHeaderContent>
                     </MudCardHeader>
                     @if (!string.IsNullOrEmpty(@imageUrlForPreview3))
@@ -386,7 +386,7 @@ else
 
 
     @*offers*@
-    <MudExpansionPanel Text=@_localizer["Product Prices Offers"] Class="mt-6 mb-20">
+    <MudExpansionPanel Text=@_localizer["Service Prices Offers"] Class="mt-6 mb-20">
         <ProductOffers ProductId="ProductId" AddEditCompanyProductModel="AddEditCompanyProductModel"  DisableAddButton="DisableAddButton" OldPrice="@OldPrice"></ProductOffers>
     </MudExpansionPanel>
 </MudExpansionPanels>
