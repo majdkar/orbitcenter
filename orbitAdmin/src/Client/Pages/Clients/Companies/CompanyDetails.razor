@@ -1,0 +1,17 @@
+﻿@page "/company-details/{Id:int}/{Type}"
+@using SchoolV01.Shared.Constants.Clients;
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditCompany> _localizer
+
+<HeroTitle Title="@CompanyModel.NameAr" />
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudTabs Elevation="25" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6">
+        <MudTabPanel Text=@_localizer["Client Details"]>
+            <CompanyClientBasicInfo Model="CompanyModel" />
+        </MudTabPanel>
+    </MudTabs>
+}

@@ -1,4 +1,5 @@
 ﻿
+using SchoolV01.Domain.Entities.Clients;
 using SchoolV01.Domain.Entities.GeneralSettings;
 using System;
 
@@ -15,7 +16,7 @@ namespace SchoolV01.Application.Features.Clients.Persons.Queries.GetAll
 
         public string FullNameEn { get; set; }
         public string UserId { get; set; }
-
+        public virtual Client Client { get; set; }
         public int? CountryId { get; set; }
         public virtual Country Country { get; set; }
 

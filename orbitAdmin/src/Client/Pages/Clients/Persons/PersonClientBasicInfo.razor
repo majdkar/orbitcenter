@@ -1,0 +1,54 @@
+﻿@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditPerson> _localizer
+@using SchoolV01.Shared.Constants.Clients
+
+<MudCard Elevation="4">
+
+    <MudCardContent>
+        <MudGrid>
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["FullNameAr"] : </strong> @Model.FullNameAr
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["FullNameEn"] : </strong> @Model.FullNameEn
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Sex"] : </strong> @Model.Sex
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Country"] : </strong> @(IsArabic ? Model.Country?.NameAr : Model.Country?.NameEn)
+            </MudItem>
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["City"] : </strong> @(IsArabic ? Model.City?.NameAr : Model.City?.NameEn)
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["BirthDate"] : </strong> @Model.BirthDate?.ToShortDateString()
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Phone"] : </strong> @Model.Phone
+            </MudItem>
+             <MudItem xs="12" md="4">
+                <strong>@_localizer["MailBox"] : </strong> @Model.MailBox
+            </MudItem>
+              <MudItem xs="12" md="4">
+                <strong>@_localizer["Email"] : </strong> @Model.Email
+            </MudItem>
+
+            <MudItem xs="12" md="8">
+                <strong>@_localizer["Address"] : </strong> @Model.Address
+            </MudItem>
+            
+            <MudItem xs="12" md="8">
+                <strong>@_localizer["AdditionalInfo"] : </strong> @Model.AdditionalInfo
+            </MudItem>
+
+        </MudGrid>
+   </MudCardContent>
+</MudCard>
+
+
+

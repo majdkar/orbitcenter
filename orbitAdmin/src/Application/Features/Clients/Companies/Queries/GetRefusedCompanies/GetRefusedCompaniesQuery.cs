@@ -61,7 +61,6 @@ namespace SchoolV01.Application.Features.Clients.Companies.Queries.GetRefusedCom
                     Status = e.Client.Status,
                     CountryId = e.CountryId,
                     Country = e.Country,
-                    CityName = e.CityName,
                     CityId = e.CityId,
                     City = e.City,
        

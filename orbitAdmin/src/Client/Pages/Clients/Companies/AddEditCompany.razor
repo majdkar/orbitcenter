@@ -1,0 +1,201 @@
+﻿@page "/company-details/{CompanyId:int}"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditCompany> _localizer
+@using SchoolV01.Shared.Constants.Clients
+@using SchoolV01.Client
+
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+<MudGrid>
+    <MudItem xs="12" sm="12" md="12">
+        <EditForm Model="@AddEditCompanyModel" OnValidSubmit="SaveAsync">
+            <FluentValidationValidator @ref="_fluentValidationValidator" />
+            <MudCard Elevation="4">
+                <MudCardHeader>
+                    @if (AddEditCompanyModel.Id == 0)
+                    {
+                       
+                            <MudText Typo="Typo.h6">
+                                <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+                                @_localizer["Add Company"]
+                            </MudText>
+                        
+                        
+                    }
+                    else
+                    {
+                        
+                            <MudText Typo="Typo.h6">
+                                <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
+                                @_localizer["Update Company"]
+                            </MudText>
+                        
+                       
+                    }
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudGrid>
+                        <MudItem xs="12" sm="12" md="9">
+                            <MudGrid>
+                                <MudItem xs="12" md="4">
+                                    <MudTextField Required For="@(() => AddEditCompanyModel.NameAr)" @bind-Value="AddEditCompanyModel.NameAr" Label="@_localizer["NameAr"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+                                <MudItem xs="12" md="4">
+                                    <MudTextField  For="@(() => AddEditCompanyModel.NameEn)" @bind-Value="AddEditCompanyModel.NameEn" Label="@_localizer["NameEn"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+                                <MudItem xs="12" md="4">
+                                    <MudTextField Required For="@(() => AddEditCompanyModel.Phone)" @bind-Value="AddEditCompanyModel.Phone" Label="@_localizer["Phone"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+
+                                <MudItem xs="12" md="4">
+                                    <MudTextField  For="@(() => AddEditCompanyModel.Email)" @bind-Value="AddEditCompanyModel.Email" Label="@_localizer["Email"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+                                <MudItem xs="12" md="4">
+                                    <MudTextField Required For="@(() => _registerUserModel.Password)" InputType="@_passwordInput" Adornment="Adornment.End" AdornmentIcon="@_passwordInputIcon" OnAdornmentClick="TogglePasswordVisibility" @bind-Value="_registerUserModel.Password" Label="@_localizer["Password"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+                                <MudItem xs="12" md="4">
+                                    <MudTextField Required For="@(() => _registerUserModel.ConfirmPassword)" InputType="@_passwordInput" Adornment="Adornment.End" AdornmentIcon="@_passwordInputIcon" @bind-Value="_registerUserModel.ConfirmPassword" OnAdornmentClick="TogglePasswordVisibility" Label="@_localizer["ConfirmPassword"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+
+
+                                 <MudItem xs="12" md="4">
+                                     <MudAutocomplete T="int" Label="@_localizer["Country"]"
+                                        Value="@AddEditCompanyModel.CountryId"
+                                                         ValueChanged="((e)=>OnCountryChanged(e))" ResetValueOnEmptyText="true"
+                                        SearchFunc="@SearchCountrys"
+                                                         ToStringFunc="CountryToString" OffsetY="true" Variant="MudBlazor.Variant.Outlined" />
+                                 </MudItem>
+
+
+                                  <MudItem xs="12" md="4">
+                                     <MudAutocomplete T="int" Label="@_localizer["City"]" Strict="true"
+                                                         @bind-Value="@AddEditCompanyModel.CityId" ResetValueOnEmptyText="true"
+                                                      SearchFunc="@SearchCitys"
+                                                         ToStringFunc="CityToString" OffsetY="true" Variant="MudBlazor.Variant.Outlined" />
+                                 </MudItem>
+                           
+                               
+                                <MudItem xs="12" md="4">
+                                    <MudDatePicker @bind-Date="AddEditCompanyModel.LicenseIssuingDate" Culture="System.Globalization.CultureInfo.InvariantCulture" DateFormat="d/MM/yyyy" Label="@_localizer["LicenseIssuingDate"]" DisableToolbar="true" AutoClose="true" Elevation="12" InputVariant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+
+                                <MudItem xs="12" md="4">
+                                    <MudTextField For="@(() => AddEditCompanyModel.ResponsiblePersonNameAr)" @bind-Value="AddEditCompanyModel.ResponsiblePersonNameAr" Label="@_localizer["ResponsiblePersonNameAr"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+                                <MudItem xs="12" md="4">
+                                    <MudTextField For="@(() => AddEditCompanyModel.ResponsiblePersonNameEn)" @bind-Value="AddEditCompanyModel.ResponsiblePersonNameEn" Label="@_localizer["ResponsiblePersonNameEn"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+                                <MudItem xs="12" md="4">
+                                    <MudTextField For="@(() => AddEditCompanyModel.ResponsiblePersonMobile)" @bind-Value="AddEditCompanyModel.ResponsiblePersonMobile" Label="@_localizer["ResponsiblePersonMobile"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+
+                                <MudItem xs="12" md="6">
+                                    <MudTextField For="@(() => AddEditCompanyModel.Website)" @bind-Value="AddEditCompanyModel.Website" Label="@_localizer["Website"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+                                <MudItem xs="12" md="6">
+                                    <MudTextField For="@(() => AddEditCompanyModel.Address)" @bind-Value="AddEditCompanyModel.Address" Label="@_localizer["Address"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+                             
+
+                                <MudItem xs="12" md="12">
+                                    <MudTextField Lines="2" For="@(() => AddEditCompanyModel.AdditionalInfo)" @bind-Value="AddEditCompanyModel.AdditionalInfo" Label="@_localizer["AdditionalInfo"]" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+
+                             
+                            </MudGrid>
+                        </MudItem>
+                        <MudItem xs="12" md="3">
+                            @*upload company images*@
+                            <MudCard Elevation="4" Class="mb-5">
+                                <MudCardHeader>
+                                    <CardHeaderAvatar>
+                                        <MudAvatar Color="Color.Secondary">
+                                            <MudIcon Icon="@Icons.Material.Outlined.InsertPhoto" />
+                                        </MudAvatar>
+                                    </CardHeaderAvatar>
+                                    <CardHeaderContent>
+                                        <MudText Typo="Typo.body1">@_localizer["Upload Image"]</MudText>
+                                    </CardHeaderContent>
+                                </MudCardHeader>
+                                @if (!string.IsNullOrEmpty(AddEditCompanyModel.CompanyImageUrl))
+                                {
+                                    <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@(AddEditCompanyModel.CompanyImageUrl.Replace('\\','/'))" Height="150" />
+                                }
+                                <MudCardActions>
+                                    <InputFile id="imageInput1" OnChange="UploadCompanyImage" hidden />
+                                    <div>
+                                        <MudButton HtmlTag="label"
+                                                   Variant="MudBlazor.Variant.Text"
+                                                   Color="Color.Primary"
+                                                   Size="Size.Small"
+                                                   StartIcon="@Icons.Material.Filled.CloudUpload"
+                                                   for="imageInput1">
+                                            @_localizer["Upload"]
+                                        </MudButton>
+                                        @if (!string.IsNullOrEmpty(AddEditCompanyModel.CompanyImageUrl))
+                                        {
+                                            <MudButton Variant="MudBlazor.Variant.Text"
+                                                   Color="Color.Info"
+                                                   StartIcon="@Icons.Material.Filled.RemoveRedEye"
+                                                   Size="Size.Small"
+                                                   Link="@(AddEditCompanyModel.CompanyImageUrl)" Target="_blank">
+                                                @_localizer["View"]
+                                            </MudButton>
+                                            <MudButton Variant="MudBlazor.Variant.Text"
+                                                   Color="Color.Error"
+                                                   StartIcon="@Icons.Material.Filled.Delete"
+                                                   Size="Size.Small"
+                                                   OnClick="DeleteCompanyImageAsync">
+                                                @_localizer["Delete"]
+                                            </MudButton>
+                                        }
+                                    </div>
+                                </MudCardActions>
+                            </MudCard>
+                        </MudItem>
+                    </MudGrid>
+
+                </MudCardContent>
+                <MudCardActions Class="d-flex justify-end flex-grow-1 gap-4 mr-2">
+                    <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" OnClick="RedirectToCompaniesPage">@_localizer["Cancel"]</MudButton>
+                            @if (AddEditCompanyModel.Id != 0)
+                        {
+                            <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" ButtonType="MudBlazor.ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Secondary">
+                                 @if (_processing)
+                                {
+                                    <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                                    <MudText Class="ms-2">@_localizer["Processing"]</MudText>
+                                }
+                                else
+                                {
+                                    @_localizer["Update"]
+                                }
+                            </MudButton>
+                        }
+                        else
+                        {
+                            <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" ButtonType="MudBlazor.ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Success">
+                                 @if (_processing)
+                                {
+                                    <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                                    <MudText Class="ms-2">@_localizer["Processing"]</MudText>
+                                }
+                                else
+                                {
+                                    @_localizer["Save"]
+                                }
+                            </MudButton>
+
+                        }
+                </MudCardActions>
+            </MudCard>
+        </EditForm>
+    </MudItem>
+
+</MudGrid>
+}
+
+

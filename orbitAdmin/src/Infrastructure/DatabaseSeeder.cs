@@ -11,6 +11,14 @@ using SchoolV01.Shared.Constants.Permission;
 using SchoolV01.Shared.Constants.Role;
 using SchoolV01.Shared.Constants.User;
 using SchoolV01.Infrastructure.Helpers;
+using System.IO;
+using SchoolV01.Domain.Entities.GeneralSettings;
+using System.Collections.Generic;
+using System.Text.Json;
+using SchoolV01.Application.Interfaces.Repositories;
+using SchoolV01.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace SchoolV01.Infrastructure
 {
@@ -21,15 +29,19 @@ namespace SchoolV01.Infrastructure
         private readonly BlazorHeroContext _db;
         private readonly UserManager<BlazorHeroUser> _userManager;
         private readonly RoleManager<BlazorHeroRole> _roleManager;
+        private readonly string JsonFileName = Path.Combine("file", "Countries.json");
+        private readonly IUnitOfWork<int> _unitOfWork;
 
         public DatabaseSeeder(
             UserManager<BlazorHeroUser> userManager,
+            IUnitOfWork<int> unitOfWork,
             RoleManager<BlazorHeroRole> roleManager,
             BlazorHeroContext db,
             ILogger<DatabaseSeeder> logger,
             IStringLocalizer<DatabaseSeeder> localizer)
         {
             _userManager = userManager;
+            _unitOfWork = unitOfWork;
             _roleManager = roleManager;
             _db = db;
             _logger = logger;
@@ -38,8 +50,12 @@ namespace SchoolV01.Infrastructure
 
         public void Initialize()
         {
+            AddRoles();
+
             AddAdministrator();
             AddBasicUser();
+            AddData();
+
             _db.SaveChanges();
         }
 
@@ -123,6 +139,50 @@ namespace SchoolV01.Infrastructure
                     await _userManager.AddToRoleAsync(basicUser, RoleConstants.BasicRole);
                     _logger.LogInformation(_localizer["Seeded User with Basic Role."]);
                 }
+            }).GetAwaiter().GetResult();
+        }
+
+
+        private void AddData()
+        {
+            Task.Run(async () =>
+            {
+                var countryInDb = await _unitOfWork.Repository<Country>().Entities.AnyAsync();
+                if (!countryInDb)
+                {
+                    using var jsonFileReader = File.OpenText(JsonFileName);
+                    JsonSerializerOptions options = new()
+                    {
+                        PropertyNameCaseInsensitive = true
+                    };
+                    var countries = JsonSerializer.Deserialize<List<Country>>(jsonFileReader.ReadToEnd(),
+                        options);
+
+                    await _unitOfWork.Repository<Country>().AddRangeAsync(countries);
+                }
+            }).GetAwaiter().GetResult();
+
+
+        }
+
+
+        private void AddRoles()
+        {
+            Task.Run(async () =>
+            {
+                var adminRoleInDb = await _roleManager.Roles.ToListAsync();
+                //if (!adminRoleInDb.Any())
+                {
+                    foreach (var item in RoleConstants.RoleList)
+                    {
+                        if (!adminRoleInDb.Any(role => role.Name == item))
+                        {
+                            var role = new BlazorHeroRole(item, item);
+                            await _roleManager.CreateAsync(role);
+                        }
+                    }
+                }
+
             }).GetAwaiter().GetResult();
         }
     }

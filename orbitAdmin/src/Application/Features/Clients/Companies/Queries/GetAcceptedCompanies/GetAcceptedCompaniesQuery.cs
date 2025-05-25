@@ -33,7 +33,7 @@ namespace SchoolV01.Application.Features.Clients.Companies.Queries.GetAcceptedCo
             PhoneNumber = phoneNumber;
             PageNumber = pageNumber;
             PageSize = pageSize;
-            CountryId = CountryId;
+            CountryId = countryId;
             SearchString = searchString;
             if (!string.IsNullOrWhiteSpace(orderBy))
             {
@@ -62,7 +62,6 @@ namespace SchoolV01.Application.Features.Clients.Companies.Queries.GetAcceptedCo
                     Client = e.Client,
                     CountryId = e.CountryId,
                     Country = e.Country,
-                    CityName = e.CityName,
                     CityId = e.CityId,
                     City = e.City,
                    
@@ -86,7 +85,6 @@ namespace SchoolV01.Application.Features.Clients.Companies.Queries.GetAcceptedCo
                 {
                     var data = await _unitOfWork.Repository<Company>().Entities
                        .Specify(companyFilterSpec)
-                       .OrderByDescending(x => x.IsFeatured)//true first
                        .Select(expression)
                        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
                     return data;
@@ -96,7 +94,6 @@ namespace SchoolV01.Application.Features.Clients.Companies.Queries.GetAcceptedCo
                     var ordering = string.Join(",", request.OrderBy); // of the form fieldname [ascending|descending], ...
                     var data = await _unitOfWork.Repository<Company>().Entities
                        .Specify(companyFilterSpec)
-                       .OrderByDescending(x => x.IsFeatured) // require system.linq.dynamic.core
                        .Select(expression)
                        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
                     return data;

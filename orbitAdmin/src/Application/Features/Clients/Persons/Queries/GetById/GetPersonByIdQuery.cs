@@ -7,6 +7,9 @@ using SchoolV01.Shared.Wrapper;
 using System.Threading;
 using System.Threading.Tasks;
 using SchoolV01.Application.Features.Clients.Persons.Queries.GetAll;
+using SchoolV01.Application.Specifications.Clients;
+using System.Linq;
+using SchoolV01.Application.Extensions;
 
 namespace SchoolV01.Application.Features.Clients.Persons.Queries.GetById
 {
@@ -27,11 +30,12 @@ namespace SchoolV01.Application.Features.Clients.Persons.Queries.GetById
 
         public async Task<Result<GetAllPersonsResponse>> Handle(GetPersonByIdQuery query, CancellationToken cancellationToken)
         {
-            //var personByIdFilterSpec = new PersonByIdFilterSpecification(query.Id);
+            var personByIdFilterSpec = new PersonByIdFilterSpecification(query.Id);
             //var person = await _unitOfWork.Repository<Person>().Entities
             //    .Specify(personByIdFilterSpec)
             //    .FirstOrDefaultAsync(cancellationToken);
-            var person = await _unitOfWork.Repository<Person>().Entities.FirstOrDefaultAsync(x=>x.Id==query.Id && !x.Deleted);
+            var person = await _unitOfWork.Repository<Person>().Entities.Specify(personByIdFilterSpec)
+             .FirstOrDefaultAsync(x=>x.Id==query.Id && !x.Deleted);
             if (person == null)
             {
                 return await Result<GetAllPersonsResponse>.FailAsync("Not Found");

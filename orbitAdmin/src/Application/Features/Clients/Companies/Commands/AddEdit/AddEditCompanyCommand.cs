@@ -25,8 +25,8 @@ namespace SchoolV01.Application.Features.Clients.Companies.Commands.AddEdit
 
         public string NameEn { get; set; }
 
-        public int CountryId { get; set; } = 0;
-        public int CityId { get; set; } = 0;
+        public int CountryId { get; set; }
+        public int CityId { get; set; } 
 
         public string Phone { get; set; }
 

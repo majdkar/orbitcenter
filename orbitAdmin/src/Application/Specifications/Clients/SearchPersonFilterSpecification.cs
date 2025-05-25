@@ -18,17 +18,23 @@ namespace SchoolV01.Application.Specifications.Clients
             {
                 Criteria = p => 
                                 (string.IsNullOrEmpty(request.Email) ? true : p.Email.Contains(request.Email)) &&
-                                
+                                (string.IsNullOrEmpty(request.PhoneNumber) ? true : p.Phone.Contains(request.PhoneNumber)) &&
+                                (string.IsNullOrEmpty(request.PersonName) ? true : p.FullNameAr.Contains(request.PersonName) ||
+                                (string.IsNullOrEmpty(request.PersonName) ? true : p.FullNameEn.Contains(request.PersonName))) &&
+
                                 (
-                                p.Email.Contains(request.SearchString) 
-                             ) &&
+                                p.Email.Contains(request.SearchString) || p.Phone.Contains(request.PhoneNumber) || p.FullNameEn.Contains(request.PersonName) || p.FullNameAr.Contains(request.PersonName))
+                              &&
                                 !p.Deleted;
             }
             else
             {
                 Criteria = p => 
                                 (string.IsNullOrEmpty(request.Email) ? true : p.Email.Contains(request.Email)) &&
-                               
+                                (string.IsNullOrEmpty(request.PhoneNumber) ? true : p.Phone.Contains(request.PhoneNumber)) &&
+                                (string.IsNullOrEmpty(request.PersonName) ? true : p.FullNameAr.Contains(request.PersonName) ||
+                                (string.IsNullOrEmpty(request.PersonName) ? true : p.FullNameEn.Contains(request.PersonName))) &&
+
                                 !p.Deleted;
             }
         }

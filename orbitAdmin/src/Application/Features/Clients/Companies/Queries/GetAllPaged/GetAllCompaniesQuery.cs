@@ -43,7 +43,6 @@ namespace SchoolV01.Application.Features.Clients.Companies.Queries.GetAllPaged
          
                     CountryId = e.CountryId,
                     Country = e.Country,
-                    CityName = e.CityName,
                     CityId = e.CityId,
                     City = e.City,
                     Phone = e.Phone,

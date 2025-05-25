@@ -1,0 +1,189 @@
+﻿@page "/companies"
+@attribute [Authorize(Policy = Permissions.Companies.View)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CompaniesList> _localizer
+@using SchoolV01.Application.Features.Clients.Companies.Queries.GetAllPaged;
+@using SchoolV01.Shared.Constants.Clients
+
+<style>
+    .mud-table-container {
+        overflow: auto;
+    }
+</style>
+
+
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudExpansionPanel Text=@_localizer["Advanced Search"] IsExpanded="true" Class="mb-2" Style="@($"background-color:{Colors.Blue.Lighten5}")">
+        <MudGrid>
+            <MudItem xs="12" md="4">
+                <MudTextField For="@(() => CompanyName)" @bind-Value="CompanyName" Label="@_localizer["Name"]" Variant="Variant.Outlined" />
+            </MudItem>
+            <MudItem xs="12" md="4">
+                <MudTextField For="@(() => PhoneNumber)" @bind-Value="PhoneNumber" Label="@_localizer["Phone Number"]" Variant="Variant.Outlined" />
+            </MudItem>
+            <MudItem xs="12" md="4">
+                <MudTextField For="@(() => Email)" @bind-Value="Email" Label="@_localizer["Email"]" Variant="Variant.Outlined" />
+            </MudItem>
+            <MudItem xs="12" md="4">
+                <MudSelect @bind-Value="@CountryId" T="int" Label="@_localizer["Country"]" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                    <MudSelectItem Value="0">N/A</MudSelectItem>
+                    @foreach (var value in _Countrys)
+                    {
+                        <MudSelectItem T="int" Value="@value.Id">@value.NameAr</MudSelectItem>
+                    }
+                </MudSelect>
+            </MudItem>
+            <MudItem xs="12" md="4">
+            </MudItem>      <MudItem xs="12" md="4">
+                <MudButton DisableElevation Variant="Variant.Filled" OnClick="@(() => OnAdvancedSearch())" Color="Color.Success" Style="margin-inline:1em;">@_localizer["Search"]</MudButton>
+
+            </MudItem>
+            <MudSpacer />
+        </MudGrid>
+    </MudExpansionPanel>
+
+    <MudTable RowsPerPage="100" Elevation="25" T="GetAllCompaniesResponse" ServerData="ServerReload" Hover="true" Dense="@_dense" Bordered="@_bordered" Striped="@_striped" @ref="_table">
+        <ToolBarContent>
+            <div class="justify-center mud-text-align-center">
+                @if (_canCreateCompanies)
+                {
+                    @if (Status == ClientStatusEnum.Accepted.ToString())
+                    {
+                        <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => RedirectToAddEditPage(0))" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Surface" Style="margin-left: 5px;">@_localizer["Create"]</MudButton>
+                    }
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="@(() => OnSearch(""))" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary" Style="margin-left: 5px;">@_localizer["Reload"]</MudButton>
+                    @if (_canExportCompanies)
+                    {
+                        <MudButton DisableElevation Variant="Variant.Filled" OnClick="ExportToExcel" StartIcon="@Icons.Custom.FileFormats.FileExcel" IconColor="Color.Secondary" Color="Color.Surface" Style="margin-left: 5px;">@_localizer["Export"]</MudButton>
+                    }
+                }
+                else
+                {
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="@(() => OnSearch(""))" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary" Style="margin-left: 5px;">@_localizer["Reload"]</MudButton>
+                    @if (_canExportCompanies)
+                    {
+                        <MudButton DisableElevation Variant="Variant.Filled" OnClick="ExportToExcel" StartIcon="@Icons.Custom.FileFormats.FileExcel" IconColor="Color.Secondary" Color="Color.Surface" Style="margin-left: 5px;">@_localizer["Export"]</MudButton>
+                    }
+                }
+            </div>
+            <MudSpacer />
+           @* @if (_canSearchCompanies)
+            {
+                <MudTextField T="string" ValueChanged="@(s=>OnSearch(s))" Placeholder="@_localizer["Search"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 mb-3"></MudTextField>
+            }*@
+        </ToolBarContent>
+        <HeaderContent>
+            @*@if (ActivityCode == CompanyActivityCodeEnum.supplier.ToString())
+            {
+
+            }*@
+                            <MudTh><MudTableSortLabel T="GetAllCompaniesResponse" SortLabel="NameAr">@_localizer["NameAr"]</MudTableSortLabel></MudTh>
+
+            <MudTh><MudTableSortLabel T="GetAllCompaniesResponse" SortLabel="Phone">@_localizer["Phone"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllCompaniesResponse" SortLabel="Email">@_localizer["Email"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllCompaniesResponse" SortLabel="CityId">@_localizer["City"]</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllCompaniesResponse" SortLabel="Country">@_localizer["Country"]</MudTableSortLabel></MudTh>
+
+            <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="NameAr" @onclick="@(() => _navigationManager.NavigateTo($"/company-details/{context.Id}/supplier"))">
+                <MudHighlighter Text="@context.NameAr" HighlightedText="@_searchString" />
+            </MudTd>
+     
+            <MudTd DataLabel="Phone">
+                <MudHighlighter Text="@context.Phone" HighlightedText="@_searchString" />
+            </MudTd>
+            <MudTd DataLabel="Email">
+                <MudHighlighter Text="@context.Email" HighlightedText="@_searchString" />
+            </MudTd>
+            <MudTd DataLabel="City">
+                <MudHighlighter Text="@context.City.NameEn" HighlightedText="@_searchString" />
+                 </MudTd>
+
+         
+       
+         
+        
+            <MudTd DataLabel="Country">
+                <MudHighlighter Text="@context.Country.NameEn" HighlightedText="@_searchString" />
+                
+            </MudTd>
+
+            <MudTd DataLabel="Actions" Style="text-align: right">
+                @if (_canEditCompanies || _canDeleteCompanies)
+                {
+                    @if (_canViewCompanies)
+                    {
+                        <MudTooltip Text="@_localizer["Details"]">
+                            <MudIconButton Icon="@Icons.Material.Filled.Info" @onclick="@(() => _navigationManager.NavigateTo($"/company-details/{context.Id}/supplier"))" Color="Color.Tertiary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>
+                    }
+                    @if (_canEditCompanies && Status != ClientStatusEnum.Refused.ToString())
+                    {
+                        <MudTooltip Text="@_localizer["Edit"]">
+
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit" @onclick="@(() => RedirectToAddEditPage(@context.Id))" Color="Color.Primary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>
+                    }
+                    @if (_canDeleteCompanies)
+                    {
+
+                        <MudTooltip Text="@_localizer["Delete"]">
+
+                            <MudIconButton Icon="@Icons.Material.Filled.Delete" @onclick="@(() => Delete(@context.Id))" Color="Color.Secondary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px"/>
+                        </MudTooltip>
+                    }
+                    @if (Status == ClientStatusEnum.Pending.ToString())
+                    {
+                        <MudTooltip Text="@_localizer["Accept"]">
+                            <MudIconButton  Icon="@Icons.Material.Filled.Check" @onclick="@(() => Accept(@context.Id))" Color="Color.Success" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>
+                        <MudTooltip Text="@_localizer["Refuse"]">
+                            <MudIconButton Icon="@Icons.Material.Filled.Cancel"  @onclick="@(() => Refuse(@context.Id))" Color="Color.Error" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>
+                    }
+                    @if (Status == ClientStatusEnum.Accepted.ToString())
+                    {
+                        @*@if(ActivityTypeCode != "client")
+                        {
+                            <MudTooltip Text="@_localizer["Profile"]">
+                                <MudIconButton Icon="@Icons.Filled.BatchPrediction" @onclick="@(() => RedirectToProfilePage(@context.Id,@context.NameAr))" Color="Color.Primary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                            </MudTooltip>
+                        }*@
+                       @*  <MudTooltip Text="@_localizer["Details"]">
+                            <MudIconButton Icon="@Icons.Filled.Info" @onclick="@(() => RedirectToFinancialEventsPage(@context.Id,@context.ClientId,@context.NameAr))" Color="Color.Primary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>*@
+                    }
+
+            }
+                else
+                {
+                    <MudButton Variant="Variant.Filled"
+                       DisableElevation="true"
+                       StartIcon="@Icons.Material.Filled.DoNotTouch"
+                       IconColor="Color.Secondary"
+                       Size="Size.Small"
+                       Color="Color.Surface">
+                        @_localizer["No Allowed Actions"]
+                    </MudButton>
+                }
+
+
+            </MudTd>
+           
+        </RowTemplate>
+        <FooterContent>
+            <MudSwitch T="bool" @bind-Checked="@_dense" Color="Color.Secondary" Style="margin-left: 5px;">@_localizer["Dense"]</MudSwitch>
+            <MudSwitch T="bool" @bind-Checked="@_striped" Color="Color.Tertiary" Style="margin-left: 5px;">@_localizer["Striped"]</MudSwitch>
+            <MudSwitch T="bool" @bind-Checked="@_bordered" Color="Color.Warning" Style="margin-left: 5px;">@_localizer["Bordered"]</MudSwitch>
+        </FooterContent>
+        <PagerContent>
+            <TablePager />
+        </PagerContent>
+    </MudTable>
+}

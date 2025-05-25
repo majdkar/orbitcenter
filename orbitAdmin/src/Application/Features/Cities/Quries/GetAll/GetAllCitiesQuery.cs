@@ -40,7 +40,7 @@ namespace SchoolV01.Application.Features.Cities.Queries
                 CountryId = e.CountryId,
                 CountryAr = e.Country.NameAr,
                 CountryEn = e.Country.NameEn,
-                IsActive = e.IsActive
+                IsActive = e.IsActive,
             };
 
             Func<Task<List<GetAllCitiesResponse>>> getAllCities = () => _unitOfWork.Repository<City>().Entities

@@ -63,7 +63,6 @@ namespace SchoolV01.Application.Features.Clients.Companies.Queries.GetPendingCom
                     Client = e.Client,
                     CountryId = e.CountryId,
                     Country = e.Country,
-                    CityName = e.CityName,
                     CityId = e.CityId,
                     City = e.City,
                     

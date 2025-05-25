@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolV01.Infrastructure.Contexts;
 
@@ -11,9 +12,11 @@ using SchoolV01.Infrastructure.Contexts;
 namespace SchoolV01.Infrastructure.Migrations
 {
     [DbContext(typeof(BlazorHeroContext))]
-    partial class BlazorHeroContextModelSnapshot : ModelSnapshot
+    [Migration("20250525182612_addclient")]
+    partial class addclient
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -863,6 +866,9 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Property<int?>("CityId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CityName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ClientId")
                         .HasColumnType("int");
 
@@ -889,6 +895,9 @@ namespace SchoolV01.Infrastructure.Migrations
 
                     b.Property<string>("GeoLocation")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsFeatured")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");

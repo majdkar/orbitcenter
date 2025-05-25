@@ -1,0 +1,62 @@
+﻿@attribute [Authorize(Policy = Permissions.Companies.View)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditCompany> _localizer
+
+
+<MudCard Elevation="4">
+    <MudCardContent>
+        <MudGrid>
+            <MudItem xs="12" md="6">
+                <strong>@_localizer["NameAr"] : </strong> @Model.NameAr
+            </MudItem>
+            <MudItem xs="12" md="6">
+                <strong>@_localizer["NameEn"] : </strong> @Model.NameEn
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["ResponsiblePersonNameAr"] : </strong> @Model.ResponsiblePersonNameAr
+            </MudItem>
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["ResponsiblePersonNameEn"] : </strong> @Model.ResponsiblePersonNameEn
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["ResponsiblePersonMobile"] : </strong> @Model.ResponsiblePersonMobile
+            </MudItem>
+            
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Email"] : </strong> @Model.Email
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Phone"] : </strong> @Model.Phone
+            </MudItem>
+
+             <MudItem xs="12" md="4">
+                <strong>@_localizer["Country"] : </strong> @(IsArabic ? Model.Country?.NameAr : Model.Country?.NameEn)
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["City"] : </strong>  @(IsArabic ? Model.City?.NameAr : Model.City?.NameEn)
+            </MudItem>
+            
+             <MudItem xs="12" md="4">
+                <strong>@_localizer["LicenseIssuingDate"] : </strong> @Model.LicenseIssuingDate?.ToShortDateString()
+            </MudItem>
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Website"] : </strong> @Model.Website
+            </MudItem>
+
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Email"] : </strong> @Model.Email
+            </MudItem>
+
+            <MudItem xs="12" md="8">
+                <strong>@_localizer["Address"] : </strong> @Model.Address
+            </MudItem>
+              <MudItem xs="12" md="12">
+                <strong>@_localizer["AdditionalInfo"] : </strong> @Model.AdditionalInfo
+            </MudItem>
+
+        </MudGrid>
+   </MudCardContent>
+</MudCard>

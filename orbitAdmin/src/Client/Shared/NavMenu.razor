@@ -63,8 +63,49 @@
             </MudNavGroup>
         </MudNavGroup>
     </AuthorizeView>
-  
+
+    @if (_canViewCountrys || _canViewCities)
+    {
+        <MudNavGroup Title="@_localizer["GeneralSettings Management"]" Icon="@Icons.Material.Filled.Settings">
+            @if (_canViewCountrys)
+            {
+                <MudNavLink Href="/General-Settings/Countries" Match="NavLinkMatch.Prefix">
+                    @_localizer["Countries"]
+                </MudNavLink>
+            }
+
+            @if (_canViewCities)
+            {
+                <MudNavLink Href="/General-Settings/Cities" Match="NavLinkMatch.Prefix">
+                    @_localizer["Cities"]
+                </MudNavLink>
+            }
+   
+       
+
+        </MudNavGroup>
+    }
     
+      @if (_canViewPersons || _canViewCompanies)
+        {
+         
+            <MudNavGroup Title="@_localizer["Clients Management"]" Icon="@Icons.Material.Outlined.People">
+                @if (_canViewPersons)
+                {
+                    <MudNavLink Href="/individuals">
+                        @_localizer["Individuals"]
+                    </MudNavLink>
+                }
+
+            @if (_canViewCompanies)
+            {
+                <MudNavLink Href="/companies" Match="NavLinkMatch.All">
+                    @_localizer["Companies"]
+                </MudNavLink>
+            }
+        </MudNavGroup>
+            
+        }
     @if (_isAdmin)
     {
 
@@ -137,7 +178,10 @@
     private bool _canViewChat;
     private bool _canViewProducts;
     private bool _canViewProductCategories;
-
+    private bool _canViewCities;
+    private bool _canViewCountrys;
+    private bool _canViewCompanies;
+    private bool _canViewPersons;
     @*/*s0012s*/*@
     private bool _canViewOwners;
 
@@ -161,6 +205,12 @@
         _canViewProducts = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Products.View)).Succeeded;
         _canViewProductCategories = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.ProductCategories.View)).Succeeded;
         _canViewWebSiteManagement = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.WebSiteManagement.View)).Succeeded;
+        _canViewCities = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Cities.View)).Succeeded;
+        _canViewCountrys = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Countries.View)).Succeeded;
+        _canViewPersons = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Person.View)).Succeeded;
+        _canViewCompanies = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Companies.View)).Succeeded;
+        
+
         _currentUser = await _authenticationManager.CurrentUser();
         _isAdmin = _currentUser.IsInRole("Administrator");
 

@@ -19,8 +19,6 @@ namespace SchoolV01.Domain.Entities.Clients
         [ForeignKey("Country")]
         public int? CountryId { get; set; }
         public virtual Country Country { get; set; }
-        public  bool IsFeatured { get; set; }
-        public string? CityName { get; set; }
         [ForeignKey("City")]
         public int? CityId { get; set; }
         public virtual City City { get; set; }
