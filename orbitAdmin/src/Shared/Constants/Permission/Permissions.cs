@@ -24,6 +24,14 @@ namespace SchoolV01.Shared.Constants.Permission
             public const string Edit = "Permissions.ProductCategories.Edit";
             public const string Delete = "Permissions.ProductCategories.Delete";
         }
+              
+        public static class Cities
+        {
+            public const string View = "Permissions.Cities.View";
+            public const string Create = "Permissions.Cities.Create";
+            public const string Edit = "Permissions.Cities.Edit";
+            public const string Delete = "Permissions.Cities.Delete";
+        }
              
         public static class Products
         {
@@ -31,6 +39,31 @@ namespace SchoolV01.Shared.Constants.Permission
             public const string Create = "Permissions.Products.Create";
             public const string Edit = "Permissions.Products.Edit";
             public const string Delete = "Permissions.Products.Delete";
+        }
+                   
+        public static class Companies
+        {
+            public const string View = "Permissions.Companies.View";
+            public const string Create = "Permissions.Companies.Create";
+            public const string Edit = "Permissions.Companies.Edit";
+            public const string Delete = "Permissions.Companies.Delete";
+        }
+                       
+        public static class Person
+        {
+            public const string View = "Permissions.Person.View";
+            public const string Create = "Permissions.Person.Create";
+            public const string Edit = "Permissions.Person.Edit";
+            public const string Delete = "Permissions.Person.Delete";
+        }
+
+                              
+        public static class Countries
+        {
+            public const string View = "Permissions.Countries.View";
+            public const string Create = "Permissions.Countries.Create";
+            public const string Edit = "Permissions.Countries.Edit";
+            public const string Delete = "Permissions.Countries.Delete";
         }
 
 

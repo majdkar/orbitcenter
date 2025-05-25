@@ -1,0 +1,36 @@
+﻿using SchoolV01.Application.Features.Clients.Persons.Queries.GetAllPaged;
+using SchoolV01.Application.Specifications.Base;
+using SchoolV01.Domain.Contracts;
+using SchoolV01.Domain.Entities.Clients;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SchoolV01.Application.Specifications.Clients
+{
+    internal class SearchPersonFilterSpecification : HeroSpecification<Person>
+    {
+        public SearchPersonFilterSpecification(GetAllPagedPersonsQuery request)
+        {
+            if (!string.IsNullOrEmpty(request.SearchString))
+            {
+                Criteria = p => 
+                                (string.IsNullOrEmpty(request.Email) ? true : p.Email.Contains(request.Email)) &&
+                                
+                                (
+                                p.Email.Contains(request.SearchString) 
+                             ) &&
+                                !p.Deleted;
+            }
+            else
+            {
+                Criteria = p => 
+                                (string.IsNullOrEmpty(request.Email) ? true : p.Email.Contains(request.Email)) &&
+                               
+                                !p.Deleted;
+            }
+        }
+    }
+}

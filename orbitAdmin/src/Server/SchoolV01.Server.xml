@@ -382,11 +382,306 @@
             <param name="languageCode"></param>
             <returns>Status 200 OK</returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.GetAll">
+            <summary>
+            Get All Companies
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.GetPagedClientCompanies(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get Paged Client Companies
+            </summary>
+            <param name="companyName"></param>
+            <param name="email"></param>
+            <param name="phoneNumber"></param>
+            <param name="CountryId"></param>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.GetAcceptedCompanies(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get Accepted Companies
+            </summary>
+            <param name="companyName"></param>
+            <param name="email"></param>
+            <param name="phoneNumber"></param>
+            <param name="pageNumber"></param>
+            <param name="CountryId"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.GetPendingCompanies(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get Pending Companies
+            </summary>
+            <param name="companyName"></param>
+            <param name="email"></param>
+            <param name="phoneNumber"></param>
+            <param name="pageNumber"></param>
+            <param name="CountryId"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.GetRefusedCompanies(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get Refused Companies 
+            </summary>
+            <param name="companyName"></param>
+            <param name="email"></param>
+            <param name="phoneNumber"></param>
+            <param name="pageNumber"></param>
+            <param name="CountryId"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.GetById(System.Int32)">
+            <summary>
+            Get Company By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.GetByClientId(System.Int32)">
+            <summary>
+            Get Company By ClientId
+            </summary>
+            <param name="clientId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.Post(SchoolV01.Application.Features.Clients.Companies.Commands.AddEdit.AddEditCompanyCommand)">
+            <summary>
+            Add/Edit a Company
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.Delete(System.Int32)">
+            <summary>
+            Delete a Company
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.Accept(System.Int32)">
+            <summary>
+            Accept a Company
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.Refuse(System.Int32)">
+            <summary>
+            Refuse a Company
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CompaniesManagement.CompaniesController.Export(System.String)">
+            <summary>
+            Search Companies and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.GetAllPaged(System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Persons Paged Result
+            </summary>
+            <param name="personName"></param>
+            <param name="email"></param>
+            <param name="phoneNumber"></param>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.GetByClientId(System.Int32)">
+            <summary>
+            Get Person By ClientId
+            </summary>
+            <param name="clientId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.GetAll">
+            <summary>
+            Get All Persons
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.GetById(System.Int32)">
+            <summary>
+            Get Person By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.Post(SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit.AddEditPersonCommand)">
+            <summary>
+            Add/Edit a Person
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.Delete(System.Int32)">
+            <summary>
+            Delete a Person
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.Export(System.String)">
+            <summary>
+            Search Persons and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.DashboardController.GetDataAsync(System.Int32)">
             <summary>
             Get Dashboard Data
             </summary>
             <returns>Status 200 OK </returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CitiesController.GetAll">
+            <summary>
+            Get All Cities
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CitiesController.GetById(System.Int32)">
+            <summary>
+            Get a City By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 Ok</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CitiesController.Post(SchoolV01.Application.Features.Cities.Commands.AddEditCityCommand)">
+            <summary>
+            Create/Update a City
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CitiesController.Delete(System.Int32)">
+            <summary>
+            Delete a City
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CitiesController.Export(System.String)">
+            <summary>
+            Search Cities and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CountriesController.GetAll">
+            <summary>
+            Get All Countries
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CountriesController.GetById(System.Int32)">
+            <summary>
+            Get a City By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 Ok</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CountriesController.Post(SchoolV01.Application.Features.Countries.Commands.AddEditCountryCommand)">
+            <summary>
+            Create/Update a City
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CountriesController.Delete(System.Int32)">
+            <summary>
+            Delete a City
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CountriesController.Export(System.String)">
+            <summary>
+            Search Countries and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged ProductCategories
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAllPagedMain(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged Main ProductCategories
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAllSonsAndClassification(System.Int32,System.Int32,System.Int32,System.String,System.String)" -->
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetById(System.Int32)">
+            <summary>
+            Get Product Category By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAll">
+            <summary>
+            Get All Categories
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetCategorySons(System.Int32)">
+            <summary>
+            Get All Category Sons
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.Post(SchoolV01.Application.Features.ProductCategories.Commands.AddEdit.AddEditProductCategoryCommand)">
+            <summary>
+            Add/Edit a ProductCategory
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.Delete(System.Int32)">
+            <summary>
+            Delete a ProductCategory
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.Export(System.String)">
+            <summary>
+            Search ProductCategories and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns>Status 200 OK</returns>
         </member>
         <member name="M:SchoolV01.Server.Controllers.v1.OwnersManagement.OwnersController.GetAll(System.Int32,System.Int32,System.String,System.String)">
             <summary>
@@ -459,68 +754,6 @@
             </summary>
             <param name="searchString"></param>
             <returns></returns>
-        </member>
-        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
-            <summary>
-            Get All Paged ProductCategories
-            </summary>
-            <param name="pageNumber"></param>
-            <param name="pageSize"></param>
-            <param name="searchString"></param>
-            <param name="orderBy"></param>
-            <returns>Status 200 OK</returns>
-        </member>
-        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAllPagedMain(System.Int32,System.Int32,System.String,System.String)">
-            <summary>
-            Get All Paged Main ProductCategories
-            </summary>
-            <param name="pageNumber"></param>
-            <param name="pageSize"></param>
-            <param name="searchString"></param>
-            <param name="orderBy"></param>
-            <returns>Status 200 OK</returns>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAllSonsAndClassification(System.Int32,System.Int32,System.Int32,System.String,System.String)" -->
-        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetById(System.Int32)">
-            <summary>
-            Get Product Category By Id
-            </summary>
-            <param name="id"></param>
-            <returns>Status 200 OK</returns>
-        </member>
-        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAll">
-            <summary>
-            Get All Categories
-            </summary>
-            <returns>Status 200 OK</returns>
-        </member>
-        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetCategorySons(System.Int32)">
-            <summary>
-            Get All Category Sons
-            </summary>
-            <param name="id"></param>
-            <returns>Status 200 OK</returns>
-        </member>
-        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.Post(SchoolV01.Application.Features.ProductCategories.Commands.AddEdit.AddEditProductCategoryCommand)">
-            <summary>
-            Add/Edit a ProductCategory
-            </summary>
-            <param name="command"></param>
-            <returns>Status 200 OK</returns>
-        </member>
-        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.Delete(System.Int32)">
-            <summary>
-            Delete a ProductCategory
-            </summary>
-            <param name="id"></param>
-            <returns>Status 200 OK response</returns>
-        </member>
-        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.Export(System.String)">
-            <summary>
-            Search ProductCategories and Export to Excel
-            </summary>
-            <param name="searchString"></param>
-            <returns>Status 200 OK</returns>
         </member>
         <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.GetAllByProduct(System.Int32)">
             <summary>

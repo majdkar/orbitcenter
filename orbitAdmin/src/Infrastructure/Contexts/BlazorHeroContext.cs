@@ -4,7 +4,9 @@ using SchoolV01.Application.Extensions;
 using SchoolV01.Application.Interfaces.Services;
 using SchoolV01.Core.Entities;
 using SchoolV01.Domain.Contracts;
+using SchoolV01.Domain.Entities.Clients;
 using SchoolV01.Domain.Entities.ExtendedAttributes;
+using SchoolV01.Domain.Entities.GeneralSettings;
 using SchoolV01.Domain.Entities.Identity;
 using SchoolV01.Domain.Entities.Misc;
 using SchoolV01.Domain.Entities.Products;
@@ -54,7 +56,18 @@ namespace SchoolV01.Infrastructure.Contexts
         // Product (Service)
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
-        public DbSet<ProductOffer> ProductOffers { get; set; }
+        public DbSet<ProductOffer> ProductOffers { get; set; }  
+        
+        
+        // Clients (Agents)
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Person> People { get; set; }
+        public DbSet<Company> Companies { get; set; } 
+
+
+        // General Settings
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
 
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
