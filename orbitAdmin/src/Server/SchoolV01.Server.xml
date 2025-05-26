@@ -587,6 +587,40 @@
             <param name="searchString"></param>
             <returns></returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ClassificationsController.GetAll">
+            <summary>
+            Get All Classifications
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ClassificationsController.GetById(System.Int32)">
+            <summary>
+            Get a City By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 Ok</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ClassificationsController.Post(SchoolV01.Application.Features.Classifications.Commands.AddEditClassificationCommand)">
+            <summary>
+            Create/Update a City
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ClassificationsController.Delete(System.Int32)">
+            <summary>
+            Delete a City
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ClassificationsController.Export(System.String)">
+            <summary>
+            Search Classifications and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns></returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CountriesController.GetAll">
             <summary>
             Get All Countries

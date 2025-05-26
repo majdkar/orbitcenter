@@ -192,6 +192,7 @@ namespace SchoolV01.Client.Helpers
 
         public static string Languages = "api/languages";
         public static string Countries = "api/Countries";
+        public static string Classifications = "api/Classifications";
         public static string Cities = "api/Cities";
         public static string Currencies = "api/Currencies";
         public static string Units = "api/Units";

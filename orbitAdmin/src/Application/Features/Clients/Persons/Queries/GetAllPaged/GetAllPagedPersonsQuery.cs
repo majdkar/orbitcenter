@@ -56,7 +56,7 @@ namespace SchoolV01.Application.Features.Clients.Persons.Queries.GetAllPaged
             {
                 Id = e.Id,
                 ClientId = e.ClientId,
-                FullNameAr = e.FullNameAr,
+                FullName = e.FullName,
                 BirthDate = e.BirthDate,
                 Email = e.Email,
                 Phone = e.Phone,
@@ -67,13 +67,17 @@ namespace SchoolV01.Application.Features.Clients.Persons.Queries.GetAllPaged
                 CountryId = e.CountryId,
                 CvFileUrl = e.CvFileUrl,
                 Fax = e.Fax,
-                FullNameEn = e.FullNameEn,
-                IdentifierImageUrl = e.IdentifierImageUrl,
                 MailBox = e.MailBox,
                 PersomImageUrl = e.PersomImageUrl,
                 CityId = e.CityId,
                 City = e.City,
                 Sex = e.Sex,
+                ClassificationId = e.ClassificationId,
+                Classification = e.Classification,
+                Job = e.Job,
+                Qualification = e.Qualification,
+                Mobile1 = e.Mobile1,
+                Mobile2 = e.Mobile2
 
             };
             var ownerFilterSpec = new SearchPersonFilterSpecification(request);

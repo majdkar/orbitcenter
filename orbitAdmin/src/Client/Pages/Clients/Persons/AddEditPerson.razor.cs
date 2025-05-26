@@ -86,8 +86,14 @@ namespace SchoolV01.Client.Pages.Clients.Persons
                     AddEditPersonModel = new AddEditPersonCommand
                     {
                         Id = person.Id,
-                        FullNameAr = person.FullNameAr,
-                        FullNameEn = person.FullNameEn,
+                        FullName = person.FullName,
+                        Job = person.Job,
+                        Qualification = person.Qualification,
+                        Mobile1 = person.Mobile1,
+                        Mobile2 = person.Mobile2,
+                        ClassificationId = person.ClassificationId,
+                        CvFileUrl = person.CvFileUrl,
+                        PersomImageUrl = person.PersomImageUrl,
                         Sex = person.Sex,
                         BirthDate = person.BirthDate,
                         CountryId = Convert.ToInt32(person.CountryId),

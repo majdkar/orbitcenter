@@ -69,15 +69,15 @@ else
             } *@
             </ToolBarContent>
             <HeaderContent>
-                <MudTh><MudTableSortLabel T="GetAllPersonsResponse" SortLabel="FullNameAr"><strong>@_localizer["FullNameAr"]</strong></MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel T="GetAllPersonsResponse" SortLabel="FullNameAr"><strong>@_localizer["FullName"]</strong></MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPersonsResponse" SortLabel="LegalForm"><strong>@_localizer["Email"]</strong></MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPersonsResponse" SortLabel="LegalForm"><strong>@_localizer["Phone"]</strong></MudTableSortLabel></MudTh>
 
             <MudTh Style="text-align:right"><strong>@_localizer["Actions"]</strong></MudTh>
             </HeaderContent>
             <RowTemplate>
-                <MudTd DataLabel="FullNameAr">
-                <MudLink Href="@($"/person-details/{context.Id}")" Color="Color.Dark" Underline="Underline.Hover"><strong>@(CultureInfo.CurrentCulture.Name.Contains("ar-") ? context.FullNameAr : context.FullNameEn)</strong></MudLink>
+                <MudTd DataLabel="FullName">
+                <MudLink Href="@($"/person-details/{context.Id}")" Color="Color.Dark" Underline="Underline.Hover"><strong>@context.FullName</strong></MudLink>
                 </MudTd>
            @*  <MudTd   DataLabel="FullNameAr"  @onclick="@(() => _navigationManager.NavigateTo($"/person-details/{context.Id}"))">
                     <MudHighlighter Style=""  Text="@context.FullNameAr" HighlightedText="@_searchString" />

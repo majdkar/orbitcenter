@@ -80,6 +80,12 @@
                     @_localizer["Cities"]
                 </MudNavLink>
             }
+            @if (_canViewClassifications)
+            {
+                <MudNavLink Href="/General-Settings/Classifications" Match="NavLinkMatch.Prefix">
+                    @_localizer["Classifications"]
+                </MudNavLink>
+            }
    
        
 
@@ -182,6 +188,7 @@
     private bool _canViewCountrys;
     private bool _canViewCompanies;
     private bool _canViewPersons;
+    private bool _canViewClassifications;
     @*/*s0012s*/*@
     private bool _canViewOwners;
 
@@ -209,6 +216,7 @@
         _canViewCountrys = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Countries.View)).Succeeded;
         _canViewPersons = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Person.View)).Succeeded;
         _canViewCompanies = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Companies.View)).Succeeded;
+        _canViewClassifications = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Classifications.View)).Succeeded;
         
 
         _currentUser = await _authenticationManager.CurrentUser();

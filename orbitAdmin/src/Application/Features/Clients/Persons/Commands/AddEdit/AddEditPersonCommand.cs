@@ -31,11 +31,7 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
     {
         public int Id { get; set; }
 
-        [Required]
-        public string FullNameAr { get; set; }
-
-       
-        public string FullNameEn { get; set; }
+        
 
         public int CountryId { get; set; } = 0;
 
@@ -43,8 +39,7 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
 
         public string Sex { get; set; }
 
-        public string IdentifierImageUrl { get; set; }
-        public UploadRequest IdentifierImageUploadRequest { get; set; }
+
 
         public string PersomImageUrl { get; set; }
         public UploadRequest PersomImageUploadRequest { get; set; }
@@ -53,6 +48,14 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
         public UploadRequest CvFileUploadRequest { get; set; }
 
         public string Phone { get; set; }
+
+        public string FullName { get; set; }
+        public string Mobile1 { get; set; }
+        public string Mobile2 { get; set; }
+        public string Qualification { get; set; }
+        public string Job { get; set; }
+        public int? ClassificationId { get; set; }
+
         public string Fax { get; set; }
         public string MailBox { get; set; }
         public string Email { get; set; }
@@ -88,14 +91,10 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
 
         public async Task<Result<int>> Handle(AddEditPersonCommand command, CancellationToken cancellationToken)
         {
-            var IdentifierImageUploadRequest = command.IdentifierImageUploadRequest;
             var PersomImageUploadRequest = command.PersomImageUploadRequest;
             var CvFileUploadRequest = command.CvFileUploadRequest;
 
-            if (IdentifierImageUploadRequest != null)
-            {
-                IdentifierImageUploadRequest.FileName = $"{Path.GetRandomFileName()}{IdentifierImageUploadRequest.Extension}";
-            }
+        
 
             if (PersomImageUploadRequest != null)
             {
@@ -125,10 +124,7 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
                 person.ClientId = client.Id;
                 person.CountryId = person.CountryId == 0 ? null : person.CountryId;
                 person.CityId = command.CityId == 0 ? null : command.CityId;
-                if (IdentifierImageUploadRequest != null)
-                {
-                    person.IdentifierImageUrl = _uploadService.UploadAsync(IdentifierImageUploadRequest);
-                }
+             
                 if (PersomImageUploadRequest != null)
                 {
                     person.PersomImageUrl = _uploadService.UploadAsync(PersomImageUploadRequest);
@@ -158,11 +154,15 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
                 var person = await _unitOfWork.Repository<Person>().GetByIdAsync(command.Id);
                 if (person != null)
                 {
-                    person.FullNameAr = command.FullNameAr ?? person.FullNameAr;
-                    person.FullNameEn = command.FullNameEn ?? person.FullNameEn;
+                    person.FullName = command.FullName ?? person.FullName;
+                    person.Mobile1 = command.Mobile1 ?? person.Mobile1;
+                    person.Mobile2 = command.Mobile2 ?? person.Mobile2;
+                    person.Qualification = command.Qualification ?? person.Qualification;
+                    person.Job = command.Job ?? person.Job;
                     person.CountryId = (command.CountryId == 0) ? person.CountryId : command.CountryId;
 
                     person.CityId = (command.CityId == 0) ? person.CityId : command.CityId;
+                    person.ClassificationId = (command.ClassificationId == 0) ? person.ClassificationId : command.ClassificationId;
 
                     person.BirthDate = command.BirthDate ?? person.BirthDate;
                     person.Sex = command.Sex ?? person.Sex;
@@ -178,11 +178,7 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
                     //    await _AccountService.UpdateEmailByAdminAsync(command.UserId, command.Email);
                     //    person.Email = command.Email;
                     //}
-                    person.Email = command.Email ?? person.Email;
-                    if (IdentifierImageUploadRequest != null)
-                    {
-                        person.IdentifierImageUrl = _uploadService.UploadAsync(IdentifierImageUploadRequest);
-                    }
+             
                     if (PersomImageUploadRequest != null)
                     {
                         person.PersomImageUrl = _uploadService.UploadAsync(PersomImageUploadRequest);

@@ -12,9 +12,6 @@ namespace SchoolV01.Application.Features.Clients.Persons.Queries.GetAll
 
         public int ClientId { get; set; } 
 
-        public string FullNameAr { get; set; }
-
-        public string FullNameEn { get; set; }
         public string UserId { get; set; }
         public virtual Client Client { get; set; }
         public int? CountryId { get; set; }
@@ -30,6 +27,16 @@ namespace SchoolV01.Application.Features.Clients.Persons.Queries.GetAll
         public string CvFileUrl { get; set; }
 
         public string Phone { get; set; }
+
+        public string FullName { get; set; }
+        public string Mobile1 { get; set; }
+        public string Mobile2 { get; set; }
+        public string Qualification { get; set; }
+        public string Job { get; set; }
+
+        public int? ClassificationId { get; set; }
+        public virtual Classification Classification { get; set; }
+
         public string Fax { get; set; }
         public string MailBox { get; set; }
         public string Email { get; set; }

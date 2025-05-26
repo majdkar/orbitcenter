@@ -7,9 +7,8 @@ namespace SchoolV01.Domain.Entities.Clients
 {
     public class Person : AuditableEntity<int>
     {
-        public string FullNameAr { get; set; }
 
-        public string FullNameEn { get; set; }
+       
 
         [ForeignKey("Client")]
         public int ClientId { get; set; }
@@ -25,11 +24,20 @@ namespace SchoolV01.Domain.Entities.Clients
 
         public string Sex { get; set; }
 
-        public string IdentifierImageUrl { get; set; }
         public string PersomImageUrl { get; set; }
         public string CvFileUrl { get; set; }
 
         public string Phone { get; set; }
+
+        public string FullName { get; set; }
+        public string Mobile1 { get; set; }
+        public string Mobile2 { get; set; }
+        public string Qualification { get; set; }
+        public string Job { get; set; }
+
+        [ForeignKey("Classification")]
+        public int? ClassificationId { get; set; }
+        public virtual Classification Classification { get; set; }
         public string Fax { get; set; }
         public string MailBox { get; set; }
         public string Email { get; set; }

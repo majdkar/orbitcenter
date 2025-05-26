@@ -45,8 +45,7 @@ namespace SchoolV01.Application.Features.Clients.Persons.Queries.Export
             var data = await _excelService.ExportAsync(persons, mappers: new Dictionary<string, Func<Person, object>>
             {
                 { _localizer["Id"], item => item.Id },
-                { _localizer["FullNameAr"], item => item.FullNameAr },
-                { _localizer["FullNameEn"], item => item.FullNameEn },
+                { _localizer["Full Name"], item => item.FullName },
                 { _localizer["BirthDate"],item => item.BirthDate },
                 { _localizer["Sex"], item => item.Sex },
                 { _localizer["Countryality"],item => item.Country.NameAr },

@@ -68,6 +68,7 @@ namespace SchoolV01.Infrastructure.Contexts
         // General Settings
         public DbSet<Country> Countries { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<Classification> Classifications { get; set; }
 
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
