@@ -9,13 +9,16 @@ namespace SchoolV01.Application.Validators.Features.Clients.Persons.Commands.Add
     {
         public AddEditPersonCommandValidator(IStringLocalizer<AddEditPersonCommandValidator> localizer)
         {
-            //RuleFor(request => request.FullNameEn)
-            //   .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["English Name is required!"]);
-            RuleFor(request => request.FullNameAr)
+            RuleFor(request => request.Mobile1)
+               .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Mobile is required!"]);
+
+
+            RuleFor(request => request.FullName)
                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Arabic Name is required!"]);
-            //RuleFor(request => request.Email)
-            //   .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Email is required"])
-            //   .EmailAddress().WithMessage(x => localizer["Email is not correct"]);
+
+            RuleFor(request => request.ClassificationId)
+               .NotEmpty().NotNull().WithMessage(x => localizer["Classification is required!"]);
+
 
         }
     }

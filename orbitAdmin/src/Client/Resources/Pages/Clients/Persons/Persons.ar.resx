@@ -156,17 +156,14 @@
   <data name="Filtered Owners exported" xml:space="preserve">
     <value>جرى التصدير</value>
   </data>
-  <data name="FullNameAr" xml:space="preserve">
-    <value>الاسم الكامل بالعربي</value>
+  <data name="Full Name" xml:space="preserve">
+    <value>الاسم الكامل </value>
   </data>
   <data name="Individuals exported" xml:space="preserve">
     <value>جرى التصدر</value>
   </data>
   <data name="Manage Persons." xml:space="preserve">
     <value>إدارة الأفراد</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>اسم</value>
   </data>
   <data name="No Allowed Actions" xml:space="preserve">
     <value>خيارات غير مسموحة</value>
@@ -176,12 +173,6 @@
   </data>
   <data name="Phone" xml:space="preserve">
     <value>رقم الهاتف</value>
-  </data>
-  <data name="Phone Number" xml:space="preserve">
-    <value>رقم الهاتف</value>
-  </data>
-  <data name="Profile" xml:space="preserve">
-    <value>البروفايل</value>
   </data>
   <data name="Reload" xml:space="preserve">
     <value>إعادة تحميل</value>

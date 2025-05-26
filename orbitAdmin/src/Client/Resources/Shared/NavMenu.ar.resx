@@ -159,8 +159,8 @@
   <data name="Account" xml:space="preserve">
     <value>حساب</value>
   </data>
-  <data name="AddArticle" xml:space="preserve">
-    <value>إضافة مقالة</value>
+  <data name="CourseTypes" xml:space="preserve">
+    <value>أنواع الدورات</value>
   </data>
   <data name="AddBlock" xml:space="preserve">
     <value>إضافة الكتل</value>
@@ -1112,5 +1112,8 @@
   </data>
   <data name="Services List" xml:space="preserve">
     <value>قائمة الخدمات</value>
+  </data>
+  <data name="Classifications" xml:space="preserve">
+    <value>التصنيف</value>
   </data>
 </root>

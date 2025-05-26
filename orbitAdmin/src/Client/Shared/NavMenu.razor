@@ -86,6 +86,12 @@
                     @_localizer["Classifications"]
                 </MudNavLink>
             }
+            @if (_canViewCourseTypes)
+            {
+                <MudNavLink Href="/General-Settings/CourseTypes" Match="NavLinkMatch.Prefix">
+                    @_localizer["CourseTypes"]
+                </MudNavLink>
+            }
    
        
 
@@ -112,15 +118,7 @@
         </MudNavGroup>
             
         }
-    @if (_isAdmin)
-    {
-
-        <MudNavLink Href="/swagger/index.html" Target="_blank" Icon="@Icons.Material.Outlined.LiveHelp">
-            @_localizer["Swagger"]
-        </MudNavLink>
-
-    }
-
+ 
 
     @if (_canViewProducts || _canViewProductCategories)
     {
@@ -164,6 +162,16 @@
 
     }
 
+    @if (_isAdmin)
+    {
+
+        <MudNavLink Href="/swagger/index.html" Target="_blank" Icon="@Icons.Material.Outlined.LiveHelp">
+            @_localizer["Swagger"]
+        </MudNavLink>
+
+    }
+
+
 </MudNavMenu>
 
 @code {
@@ -189,6 +197,7 @@
     private bool _canViewCompanies;
     private bool _canViewPersons;
     private bool _canViewClassifications;
+    private bool _canViewCourseTypes;
     @*/*s0012s*/*@
     private bool _canViewOwners;
 
@@ -217,6 +226,7 @@
         _canViewPersons = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Person.View)).Succeeded;
         _canViewCompanies = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Companies.View)).Succeeded;
         _canViewClassifications = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Classifications.View)).Succeeded;
+        _canViewCourseTypes = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.CourseTypes.View)).Succeeded;
         
 
         _currentUser = await _authenticationManager.CurrentUser();

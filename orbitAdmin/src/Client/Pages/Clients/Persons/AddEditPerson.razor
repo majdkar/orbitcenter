@@ -30,16 +30,13 @@ else
                     </MudCardHeader>
                     <MudCardContent>
                         <MudGrid>
-                            <MudItem xs="12" sm="12" md="12">
+                            <MudItem xs="12" sm="12" md="9">
                                 <MudGrid>
                                     <MudItem xs="12" md="4">
-                                        <MudTextField For="@(() => AddEditPersonModel.FullNameAr)" @bind-Value="AddEditPersonModel.FullNameAr" Label="@_localizer["FullNameAr"]" Variant="MudBlazor.Variant.Outlined" />
+                                        <MudTextField For="@(() => AddEditPersonModel.FullName)" @bind-Value="AddEditPersonModel.FullName" Label="@_localizer["Full Name"]" Variant="MudBlazor.Variant.Outlined" />
                                         <MudText Color="Color.Error">*</MudText>
                                     </MudItem>
-                                    <MudItem xs="12" md="4">
-                                        <MudTextField For="@(() => AddEditPersonModel.FullNameEn)" @bind-Value="AddEditPersonModel.FullNameEn" Label="@_localizer["FullNameEn"]" Variant="MudBlazor.Variant.Outlined" />
-                                        
-                                    </MudItem>
+                                  
                                     <MudItem xs="12" md="4">
                                         <MudSelect @bind-Value="@AddEditPersonModel.Sex" T="string" Label="@_localizer["Sex"]" AnchorOrigin="Origin.BottomCenter" Variant="MudBlazor.Variant.Outlined">
                                             @foreach (var value in Sexes.Values)
@@ -51,6 +48,17 @@ else
                                       <MudItem xs="12" md="4">
                                         <MudTextField For="@(() => AddEditPersonModel.Phone)" @bind-Value="AddEditPersonModel.Phone" Label="@_localizer["Phone"]" Variant="MudBlazor.Variant.Outlined" />
                                          <MudText Color="Color.Error">*</MudText>
+                                    </MudItem>
+                                    
+                                    
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditPersonModel.Mobile1)" @bind-Value="AddEditPersonModel.Mobile1" Label="@_localizer["Mobile1"]" Variant="MudBlazor.Variant.Outlined" />
+                                         <MudText Color="Color.Error">*</MudText>
+                                    </MudItem>   
+
+
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditPersonModel.Mobile2)" @bind-Value="AddEditPersonModel.Mobile2" Label="@_localizer["Mobile2"]" Variant="MudBlazor.Variant.Outlined" />
                                     </MudItem>
                                      <MudItem xs="12" md="4">
                                         <MudTextField For="@(() => _registerUserModel.Password)" InputType="@_passwordInput" Adornment="Adornment.End" AdornmentIcon="@_passwordInputIcon" OnAdornmentClick="TogglePasswordVisibility" @bind-Value="_registerUserModel.Password" Label="@_localizer["Password"]" Variant="MudBlazor.Variant.Outlined" />
@@ -79,6 +87,14 @@ else
                                                          @bind-Value="@AddEditPersonModel.CityId"
                                                       SearchFunc="@SearchCitys"
                                                          ToStringFunc="CityToString" OffsetY="true" Variant="MudBlazor.Variant.Outlined" />
+                                 </MudItem>       
+                                 
+                                 
+                                 <MudItem xs="12" md="4">
+                                        <MudAutocomplete T="int?" Label="@_localizer["Classification"]"
+                                                         @bind-Value="@AddEditPersonModel.ClassificationId"
+                                                         SearchFunc="@SearchClassifications"
+                                                         ToStringFunc="ClassificationToString" OffsetY="true" Variant="MudBlazor.Variant.Outlined" />
                                  </MudItem>
                            
                                   
@@ -98,6 +114,17 @@ else
                                        
                                     </MudItem>
 
+
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditPersonModel.Job)" @bind-Value="AddEditPersonModel.Job" Label="@_localizer["Job"]" Variant="MudBlazor.Variant.Outlined" />
+
+                                    </MudItem>
+
+
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditPersonModel.Qualification)" @bind-Value="AddEditPersonModel.Qualification" Label="@_localizer["Qualification"]" Variant="MudBlazor.Variant.Outlined" />
+
+                                    </MudItem>
                                    
 
                                     <MudItem xs="12" md="12">
@@ -106,6 +133,119 @@ else
                                    
                                 </MudGrid>
                             </MudItem>
+
+                            <MudItem xs="12" md="3">
+                                @*upload company images*@
+                                <MudCard Elevation="4" Class="mb-5">
+                                    <MudCardHeader>
+                                        <CardHeaderAvatar>
+                                            <MudAvatar Color="Color.Secondary">
+                                                <MudIcon Icon="@Icons.Material.Outlined.InsertPhoto" />
+                                            </MudAvatar>
+                                        </CardHeaderAvatar>
+                                        <CardHeaderContent>
+                                            <MudText Typo="Typo.body1">@_localizer["Upload Personal Image"]</MudText>
+                                        </CardHeaderContent>
+                                    </MudCardHeader>
+                                    @if (!string.IsNullOrEmpty(AddEditPersonModel.PersomImageUrl))
+                                    {
+                                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@(AddEditPersonModel.PersomImageUrl.Replace('\\','/'))" Height="150" />
+                                    }
+                                    <MudCardActions>
+                                        <InputFile id="imageInput1" OnChange="UploadPersonImage" hidden />
+                                        <div>
+                                            <MudButton HtmlTag="label"
+                                                       Variant="MudBlazor.Variant.Text"
+                                                       Color="Color.Primary"
+                                                       Size="Size.Small"
+                                                       StartIcon="@Icons.Material.Filled.CloudUpload"
+                                                       for="imageInput1">
+                                                @_localizer["Upload"]
+                                            </MudButton>
+                                            @if (!string.IsNullOrEmpty(AddEditPersonModel.PersomImageUrl))
+                                            {
+                                                <MudButton Variant="MudBlazor.Variant.Text"
+                                                           Color="Color.Info"
+                                                           StartIcon="@Icons.Material.Filled.RemoveRedEye"
+                                                           Size="Size.Small"
+                                                           Link="@(AddEditPersonModel.PersomImageUrl)" Target="_blank">
+                                                    @_localizer["View"]
+                                                </MudButton>
+                                                <MudButton Variant="MudBlazor.Variant.Text"
+                                                           Color="Color.Error"
+                                                           StartIcon="@Icons.Material.Filled.Delete"
+                                                           Size="Size.Small"
+                                                           OnClick="DeletePersonImageAsync">
+                                                    @_localizer["Delete"]
+                                                </MudButton>
+                                            }
+                                        </div>
+                                    </MudCardActions>
+                                </MudCard>
+                           
+                              
+                            
+                          
+
+
+                                @*upload file cv*@
+                                <MudCard Elevation="4" Class="mb-5">
+                                    <MudCardHeader>
+                                        <CardHeaderAvatar>
+                                            <MudAvatar Color="Color.Secondary">
+                                                <MudIcon Icon="@Icons.Material.Outlined.InsertPhoto" />
+                                            </MudAvatar>
+                                        </CardHeaderAvatar>
+                                        <CardHeaderContent>
+                                            <MudText Typo="Typo.body1">@_localizer["CV File"]</MudText>
+                                        </CardHeaderContent>
+                                    </MudCardHeader>
+
+
+                                <InputFile id="fileInput" OnChange="SelectFile" hidden />
+                                <MudButton id="fileInputButton"
+                                           HtmlTag="label"
+                                           Variant="Variant.Filled"
+                                           Color="Color.Primary"
+                                           StartIcon="@Icons.Material.Filled.CloudUpload"
+                                           for="fileInput">
+                                    @_localizer["UploadFile"]
+                                </MudButton>
+                                @if (_files != null)
+                                {
+                                    <MudList T="bool" id="FilesList">
+                                        @if (_files.Count() != 0)
+                                        {
+                                            @foreach (var file in _files)
+                                            {
+                                                <MudListItem Icon="@Icons.Material.Filled.AttachFile" @key="@file">
+                                                    @file.Name
+                                                    <MudButton Variant="Variant.Text" Color="Color.Error" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="DeleteFileAsync"></MudButton>
+
+                                                </MudListItem>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (!string.IsNullOrEmpty(AddEditPersonModel.CvFileUrl))
+                                            {
+                                                <MudListItem Icon="@Icons.Material.Filled.AttachFile">
+                                                    File Uploaded
+                                                    <MudIconButton Icon="@Icons.Material.Filled.FileDownload" Color="Color.Secondary" Link=@(@AddEditPersonModel.CvFileUrl) @onclick:stopPropagation Target="_blank"></MudIconButton>
+                                                    <MudButton Variant="Variant.Text" Color="Color.Error" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Small" OnClick="DeleteFileAsync"></MudButton>
+                                                </MudListItem>
+
+                                            }
+                                        }
+
+                                    </MudList>
+                                }
+
+
+                                    </MudCard>
+                            </MudItem>
+
+
                         </MudGrid>
 
                     </MudCardContent>

@@ -5,16 +5,20 @@ using Microsoft.AspNetCore.SignalR.Client;
 using MudBlazor;
 
 using SchoolV01.Application.Features.Cities.Queries;
+using SchoolV01.Application.Features.Classifications.Queries;
 using SchoolV01.Application.Features.Clients.Companies.Commands.AddEdit;
 using SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit;
 using SchoolV01.Application.Features.Countries.Queries;
 using SchoolV01.Application.Requests;
 using SchoolV01.Application.Requests.Identity;
 using SchoolV01.Client.Extensions;
+using SchoolV01.Client.Helpers;
 using SchoolV01.Client.Infrastructure.Managers.Clients.Companies;
 using SchoolV01.Client.Infrastructure.Managers.Clients.Persons;
 using SchoolV01.Client.Infrastructure.Managers.GeneralSettings;
 using SchoolV01.Client.Infrastructure.Managers.Identity.Account;
+using SchoolV01.Shared;
+using SchoolV01.Shared.Constants;
 using SchoolV01.Shared.Constants.Application;
 using SchoolV01.Shared.Constants.Clients;
 using SchoolV01.Shared.Constants.Role;
@@ -22,6 +26,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -38,6 +43,7 @@ namespace SchoolV01.Client.Pages.Clients.Persons
         [Inject] private ICityManager CityManager { get; set; }
 
         [Inject] private ICountryManager CountryManager { get; set; }
+        [Inject] private IClassificationManager ClassificationManager { get; set; }
 
         [Parameter] public int PersonId { get; set; } = 0;
 
@@ -49,10 +55,11 @@ namespace SchoolV01.Client.Pages.Clients.Persons
         private bool Validated => _fluentValidationValidator.Validate(options => { options.IncludeAllRuleSets(); });
 
         private List<GetAllCountriesResponse> _Countrys = new();
+        private List<GetAllClassificationsResponse> _Classification = new();
         private List<GetAllCitiesResponse> _Citys = new();
-        private List<GetAllCitiesResponse> _sections = new();
-        private List<GetAllCitiesResponse> _CitysToView = new();
         private bool _loaded = false;
+        IList<IBrowserFile> _files = new List<IBrowserFile>();
+        private FileUploadModel fileUploadModel;
 
         protected override async Task OnInitializedAsync()
         {
@@ -65,6 +72,7 @@ namespace SchoolV01.Client.Pages.Clients.Persons
             await LoadCitysAsync();
             await LoadPersonDetails();
             await LoadCountrysAsync();
+            await LoadClassificationsAsync();
             
         }
 
@@ -122,8 +130,15 @@ namespace SchoolV01.Client.Pages.Clients.Persons
                 _Countrys = data.Data;
             }
         }
-
-
+        
+        private async Task LoadClassificationsAsync()
+        {
+            var data = await ClassificationManager.GetAllAsync();
+            if (data.Succeeded)
+            {
+                _Classification = data.Data;
+            }
+        }
 
         private async Task LoadCitysAsync()
         {
@@ -138,9 +153,40 @@ namespace SchoolV01.Client.Pages.Clients.Persons
         }
 
 
+
+        private async void SelectFile(InputFileChangeEventArgs e2)
+        {
+            _files.Clear();
+            _files.Add(e2.File);
+
+            if (_files.Count > 0)
+            {
+                fileUploadModel = await HelperMethods.Save(e2.File);
+                this.StateHasChanged();
+            }
+        }
+
+
+        private void DeleteFileAsync()
+        {
+            _files.Clear();
+            fileUploadModel = null;
+            AddEditPersonModel.CvFileUrl = null;
+
+        }
+
         string CityToString(int id)
         {
             var student = _Citys.FirstOrDefault(b => b.Id == id);
+            if (student is null)
+                return string.Empty;
+
+            return $"{student.NameEn} - {student.NameAr}";
+        }  
+        
+        string ClassificationToString(int? id)
+        {
+            var student = _Classification.FirstOrDefault(b => b.Id == id);
             if (student is null)
                 return string.Empty;
 
@@ -154,6 +200,35 @@ namespace SchoolV01.Client.Pages.Clients.Persons
 
             return $"{student.NameEn} - {student.NameAr}";
         }
+        private async Task<string> UploadFile(IList<IBrowserFile> files, FileUploadModel fileModel, int uploadFileType)
+        {
+            if (files.Count > 0)
+            {
+                // Provides a container for content encoded using multipart/form-data MIME type.
+                using var content = new MultipartFormDataContent();
+                content.Add
+                (content: fileModel.Content, name: "\"file\"", fileName: fileModel.Name);
+                try
+                {
+                    var response = await _httpClient.PostAsync($"{EndPoints.FileUpload}/{(int)Enums.FileLocation.MenusFiles}/{uploadFileType}", content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return await response.getMessage();
+                    }
+                    else
+                    {
+                        return String.Empty;
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    return String.Empty;
+                }
+
+            }
+            return String.Empty;
+        }
 
 
         private async Task SaveAsync()
@@ -164,6 +239,13 @@ namespace SchoolV01.Client.Pages.Clients.Persons
                 var response1 = await _userManager.RegisterUserAsync(_registerUserModel);
                 if (response1.Succeeded)
                 {
+
+                    var generatedFileName = await UploadFile(_files, fileUploadModel, (int)Enums.UploadFileTypeEnum.File);
+                    var fullFilePath = Path.Combine(Constants.UploadFolderName, Enums.FileLocation.MenusFiles.ToString(), generatedFileName);
+                    if (AddEditPersonModel.Id == 0)
+                    
+                        AddEditPersonModel.CvFileUrl = !String.IsNullOrEmpty(generatedFileName) ? fullFilePath : "";
+              
                     AddEditPersonModel.UserId = response1.Messages[0];
                     AddEditPersonModel.Status = ClientStatusEnum.Accepted.ToString();
                     var response2 = await PersonManager.SaveAsync(AddEditPersonModel);
@@ -194,8 +276,8 @@ namespace SchoolV01.Client.Pages.Clients.Persons
                 var request1 = new UpdateProfileByAdminRequest
                 {
                     UserId = AddEditPersonModel.UserId,
-                    FirstName = AddEditPersonModel.FullNameEn,
-                    LastName = AddEditPersonModel.FullNameEn,
+                    FirstName = AddEditPersonModel.FullName,
+                    LastName = AddEditPersonModel.FullName,
                     Email = AddEditPersonModel.Email,
                     PhoneNumber = AddEditPersonModel.Phone,
                 };
@@ -212,7 +294,10 @@ namespace SchoolV01.Client.Pages.Clients.Persons
                     };
                  await AccountManager.ChangePasswordByAdminAsync(request2);
                 }
-
+                var generatedFileName = await UploadFile(_files, fileUploadModel, (int)Enums.UploadFileTypeEnum.File);
+                var fullFilePath = Path.Combine(Constants.UploadFolderName, Enums.FileLocation.MenusFiles.ToString(), generatedFileName);
+                if (!String.IsNullOrEmpty(generatedFileName))
+                    AddEditPersonModel.CvFileUrl = fullFilePath;
                 //update person info
                 var response = await PersonManager.SaveAsync(AddEditPersonModel);
                 if (response.Succeeded)
@@ -243,15 +328,15 @@ namespace SchoolV01.Client.Pages.Clients.Persons
             _registerUserModel.ClientType = RoleConstants.BasicRole;
          
             
-            if (String.IsNullOrEmpty(AddEditPersonModel.FullNameEn))
+            if (String.IsNullOrEmpty(AddEditPersonModel.FullName))
             {
                 _registerUserModel.FirstName = AddEditPersonModel.Phone;
                 _registerUserModel.LastName = AddEditPersonModel.Phone;
             }
             else
             {
-                _registerUserModel.FirstName = AddEditPersonModel.FullNameEn;
-                _registerUserModel.LastName = AddEditPersonModel.FullNameEn;
+                _registerUserModel.FirstName = AddEditPersonModel.FullName;
+                _registerUserModel.LastName = AddEditPersonModel.FullName;
             }
 
             _registerUserModel.Email = AddEditPersonModel.Email;
@@ -278,36 +363,6 @@ namespace SchoolV01.Client.Pages.Clients.Persons
             }
         }
 
-        private async Task UploadIdImage(InputFileChangeEventArgs e)
-        {
-            _identifierFile = e.File;
-            if (_identifierFile != null)
-            {
-                var extension = Path.GetExtension(_identifierFile.Name);
-                var format = "image/png";
-                var imageFile = await e.File.RequestImageFileAsync(format, 600, 600);
-                var buffer = new byte[imageFile.Size];
-                await imageFile.OpenReadStream().ReadAsync(buffer);
-                AddEditPersonModel.IdentifierImageUrl = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
-                AddEditPersonModel.IdentifierImageUploadRequest = new UploadRequest { Data = buffer, UploadType = Application.Enums.UploadType.Student, Extension = extension };
-            }
-        }
-
-        private async Task UploadPersonFile(InputFileChangeEventArgs e)
-        {
-            _cvVFile = e.File;
-            if (_cvVFile != null)
-            {
-                var extension = Path.GetExtension(_cvVFile.Name);
-                var format = "image/png";
-                var imageFile = await e.File.RequestImageFileAsync(format, 600, 600);
-                var buffer = new byte[imageFile.Size];
-                await imageFile.OpenReadStream().ReadAsync(buffer);
-                AddEditPersonModel.CvFileUrl = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
-
-                AddEditPersonModel.CvFileUploadRequest = new UploadRequest { Data = buffer, UploadType = Application.Enums.UploadType.Student, Extension = extension };
-            }
-        }
 
         private void DeletePersonImageAsync()
         {
@@ -315,11 +370,6 @@ namespace SchoolV01.Client.Pages.Clients.Persons
             AddEditPersonModel.PersomImageUploadRequest = new UploadRequest();
         }
 
-        private void DeleteIdImageAsync()
-        {
-            AddEditPersonModel.IdentifierImageUrl = null;
-            AddEditPersonModel.IdentifierImageUploadRequest = new UploadRequest();
-        }
 
         private void DeletePersonFileAsync()
         {
@@ -351,7 +401,7 @@ namespace SchoolV01.Client.Pages.Clients.Persons
             if (string.IsNullOrEmpty(value))
                 return _Countrys.Select(x => x.Id);
 
-            return _Countrys.Where(x => x.NameAr.Contains(value, StringComparison.InvariantCultureIgnoreCase))
+            return _Countrys.Where(x => x.NameAr.Contains(value, StringComparison.InvariantCultureIgnoreCase) || x.NameEn.Contains(value, StringComparison.InvariantCultureIgnoreCase))
                 .Select(x => x.Id);
         }
         private async Task<IEnumerable<int>> SearchCitys(string value, CancellationToken token)
@@ -362,21 +412,22 @@ namespace SchoolV01.Client.Pages.Clients.Persons
             if (string.IsNullOrEmpty(value))
                 return _Citys.Select(x => x.Id);
 
-            return _Citys.Where(x => x.NameAr.Contains(value, StringComparison.InvariantCultureIgnoreCase))
+            return _Citys.Where(x => x.NameAr.Contains(value, StringComparison.InvariantCultureIgnoreCase) || x.NameEn.Contains(value, StringComparison.InvariantCultureIgnoreCase))
                 .Select(x => x.Id);
-        }
-
-        private async Task<IEnumerable<int>> SearchSections(string value, CancellationToken token)
+        }   
+        
+        private async Task<IEnumerable<int?>> SearchClassifications(string value, CancellationToken token)
         {
             await Task.Delay(5);
 
             // if text is null or empty, show complete list
             if (string.IsNullOrEmpty(value))
-                return _sections.Select(x => x.Id);
+                return _Classification.Select(x => x?.Id);
 
-            return _sections.Where(x => x.NameAr.Contains(value, StringComparison.InvariantCultureIgnoreCase))
-                .Select(x => x.Id);
+            return _Classification.Where(x => x.NameAr.Contains(value, StringComparison.InvariantCultureIgnoreCase) || x.NameEn.Contains(value, StringComparison.InvariantCultureIgnoreCase))
+                .Select(x => x?.Id);
         }
+
 
         private bool _passwordVisibility;
         private InputType _passwordInput = InputType.Password;

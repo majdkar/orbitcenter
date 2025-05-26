@@ -132,6 +132,11 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
                 if (CvFileUploadRequest != null)
                 {
                     person.CvFileUrl = _uploadService.UploadAsync(CvFileUploadRequest);
+                }  
+                
+                if (CvFileUploadRequest == null)
+                {
+                    person.CvFileUrl =command.CvFileUrl;
                 }
                 await _unitOfWork.Repository<Person>().AddAsync(person);
                 await _unitOfWork.Commit(cancellationToken);
@@ -187,7 +192,10 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
                     {
                         person.CvFileUrl = _uploadService.UploadAsync(CvFileUploadRequest);
                     }
-
+                    if (CvFileUploadRequest == null)
+                    {
+                        person.CvFileUrl = command.CvFileUrl;
+                    }
                     await _unitOfWork.Repository<Person>().UpdateAsync(person);
                     await _unitOfWork.Commit(cancellationToken);
                     return await Result<int>.SuccessAsync(person.Id, _localizer["Person Updated"]);

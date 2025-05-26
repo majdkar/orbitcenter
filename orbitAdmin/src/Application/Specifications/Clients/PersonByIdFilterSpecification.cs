@@ -16,6 +16,7 @@ namespace SchoolV01.Application.Specifications.Clients
             Includes.Add(c => c.Client);
             Includes.Add(c => c.Country);
             Includes.Add(c => c.City);
+            Includes.Add(c => c.Classification);
             Criteria = c => c.Id == id;
         }
     }

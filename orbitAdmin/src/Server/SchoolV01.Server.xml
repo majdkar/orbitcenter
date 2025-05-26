@@ -655,6 +655,40 @@
             <param name="searchString"></param>
             <returns></returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseTypesController.GetAll">
+            <summary>
+            Get All CourseTypes
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseTypesController.GetById(System.Int32)">
+            <summary>
+            Get a City By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 Ok</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseTypesController.Post(SchoolV01.Application.Features.CourseTypes.Commands.AddEditCourseTypeCommand)">
+            <summary>
+            Create/Update a City
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseTypesController.Delete(System.Int32)">
+            <summary>
+            Delete a City
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseTypesController.Export(System.String)">
+            <summary>
+            Search CourseTypes and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns></returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ProductCategoriesController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
             <summary>
             Get All Paged ProductCategories

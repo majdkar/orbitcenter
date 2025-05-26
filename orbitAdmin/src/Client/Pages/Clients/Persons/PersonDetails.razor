@@ -2,7 +2,7 @@
 @using SchoolV01.Shared.Constants.Clients
 @inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditPerson> _localizer
 
-<HeroTitle Title="@PersonModel.FullNameAr" />
+<HeroTitle Title="@PersonModel.FullName" />
 @if (!_loaded)
 {
     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />

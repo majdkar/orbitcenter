@@ -6,11 +6,7 @@
     <MudCardContent>
         <MudGrid>
             <MudItem xs="12" md="4">
-                <strong>@_localizer["FullNameAr"] : </strong> @Model.FullNameAr
-            </MudItem>
-
-            <MudItem xs="12" md="4">
-                <strong>@_localizer["FullNameEn"] : </strong> @Model.FullNameEn
+                <strong>@_localizer["Full Name"] : </strong> @Model.FullName
             </MudItem>
 
             <MudItem xs="12" md="4">
@@ -31,6 +27,22 @@
             <MudItem xs="12" md="4">
                 <strong>@_localizer["Phone"] : </strong> @Model.Phone
             </MudItem>
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Mobile1"] : </strong> @Model.Mobile1
+            </MudItem>
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Mobile2"] : </strong> @Model.Mobile2
+            </MudItem>
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Qualification"] : </strong> @Model.Qualification
+            </MudItem>
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Job"] : </strong> @Model.Job
+            </MudItem>
+            
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Classification"] : </strong>@(IsArabic ? Model.Classification?.NameAr : Model.Classification?.NameEn)
+            </MudItem>
              <MudItem xs="12" md="4">
                 <strong>@_localizer["MailBox"] : </strong> @Model.MailBox
             </MudItem>
@@ -42,10 +54,33 @@
                 <strong>@_localizer["Address"] : </strong> @Model.Address
             </MudItem>
             
-            <MudItem xs="12" md="8">
+            <MudItem xs="12" md="12">
                 <strong>@_localizer["AdditionalInfo"] : </strong> @Model.AdditionalInfo
             </MudItem>
 
+            @if(Model.PersomImageUrl is not null)
+            {
+                 <MudItem xs="6" md="4">
+                    <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@(Model.PersomImageUrl.Replace('\\','/'))" Height="150" />
+                    <MudButton Variant="MudBlazor.Variant.Text"
+                               Color="Color.Info"
+                               StartIcon="@Icons.Material.Filled.RemoveRedEye"
+                               Size="Size.Small"
+                               Href="@(Model.PersomImageUrl)" Target="_blank">
+                        @_localizer["View"]
+                    </MudButton>
+                </MudItem>
+                    }
+
+
+            @if(Model.CvFileUrl is not null)
+            {
+                 <MudItem xs="6" md="4">
+                    <strong>@_localizer["CV File"] : </strong>
+
+                    <MudIconButton Icon="@Icons.Material.Filled.FileDownload" Color="Color.Secondary" Href=@(@Model.CvFileUrl) @onclick:stopPropagation Target="_blank"></MudIconButton>
+                </MudItem>
+                    }
         </MudGrid>
    </MudCardContent>
 </MudCard>

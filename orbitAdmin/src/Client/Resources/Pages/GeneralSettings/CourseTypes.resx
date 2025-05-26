@@ -117,79 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Departments &amp; Private Lessons" xml:space="preserve">
-    <value>Departments &amp; Private Lessons</value>
+  <data name="Manage CourseTypes" xml:space="preserve">
+    <value>Manage CourseTypes</value>
   </data>
-  <data name="Teachers" xml:space="preserve">
-    <value>Teachers</value>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Name /Ar" xml:space="preserve">
+    <value>Name /Ar</value>
+  </data>
+  <data name="Name /En" xml:space="preserve">
+    <value>Name /En</value>
+  </data>
+  <data name="Is Active?" xml:space="preserve">
+    <value>Is Active?</value>
+  </data>
+  <data name="You must enter name" xml:space="preserve">
+    <value>You must enter name</value>
   </data>
   <data name="CourseTypes" xml:space="preserve">
     <value>CourseTypes</value>
   </data>
-  <data name="Add Menu Categories" xml:space="preserve">
-    <value>Add Menu Categories</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="Administrator" xml:space="preserve">
-    <value>Administrator</value>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
   </data>
-  <data name="Block Categories List" xml:space="preserve">
-    <value>Block Categories List</value>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
   </data>
-  <data name="Blocks List" xml:space="preserve">
-    <value>Blocks List</value>
+  <data name="Reload" xml:space="preserve">
+    <value>Reload</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
   </data>
-  <data name="Menu Categories" xml:space="preserve">
-    <value>Menu Categories</value>
-  </data>
-  <data name="Pages" xml:space="preserve">
-    <value>Pages</value>
-  </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Roles</value>
-  </data>
-  <data name="Services Management" xml:space="preserve">
-    <value>Services Management</value>
-  </data>
-  <data name="Swagger" xml:space="preserve">
-    <value>Swagger</value>
-  </data>
-  <data name="Users" xml:space="preserve">
-    <value>Users</value>
-  </data>
-  <data name="WebSite Management" xml:space="preserve">
-    <value>WebSite Management</value>
-  </data>
-  <data name="Pages Management" xml:space="preserve">
-    <value>Pages Management</value>
-  </data>
-  <data name="Blocks Management" xml:space="preserve">
-    <value>Blocks Management</value>
-  </data>
-  <data name="Menus Management" xml:space="preserve">
-    <value>Menus Management</value>
-  </data>
-  <data name="Change Date Of Lesson Application" xml:space="preserve">
-    <value>Change Date Of Lesson Application</value>
-  </data>
-  <data name="Excellence" xml:space="preserve">
-    <value>Excellence</value>
-  </data>
-  <data name="More Information" xml:space="preserve">
-    <value>More Information</value>
-  </data>
-  <data name="Evaluations" xml:space="preserve">
-    <value>Evaluations</value>
-  </data>
-  <data name="Services Categories" xml:space="preserve">
-    <value>Services Categories</value>
-  </data>
-  <data name="Services List" xml:space="preserve">
-    <value>Services List</value>
-  </data>
-  <data name="Classifications" xml:space="preserve">
-    <value>Classifications</value>
+  <data name="Country is Required" xml:space="preserve">
+    <value>Country is Required</value>
   </data>
 </root>

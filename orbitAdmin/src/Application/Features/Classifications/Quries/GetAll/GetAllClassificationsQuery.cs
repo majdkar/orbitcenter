@@ -36,13 +36,13 @@ namespace SchoolV01.Application.Features.Classifications.Queries
         public async Task<Result<List<GetAllClassificationsResponse>>> Handle(GetAllClassificationsQuery request, CancellationToken cancellationToken)
         {
             var isArabic = CultureInfo.CurrentCulture.Name.Contains("ar");
-            Func<Task<List<Country>>> getAllClassifications = () => _unitOfWork.Repository<Country>().Entities
+            Func<Task<List<Classification>>> getAllClassifications = () => _unitOfWork.Repository<Classification>().Entities
             .OrderBy(x => isArabic ? x.NameAr : x.NameEn)
             .AsNoTracking()
             .ToListAsync(cancellationToken);
 
-            var CountryList = await _cache.GetOrAddAsync(nameof(Country) + $"-{isArabic}", getAllClassifications);
-            var mappedClassifications = _mapper.Map<List<GetAllClassificationsResponse>>(CountryList);
+            var ClassificationList = await _cache.GetOrAddAsync(nameof(Classification) + $"-{isArabic}", getAllClassifications);
+            var mappedClassifications = _mapper.Map<List<GetAllClassificationsResponse>>(ClassificationList);
             return await Result<List<GetAllClassificationsResponse>>.SuccessAsync(mappedClassifications);
         }
     }

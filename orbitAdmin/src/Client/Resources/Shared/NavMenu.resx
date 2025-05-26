@@ -159,8 +159,8 @@
   <data name="Account" xml:space="preserve">
     <value />
   </data>
-  <data name="AddArticle" xml:space="preserve">
-    <value />
+  <data name="CourseTypes" xml:space="preserve">
+    <value>CourseTypes</value>
   </data>
   <data name="AddBlock" xml:space="preserve">
     <value />
@@ -1112,5 +1112,8 @@
   </data>
   <data name="Services List" xml:space="preserve">
     <value>Services List</value>
+  </data>
+  <data name="Classifications" xml:space="preserve">
+    <value>Classifications</value>
   </data>
 </root>

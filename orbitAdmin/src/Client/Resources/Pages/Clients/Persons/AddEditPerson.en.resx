@@ -153,8 +153,8 @@
   <data name="Female" xml:space="preserve">
     <value>Female</value>
   </data>
-  <data name="FullNameAr" xml:space="preserve">
-    <value>Full Name in Arabic</value>
+  <data name="Full Name" xml:space="preserve">
+    <value>Full Name</value>
   </data>
   <data name="FullNameEn" xml:space="preserve">
     <value>Full Name in English</value>
@@ -167,9 +167,6 @@
   </data>
   <data name="Male" xml:space="preserve">
     <value>Male</value>
-  </data>
-  <data name="Country" xml:space="preserve">
-    <value>Country</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -210,13 +207,31 @@
   <data name="Upload Identifier Image" xml:space="preserve">
     <value>Upload Identifier Image</value>
   </data>
-  <data name="Upload Person Image" xml:space="preserve">
-    <value>Upload Person Image</value>
-  </data>
   <data name="View" xml:space="preserve">
     <value>View</value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>Website</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Qualification</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="Classification" xml:space="preserve">
+    <value>Classification</value>
+  </data>
+  <data name="Mobile1" xml:space="preserve">
+    <value>Mobile 1</value>
+  </data>
+  <data name="Mobile2" xml:space="preserve">
+    <value>Mobile 2</value>
+  </data>
+  <data name="CV File" xml:space="preserve">
+    <value>CV File</value>
+  </data>
+  <data name="Upload Personal Image" xml:space="preserve">
+    <value>Upload Personal Image</value>
   </data>
 </root>
