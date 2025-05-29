@@ -1116,4 +1116,7 @@
   <data name="Classifications" xml:space="preserve">
     <value>التصنيف</value>
   </data>
+  <data name="Complaints and Suggestions List" xml:space="preserve">
+    <value>قائمة الشكاوي والأقتراحات</value>
+  </data>
 </root>

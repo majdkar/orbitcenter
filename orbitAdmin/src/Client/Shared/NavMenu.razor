@@ -162,6 +162,12 @@
 
     }
 
+    @if (_canViewSuggestions)
+    {
+        <MudNavLink Href="/Suggestions" Icon="@Icons.Material.Outlined.SettingsSuggest">
+            @_localizer["Complaints and Suggestions List"]
+    </MudNavLink>
+    }
     @if (_isAdmin)
     {
 
@@ -198,6 +204,7 @@
     private bool _canViewPersons;
     private bool _canViewClassifications;
     private bool _canViewCourseTypes;
+    private bool _canViewSuggestions;
     @*/*s0012s*/*@
     private bool _canViewOwners;
 
@@ -227,6 +234,7 @@
         _canViewCompanies = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Companies.View)).Succeeded;
         _canViewClassifications = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Classifications.View)).Succeeded;
         _canViewCourseTypes = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.CourseTypes.View)).Succeeded;
+        _canViewSuggestions = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Suggestions.View)).Succeeded;
         
 
         _currentUser = await _authenticationManager.CurrentUser();

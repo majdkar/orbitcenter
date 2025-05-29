@@ -751,6 +751,48 @@
             <param name="searchString"></param>
             <returns>Status 200 OK</returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.SuggestionsController.GetAllPaged(SchoolV01.Domain.Enums.SuggestionType,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Suggestions
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.SuggestionsController.GetById(System.Int32)">
+            <summary>
+            Get a Suggestion By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 Ok</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.SuggestionsController.Post(SchoolV01.Application.Features.Suggestions.Commands.AddEdit.AddEditSuggestionCommand)">
+            <summary>
+            Create/Update a Suggestion
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.SuggestionsController.PostReply(SchoolV01.Application.Features.Suggestions.Commands.AddEdit.AddEditReplyCommand)">
+            <summary>
+            Post Reply For a Suggestion
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.SuggestionsController.Delete(System.Int32)">
+            <summary>
+            Delete a Suggestion
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.SuggestionsController.Export(System.String,SchoolV01.Domain.Enums.SuggestionType)">
+            <summary>
+            Search Suggestions and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.OwnersManagement.OwnersController.GetAll(System.Int32,System.Int32,System.String,System.String)">
             <summary>
             Get All Owners

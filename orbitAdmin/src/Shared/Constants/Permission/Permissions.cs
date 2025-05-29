@@ -64,6 +64,13 @@ namespace SchoolV01.Shared.Constants.Permission
             public const string Edit = "Permissions.Person.Edit";
             public const string Delete = "Permissions.Person.Delete";
         }
+                  public static class Suggestions
+        {
+            public const string View = "Permissions.Suggestions.View";
+            public const string Create = "Permissions.Suggestions.Create";
+            public const string Edit = "Permissions.Suggestions.Edit";
+            public const string Delete = "Permissions.Suggestions.Delete";
+        }
                             
         public static class CourseTypes
         {

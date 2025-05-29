@@ -1,0 +1,95 @@
+@page "/Suggestion-details/{Id:int}"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<DetailsSuggestions> _localizer
+
+<MudGrid>
+    <MudItem xs="12" sm="12" md="12">
+        <EditForm Model="@AddEditSuggestionModel" OnValidSubmit="SaveAsync">
+            <FluentValidationValidator @ref="_fluentValidationValidator" />
+            <MudCard Elevation="4">
+                <MudCardHeader>
+                  
+                        <MudText Typo="Typo.h6">
+                            @_localizer["Details Suggestion"]
+                        </MudText>
+                   
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudGrid>
+                        <MudItem xs="12" sm="12" md="12">
+                            <MudGrid>
+                                @if (Model is not null)
+                                {
+                                    @if (Model.ClientId > 0)
+                                {
+                                    <MudItem xs="12" md="6">
+                                        <MudText> @_localizer["UserName"] :<strong> @Model.Client.User.FullName </strong> </MudText>
+                                    </MudItem>
+                                    <MudItem xs="12" md="6">
+                                        <MudText> @_localizer["Email"] :<strong> @Model.Client.User.Email </strong> </MudText>
+                                    </MudItem>
+                                    <MudItem xs="12" md="6">
+                                        <MudText> @_localizer["Mobile"] :<strong> @Model.Client.User.PhoneNumber </strong> </MudText>
+                                    </MudItem> 
+                                    
+                                  
+                                }
+                                else
+                                {
+                                    <MudItem xs="12" md="6">
+                                        <MudText> @_localizer["UserName"] :<strong> @Model.UserName </strong> </MudText>
+                                    </MudItem>
+                                    <MudItem xs="12" md="6">
+                                        <MudText> @_localizer["Email"] :<strong> @Model.Email </strong> </MudText>
+                                    </MudItem>
+                                    <MudItem xs="12" md="6">
+                                        <MudText> @_localizer["Mobile"] :<strong> @Model.Mobile </strong> </MudText>
+                                    </MudItem>
+                                }
+
+                                    <MudItem xs="12" md="6">
+                                        <MudText> @_localizer["Type"] :<strong> @Model.Type </strong> </MudText>
+                                    </MudItem>
+
+                                    <MudItem xs="12" md="6">
+                                        <MudText> @_localizer["CreateOn"] :<strong>  @Model.CreateOn.ToShortDateString() </strong> </MudText>
+                                    </MudItem>
+
+                                <MudItem xs="12" md="12">
+                                    <MudTextField ReadOnly Lines="3" For="@(() => Model.Description)" @bind-Value="Model.Description" Label="@_localizer["Description"]" Variant="Variant.Outlined" />
+                                </MudItem>
+
+                                    @if (!string.IsNullOrEmpty(Model.Reply))
+                                    {
+                                        <MudItem xs="12" md="12">
+                                            <MudTextField  Lines="3" For="@(() => Model.Reply)" @bind-Value="Model.Reply" Label="@_localizer["Reply"]" Variant="Variant.Outlined" />
+                                </MudItem>
+                                    
+                                    }
+                                    else
+                                    {
+                                        <MudItem xs="12" md="12">
+                                            <MudTextField  Lines="3" For="@(() => AddEditSuggestionModel.Reply)" @bind-Value="AddEditSuggestionModel.Reply" Label="@_localizer["Reply"]" Variant="Variant.Outlined" />
+                                </MudItem>
+                                    
+                                    }
+                                }
+                                 <MudItem xs="6" md="3" sm="4">
+                              <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Success"  OnClick="SaveAsync">@_localizer["Reply"]</MudButton>
+                  </MudItem>
+
+
+                            </MudGrid>
+                        </MudItem>
+                    </MudGrid>
+
+                </MudCardContent>
+                <MudCardActions Class="d-flex justify-end flex-grow-1 gap-4 mr-2">
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="RedirectToSuggestionPage">@_localizer["Back"]</MudButton>
+           
+                </MudCardActions>
+            </MudCard>
+        </EditForm>
+    </MudItem>
+</MudGrid>
+
+

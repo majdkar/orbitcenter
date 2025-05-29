@@ -117,82 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Departments &amp; Private Lessons" xml:space="preserve">
-    <value>Departments &amp; Private Lessons</value>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
   </data>
-  <data name="Teachers" xml:space="preserve">
-    <value>Teachers</value>
+  <data name="Add Suggestion" xml:space="preserve">
+    <value>Add Suggestion</value>
   </data>
-  <data name="CourseTypes" xml:space="preserve">
-    <value>CourseTypes</value>
+  <data name="Bordered" xml:space="preserve">
+    <value>Bordered</value>
   </data>
-  <data name="Add Menu Categories" xml:space="preserve">
-    <value>Add Menu Categories</value>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
   </data>
-  <data name="Administrator" xml:space="preserve">
-    <value>Administrator</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="Block Categories List" xml:space="preserve">
-    <value>Block Categories List</value>
+  <data name="Delete Content" xml:space="preserve">
+    <value>Delete Content</value>
   </data>
-  <data name="Blocks List" xml:space="preserve">
-    <value>Blocks List</value>
+  <data name="Dense" xml:space="preserve">
+    <value>Dense</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="Menu Categories" xml:space="preserve">
-    <value>Menu Categories</value>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
   </data>
-  <data name="Pages" xml:space="preserve">
-    <value>Pages</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Roles</value>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
-  <data name="Services Management" xml:space="preserve">
-    <value>Services Management</value>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
   </data>
-  <data name="Swagger" xml:space="preserve">
-    <value>Swagger</value>
+  <data name="Filtered Suggestions exported" xml:space="preserve">
+    <value>Filtered Suggestions exported</value>
   </data>
-  <data name="Users" xml:space="preserve">
-    <value>Users</value>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
   </data>
-  <data name="WebSite Management" xml:space="preserve">
-    <value>WebSite Management</value>
+  <data name="Manage Suggestions." xml:space="preserve">
+    <value>Manage Suggestions.</value>
   </data>
-  <data name="Pages Management" xml:space="preserve">
-    <value>Pages Management</value>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobile</value>
   </data>
-  <data name="Blocks Management" xml:space="preserve">
-    <value>Blocks Management</value>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
   </data>
-  <data name="Menus Management" xml:space="preserve">
-    <value>Menus Management</value>
+  <data name="No Allowed Actions" xml:space="preserve">
+    <value>No Allowed Actions</value>
   </data>
-  <data name="Change Date Of Lesson Application" xml:space="preserve">
-    <value>Change Date Of Lesson Application</value>
+  <data name="Reload" xml:space="preserve">
+    <value>Reload</value>
   </data>
-  <data name="Excellence" xml:space="preserve">
-    <value>Excellence</value>
+  <data name="Search" xml:space="preserve">
+    <value>Search for Suggestions</value>
   </data>
-  <data name="More Information" xml:space="preserve">
-    <value>More Information</value>
+  <data name="Striped" xml:space="preserve">
+    <value>Striped</value>
   </data>
-  <data name="Evaluations" xml:space="preserve">
-    <value>Evaluations</value>
+  <data name="Suggestions" xml:space="preserve">
+    <value>Suggestions</value>
   </data>
-  <data name="Services Categories" xml:space="preserve">
-    <value>Services Categories</value>
+  <data name="Suggestions exported" xml:space="preserve">
+    <value>Suggestions exported</value>
   </data>
-  <data name="Services List" xml:space="preserve">
-    <value>Services List</value>
+  <data name="Tax" xml:space="preserve">
+    <value>Tax</value>
   </data>
-  <data name="Classifications" xml:space="preserve">
-    <value>Classifications</value>
-  </data>
-  <data name="Complaints and Suggestions List" xml:space="preserve">
-    <value>Complaints and Suggestions List</value>
+  <data name="UserName" xml:space="preserve">
+    <value>Name</value>
   </data>
 </root>

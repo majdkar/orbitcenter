@@ -1,0 +1,38 @@
+﻿@page "/Suggestions"
+@attribute [Authorize(Policy = Permissions.Suggestions.View)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Suggestions> _localizer
+@using SchoolV01.Application.Features.Suggestions.Queries.GetAll
+@using SchoolV01.Domain.Enums
+
+<style>
+    .mud-table-container {
+        overflow: auto;
+    }
+</style>
+<HeroTitle Title="@_localizer["Complaints and Suggestions"]" Description="@_localizer["Manage Complaints and Suggestions."]" />
+
+    <MudTabs Elevation="25" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6">
+   
+        
+        <MudTabPanel Text=@_localizer["Suggestion"]>
+        <Suggestions Type="SuggestionType.Suggestion" />
+        </MudTabPanel>
+    
+        
+        <MudTabPanel Text=@_localizer["Complaint"]>
+        <Suggestions Type="SuggestionType.Complaint" />
+        </MudTabPanel>
+
+    <MudTabPanel Text=@_localizer["Inquiry"]>
+        <Suggestions Type="SuggestionType.Inquiry" />
+        </MudTabPanel>
+     
+    <MudTabPanel Text=@_localizer["Appointment"]>
+        <Suggestions Type="SuggestionType.Appointment" />
+        </MudTabPanel>
+     
+    </MudTabs>
+
+
+
+

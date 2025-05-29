@@ -10,6 +10,7 @@ using SchoolV01.Domain.Entities.GeneralSettings;
 using SchoolV01.Domain.Entities.Identity;
 using SchoolV01.Domain.Entities.Misc;
 using SchoolV01.Domain.Entities.Products;
+using SchoolV01.Domain.Entities.Suggestions;
 using SchoolV01.Domain.Models.Chat;
 using System;
 using System.Linq;
@@ -71,6 +72,7 @@ namespace SchoolV01.Infrastructure.Contexts
         public DbSet<City> Cities { get; set; }
         public DbSet<Classification> Classifications { get; set; }
         public DbSet<CourseType> CourseTypes { get; set; }
+        public DbSet<Suggestion> Suggestions { get; set; }
 
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
