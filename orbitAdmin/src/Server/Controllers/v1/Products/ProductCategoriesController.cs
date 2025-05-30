@@ -11,6 +11,7 @@ using SchoolV01.Shared.Constants.Permission;
 
 namespace SchoolV01.Server.Controllers.v1.GeneralSettings
 {
+    [ControllerName("Product Categories (Services Categories)")]
     public class ProductCategoriesController : BaseApiController<ProductCategoriesController>
     {
         /// <summary>

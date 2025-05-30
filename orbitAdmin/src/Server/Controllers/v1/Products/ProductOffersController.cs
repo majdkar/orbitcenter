@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 
 namespace SchoolV01.Server.Controllers.v1.Products
 {
+    [ControllerName("Product Offers (Services Offers)")]
+
     public class ProductOffersController : BaseApiController<ProductOffersController>
     {
         /// <summary>
