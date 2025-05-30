@@ -36,22 +36,22 @@
                                 else
                                 {
                                     <MudItem xs="12" md="6">
-                                        <MudText> @_localizer["UserName"] :<strong> @Model.UserName </strong> </MudText>
+                                        <MudText> @_localizer["UserName"] : <strong> @Model.UserName </strong> </MudText>
                                     </MudItem>
                                     <MudItem xs="12" md="6">
-                                        <MudText> @_localizer["Email"] :<strong> @Model.Email </strong> </MudText>
+                                        <MudText> @_localizer["Email"] : <strong> @Model.Email </strong> </MudText>
                                     </MudItem>
                                     <MudItem xs="12" md="6">
-                                        <MudText> @_localizer["Mobile"] :<strong> @Model.Mobile </strong> </MudText>
+                                        <MudText> @_localizer["Mobile"] : <strong> @Model.Mobile </strong> </MudText>
                                     </MudItem>
                                 }
 
                                     <MudItem xs="12" md="6">
-                                        <MudText> @_localizer["Type"] :<strong> @Model.Type </strong> </MudText>
+                                        <MudText> @_localizer["Type"] : <strong> @_localizer[Model.Type.ToString()] </strong> </MudText>
                                     </MudItem>
 
                                     <MudItem xs="12" md="6">
-                                        <MudText> @_localizer["CreateOn"] :<strong>  @Model.CreateOn.ToShortDateString() </strong> </MudText>
+                                        <MudText> @_localizer["Send Date"] : <strong>  @Model.CreateOn.ToShortDateString() </strong> </MudText>
                                     </MudItem>
 
                                 <MudItem xs="12" md="12">

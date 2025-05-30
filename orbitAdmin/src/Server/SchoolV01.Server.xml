@@ -785,14 +785,6 @@
             <param name="id"></param>
             <returns>Status 200 OK</returns>
         </member>
-        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.SuggestionsController.Export(System.String,SchoolV01.Domain.Enums.SuggestionType)">
-            <summary>
-            Search Suggestions and Export to Excel
-            </summary>
-            <param name="searchString"></param>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.OwnersManagement.OwnersController.GetAll(System.Int32,System.Int32,System.String,System.String)">
             <summary>
             Get All Owners

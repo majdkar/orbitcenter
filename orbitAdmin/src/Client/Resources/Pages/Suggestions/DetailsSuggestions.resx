@@ -117,109 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Actions" xml:space="preserve">
-    <value>الخيارات</value>
-  </data>
-  <data name="Add Suggestion" xml:space="preserve">
-    <value>إضافة أقتراح</value>
-  </data>
-  <data name="Bordered" xml:space="preserve">
-    <value>محدد</value>
-  </data>
-  <data name="Brands exported" xml:space="preserve">
-    <value>تصدير الماركات</value>
-  </data>
-  <data name="Complaints and Suggestions" xml:space="preserve">
-    <value>الشكاوى والافتراحات</value>
-  </data>
-  <data name="Create" xml:space="preserve">
-    <value>إضافة</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>حذف</value>
-  </data>
-  <data name="Delete Content" xml:space="preserve">
-    <value>حذف المضمون</value>
-  </data>
-  <data name="Dense" xml:space="preserve">
-    <value>مكثف</value>
+  <data name="Back" xml:space="preserve">
+    <value />
   </data>
   <data name="Description" xml:space="preserve">
-    <value>الوصف</value>
+    <value />
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>تفاصيل</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>تعديل</value>
+  <data name="Details Suggestion" xml:space="preserve">
+    <value />
   </data>
   <data name="Email" xml:space="preserve">
-    <value>الإيميل</value>
-  </data>
-  <data name="Export" xml:space="preserve">
-    <value>تصدير</value>
-  </data>
-  <data name="Filtered Suggestions exported" xml:space="preserve">
-    <value>جرى تصدير الأقتراحات المرشحة </value>
-  </data>
-  <data name="Id" xml:space="preserve">
-    <value>Id</value>
-  </data>
-  <data name="Manage Complaints and Suggestions." xml:space="preserve">
-    <value>إدارة الشكاوى والاقتراحات</value>
-  </data>
-  <data name="Manage Suggestions." xml:space="preserve">
-    <value>إدارة الأقتراحات</value>
+    <value />
   </data>
   <data name="Mobile" xml:space="preserve">
-    <value>رقم الموبايل</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>الاسم</value>
-  </data>
-  <data name="NameAr" xml:space="preserve">
-    <value>الأسم العربي</value>
-  </data>
-  <data name="NameEn" xml:space="preserve">
-    <value>الأسم الإنكليزي</value>
-  </data>
-  <data name="No Allowed Actions" xml:space="preserve">
-    <value>خيارات غير مسموحة</value>
-  </data>
-  <data name="Reload" xml:space="preserve">
-    <value>تحديث</value>
+    <value />
   </data>
   <data name="Reply" xml:space="preserve">
-    <value>رد</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>البحث عن الأقتراحات</value>
-  </data>
-  <data name="Striped" xml:space="preserve">
-    <value>مخطط</value>
-  </data>
-  <data name="Suggestions" xml:space="preserve">
-    <value>الأقتراحات</value>
-  </data>
-  <data name="Tax" xml:space="preserve">
-    <value>الضريبة</value>
+    <value />
   </data>
   <data name="UserName" xml:space="preserve">
-    <value>الأسم</value>
+    <value />
   </data>
   <data name="Send Date" xml:space="preserve">
-    <value>تاريخ الإرسال</value>
+    <value>Send Date</value>
   </data>
-  <data name="Inquiry" xml:space="preserve">
-    <value>إستفسار</value>
-  </data>
-  <data name="Appointment" xml:space="preserve">
-    <value>حجز موعد</value>
-  </data>
-  <data name="Complaint" xml:space="preserve">
-    <value>شكوى</value>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
   </data>
   <data name="Suggestion" xml:space="preserve">
-    <value>إقتراح</value>
+    <value>Suggestion</value>
+  </data>
+  <data name="Complaint" xml:space="preserve">
+    <value>Complaint</value>
+  </data>
+  <data name="Appointment" xml:space="preserve">
+    <value>Appointment</value>
+  </data>
+  <data name="Inquiry" xml:space="preserve">
+    <value>Inquiry</value>
   </data>
 </root>

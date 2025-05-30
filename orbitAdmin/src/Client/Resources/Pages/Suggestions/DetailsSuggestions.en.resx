@@ -135,4 +135,22 @@
   <data name="UserName" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="Send Date" xml:space="preserve">
+    <value>Send Date</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Suggestion" xml:space="preserve">
+    <value>Suggestion</value>
+  </data>
+  <data name="Complaint" xml:space="preserve">
+    <value>Complaint</value>
+  </data>
+  <data name="Appointment" xml:space="preserve">
+    <value>Appointment</value>
+  </data>
+  <data name="Inquiry" xml:space="preserve">
+    <value>Inquiry</value>
+  </data>
 </root>
