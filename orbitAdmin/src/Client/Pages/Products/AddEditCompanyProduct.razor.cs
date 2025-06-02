@@ -237,17 +237,17 @@ namespace SchoolV01.Client.Pages.Products
                  
                       
                     };
-                    if (!String.IsNullOrEmpty(AddEditCompanyProductModel.ProductImageUrl1))
+                    if (!string.IsNullOrEmpty(AddEditCompanyProductModel.ProductImageUrl1))
                     {
                         imageUrlForPreview1 = AddEditCompanyProductModel.ProductImageUrl1;
                         disableDeleteImageButton1 = false;
                     }
-                    if (!String.IsNullOrEmpty(AddEditCompanyProductModel.ProductImageUrl2))
+                    if (!string.IsNullOrEmpty(AddEditCompanyProductModel.ProductImageUrl2))
                     {
                         imageUrlForPreview2 = AddEditCompanyProductModel.ProductImageUrl2;
                         disableDeleteImageButton2 = false;
                     }
-                    if (!String.IsNullOrEmpty(AddEditCompanyProductModel.ProductImageUrl3))
+                    if (!string.IsNullOrEmpty(AddEditCompanyProductModel.ProductImageUrl3))
                     {
                         imageUrlForPreview3 = AddEditCompanyProductModel.ProductImageUrl3;
                         disableDeleteImageButton3 = false;
@@ -407,8 +407,8 @@ namespace SchoolV01.Client.Pages.Products
                 //var imageFile = await e.File.RequestImageFileAsync(format, 600, 600);
                 //var buffer = new byte[imageFile.Size];
                 //await imageFile.OpenReadStream(maxFileSize).ReadAsync(buffer);
-                var buffer = new byte[_imageFile.Size];
-                await _imageFile.OpenReadStream(maxFileSize).ReadAsync(buffer);
+                var buffer = new byte[_imageFile2.Size];
+                await _imageFile2.OpenReadStream(maxFileSize).ReadAsync(buffer);
                 AddEditCompanyProductModel.ProductImageUrl2 = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
                 AddEditCompanyProductModel.UploadRequestURL2 = new UploadRequest { Data = buffer, UploadType = Application.Enums.UploadType.ProductCategory, Extension = extension };
 
@@ -429,8 +429,8 @@ namespace SchoolV01.Client.Pages.Products
                 //var imageFile = await e.File.RequestImageFileAsync(format, 600, 600);
                 //var buffer = new byte[imageFile.Size];
                 //await imageFile.OpenReadStream(maxFileSize).ReadAsync(buffer);
-                var buffer = new byte[_imageFile.Size];
-                await _imageFile.OpenReadStream(maxFileSize).ReadAsync(buffer);
+                var buffer = new byte[_imageFile3.Size];
+                await _imageFile3.OpenReadStream(maxFileSize).ReadAsync(buffer);
                 AddEditCompanyProductModel.ProductImageUrl3 = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
                 AddEditCompanyProductModel.UploadRequestURL3 = new UploadRequest { Data = buffer, UploadType = Application.Enums.UploadType.ProductCategory, Extension = extension };
 

@@ -20,6 +20,6 @@ namespace SchoolV01.Application.Features.Suggestions.Queries.GetById
         public DateTime CreateOn { get; set; }
 
         public SuggestionType Type { get; set; }
-
+        public DateTime? AppointmentDate { get; set; }
     }
 }

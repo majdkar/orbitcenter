@@ -27,6 +27,7 @@ namespace SchoolV01.Application.Features.Suggestions.Commands.AddEdit
         public string? Reply { get; set; }
         public string Mobile { get; set; }
         public SuggestionType Type { get; set; }
+        public DateTime? AppointmentDate { get; set; }
 
     }
 
@@ -61,6 +62,7 @@ namespace SchoolV01.Application.Features.Suggestions.Commands.AddEdit
                     suggestion.UserName = command.UserName;
                     suggestion.ClientId = command.ClientId;
                     suggestion.Email = command.Email;
+                    suggestion.AppointmentDate = command.AppointmentDate;
                     suggestion.Type = command.Type;
                     suggestion.Description = command.Description;
                     suggestion.Reply = command.Reply;

@@ -222,4 +222,7 @@
   <data name="Suggestion" xml:space="preserve">
     <value>إقتراح</value>
   </data>
+  <data name="Appointment Date" xml:space="preserve">
+    <value>تاريخ الموعد</value>
+  </data>
 </root>

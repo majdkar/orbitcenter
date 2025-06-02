@@ -48,6 +48,7 @@ namespace SchoolV01.Application.Features.Suggestions.Queries.GetById
                 Client = e.Client,
                  Type = e.Type,
                   CreateOn = e.CreatedOn,
+                    AppointmentDate = e.AppointmentDate,
             };
 
             var SuggestionsFilterSpec = new SuggestionByIdFilterSpecification(query.Id);

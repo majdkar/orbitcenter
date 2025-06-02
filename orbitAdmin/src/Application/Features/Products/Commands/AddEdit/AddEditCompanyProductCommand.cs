@@ -116,17 +116,16 @@ namespace SchoolV01.Application.Features.Products.Commands.AddEdit
 
                 if (uploadRequestUrl1 != null)
                 {
-                    uploadRequestUrl1.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl1.Extension}";
+                    product.ProductImageUrl1 = _uploadService.UploadAsync(uploadRequestUrl1);
                 }
                 if (uploadRequestUrl2 != null)
                 {
-                    uploadRequestUrl2.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl2.Extension}";
+                    product.ProductImageUrl2 = _uploadService.UploadAsync(uploadRequestUrl2);
                 }
                 if (uploadRequestUrl3 != null)
                 {
-                    uploadRequestUrl3.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl3.Extension}";
+                    product.ProductImageUrl3 = _uploadService.UploadAsync(uploadRequestUrl3);
                 }
-
                 await _unitOfWork.Repository<Product>().AddAsync(product);
                 await _unitOfWork.CommitAndRemoveCache(cancellationToken, ApplicationConstants.Cache.GetAllProductsCacheKey);
                 return await Result<int>.SuccessAsync(product.Id, _localizer["Product Saved"]);
@@ -157,15 +156,15 @@ namespace SchoolV01.Application.Features.Products.Commands.AddEdit
 
                     if (uploadRequestUrl1 != null)
                     {
-                        uploadRequestUrl1.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl1.Extension}";
+                        product.ProductImageUrl1 = _uploadService.UploadAsync(uploadRequestUrl1);
                     }
                     if (uploadRequestUrl2 != null)
                     {
-                        uploadRequestUrl2.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl2.Extension}";
+                        product.ProductImageUrl2 = _uploadService.UploadAsync(uploadRequestUrl2);
                     }
                     if (uploadRequestUrl3 != null)
                     {
-                        uploadRequestUrl3.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl3.Extension}";
+                        product.ProductImageUrl3 = _uploadService.UploadAsync(uploadRequestUrl3);
                     }
 
                     product.Code = command.Code;

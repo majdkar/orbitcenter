@@ -25,5 +25,6 @@ namespace SchoolV01.Domain.Entities.Suggestions
         public string Description { get; set; }
 
         public string Reply { get; set; }
+        public DateTime? AppointmentDate { get; set; }
     }
 }

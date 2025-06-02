@@ -153,4 +153,7 @@
   <data name="Inquiry" xml:space="preserve">
     <value>Inquiry</value>
   </data>
+  <data name="Appointment Date" xml:space="preserve">
+    <value>Appointment Date</value>
+  </data>
 </root>

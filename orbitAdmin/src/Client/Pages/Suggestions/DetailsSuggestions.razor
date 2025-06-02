@@ -1,4 +1,5 @@
 @page "/Suggestion-details/{Id:int}"
+@using SchoolV01.Domain.Enums
 @inject Microsoft.Extensions.Localization.IStringLocalizer<DetailsSuggestions> _localizer
 
 <MudGrid>
@@ -46,6 +47,12 @@
                                     </MudItem>
                                 }
 
+                                    @if (Model.Type == SuggestionType.Appointment)
+                                    {
+                                        <MudItem xs="12" md="6">
+                                            <MudText> @_localizer["Appointment Date"] : <strong> @Model.AppointmentDate?.ToString() </strong> </MudText>
+                                        </MudItem>
+                                    }
                                     <MudItem xs="12" md="6">
                                         <MudText> @_localizer["Type"] : <strong> @_localizer[Model.Type.ToString()] </strong> </MudText>
                                     </MudItem>

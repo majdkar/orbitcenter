@@ -5,6 +5,7 @@ using SchoolV01.Application.Interfaces.Repositories;
 using SchoolV01.Application.Interfaces.Services;
 using SchoolV01.Application.Requests;
 using SchoolV01.Core.Entities;
+using SchoolV01.Domain.Entities.Products;
 using SchoolV01.Shared.Constants.Application;
 using SchoolV01.Shared.Wrapper;
 using System.IO;
@@ -91,19 +92,20 @@ namespace SchoolV01.Application.Features.ProductCategories.Commands.AddEdit
                 var productCategory = _mapper.Map<ProductCategory>(command);
 
                 productCategory.ParentCategoryId = productCategory.ParentCategoryId == 0 ? null : productCategory.ParentCategoryId;
-              
-                
+
+
+
                 if (uploadRequestUrl1 != null)
                 {
-                    uploadRequestUrl1.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl1.Extension}";
+                    productCategory.ImageDataURL1 = _uploadService.UploadAsync(uploadRequestUrl1);
                 }
                 if (uploadRequestUrl2 != null)
                 {
-                    uploadRequestUrl2.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl2.Extension}";
+                    productCategory.ImageDataURL2 = _uploadService.UploadAsync(uploadRequestUrl2);
                 }
                 if (uploadRequestUrl3 != null)
                 {
-                    uploadRequestUrl3.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl3.Extension}";
+                    productCategory.ImageDataURL3 = _uploadService.UploadAsync(uploadRequestUrl3);
                 }
 
                 await _unitOfWork.Repository<ProductCategory>().AddAsync(productCategory);
@@ -134,17 +136,16 @@ namespace SchoolV01.Application.Features.ProductCategories.Commands.AddEdit
 
                     if (uploadRequestUrl1 != null)
                     {
-                        uploadRequestUrl1.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl1.Extension}";
+                        productCategory.ImageDataURL1 = _uploadService.UploadAsync(uploadRequestUrl1);
                     }
                     if (uploadRequestUrl2 != null)
                     {
-                        uploadRequestUrl2.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl2.Extension}";
+                        productCategory.ImageDataURL2 = _uploadService.UploadAsync(uploadRequestUrl2);
                     }
                     if (uploadRequestUrl3 != null)
                     {
-                        uploadRequestUrl3.FileName = $"{Path.GetRandomFileName()}{uploadRequestUrl3.Extension}";
+                        productCategory.ImageDataURL3 = _uploadService.UploadAsync(uploadRequestUrl3);
                     }
-
 
                     productCategory.ParentCategoryId = (command.ParentCategoryId == 0) ? productCategory.ParentCategoryId : command.ParentCategoryId;
                     productCategory.Order = (command.Order == 0) ? productCategory.Order : command.Order;

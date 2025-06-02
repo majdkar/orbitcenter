@@ -68,6 +68,7 @@ namespace SchoolV01.Application.Features.Suggestions.Queries.GetAll
                    Client = e.Client,
                 Type = e.Type,
                 CreateOn = e.CreatedOn,
+                 AppointmentDate = e.AppointmentDate,
             };
             var NotificationsFilterSpec = new SuggestionFilterSpecification(request.SearchString,request.Type);
             if (request.OrderBy?.Any() != true)
