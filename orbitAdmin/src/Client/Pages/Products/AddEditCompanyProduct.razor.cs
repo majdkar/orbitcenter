@@ -234,24 +234,12 @@ namespace SchoolV01.Client.Pages.Products
                         IsVisible = product.IsVisible,
                         IsRecent = product.IsRecent,
                         Order = product.Order,
-                 
+                      ProductImageUrl1 = product.ProductImageUrl1,
+                      ProductImageUrl2 = product.ProductImageUrl2,
+                      ProductImageUrl3 = product.ProductImageUrl3,
                       
                     };
-                    if (!string.IsNullOrEmpty(AddEditCompanyProductModel.ProductImageUrl1))
-                    {
-                        imageUrlForPreview1 = AddEditCompanyProductModel.ProductImageUrl1;
-                        disableDeleteImageButton1 = false;
-                    }
-                    if (!string.IsNullOrEmpty(AddEditCompanyProductModel.ProductImageUrl2))
-                    {
-                        imageUrlForPreview2 = AddEditCompanyProductModel.ProductImageUrl2;
-                        disableDeleteImageButton2 = false;
-                    }
-                    if (!string.IsNullOrEmpty(AddEditCompanyProductModel.ProductImageUrl3))
-                    {
-                        imageUrlForPreview3 = AddEditCompanyProductModel.ProductImageUrl3;
-                        disableDeleteImageButton3 = false;
-                    }
+                 
 
                     DisableAddButton = false;
                     OldPrice = product.Price.Value;

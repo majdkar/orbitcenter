@@ -280,9 +280,9 @@ else
                             <MudText Typo="Typo.body1">@_localizer["ServicePhoto1"]</MudText>
                         </CardHeaderContent>
                     </MudCardHeader>
-                    @if (!string.IsNullOrEmpty(@imageUrlForPreview1))
+                    @if (!string.IsNullOrEmpty(@AddEditCompanyProductModel.ProductImageUrl1))
                     {
-                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@imageUrlForPreview1" Height="250" />
+                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@(AddEditCompanyProductModel.ProductImageUrl1.Replace('\\','/'))" Height="250" />
                     }
                     else
                     {
@@ -316,9 +316,9 @@ else
                             <MudText Typo="Typo.body1">@_localizer["ServicePhoto2"]</MudText>
                         </CardHeaderContent>
                     </MudCardHeader>
-                    @if (!string.IsNullOrEmpty(@imageUrlForPreview2))
+                    @if (!string.IsNullOrEmpty(@AddEditCompanyProductModel.ProductImageUrl2))
                     {
-                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@imageUrlForPreview2" Height="250" />
+                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@(AddEditCompanyProductModel.ProductImageUrl2.Replace('\\','/'))" Height="250" />
                     }
                     else
                     {
@@ -352,9 +352,9 @@ else
                             <MudText Typo="Typo.body1">@_localizer["ServicePhoto3"]</MudText>
                         </CardHeaderContent>
                     </MudCardHeader>
-                    @if (!string.IsNullOrEmpty(@imageUrlForPreview3))
+                    @if (!string.IsNullOrEmpty(@AddEditCompanyProductModel.ProductImageUrl3))
                     {
-                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@imageUrlForPreview3" Height="250" />
+                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@(AddEditCompanyProductModel.ProductImageUrl3.Replace('\\','/'))" Height="250" />
                     }
                     else
                     {

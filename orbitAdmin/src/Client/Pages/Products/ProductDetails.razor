@@ -124,21 +124,21 @@
                 @if (Model.ProductImageUrl1 != null)
                 {
                     <MudItem>
-                        <MudAvatar Image="@(Model.ProductImageUrl1)" Square="true" Style="height: 300px; width: 300px; max-height: 100%"> </MudAvatar>
+                        <MudCardMedia Image="@(Model.ProductImageUrl1.Replace('\\','/'))" Square="true" Style="height: 300px; width: 300px; max-height: 100%"> </MudCardMedia>
             </MudItem>
                 }
 
                 @if (Model.ProductImageUrl2 !=null)
                 {
                  <MudItem>
-                    <MudAvatar Image="@(Model.ProductImageUrl2)" Square="true" Style="height: 300px; width: 300px; max-height: 100%"> </MudAvatar>
+                    <MudCardMedia Image="@(Model.ProductImageUrl2.Replace('\\','/'))" Square="true" Style="height: 300px; width: 300px; max-height: 100%"> </MudCardMedia>
             </MudItem>
                 
                 }
                 @if (Model.ProductImageUrl3 !=null)
                 {
                  <MudItem>
-                    <MudAvatar Image="@(Model.ProductImageUrl3)" Square="true" Style="height: 300px; width: 300px; max-height: 100%"> </MudAvatar>
+                    <MudCardMedia Image="@(Model.ProductImageUrl3.Replace('\\','/'))" Square="true" Style="height: 300px; width: 300px; max-height: 100%"> </MudCardMedia>
             </MudItem>
                 }
 
