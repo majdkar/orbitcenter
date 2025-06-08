@@ -79,7 +79,7 @@ namespace SchoolV01.Application.Features.Products.Queries.GetAllPaged
                 DescriptionAr4 = e.DescriptionAr4,
 
 
-                DescriptionEn1 = e.DescriptionAr1,
+                DescriptionEn1 = e.DescriptionEn1,
                 DescriptionEn2 = e.DescriptionEn2,
                 DescriptionEn3 = e.DescriptionEn3,
                 DescriptionEn4 = e.DescriptionEn4,
