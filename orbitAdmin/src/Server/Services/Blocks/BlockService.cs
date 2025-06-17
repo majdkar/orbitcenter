@@ -42,7 +42,7 @@ namespace SchoolV01.Application.Services
 
         public async Task<List<BlockViewModel>> GetPagedBlocks(string searchString, string orderBy)
         {
-            var blockEntities = await uow.Query<Block>().OrderBy(x=>x.RecordOrder).ToListAsync();
+            var blockEntities = await uow.Query<Block>().OrderBy(x => x.RecordOrder).ToListAsync();
 
             if (blockEntities != null)
             {
@@ -87,6 +87,16 @@ namespace SchoolV01.Application.Services
         public async Task<BlockViewModel> GetBlockById(int blockId)
         {
             var blockEntity = await uow.Query<Block>().Where(x => x.Id == blockId).FirstOrDefaultAsync();
+            var blockVM = mapper.Map<Block, BlockViewModel>(blockEntity);
+            blockVM.BlockPhotos = await photoService.GetPhotoByBlockId(blockVM.Id);
+            blockVM.BlockAttachements = await AttachementService.GetAttachementByBlockId(blockVM.Id);
+            return blockVM;
+        }
+
+
+        public async Task<BlockViewModel> GetBlockByName(string blockName)
+        {
+            var blockEntity = await uow.Query<Block>().Where(x => x.NameAr == blockName || x.NameEn == blockName || x.NameGe == blockName).FirstOrDefaultAsync();
             var blockVM = mapper.Map<Block, BlockViewModel>(blockEntity);
             blockVM.BlockPhotos = await photoService.GetPhotoByBlockId(blockVM.Id);
             blockVM.BlockAttachements = await AttachementService.GetAttachementByBlockId(blockVM.Id);

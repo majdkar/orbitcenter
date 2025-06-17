@@ -127,6 +127,27 @@ namespace SchoolV01.Api.Controllers
         }
 
 
+
+        [HttpGet("BlockByName/{Name}")]
+        public async Task<ActionResult<BlockViewModel>> GetBlockByName(string Name)
+        {
+            try
+            {
+                var result = await blockService.GetBlockByName(Name);
+
+                if (result == null)
+                    return NotFound();
+
+                return result;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data");
+            }
+        }
+
+
         [Authorize(Policy = Permissions.WebSiteManagement.Create)]
         [HttpPost]
         public async Task<ActionResult<BlockViewModel>> Create(BlockInsertModel blockInsertModel)

@@ -13,6 +13,7 @@ namespace SchoolV01.Application.Services
         Task<List<BlockViewModel>> GetBlocksByCategoryId(int categoryId);
 
         Task<BlockViewModel> GetBlockById(int blockId);
+        Task<BlockViewModel> GetBlockByName(string blockName);
 
         Task<BlockViewModel> AddBlock(BlockInsertModel blockInsertModel);
 

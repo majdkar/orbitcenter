@@ -116,10 +116,24 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// <param name="id"></param>
         /// <returns>Status 200 OK</returns>
         //[Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var company = await Mediator.Send(new GetProductByIdQuery { Id = id });
+            return Ok(company);
+        }
+
+        /// <summary>
+        /// Get Product By Name
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <returns>Status 200 OK</returns>
+        //[Authorize(Policy = Permissions.Products.View)]
+        [HttpGet("GetByName/{Name}")]
+        public async Task<IActionResult> GetByName(string Name)
+        {
+            var company = await Mediator.Send(new GetProductByNameQuery {   Name = Name });
             return Ok(company);
         }
 

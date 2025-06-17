@@ -986,6 +986,13 @@
             <param name="id"></param>
             <returns>Status 200 OK</returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.GetByName(System.String)">
+            <summary>
+            Get Product By Name
+            </summary>
+            <param name="Name"></param>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.Post(SchoolV01.Application.Features.Products.Commands.AddEdit.AddEditCompanyProductCommand)">
             <summary>
             Add/Edit a Product for company profile
