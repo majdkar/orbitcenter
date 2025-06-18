@@ -239,7 +239,14 @@ else
                                     </MudItem>
 
 
+                                <MudItem xs="12" md="12">
+                                    <MudTextField Lines="4" Variant="Variant.Outlined" For="@(() => AddEditCompanyProductModel.Keywords)" @bind-Value="AddEditCompanyProductModel.Keywords" Label="@_localizer["Keywords"]" />
+                                </MudItem>
 
+
+                                <MudItem xs="12" md="12">
+                                    <MudTextField Lines="4" Variant="Variant.Outlined" For="@(() => AddEditCompanyProductModel.SeoDescription)" @bind-Value="AddEditCompanyProductModel.SeoDescription" Label="@_localizer["Seo Description"]" />
+                                </MudItem>
 
                             </MudGrid>
                         </MudCardContent>

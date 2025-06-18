@@ -60,6 +60,7 @@ namespace SchoolV01.Application.Features.Products.Queries.GetAllPaged
         public string ProductImageUrl3 { get; set; }
 
         public virtual List<ProductOffer> ProductOffers { get; set; }
-
+        public string Keywords { get; set; }
+        public string SeoDescription { get; set; }
     }
 }

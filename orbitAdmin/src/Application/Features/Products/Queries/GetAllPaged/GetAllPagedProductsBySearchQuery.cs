@@ -116,7 +116,8 @@ namespace SchoolV01.Application.Features.Products.Queries.GetAllPaged
                 ProductImageUrl2 = e.ProductImageUrl2,
                 ProductImageUrl3 = e.ProductImageUrl3,
                 ProductOffers = e.ProductOffers,
-
+                 Keywords = e.Keywords,
+                  SeoDescription = e.SeoDescription,
             };
 
 

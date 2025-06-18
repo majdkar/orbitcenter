@@ -63,9 +63,10 @@ namespace SchoolV01.Application.Features.Products.Commands.AddEdit
         public UploadRequest UploadRequestURL1 { get; set; }
         public UploadRequest UploadRequestURL2 { get; set; }
         public UploadRequest UploadRequestURL3 { get; set; }
-      
 
-   
+        public string Keywords { get; set; }
+        public string SeoDescription { get; set; }
+
     }
 
     internal class AddEditProductCommandHandler : IRequestHandler<AddEditCompanyProductCommand, Result<int>>
@@ -153,6 +154,8 @@ namespace SchoolV01.Application.Features.Products.Commands.AddEdit
                     product.DescriptionGe2 = command.DescriptionGe2;
                     product.DescriptionGe3 = command.DescriptionGe3;
                     product.DescriptionGe4 = command.DescriptionGe4;
+                    product.SeoDescription = command.SeoDescription;
+                    product.Keywords = command.Keywords;
 
                     if (uploadRequestUrl1 != null)
                     {

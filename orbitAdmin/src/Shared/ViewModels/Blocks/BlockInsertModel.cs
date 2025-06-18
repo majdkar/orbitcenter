@@ -53,7 +53,8 @@ namespace SchoolV01.Shared.ViewModels.Blocks
         public DateTime? CreateAt { set; get; }
         public int RecordOrder { get; set; }
         public int? ParentId { get; set; }
-
+        public string Keywords { get; set; }
+        public string SeoDescription { get; set; }
     }
 
     public class BlockInsertValidator : AbstractValidator<BlockInsertModel>

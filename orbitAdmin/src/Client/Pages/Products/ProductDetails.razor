@@ -117,8 +117,13 @@
                  <MudItem xs="12" md="12">
                     <strong>@_localizer["DiscriptionGe4"] : </strong> @((MarkupString)Model.DescriptionGe4)
                 </MudItem>
-         
-                
+
+                <MudItem xs="12" md="12">
+                    <strong>@_localizer["Keywords"] : </strong> @Model.Keywords
+                </MudItem>
+                <MudItem xs="12" md="12">
+                    <strong>@_localizer["Seo Description"] : </strong> @Model.SeoDescription
+                </MudItem>
 
 
                 @if (Model.ProductImageUrl1 != null)

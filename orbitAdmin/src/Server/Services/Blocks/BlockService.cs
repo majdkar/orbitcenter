@@ -148,6 +148,8 @@ namespace SchoolV01.Application.Services
                     blockEntity.DescriptionGe1 = blockUpdateModel.DescriptionGe1 ?? blockEntity.DescriptionGe1;
                     blockEntity.DescriptionGe2 = blockUpdateModel.DescriptionGe2 ?? blockEntity.DescriptionGe2;
                     blockEntity.DescriptionGe3 = blockUpdateModel.DescriptionGe3 ?? blockEntity.DescriptionGe3;
+                    blockEntity.SeoDescription = blockUpdateModel.SeoDescription ?? blockEntity.SeoDescription;
+                    blockEntity.Keywords = blockUpdateModel.Keywords ?? blockEntity.Keywords;
                     blockEntity.Date = blockUpdateModel.Date;
                     blockEntity.StartDate = blockUpdateModel.StartDate;
                     blockEntity.EndDate = blockUpdateModel.EndDate;

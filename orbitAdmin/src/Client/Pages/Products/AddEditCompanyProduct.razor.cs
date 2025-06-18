@@ -217,7 +217,9 @@ namespace SchoolV01.Client.Pages.Products
                         DescriptionGe2 = product.DescriptionGe2,
                         DescriptionGe3 = product.DescriptionGe3,
                         DescriptionGe4 = product.DescriptionGe4,
-                       
+                        Keywords = product.Keywords,
+                         SeoDescription = product.SeoDescription,
+                          Plan = product.Plan,
 
                        
                         Code = product.Code,

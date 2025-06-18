@@ -57,6 +57,11 @@ namespace SchoolV01.Core.Entities
 
         public bool IsActive { get; set; } = true;
 
+
+        public string Keywords { get; set; }
+        public string SeoDescription { get; set; }
+
+
         public int RecordOrder { get; set; }
         public int AuthorId { get; set; }
         public DateTime? CreateAt { set; get; }

@@ -57,6 +57,9 @@ namespace SchoolV01.Shared.ViewModels.Blocks
         public int AuthorId { get; set; }
         public DateTime? CreateAt { set; get; }
         public int RecordOrder { get; set; }
+
+        public string Keywords { get; set; }
+        public string SeoDescription { get; set; }
         public virtual List<BlockPhotoViewModel> BlockPhotos { get; set; }
         public virtual List<BlockAttachementViewModel> BlockAttachements { get; set; }
 

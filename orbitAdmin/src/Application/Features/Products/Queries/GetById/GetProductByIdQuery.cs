@@ -80,7 +80,8 @@ namespace SchoolV01.Application.Features.Products.Queries.GetById
                 ProductImageUrl3 = e.ProductImageUrl3,
                 ProductOffers = e.ProductOffers,
                  
-
+                 Keywords = e.Keywords,
+                  SeoDescription = e.SeoDescription,
 
             };
 

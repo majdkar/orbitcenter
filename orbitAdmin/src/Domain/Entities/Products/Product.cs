@@ -59,5 +59,8 @@ namespace SchoolV01.Domain.Entities.Products
 
         public virtual List<ProductOffer> ProductOffers { get; set; }
 
+
+        public string Keywords { get; set; }
+        public string SeoDescription { get; set; }
     }
 }

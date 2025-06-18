@@ -211,6 +211,7 @@ namespace SchoolV01.Client.Pages.Menus
                             IsHome=response.IsHome,
                             IsFooter = response.IsFooter,
                             IsHomeFooter = response.IsHomeFooter,
+                              
                         };
                     }
                     else

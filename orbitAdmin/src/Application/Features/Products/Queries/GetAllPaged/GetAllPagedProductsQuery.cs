@@ -91,6 +91,8 @@ namespace SchoolV01.Application.Features.Products.Queries.GetAllPaged
                 ProductImageUrl2 = e.ProductImageUrl2,
                 ProductImageUrl3 = e.ProductImageUrl3,
                 ProductOffers = e.ProductOffers,
+                 SeoDescription = e.SeoDescription,
+                  Keywords = e.Keywords,
             };
             var productFilterSpec = new ProductByCompanyFilterSpecification(request.SearchString);
             if (request.OrderBy?.Any() != true)
