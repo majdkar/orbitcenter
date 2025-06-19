@@ -1,0 +1,72 @@
+﻿@attribute [Authorize(Policy = Permissions.Courses.View)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CourseOffers> _localizer
+
+
+<style>
+    .mud-table-container {
+        overflow: auto;
+    }
+</style>
+
+@*<HeroTitle Title="@_localizer["Course Offers"]" />*@
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudTable Hover="true" Elevation="25" Items="_offers" @bind-property="_offer">
+        <ToolBarContent>
+            <div class="justify-center mud-text-align-center">
+                @if (_canCreateCourseOffer)
+                {
+                    <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => InvokeModal())" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Surface" Disabled="@DisableAddButton">@_localizer["Add"]</MudButton>
+                }
+            </div>
+            <MudSpacer />
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh>@_localizer["Discount Ratio"]</MudTh>
+            <MudTh>@_localizer["New Price"]</MudTh>
+            <MudTh>@_localizer["Start Date"]</MudTh>
+            <MudTh>@_localizer["End Date"]</MudTh>
+            <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="DiscountRatio">@context.DiscountRatio</MudTd>
+            <MudTd DataLabel="NewPrice">@context.NewPrice </MudTd>
+            <MudTd DataLabel="StartDate">@context.StartDate.Value.ToShortDateString() </MudTd>
+            <MudTd DataLabel="EndDate">@context.EndDate.Value.ToShortDateString() </MudTd>
+            <MudTd DataLabel="Actions" Style="text-align: right">
+                @if (_canEditCourseOffer || _canDeleteCourseOffer)
+                {
+                    @if (_canEditCourseOffer)
+                    {
+                        <MudTooltip Text="@_localizer["Edit"]">
+
+                            <MudIconButton Icon="@Icons.Material.Outlined.Edit" @onclick="@(() => InvokeModal(@context.Id))" Color="Color.Primary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>
+                    }
+                    @if (_canDeleteCourseOffer)
+                    {
+                        <MudTooltip Text="@_localizer["Delete"]">
+
+                            <MudIconButton Icon="@Icons.Material.Outlined.Delete" @onclick="@(() => Delete(@context.Id))" Color="Color.Secondary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>
+                    }
+                }
+                else
+                {
+                    <MudButton Variant="Variant.Filled"
+                       DisableElevation="true"
+                       StartIcon="@Icons.Material.Filled.DoNotTouch"
+                       IconColor="Color.Secondary"
+                       Size="Size.Small"
+                       Color="Color.Surface">
+                        @_localizer["No Allowed Actions"]
+                    </MudButton>
+                }
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+}

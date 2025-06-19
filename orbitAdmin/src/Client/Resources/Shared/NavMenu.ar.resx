@@ -1101,8 +1101,8 @@
   <data name="Courses Categories" xml:space="preserve">
     <value>فئات الدورات</value>
   </data>
-  <data name="Courses Managment" xml:space="preserve">
-    <value>إدارة الدورات</value>
+  <data name="Courses List" xml:space="preserve">
+    <value>قائمة الدورات</value>
   </data>
   <data name="Courses" xml:space="preserve">
     <value>الدورات</value>
@@ -1118,5 +1118,8 @@
   </data>
   <data name="Complaints and Suggestions List" xml:space="preserve">
     <value>قائمة الشكاوي والأقتراحات</value>
+  </data>
+  <data name="Courses Management" xml:space="preserve">
+    <value>إدارة الدوات</value>
   </data>
 </root>

@@ -288,7 +288,7 @@
   <data name="Product Offers" xml:space="preserve">
     <value />
   </data>
-  <data name="Service Prices Offers" xml:space="preserve">
+  <data name="Course Prices Offers" xml:space="preserve">
     <value />
   </data>
   <data name="Product Properties" xml:space="preserve">
@@ -336,7 +336,7 @@
   <data name="Update" xml:space="preserve">
     <value />
   </data>
-  <data name="Update Service" xml:space="preserve">
+  <data name="Update Course " xml:space="preserve">
     <value />
   </data>
   <data name="Upload" xml:space="preserve">
@@ -384,5 +384,8 @@
   </data>
   <data name="ServicePhoto3" xml:space="preserve">
     <value>ServicePhoto1</value>
+  </data>
+  <data name="Is Recent" xml:space="preserve">
+    <value>Is Recent</value>
   </data>
 </root>

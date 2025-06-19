@@ -1101,7 +1101,7 @@
   <data name="Courses Categories" xml:space="preserve">
     <value />
   </data>
-  <data name="Courses Managment" xml:space="preserve">
+  <data name="Courses List" xml:space="preserve">
     <value />
   </data>
   <data name="Courses" xml:space="preserve">
@@ -1118,5 +1118,8 @@
   </data>
   <data name="Complaints and Suggestions List" xml:space="preserve">
     <value>Complaints and Suggestions List</value>
+  </data>
+  <data name="Courses Management" xml:space="preserve">
+    <value>Courses Management</value>
   </data>
 </root>

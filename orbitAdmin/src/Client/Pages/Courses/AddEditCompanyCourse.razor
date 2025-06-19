@@ -1,0 +1,447 @@
+﻿@page "/Course-details/{CourseId:int}"
+@using System.Globalization
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditCompanyCourse> _localizer
+
+
+@if (AddEditCompanyCourseModel.Id == 0)
+{
+    <MudText Typo="Typo.h6" Color="Color.Primary">
+        <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+        @_localizer["Add Course"]
+    </MudText>
+}
+else
+{
+    <MudText Typo="Typo.h6" Color="Color.Primary">
+        <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
+        @_localizer["Update Course"]
+    </MudText>
+}
+
+<MudExpansionPanels MultiExpansion="true">
+    @*basic information*@
+    <MudExpansionPanel Text=@_localizer["Basic Information"] Class="mt-6" Expanded= "true">
+        <MudGrid>
+          
+            
+            <MudItem xs="12" sm="12" md="9">
+                <EditForm Model="@AddEditCompanyCourseModel" OnValidSubmit="SaveAsync">
+                    <FluentValidationValidator @ref="_fluentValidationValidator" />
+                    
+
+ 
+    <MudCard Elevation="4">
+
+<MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudAvatar Color="Color.Secondary">
+                            @if (AddEditCompanyCourseModel.Id == 0)
+                            {
+                                <MudIcon Icon="@Icons.Material.Outlined.Add" />
+                            }
+                            else
+                            {
+                                <MudIcon Icon="@Icons.Material.Outlined.PublishedWithChanges" />
+                            }
+                        </MudAvatar>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        @if (AddEditCompanyCourseModel.Id == 0)
+                        {
+                                    <MudText Typo="Typo.body1">@_localizer["Add Course"]</MudText>
+                        }
+                        else
+                        {
+                                    <MudText Typo="Typo.body1">@_localizer["Update Course"]</MudText>
+                        }
+                    </CardHeaderContent>
+                </MudCardHeader>
+   <MudCardContent>
+        <MudGrid>
+
+            <MudItem xs="12" md="4">
+
+                                        <MudSelect @bind-Value="@ParentCategoryId" T="int" Label="@_localizer["ParentCategory"]" SelectedValuesChanged="LoadCourseParentCategorySons" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                                            @if (_parentCategories.Count() > 0)
+                                            {
+                                                @foreach (var value in _parentCategories)
+                                                {
+                                                    <MudSelectItem T="int" Value="@value.Id">@value.NameAr</MudSelectItem>
+                                                }
+                                            }
+                                        </MudSelect>
+
+                                    </MudItem>
+                                    <MudItem xs="12" md="4">
+
+                                        <MudSelect @bind-Value="@SubCategoryId" T="int" Label="@_localizer["SubCategory"]" SelectedValuesChanged="LoadCourseSubCategorySons" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                                            @if (_subCategories.Count() > 0)
+                                            {
+                                                @foreach (var value in _subCategories)
+                                                {
+                                                    <MudSelectItem T="int" Value="@value.Id">@value.NameAr</MudSelectItem>
+                                                }
+                                            }
+                                        </MudSelect>
+
+                                    </MudItem>
+                                    <MudItem xs="12" md="4">
+
+                                        <MudSelect @bind-Value="@SubSubCategoryId" T="int" Label="@_localizer["SubSubCategory"]" SelectedValuesChanged="LoadCourseSubSubCategorySons" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                                            <MudSelectItem Value="0">N/A</MudSelectItem>
+                                            @if (_subSubCategories.Count() > 0)
+                                            {
+                                                @foreach (var value in _subSubCategories)
+                                                {
+                                                    <MudSelectItem T="int" Value="@value.Id">@value.NameAr</MudSelectItem>
+                                                }
+                                            }
+                                        </MudSelect>
+
+                                    </MudItem>
+                                    <MudItem xs="12" md="4">
+
+                                        <MudSelect @bind-Value="@SubSubSubCategoryId" T="int" Label="@_localizer["SubSubSubCategory"]" SelectedValuesChanged="UpdateDefaultCategoryId" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                                            <MudSelectItem Value="0">N/A</MudSelectItem>
+                                            @if (_subSubSubCategories.Count() > 0)
+                                            {
+                                                @foreach (var value in _subSubSubCategories)
+                                                {
+                                                    <MudSelectItem T="int" Value="@value.Id">@value.NameAr</MudSelectItem>
+                                                }
+                                            }
+                                        </MudSelect>
+
+                                    </MudItem>
+
+
+
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditCompanyCourseModel.NameEn)" @bind-Value="AddEditCompanyCourseModel.NameEn" Label="@_localizer["NameEn"]" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditCompanyCourseModel.NameAr)" @bind-Value="AddEditCompanyCourseModel.NameAr" Label="@_localizer["NameAr"]" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditCompanyCourseModel.NameGe)" @bind-Value="AddEditCompanyCourseModel.NameGe" Label="@_localizer["NameGe"]" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditCompanyCourseModel.Code)" @bind-Value="AddEditCompanyCourseModel.Code" Label="@_localizer["Code"]" />
+                                    </MudItem>
+
+
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditCompanyCourseModel.Order)" @bind-Value="AddEditCompanyCourseModel.Order" Label="@_localizer["Order"]" />
+                                    </MudItem>
+
+
+                                    <MudItem xs="12" md="4">
+                                    <MudTextField For="@(() => AddEditCompanyCourseModel.Price)" Format="F2" Culture="@CultureInfo.InvariantCulture" @bind-Value="AddEditCompanyCourseModel.Price" Label="@_localizer["Price"]" />
+                                    </MudItem>
+
+
+                                <MudItem xs="12" md="4">
+                                    <MudTextField For="@(() => AddEditCompanyCourseModel.TeacherNameAr)" @bind-Value="AddEditCompanyCourseModel.TeacherNameAr" Label="@_localizer["Teacher NameAr"]" />
+                                </MudItem>
+                                
+
+                                <MudItem xs="12" md="4">
+                                    <MudTextField For="@(() => AddEditCompanyCourseModel.TeacherNameEn)" @bind-Value="AddEditCompanyCourseModel.TeacherNameEn" Label="@_localizer["Teacher NameEn"]" />
+                                </MudItem>
+                                
+                                <MudItem xs="12" md="4">
+                                    <MudTextField For="@(() => AddEditCompanyCourseModel.TeacherNameGe)" @bind-Value="AddEditCompanyCourseModel.TeacherNameGe" Label="@_localizer["Teacher NameGe"]" />
+                                </MudItem>                   
+                                
+                                <MudItem xs="12" md="4">
+                                    <MudTextField For="@(() => AddEditCompanyCourseModel.NumMaxStudent)" @bind-Value="AddEditCompanyCourseModel.NumMaxStudent" Label="@_localizer["Max Num of Student"]" />
+                                </MudItem>
+                                <MudItem xs="12" md="4">
+                                    <MudTextField For="@(() => AddEditCompanyCourseModel.NumSesstions)" @bind-Value="AddEditCompanyCourseModel.NumSesstions" Label="@_localizer["Num of Sesstions"]" />
+                                </MudItem>
+
+
+                                <MudItem xs="12" md="4">
+                                    <MudDatePicker For="@(()=>AddEditCompanyCourseModel.StartDate)" @bind-Date="AddEditCompanyCourseModel.StartDate" Label="@_localizer["Start Date"]" DateFormat="dd/MM/yyyy" Culture="@(new CultureInfo("en-US"))" />
+                                </MudItem>
+                                <MudItem xs="12" md="4">
+                                    <MudDatePicker For="@(()=>AddEditCompanyCourseModel.StartEnd)" @bind-Date="AddEditCompanyCourseModel.StartEnd" Label="@_localizer["End Date"]" DateFormat="dd/MM/yyyy" Culture="@(new CultureInfo("en-US"))" />
+                                </MudItem>
+
+
+                                <MudItem xs="12" md="4">
+                                    <MudCheckBox T="bool" For="@(() => AddEditCompanyCourseModel.IsRecent)" @bind-Value="AddEditCompanyCourseModel.IsRecent" Label="@_localizer["Is Recent"]" />
+                                </MudItem>
+
+                                <MudItem xs="12" md="4">
+
+                                    <MudSelect @bind-Value="@AddEditCompanyCourseModel.CourseTypeId" T="int?" Label="@_localizer["Course Type"]"  AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                                        @if (_courseType.Count() > 0)
+                                        {
+                                            @foreach (var value in _courseType)
+                                            {
+                                                <MudSelectItem T="int?" Value="@value.Id">@(IsArabic ? value.NameAr : value.NameEn)</MudSelectItem>
+                                            }
+                                        }
+                                    </MudSelect>
+
+                                </MudItem>
+
+                                    <MudItem xs="12" md="3">
+                                        <MudSelect For="@(() => AddEditCompanyCourseModel.Plan)" @bind-Value="AddEditCompanyCourseModel.Plan" T="string" Label="@_localizer["Plan"]">
+                                            <MudSelectItem T="string">N/A</MudSelectItem>
+                                            @foreach (string menutype in MenuPlans)
+                                            {
+                                                <MudSelectItem T="string" Value="@menutype">@menutype</MudSelectItem>
+                                            }
+                                        </MudSelect>
+
+                                    </MudItem>
+
+
+
+                                    <MudItem xs="12" md="12">
+                                    <MudText Typo="Typo.body1">@_localizer["DiscriptionAr1"]</MudText>
+                                        <Editor Id="editorAr1" Field="() => AddEditCompanyCourseModel.DescriptionAr1" @bind-Value="AddEditCompanyCourseModel.DescriptionAr1" Inline=false
+                                                Conf="@editorDescriptionAr1.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionAr2"]</MudText>
+                                        <Editor Id="editorAr2" Field="() => AddEditCompanyCourseModel.DescriptionAr2" @bind-Value="AddEditCompanyCourseModel.DescriptionAr2" Inline=false
+                                                Conf="@editorDescriptionAr2.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionAr3"]</MudText>
+                                        <Editor Id="editorAr3" Field="() => AddEditCompanyCourseModel.DescriptionAr3" @bind-Value="AddEditCompanyCourseModel.DescriptionAr3" Inline=false
+                                                Conf="@editorDescriptionAr3.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionAr4"]</MudText>
+                                        <Editor Id="editorAr4" Field="() => AddEditCompanyCourseModel.DescriptionAr4" @bind-Value="AddEditCompanyCourseModel.DescriptionAr4" Inline=false
+                                                Conf="@editorDescriptionAr4.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionEn1"]</MudText>
+                                        <Editor Id="editorEn1" Field="() => AddEditCompanyCourseModel.DescriptionEn1" @bind-Value="AddEditCompanyCourseModel.DescriptionEn1" Inline=false
+                                                Conf="@editorDescriptionEn1.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionEn2"]</MudText>
+                                        <Editor Id="editorEn2" Field="() => AddEditCompanyCourseModel.DescriptionEn2" @bind-Value="AddEditCompanyCourseModel.DescriptionEn2" Inline=false
+                                                Conf="@editorDescriptionEn2.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionEn3"]</MudText>
+                                        <Editor Id="editorEn3" Field="() => AddEditCompanyCourseModel.DescriptionEn3" @bind-Value="AddEditCompanyCourseModel.DescriptionEn3" Inline=false
+                                                Conf="@editorDescriptionEn3.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionEn4"]</MudText>
+                                        <Editor Id="editorEn4" Field="() => AddEditCompanyCourseModel.DescriptionEn4" @bind-Value="AddEditCompanyCourseModel.DescriptionEn4" Inline=false
+                                                Conf="@editorDescriptionEn4.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionGe1"]</MudText>
+                                        <Editor Id="editorGe1" Field="() => AddEditCompanyCourseModel.DescriptionGe1" @bind-Value="AddEditCompanyCourseModel.DescriptionGe1" Inline=false
+                                                Conf="@editorDescriptionGe1.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionGe2"]</MudText>
+                                        <Editor Id="editorGe2" Field="() => AddEditCompanyCourseModel.DescriptionGe2" @bind-Value="AddEditCompanyCourseModel.DescriptionGe2" Inline=false
+                                                Conf="@editorDescriptionGe2.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionGe3"]</MudText>
+                                        <Editor Id="editorGe3" Field="() => AddEditCompanyCourseModel.DescriptionGe3" @bind-Value="AddEditCompanyCourseModel.DescriptionGe3" Inline=false
+                                                Conf="@editorDescriptionGe3.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+
+                                    <MudItem xs="12" md="12">
+                                        <MudText Typo="Typo.body1">@_localizer["DiscriptionGe4"]</MudText>
+                                        <Editor Id="editorGe4" Field="() => AddEditCompanyCourseModel.DescriptionGe4" @bind-Value="AddEditCompanyCourseModel.DescriptionGe4" Inline=false
+                                                Conf="@editorDescriptionGe4.tinymc" ScriptSrc="/tinymce/tinymce.min.js" ClassName="tinymce-wrapper" />
+                                    </MudItem>
+
+
+                                <MudItem xs="12" md="12">
+                                    <MudTextField Lines="4" Variant="Variant.Outlined" For="@(() => AddEditCompanyCourseModel.Keywords)" @bind-Value="AddEditCompanyCourseModel.Keywords" Label="@_localizer["Keywords"]" />
+                                </MudItem>
+
+
+                                <MudItem xs="12" md="12">
+                                    <MudTextField Lines="4" Variant="Variant.Outlined" For="@(() => AddEditCompanyCourseModel.SeoDescription)" @bind-Value="AddEditCompanyCourseModel.SeoDescription" Label="@_localizer["Seo Description"]" />
+                                </MudItem>
+
+                            </MudGrid>
+                        </MudCardContent>
+                        <MudCardActions Class="d-flex justify-end flex-grow-1 gap-4 mr-2">
+
+                            <MudButton DisableElevation Variant="Variant.Filled" OnClick="Cancel">@_localizer["Cancel"]</MudButton>
+                            @if (AddEditCompanyCourseModel.Id != 0)
+                            {
+                                <LoadingButton IsProcessing="@_isProcessing" ButtonText="@_localizer["Update"]" Disabled="@(!Validated)" Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Secondary"></LoadingButton>
+                            }
+                            else
+                            {
+                                <LoadingButton IsProcessing="@_isProcessing" ButtonText="@_localizer["Save"]" Disabled="@(!Validated)" Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Success"></LoadingButton>
+                            }
+
+                        </MudCardActions>
+
+                    </MudCard>
+
+
+                   
+                   
+                
+                </EditForm>
+            </MudItem>
+
+            <MudItem xs="12" sm="8" md="3">
+
+
+                <MudCard Elevation="4" Class="mb-5">
+                    <MudCardHeader>
+                        <CardHeaderAvatar>
+                            <MudAvatar Color="Color.Secondary">
+                                <MudIcon Icon="@Icons.Material.Outlined.InsertPhoto" />
+                            </MudAvatar>
+                        </CardHeaderAvatar>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.body1">@_localizer["CoursePhoto1"]</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    @if (!string.IsNullOrEmpty(@AddEditCompanyCourseModel.CourseImageUrl1))
+                    {
+                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@(AddEditCompanyCourseModel.CourseImageUrl1.Replace('\\','/'))" Height="250" />
+                    }
+                    else
+                    {
+                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@noImageUrl" Height="250" />
+                    }
+                    <MudCardActions>
+                        <InputFile id="imageInput" OnChange="UploadFiles" hidden />
+                        <MudIconButton id="imageInputButton"
+                                       HtmlTag="label"
+                                       Variant="Variant.Text"
+                                       Color="Color.Primary"
+                                       Size="Size.Small"
+                                       for="imageInput"
+                                       Icon="@Icons.Material.Outlined.Add">
+                            @_localizer["UploadImage"]
+                        </MudIconButton>
+                        <MudIconButton Icon="@Icons.Material.Filled.DeleteOutline" Color="Color.Error" OnClick="DeleteURL1Async" Disabled="@disableDeleteImageButton1" />
+                    </MudCardActions>
+                </MudCard>
+
+
+
+                <MudCard Elevation="4" Class="mb-5">
+                    <MudCardHeader>
+                        <CardHeaderAvatar>
+                            <MudAvatar Color="Color.Secondary">
+                                <MudIcon Icon="@Icons.Material.Outlined.InsertPhoto" />
+                            </MudAvatar>
+                        </CardHeaderAvatar>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.body1">@_localizer["CoursePhoto2"]</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    @if (!string.IsNullOrEmpty(@AddEditCompanyCourseModel.CourseImageUrl2))
+                    {
+                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@(AddEditCompanyCourseModel.CourseImageUrl2.Replace('\\','/'))" Height="250" />
+                    }
+                    else
+                    {
+                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@noImageUrl" Height="250" />
+                    }
+                    <MudCardActions>
+                        <InputFile id="imageInput2" OnChange="UploadFiles2" hidden />
+                        <MudIconButton id="imageInputButton"
+                                       HtmlTag="label"
+                                       Variant="Variant.Text"
+                                       Color="Color.Primary"
+                                       Size="Size.Small"
+                                       for="imageInput2"
+                                       Icon="@Icons.Material.Outlined.Add">
+                            @_localizer["UploadImage"]
+                        </MudIconButton>
+                        <MudIconButton Icon="@Icons.Material.Filled.DeleteOutline" Color="Color.Error" OnClick="DeleteURL2Async" Disabled="@disableDeleteImageButton2" />
+                    </MudCardActions>
+                </MudCard>
+
+
+
+                <MudCard Elevation="4" Class="mb-5">
+                    <MudCardHeader>
+                        <CardHeaderAvatar>
+                            <MudAvatar Color="Color.Secondary">
+                                <MudIcon Icon="@Icons.Material.Outlined.InsertPhoto" />
+                            </MudAvatar>
+                        </CardHeaderAvatar>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.body1">@_localizer["CoursePhoto3"]</MudText>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                    @if (!string.IsNullOrEmpty(@AddEditCompanyCourseModel.CourseImageUrl3))
+                    {
+                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@(AddEditCompanyCourseModel.CourseImageUrl3.Replace('\\','/'))" Height="250" />
+                    }
+                    else
+                    {
+                        <MudCardMedia Align="center" Class="ml-2 mr-2 rounded-lg" Image="@noImageUrl" Height="250" />
+                    }
+                    <MudCardActions>
+                        <InputFile id="imageInput3" OnChange="UploadFiles3" hidden />
+                        <MudIconButton id="imageInputButton"
+                                       HtmlTag="label"
+                                       Variant="Variant.Text"
+                                       Color="Color.Primary"
+                                       Size="Size.Small"
+                                       for="imageInput3"
+                                       Icon="@Icons.Material.Outlined.Add">
+                            @_localizer["UploadImage"]
+                        </MudIconButton>
+                        <MudIconButton Icon="@Icons.Material.Filled.DeleteOutline" Color="Color.Error" OnClick="DeleteURL3Async" Disabled="@disableDeleteImageButton3" />
+                    </MudCardActions>
+                </MudCard>
+
+
+
+            </MudItem>
+
+
+
+        </MudGrid>
+    </MudExpansionPanel>
+
+
+    @*offers*@
+    <MudExpansionPanel Text=@_localizer["Course Prices Offers"] Class="mt-6 mb-20">
+        <CourseOffers CourseId="CourseId" AddEditCompanyCourseModel="AddEditCompanyCourseModel"  DisableAddButton="DisableAddButton" OldPrice="@OldPrice"></CourseOffers>
+    </MudExpansionPanel>
+</MudExpansionPanels>

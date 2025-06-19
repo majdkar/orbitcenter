@@ -1,0 +1,197 @@
+﻿@page "/CourseDetails/{CourseId:int}"
+@using System.Globalization;
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditCompanyCourse> _localizer
+
+@if (Model is not null)
+{
+
+  <MudCard Elevation="4">
+        <MudCardHeader>
+            <CardHeaderAvatar>
+                <MudAvatar Color="Color.Primary">
+                    <MudIcon Icon="@Icons.Material.Outlined.PublishedWithChanges" />
+                </MudAvatar>
+            </CardHeaderAvatar>
+            <CardHeaderContent>
+                                 <MudButton DisableElevation Variant="Variant.Filled" Style="float: left !important;" Color="Color.Primary" OnClick="(() => Back())" StartIcon=@Icons.Material.Filled.ArrowBack IconColor="Color.Surface">@_localizer["Back"]</MudButton>
+
+                <MudText Typo="Typo.body1" Style="font-size:18px">@_localizer["Basic Information"] : <strong> @(IsArabic ? Model.NameAr : Model.NameEn) </strong> </MudText>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudGrid>
+              
+                 
+                
+                 <MudItem xs="12" md="4">
+                    <strong>@_localizer["NameAr"] : </strong> @Model.NameAr
+                </MudItem>
+
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["NameEn"] : </strong> @Model.NameEn
+                </MudItem>
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["NameGe"] : </strong> @Model.NameGe
+                </MudItem>
+
+              
+
+
+              @*   <MudItem xs="12" md="4">
+                    <strong>@_localizer["Category"] : </strong> @(IsArabic ? Model.CourseDefaultCategory : Model.CourseDefaultCategoryNameEn)
+                </MudItem>
+ *@
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Code"] : </strong> @Model.Code
+                </MudItem>   
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Price"] : </strong> @Model.Price
+                </MudItem>       
+                
+
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Teacher NameAr"] : </strong> @Model.TeacherNameAr
+                </MudItem>  
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Teacher NameEn"] : </strong> @Model.TeacherNameEn
+                </MudItem>  
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Teacher NameGe"] : </strong> @Model.TeacherNameGe
+                </MudItem>  
+
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Max Num of Student"] : </strong> @Model.NumMaxStudent
+                </MudItem>  
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Num of Sesstions"] : </strong> @Model.NumSesstions
+                </MudItem>    
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Start Date"] : </strong> @Model.StartDate?.ToShortDateString()
+                </MudItem>  
+                 
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["End Date"] : </strong> @Model.StartEnd?.ToShortDateString()
+                </MudItem>  
+                      
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Course Type"] : </strong> @(IsArabic ? Model.CourseType.NameAr : Model.CourseType.NameEn)
+                </MudItem>  
+
+              
+
+                   
+                
+           
+
+
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["IsRecent"] : </strong> @(Model.IsRecent == true ? _localizer["Yes"] : _localizer["No"])
+                </MudItem>
+              
+
+
+
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionAr1"] : </strong> @((MarkupString)Model.DescriptionAr1)
+                </MudItem>
+
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionAr2"] : </strong> @((MarkupString)Model.DescriptionAr2)
+                </MudItem>
+
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionAr3"] : </strong> @((MarkupString)Model.DescriptionAr3)
+                </MudItem>
+
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionAr4"] : </strong> @((MarkupString)Model.DescriptionAr4)
+                </MudItem>
+
+
+
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionEn1"] : </strong> @((MarkupString)Model.DescriptionEn1)
+                </MudItem>
+         
+                
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionEn2"] : </strong> @((MarkupString)Model.DescriptionEn2)
+                </MudItem>
+         
+                
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionEn3"] : </strong> @((MarkupString)Model.DescriptionEn3)
+                </MudItem>
+         
+                
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionEn4"] : </strong> @((MarkupString)Model.DescriptionEn4)
+                </MudItem>
+             
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionGe1"] : </strong> @((MarkupString)Model.DescriptionGe1)
+                </MudItem>
+         
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionGe2"] : </strong> @((MarkupString)Model.DescriptionGe2)
+                </MudItem>
+         
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionGe3"] : </strong> @((MarkupString)Model.DescriptionGe3)
+                </MudItem>
+         
+                 <MudItem xs="12" md="12">
+                    <strong>@_localizer["DiscriptionGe4"] : </strong> @((MarkupString)Model.DescriptionGe4)
+                </MudItem>
+
+                <MudItem xs="12" md="12">
+                    <strong>@_localizer["Keywords"] : </strong> @Model.Keywords
+                </MudItem>
+                <MudItem xs="12" md="12">
+                    <strong>@_localizer["Seo Description"] : </strong> @Model.SeoDescription
+                </MudItem>
+
+
+                @if (Model.CourseImageUrl1 != null)
+                {
+                    <MudItem>
+                        <MudCardMedia Image="@(Model.CourseImageUrl1.Replace('\\','/'))" Square="true" Style="height: 300px; width: 300px; max-height: 100%"> </MudCardMedia>
+            </MudItem>
+                }
+
+                @if (Model.CourseImageUrl2 !=null)
+                {
+                 <MudItem>
+                    <MudCardMedia Image="@(Model.CourseImageUrl2.Replace('\\','/'))" Square="true" Style="height: 300px; width: 300px; max-height: 100%"> </MudCardMedia>
+            </MudItem>
+                
+                }
+                @if (Model.CourseImageUrl3 !=null)
+                {
+                 <MudItem>
+                    <MudCardMedia Image="@(Model.CourseImageUrl3.Replace('\\','/'))" Square="true" Style="height: 300px; width: 300px; max-height: 100%"> </MudCardMedia>
+            </MudItem>
+                }
+
+
+            </MudGrid>
+
+        </MudCardContent>
+    </MudCard>
+
+    <br />
+}
+  
+
+  
+
+
+
+

@@ -137,6 +137,9 @@ else
                                         <MudTextField For="@(() => AddEditCompanyProductModel.Order)" @bind-Value="AddEditCompanyProductModel.Order" Label="@_localizer["Order"]" />
                                     </MudItem>
 
+                                <MudItem xs="12" md="6">
+                                    <MudCheckBox T="bool" For="@(() => AddEditCompanyProductModel.IsRecent)" @bind-Value="AddEditCompanyProductModel.IsRecent" Label="@_localizer["Is Recent"]" />
+                                </MudItem>
 
                                     <MudItem xs="12" md="4">
                                     <MudTextField For="@(() => AddEditCompanyProductModel.Price)" Format="F2" Culture="@CultureInfo.InvariantCulture" @bind-Value="AddEditCompanyProductModel.Price" Label="@_localizer["Price"]" />

@@ -5,6 +5,7 @@ using SchoolV01.Application.Interfaces.Services;
 using SchoolV01.Core.Entities;
 using SchoolV01.Domain.Contracts;
 using SchoolV01.Domain.Entities.Clients;
+using SchoolV01.Domain.Entities.Courses;
 using SchoolV01.Domain.Entities.ExtendedAttributes;
 using SchoolV01.Domain.Entities.GeneralSettings;
 using SchoolV01.Domain.Entities.Identity;
@@ -59,6 +60,12 @@ namespace SchoolV01.Infrastructure.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ProductOffer> ProductOffers { get; set; }  
+        
+        
+        // Course (Service)
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseCategory> CourseCategories { get; set; }
+        public DbSet<CourseOffer> CourseOffers { get; set; }  
         
         
         // Clients (Agents)

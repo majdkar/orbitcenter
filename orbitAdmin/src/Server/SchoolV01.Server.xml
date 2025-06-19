@@ -547,11 +547,67 @@
             <param name="searchString"></param>
             <returns>Status 200 OK</returns>
         </member>
-        <member name="M:SchoolV01.Server.Controllers.v1.DashboardController.GetDataAsync(System.Int32)">
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseCategoriesController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
             <summary>
-            Get Dashboard Data
+            Get All Paged CourseCategories
             </summary>
-            <returns>Status 200 OK </returns>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseCategoriesController.GetAllPagedMain(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged Main CourseCategories
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseCategoriesController.GetAllSonsAndClassification(System.Int32,System.Int32,System.Int32,System.String,System.String)" -->
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseCategoriesController.GetById(System.Int32)">
+            <summary>
+            Get Course Category By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseCategoriesController.GetAll">
+            <summary>
+            Get All Categories
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseCategoriesController.GetCategorySons(System.Int32)">
+            <summary>
+            Get All Category Sons
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseCategoriesController.Post(SchoolV01.Application.Features.CourseCategories.Commands.AddEdit.AddEditCourseCategoryCommand)">
+            <summary>
+            Add/Edit a CourseCategory
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseCategoriesController.Delete(System.Int32)">
+            <summary>
+            Delete a CourseCategory
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseCategoriesController.Export(System.String)">
+            <summary>
+            Search CourseCategories and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns>Status 200 OK</returns>
         </member>
         <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CitiesController.GetAll">
             <summary>
@@ -784,6 +840,187 @@
             </summary>
             <param name="id"></param>
             <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseOffersController.GetAllByCourse(System.Int32)">
+            <summary>
+            Get All Offers By Course
+            </summary>
+            <param name="CourseId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseOffersController.GetAllActive">
+            <summary>
+            Get All Active Offers
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseOffersController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All CourseOffers Paged 
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseOffersController.GetAllPagedActive(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All ActiveCourseOffers Paged 
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseOffersController.GetActive(System.Int32)">
+            <summary>
+            Get Active Course Offer
+            </summary>
+            <param name="CourseId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseOffersController.GetAllPagedByCourse(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All PagedOffers By Course
+            </summary>
+            <param name="CourseId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseOffersController.GetById(System.Int32)">
+            <summary>
+            Get Course Offer By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseOffersController.Post(SchoolV01.Application.Features.Courses.Commands.AddEdit.AddEditCourseOfferCommand)">
+            <summary>
+            Add/Edit a Course Offer
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseOffersController.Delete(System.Int32)">
+            <summary>
+            Delete a Course Offer
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.GetAll">
+            <summary>
+            Get All Courses
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.GetAllRecentCourses(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All  Recent Courses
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.GetAllPagedCourseByCategoryId(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All  Paged  Courses By CategoryId
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <param name="categoryId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged Courses
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.GetAllPagedSearchCourse(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Decimal,System.Decimal,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged Search Courses
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <param name="Coursename"></param>
+            <param name="propductcategoryid"></param>
+            <param name="propductSubcategoryid"></param>
+            <param name="propductSubSubcategoryid"></param>
+            <param name="propductSubSubSubcategoryid"></param>
+            <param name="fromprice"></param> 
+            <param name="toprice"></param>        
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.GetById(System.Int32)">
+            <summary>
+            Get Course By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.GetByName(System.String)">
+            <summary>
+            Get Course By Name
+            </summary>
+            <param name="Name"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.Post(SchoolV01.Application.Features.Courses.Commands.AddEdit.AddEditCompanyCourseCommand)">
+            <summary>
+            Add/Edit a Course for company profile
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.Delete(System.Int32)">
+            <summary>
+            Delete a Course
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.Export(System.String)">
+            <summary>
+            Search Courses and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.CoursesBySearch(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Decimal,System.Decimal,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All  Paged Courses By Search
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <param name="nameEn"></param>
+            <param name="CourseParentCategoryId"></param>
+            <param name="CourseSubCategoryId"></param>
+            <param name="CourseSubSubCategoryId"></param>
+            <param name="CourseSubSubSubCategoryId"></param>
+            <param name="brandId"></param>
+            <param name="retailpricestart"></param>
+            <param name="retailpriceend"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.DashboardController.GetDataAsync(System.Int32)">
+            <summary>
+            Get Dashboard Data
+            </summary>
+            <returns>Status 200 OK </returns>
         </member>
         <member name="M:SchoolV01.Server.Controllers.v1.OwnersManagement.OwnersController.GetAll(System.Int32,System.Int32,System.String,System.String)">
             <summary>

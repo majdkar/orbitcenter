@@ -41,9 +41,12 @@ namespace SchoolV01.Shared.Constants.Application
             public const string GetAllCompaniesCacheKey = "all-Companies";
             public const string GetAllPersonsCacheKey = "all-Persons";
             public const string GetAllSuggestionsCacheKey = "all-Suggestions";
+            public const string GetAllCourseCategoriesCacheKey = "all-Courses";
    
             public const string GetAllGroupsCacheKey = "all-Groups";
             public const string GetAllPassportsCacheKey = "GetAllPassportsCacheKey";
+            public const string GetAllCoursesCacheKey = "GetAllCoursessCacheKey";
+            public const string GetAllCourseOffersCacheKey = "GetAllCourseOffersCacheKey";
   
             public static string GetAllEntityExtendedAttributesCacheKey(string entityFullName)
             {

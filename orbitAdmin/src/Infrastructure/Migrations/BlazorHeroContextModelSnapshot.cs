@@ -311,6 +311,98 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.ToTable("BlockPhotos");
                 });
 
+            modelBuilder.Entity("SchoolV01.Core.Entities.CourseCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("DescriptionAr1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageDataURL1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageDataURL2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageDataURL3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NameAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ParentCategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Deleted");
+
+                    b.HasIndex("ParentCategoryId");
+
+                    b.ToTable("CourseCategories");
+                });
+
             modelBuilder.Entity("SchoolV01.Core.Entities.Event", b =>
                 {
                     b.Property<int>("Id")
@@ -1034,6 +1126,206 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.HasIndex("Deleted");
 
                     b.ToTable("People");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Courses.Course", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CourseDefaultCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CourseImageUrl1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseImageUrl2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseImageUrl3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CourseParentCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseSubCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseSubSubCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseSubSubSubCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("DescriptionAr1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionAr4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionGe4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRecent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Keywords")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NameAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumMaxStudent")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumSesstions")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Plan")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("SeoDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("StartEnd")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TeacherNameAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TeacherNameEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TeacherNameGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseDefaultCategoryId");
+
+                    b.HasIndex("CourseParentCategoryId");
+
+                    b.HasIndex("CourseTypeId");
+
+                    b.HasIndex("Deleted");
+
+                    b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Courses.CourseOffer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal?>("DiscountRatio")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal?>("NewPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("Deleted");
+
+                    b.ToTable("CourseOffers");
                 });
 
             modelBuilder.Entity("SchoolV01.Domain.Entities.ExtendedAttributes.DocumentExtendedAttribute", b =>
@@ -1933,6 +2225,15 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Navigation("Block");
                 });
 
+            modelBuilder.Entity("SchoolV01.Core.Entities.CourseCategory", b =>
+                {
+                    b.HasOne("SchoolV01.Core.Entities.CourseCategory", "ParentCategory")
+                        .WithMany()
+                        .HasForeignKey("ParentCategoryId");
+
+                    b.Navigation("ParentCategory");
+                });
+
             modelBuilder.Entity("SchoolV01.Core.Entities.Event", b =>
                 {
                     b.HasOne("SchoolV01.Core.Entities.EventCategory", "EventCategory")
@@ -2075,6 +2376,38 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Navigation("Country");
                 });
 
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Courses.Course", b =>
+                {
+                    b.HasOne("SchoolV01.Core.Entities.CourseCategory", "CourseDefaultCategory")
+                        .WithMany()
+                        .HasForeignKey("CourseDefaultCategoryId");
+
+                    b.HasOne("SchoolV01.Core.Entities.CourseCategory", "CourseParentCategory")
+                        .WithMany()
+                        .HasForeignKey("CourseParentCategoryId");
+
+                    b.HasOne("SchoolV01.Domain.Entities.GeneralSettings.CourseType", "CourseType")
+                        .WithMany()
+                        .HasForeignKey("CourseTypeId");
+
+                    b.Navigation("CourseDefaultCategory");
+
+                    b.Navigation("CourseParentCategory");
+
+                    b.Navigation("CourseType");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Courses.CourseOffer", b =>
+                {
+                    b.HasOne("SchoolV01.Domain.Entities.Courses.Course", "Course")
+                        .WithMany("CourseOffers")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+                });
+
             modelBuilder.Entity("SchoolV01.Domain.Entities.ExtendedAttributes.DocumentExtendedAttribute", b =>
                 {
                     b.HasOne("SchoolV01.Domain.Entities.Misc.Document", "Entity")
@@ -2213,6 +2546,11 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Navigation("Company");
 
                     b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Courses.Course", b =>
+                {
+                    b.Navigation("CourseOffers");
                 });
 
             modelBuilder.Entity("SchoolV01.Domain.Entities.Identity.BlazorHeroRole", b =>

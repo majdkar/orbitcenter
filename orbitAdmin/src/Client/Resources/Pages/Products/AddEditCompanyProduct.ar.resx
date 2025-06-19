@@ -288,8 +288,8 @@
   <data name="Product Offers" xml:space="preserve">
     <value>عروض المنتج</value>
   </data>
-  <data name="Service Prices Offers" xml:space="preserve">
-    <value>عروض أسعار الخدمة</value>
+  <data name="Course Prices Offers" xml:space="preserve">
+    <value>عروض أسعار الدورة</value>
   </data>
   <data name="Product Properties" xml:space="preserve">
     <value>خصائص المنتج</value>
@@ -336,8 +336,8 @@
   <data name="Update" xml:space="preserve">
     <value>تعديل</value>
   </data>
-  <data name="Update Service" xml:space="preserve">
-    <value>تعديل خدمة</value>
+  <data name="Update Course " xml:space="preserve">
+    <value>تعديل دورة</value>
   </data>
   <data name="Upload" xml:space="preserve">
     <value>تحميل</value>
@@ -380,5 +380,8 @@
   </data>
   <data name="ServicePhoto3" xml:space="preserve">
     <value>صورة الخدمة 3</value>
+  </data>
+  <data name="Is Recent" xml:space="preserve">
+    <value>مضافة حديثاً</value>
   </data>
 </root>

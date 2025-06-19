@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add Course" xml:space="preserve">
+    <value>Add Course</value>
+  </data>
+  <data name="Basic Information" xml:space="preserve">
+    <value>Basic Information</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Company Name" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="Company Type" xml:space="preserve">
+    <value>Company Type</value>
+  </data>
+  <data name="daycare" xml:space="preserve">
+    <value>Daycare</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Details Course" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="DiscriptionAr1" xml:space="preserve">
+    <value>Arabic Description 1</value>
+  </data>
+  <data name="DiscriptionGe1" xml:space="preserve">
+    <value>Germmany Description 1</value>
+  </data>
+  <data name="DiscriptionGe2" xml:space="preserve">
+    <value>Germmany Description 2</value>
+  </data>
+  <data name="DiscriptionGe3" xml:space="preserve">
+    <value>Germmany Description 3</value>
+  </data>
+  <data name="DiscriptionGe4" xml:space="preserve">
+    <value>Germmany Description 4</value>
+  </data>
+  <data name="DiscriptionAr2" xml:space="preserve">
+    <value>Arabic Description 2</value>
+  </data>
+  <data name="DiscriptionAr3" xml:space="preserve">
+    <value>Arabic Description 3</value>
+  </data>
+  <data name="DiscriptionAr4" xml:space="preserve">
+    <value>Arabic Description 4</value>
+  </data>
+  <data name="DiscriptionEn1" xml:space="preserve">
+    <value>English Description 1</value>
+  </data>
+  <data name="DiscriptionEn2" xml:space="preserve">
+    <value>English Description 2</value>
+  </data>
+  <data name="DiscriptionEn3" xml:space="preserve">
+    <value>English Description 3</value>
+  </data>
+  <data name="DiscriptionEn4" xml:space="preserve">
+    <value>English Description 4</value>
+  </data>
+  <data name="DiscriptionBenefitsAr" xml:space="preserve">
+    <value>Arabic Benefits</value>
+  </data>
+  <data name="DiscriptionBenefitsEn" xml:space="preserve">
+    <value>English Benefits</value>
+  </data>
+  <data name="DiscriptionEn" xml:space="preserve">
+    <value>English Discription</value>
+  </data>
+  <data name="DiscriptionPropertiesAr" xml:space="preserve">
+    <value>Arabic Properties</value>
+  </data>
+  <data name="DiscriptionPropertiesEn" xml:space="preserve">
+    <value>English Properties</value>
+  </data>
+  <data name="DiscriptionUseAr" xml:space="preserve">
+    <value>Arabic Use</value>
+  </data>
+  <data name="DiscriptionUseEn" xml:space="preserve">
+    <value>English Use</value>
+  </data>
+  <data name="export" xml:space="preserve">
+    <value>Export Company</value>
+  </data>
+  <data name="finance" xml:space="preserve">
+    <value>Finance Company</value>
+  </data>
+  <data name="IsBestSeller" xml:space="preserve">
+    <value>IsBestSeller</value>
+  </data>
+  <data name="IsFavorite" xml:space="preserve">
+    <value>IsFavorite</value>
+  </data>
+  <data name="IsRecent" xml:space="preserve">
+    <value>IsRecent</value>
+  </data>
+  <data name="IsStack" xml:space="preserve">
+    <value>Is Stock?</value>
+  </data>
+  <data name="IsVisible" xml:space="preserve">
+    <value>IsVisible</value>
+  </data>
+  <data name="NameAr" xml:space="preserve">
+    <value>Arabic Name</value>
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value>English Name</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="Points" xml:space="preserve">
+    <value>Points</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Course Images" xml:space="preserve">
+    <value>Course Images</value>
+  </data>
+  <data name="Product Offers" xml:space="preserve">
+    <value>Product Offers</value>
+  </data>
+  <data name="Course Prices Offers" xml:space="preserve">
+    <value>Course Prices Offers</value>
+  </data>
+  <data name="Product Properties" xml:space="preserve">
+    <value>Product Properties</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="schools" xml:space="preserve">
+    <value>Schools</value>
+  </data>
+  <data name="shipping" xml:space="preserve">
+    <value>Shipping Company</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="trainingcenter" xml:space="preserve">
+    <value>Training Center</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="universities" xml:space="preserve">
+    <value>Universities</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Update Course" xml:space="preserve">
+    <value>Update Course </value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Upload Course Image" xml:space="preserve">
+    <value>Upload Course Image</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="Archery Style" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="NameGe" xml:space="preserve">
+    <value>Gerrmany Name</value>
+  </data>
+  <data name="Plan" xml:space="preserve">
+    <value>Plan</value>
+  </data>
+  <data name="CoursePhoto1" xml:space="preserve">
+    <value>Course Photo 1</value>
+  </data>
+  <data name="CoursePhoto2" xml:space="preserve">
+    <value>Course Photo 2</value>
+  </data>
+  <data name="CoursePhoto3" xml:space="preserve">
+    <value>Course Photo 3</value>
+  </data>
+  <data name="Teacher NameAr" xml:space="preserve">
+    <value>Teacher NameAr</value>
+  </data>
+  <data name="Teacher NameEn" xml:space="preserve">
+    <value>Teacher NameEn</value>
+  </data>
+  <data name="Teacher NameGe" xml:space="preserve">
+    <value>Teacher NameGe</value>
+  </data>
+  <data name="Max Num of Student" xml:space="preserve">
+    <value>Max Num of Student</value>
+  </data>
+  <data name="Num of Sesstions" xml:space="preserve">
+    <value>Num of Sesstions</value>
+  </data>
+  <data name="Start Date" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="End Date" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="Course Type" xml:space="preserve">
+    <value>Course Type</value>
+  </data>
+  <data name="Is Recent" xml:space="preserve">
+    <value>Is Recent</value>
+  </data>
+</root>

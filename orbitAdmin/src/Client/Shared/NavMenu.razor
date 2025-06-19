@@ -140,6 +140,26 @@
         </MudNavGroup>
     }
  
+    @if (_canViewCourses || _canViewCourseCategories)
+    {
+        <MudNavGroup Title="@_localizer["Courses Management"]" Icon="@Icons.Material.Outlined.RoomService">
+            @if (_canViewCourseCategories)
+            {
+
+                <MudNavLink Href="/general-settings/Course-Categories/0" Icon="@Icons.Material.Outlined.DesignServices">
+                    @_localizer["Courses Categories"]
+                </MudNavLink>
+            }
+            @if (_canViewCourses)
+            {
+                <MudNavLink Href="/Courses" Icon="@Icons.Material.Outlined.CleaningServices">
+                    @_localizer["Courses List"]
+                </MudNavLink>
+            }
+
+        </MudNavGroup>
+    }
+ 
 
     @if (_isAdmin)
     {
@@ -205,6 +225,8 @@
     private bool _canViewClassifications;
     private bool _canViewCourseTypes;
     private bool _canViewSuggestions;
+    private bool _canViewCourses;
+    private bool _canViewCourseCategories;
     @*/*s0012s*/*@
     private bool _canViewOwners;
 
@@ -235,6 +257,8 @@
         _canViewClassifications = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Classifications.View)).Succeeded;
         _canViewCourseTypes = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.CourseTypes.View)).Succeeded;
         _canViewSuggestions = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Suggestions.View)).Succeeded;
+        _canViewCourseCategories = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.CourseCategories.View)).Succeeded;
+        _canViewCourses = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Courses.View)).Succeeded;
         
 
         _currentUser = await _authenticationManager.CurrentUser();
