@@ -101,7 +101,8 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// <param name="fromprice"></param> 
         /// <param name="toprice"></param>        
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Courses.View)]
+        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllPagedSearchCourse")]
         public async Task<IActionResult> GetAllPagedSearchCourse( string Coursename, int propductcategoryid,int propductSubcategoryid, int propductSubSubcategoryid, int propductSubSubSubcategoryid, decimal fromprice, decimal toprice,int pageNumber, int pageSize, string searchString, string orderBy = null)
         {

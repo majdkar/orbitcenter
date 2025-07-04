@@ -254,7 +254,7 @@ namespace SchoolV01.Server.Extensions
 
             services.AddTransient(typeof(IStatisticsService), typeof(StatisticsServices));
 
-
+            services.AddScoped<EfSchemaService>();
             return services;
         }
 

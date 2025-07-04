@@ -11,6 +11,7 @@ using SchoolV01.Application.Specifications.Products;
 using SchoolV01.Domain.Entities.GeneralSettings;
 using SchoolV01.Domain.Entities.Products;
 using SchoolV01.Shared.Wrapper;
+using SchoolV01.Core.Entities;
 
 namespace SchoolV01.Application.Features.Products.Queries.GetAllPaged
 {
@@ -67,9 +68,30 @@ namespace SchoolV01.Application.Features.Products.Queries.GetAllPaged
 
 
                 ProductParentCategoryId = e.ProductParentCategoryId,
+                ProductParentCategoryNameAr = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductParentCategoryId).NameAr,
+                ProductParentCategoryNameEn = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductParentCategoryId).NameEn,
+                ProductParentCategoryNameGe = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductParentCategoryId).NameGe,
+
+
                 ProductSubCategoryId = e.ProductSubCategoryId,
-                ProductSubSubCategoryId = e.ProductSubSubSubCategoryId,
+                ProductSubCategoryNameAr = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductSubCategoryId).NameAr,
+                ProductSubCategoryNameEn = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductSubCategoryId).NameEn,
+                ProductSubCategoryNameGe = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductSubCategoryId).NameGe,
+
+
+
+                ProductSubSubCategoryId = e.ProductSubSubCategoryId,
+                ProductSubSubCategoryNameAr = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductSubSubCategoryId).NameAr,
+                ProductSubSubCategoryNameEn = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductSubSubCategoryId).NameEn,
+                ProductSubSubCategoryNameGe = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductSubSubCategoryId).NameGe,
+
+
+
                 ProductSubSubSubCategoryId = e.ProductSubSubSubCategoryId,
+                ProductSubSubSubCategoryNameAr = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductSubSubSubCategoryId).NameAr,
+                ProductSubSubSubCategoryNameEn = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductSubSubSubCategoryId).NameEn,
+                ProductSubSubSubCategoryNameGe = _unitOfWork.Repository<ProductCategory>().Entities.FirstOrDefault(x => x.Id == e.ProductSubSubSubCategoryId).NameGe,
+
                 ProductDefaultCategoryId = e.ProductDefaultCategoryId.Value,
 
 

@@ -11,6 +11,7 @@ using SchoolV01.Application.Specifications.Courses;
 using SchoolV01.Domain.Entities.GeneralSettings;
 using SchoolV01.Domain.Entities.Courses;
 using SchoolV01.Shared.Wrapper;
+using SchoolV01.Core.Entities;
 
 namespace SchoolV01.Application.Features.Courses.Queries.GetAllPaged
 {
@@ -67,10 +68,33 @@ namespace SchoolV01.Application.Features.Courses.Queries.GetAllPaged
 
 
                 CourseParentCategoryId = e.CourseParentCategoryId,
+                CourseParentCategoryNameAr = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseParentCategoryId).NameAr,
+                CourseParentCategoryNameEn = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseParentCategoryId).NameEn,
+                CourseParentCategoryNameGe = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseParentCategoryId).NameGe,
+
+
                 CourseSubCategoryId = e.CourseSubCategoryId,
-                CourseSubSubCategoryId = e.CourseSubSubSubCategoryId,
+                CourseSubCategoryNameAr = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseSubCategoryId).NameAr,
+                CourseSubCategoryNameEn = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseSubCategoryId).NameEn,
+                CourseSubCategoryNameGe = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseSubCategoryId).NameGe,
+
+
+
+                CourseSubSubCategoryId = e.CourseSubSubCategoryId,
+                CourseSubSubCategoryNameAr = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseSubSubCategoryId).NameAr,
+                CourseSubSubCategoryNameEn = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseSubSubCategoryId).NameEn,
+                CourseSubSubCategoryNameGe = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseSubSubCategoryId).NameGe,
+
+
+
                 CourseSubSubSubCategoryId = e.CourseSubSubSubCategoryId,
+                CourseSubSubSubCategoryNameAr = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseSubSubSubCategoryId).NameAr,
+                CourseSubSubSubCategoryNameEn = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseSubSubSubCategoryId).NameEn,
+                CourseSubSubSubCategoryNameGe = _unitOfWork.Repository<CourseCategory>().Entities.FirstOrDefault(x => x.Id == e.CourseSubSubSubCategoryId).NameGe,
+
+
                 CourseDefaultCategoryId = e.CourseDefaultCategoryId.Value,
+                CourseDefaultCategory = e.CourseDefaultCategory,
 
 
                 Price = e.Price,
@@ -82,7 +106,6 @@ namespace SchoolV01.Application.Features.Courses.Queries.GetAllPaged
 
                 NameGe = e.NameGe,
                 Plan = e.Plan,
-                CourseDefaultCategory = e.CourseDefaultCategory,
                 CourseImageUrl1 = e.CourseImageUrl1,
                 CourseImageUrl2 = e.CourseImageUrl2,
                 CourseImageUrl3 = e.CourseImageUrl3,

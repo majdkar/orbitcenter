@@ -189,6 +189,11 @@ namespace SchoolV01.Shared.Constants.Permission
         {
             public const string View = "Permissions.Dashboards.View";
         }
+
+        public static class Schema
+        {
+            public const string View = "Permissions.Schema.View";
+        }
         public static class WebSiteManagement
         {
             public const string View = "Permissions.WebSiteManagement.View";

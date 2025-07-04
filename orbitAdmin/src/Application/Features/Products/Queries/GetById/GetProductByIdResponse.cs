@@ -39,9 +39,28 @@ namespace SchoolV01.Application.Features.Products.Queries.GetById
         [ForeignKey("ProductParentCategory")]
         public int? ProductParentCategoryId { get; set; }
         public virtual ProductCategory ProductParentCategory { get; set; }
+        public string? ProductParentCategoryNameAr { get; set; }
+        public string? ProductParentCategoryNameEn { get; set; }
+        public string? ProductParentCategoryNameGe { get; set; }
+
+
         public int? ProductSubCategoryId { get; set; }
+        public string? ProductSubCategoryNameAr { get; set; }
+        public string? ProductSubCategoryNameEn { get; set; }
+        public string? ProductSubCategoryNameGe { get; set; }
+
+
+
         public int? ProductSubSubCategoryId { get; set; }
+        public string? ProductSubSubCategoryNameAr { get; set; }
+        public string? ProductSubSubCategoryNameEn { get; set; }
+        public string? ProductSubSubCategoryNameGe { get; set; }
+
+
         public int? ProductSubSubSubCategoryId { get; set; }
+        public string? ProductSubSubSubCategoryNameAr { get; set; }
+        public string? ProductSubSubSubCategoryNameEn { get; set; }
+        public string? ProductSubSubSubCategoryNameGe { get; set; }
 
         [ForeignKey("ProductDefaultCategory")]
         public int? ProductDefaultCategoryId { get; set; }

@@ -39,9 +39,28 @@ namespace SchoolV01.Application.Features.Courses.Queries.GetById
         [ForeignKey("CourseParentCategory")]
         public int? CourseParentCategoryId { get; set; }
         public virtual CourseCategory CourseParentCategory { get; set; }
+        public string? CourseParentCategoryNameAr { get; set; }
+        public string? CourseParentCategoryNameEn { get; set; }
+        public string? CourseParentCategoryNameGe { get; set; }
+
+
         public int? CourseSubCategoryId { get; set; }
+        public string? CourseSubCategoryNameAr { get; set; }
+        public string? CourseSubCategoryNameEn { get; set; }
+        public string? CourseSubCategoryNameGe { get; set; }
+
+
+
         public int? CourseSubSubCategoryId { get; set; }
+        public string? CourseSubSubCategoryNameAr { get; set; }
+        public string? CourseSubSubCategoryNameEn { get; set; }
+        public string? CourseSubSubCategoryNameGe { get; set; }
+
+
         public int? CourseSubSubSubCategoryId { get; set; }
+        public string? CourseSubSubSubCategoryNameAr { get; set; }
+        public string? CourseSubSubSubCategoryNameEn { get; set; }
+        public string? CourseSubSubSubCategoryNameGe { get; set; }
 
         [ForeignKey("CourseDefaultCategory")]
         public int? CourseDefaultCategoryId { get; set; }

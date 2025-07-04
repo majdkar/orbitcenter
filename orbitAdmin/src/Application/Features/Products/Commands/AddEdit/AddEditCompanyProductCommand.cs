@@ -11,6 +11,7 @@ using SchoolV01.Domain.Entities.Products;
 using SchoolV01.Shared.Constants.Application;
 using SchoolV01.Shared.Wrapper;
 
+
 namespace SchoolV01.Application.Features.Products.Commands.AddEdit
 {
     public partial class AddEditCompanyProductCommand : IRequest<Result<int>>
@@ -129,7 +130,24 @@ namespace SchoolV01.Application.Features.Products.Commands.AddEdit
                 }
                 await _unitOfWork.Repository<Product>().AddAsync(product);
                 await _unitOfWork.CommitAndRemoveCache(cancellationToken, ApplicationConstants.Cache.GetAllProductsCacheKey);
-                return await Result<int>.SuccessAsync(product.Id, _localizer["Product Saved"]);
+
+
+                // Call webhook
+                //using (HttpClient client = new HttpClient())
+                //{
+                //    var jsonPayload = $"{{\"id\":{product.Id},\"name\":\"{product.NameAr}\",\"nameEn\":\"{product.NameEn}\"}}";
+
+                //    var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+                //    var response = await client.PostAsync("https://majood.app.n8n.cloud/webhook-test/7168809f-92d1-4c06-a661-27d62333a82e", content);
+
+                //    if (response.IsSuccessStatusCode)
+                //        return await Result<int>.SuccessAsync(product.Id, _localizer["Product Saved"]);
+                //    else
+                //        return await Result<int>.FailAsync(_localizer["Product Not Saved"]);
+                //}
+                      return await Result<int>.SuccessAsync(product.Id, _localizer["Product Saved"]);
+
+
             }
             else
             {
