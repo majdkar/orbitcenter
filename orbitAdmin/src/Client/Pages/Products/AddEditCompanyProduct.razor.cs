@@ -241,7 +241,21 @@ namespace SchoolV01.Client.Pages.Products
                       ProductImageUrl3 = product.ProductImageUrl3,
                       
                     };
-                 
+                    if (!string.IsNullOrEmpty(product.ProductImageUrl1))
+                    {
+                        disableDeleteImageButton1 = false;
+
+                    }
+                    if (!string.IsNullOrEmpty(product.ProductImageUrl2))
+                    {
+                        disableDeleteImageButton2 = false;
+
+                    }
+                    if (!string.IsNullOrEmpty(product.ProductImageUrl3))
+                    {
+                        disableDeleteImageButton3 = false;
+
+                    }
 
                     DisableAddButton = false;
                     OldPrice = product.Price.Value;
@@ -356,7 +370,7 @@ namespace SchoolV01.Client.Pages.Products
         private void DeleteURL3Async()
         {
             AddEditCompanyProductModel.ProductImageUrl3 = null;
-            disableDeleteImageButton1 = true;
+            disableDeleteImageButton3 = true;
             imageUrlForPreview3 = null;
             AddEditCompanyProductModel.UploadRequestURL3 = new UploadRequest();
         }

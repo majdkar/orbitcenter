@@ -23,6 +23,7 @@ using SchoolV01.Client.Pages.CourseCategories;
 using SchoolV01.Client.Infrastructure.Managers.GeneralSettings;
 using SchoolV01.Application.Features.CourseTypes.Queries;
 using System.Globalization;
+using SchoolV01.Domain.Entities.Products;
 
 namespace SchoolV01.Client.Pages.Courses
 {
@@ -264,7 +265,21 @@ namespace SchoolV01.Client.Pages.Courses
                       CourseImageUrl3 = Course.CourseImageUrl3,
                       
                     };
-                 
+                    if (!string.IsNullOrEmpty(Course.CourseImageUrl1))
+                    {
+                        disableDeleteImageButton1 = false;
+
+                    }
+                    if (!string.IsNullOrEmpty(Course.CourseImageUrl2))
+                    {
+                        disableDeleteImageButton2 = false;
+
+                    }
+                    if (!string.IsNullOrEmpty(Course.CourseImageUrl3))
+                    {
+                        disableDeleteImageButton3 = false;
+
+                    }
 
                     DisableAddButton = false;
                     OldPrice = Course.Price.Value;
@@ -379,7 +394,7 @@ namespace SchoolV01.Client.Pages.Courses
         private void DeleteURL3Async()
         {
             AddEditCompanyCourseModel.CourseImageUrl3 = null;
-            disableDeleteImageButton1 = true;
+            disableDeleteImageButton3 = true;
             imageUrlForPreview3 = null;
             AddEditCompanyCourseModel.UploadRequestURL3 = new UploadRequest();
         }

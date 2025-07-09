@@ -149,6 +149,7 @@ namespace SchoolV01.Application.Features.Courses.Commands.AddEdit
                 {
                     Course.NameAr = command.NameAr ?? Course.NameAr;
                     Course.NameEn = command.NameEn ?? Course.NameEn;
+                    Course.NameGe = command.NameGe ?? Course.NameGe;
 
                     Course.DescriptionAr1 = command.DescriptionAr1;
                     Course.DescriptionAr2 = command.DescriptionAr2;
