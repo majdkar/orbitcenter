@@ -297,4 +297,13 @@
   <data name="Visible For User" xml:space="preserve">
     <value>إظهار لزبون</value>
   </data>
+  <data name="Seo Managment" xml:space="preserve">
+    <value>إدارة SEO</value>
+  </data>
+  <data name="ADD" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="Page : " xml:space="preserve">
+    <value>الصفحة :  </value>
+  </data>
 </root>

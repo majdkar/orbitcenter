@@ -86,6 +86,11 @@
             {
                 <MudButton Variant="Variant.Filled" Color="Color.Info" Size="Size.Small" @onclick="@(() => InvokeAddEditPagePhotos(@context.Id))">@localizer["Album"]</MudButton>
                 <MudButton Variant="Variant.Filled" Color="Color.Info" Size="Size.Small" @onclick="@(() => InvokeAddEditPageAttachements(@context.Id))">@localizer["Attachements"]</MudButton>
+                <MudTooltip Text="@localizer["Seo Managment"]">
+
+                    <MudIconButton Icon="@Icons.Material.Outlined.Analytics" @onclick="@(() => InvokeSeosModal(@context.Id,(IsArabic ? context.NameAr : context.NameEn)))" Color="Color.Tertiary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 3px" />
+                </MudTooltip>
+            
             }
         </MudTd>
     </RowTemplate>

@@ -80,6 +80,7 @@ namespace SchoolV01.Application.Features.Products.Queries.GetById
         public string ProductImageUrl3 { get; set; }
 
         public virtual List<ProductOffer> ProductOffers { get; set; }
+        public virtual ProductSeo ProductSeos { get; set; }
 
         public string Keywords { get; set; }
         public string SeoDescription { get; set; }

@@ -18,6 +18,7 @@ using SchoolV01.Domain.Entities.Courses;
 using SchoolV01.Shared.Constants.Application;
 using SchoolV01.Shared.Constants.Permission;
 using System.Threading;
+using System.Globalization;
 
 namespace SchoolV01.Client.Pages.Courses
 {
@@ -28,6 +29,7 @@ namespace SchoolV01.Client.Pages.Courses
         [Inject] private ICourseCategoryManager CourseCategoryManager { get; set; }
 
         [CascadingParameter] private HubConnection HubConnection { get; set; }
+        private static bool IsArabic => CultureInfo.CurrentCulture.Name.Contains("ar");
 
         public string CourseName { get; set; }
 
@@ -289,6 +291,13 @@ namespace SchoolV01.Client.Pages.Courses
         {
             _navigationManager.NavigateTo($"/CourseDetails/{id}");
         }
+
+        private async Task InvokeSeosModal(int id = 0, string name = "")
+        {
+            _navigationManager.NavigateTo($"/CourseSeo/{id}/{name}");
+        }
+
+
         private async Task InvokeModalOptions(int id = 0)
         {
             _navigationManager.NavigateTo($"/Course-options/{id}");

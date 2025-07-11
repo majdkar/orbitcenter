@@ -897,6 +897,126 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.ToTable("ProductCategories");
                 });
 
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Blocks.BlockSeo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BlockId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageAlt1Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt1En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt1Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MetaDescriptionsAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaDescriptionsEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaDescriptionsGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaRobots")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlockId")
+                        .IsUnique();
+
+                    b.HasIndex("Deleted");
+
+                    b.ToTable("BlockSeo");
+                });
+
             modelBuilder.Entity("SchoolV01.Domain.Entities.Clients.Client", b =>
                 {
                     b.Property<int>("Id")
@@ -1326,6 +1446,126 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.HasIndex("Deleted");
 
                     b.ToTable("CourseOffers");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Courses.CourseSeo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageAlt1Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt1En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt1Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MetaDescriptionsAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaDescriptionsEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaDescriptionsGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaRobots")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId")
+                        .IsUnique();
+
+                    b.HasIndex("Deleted");
+
+                    b.ToTable("CourseSeos");
                 });
 
             modelBuilder.Entity("SchoolV01.Domain.Entities.ExtendedAttributes.DocumentExtendedAttribute", b =>
@@ -1848,6 +2088,126 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.ToTable("DocumentTypes");
                 });
 
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Pages.PageSeo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageAlt1Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt1En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt1Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MetaDescriptionsAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaDescriptionsEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaDescriptionsGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaRobots")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PageId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Deleted");
+
+                    b.HasIndex("PageId")
+                        .IsUnique();
+
+                    b.ToTable("PageSeo");
+                });
+
             modelBuilder.Entity("SchoolV01.Domain.Entities.Products.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -2020,6 +2380,126 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductOffers");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Products.ProductSeo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageAlt1Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt1En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt1Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt2Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt3Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4Ar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4En")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageAlt4Ge")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MetaDescriptionsAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaDescriptionsEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaDescriptionsGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywordsGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaNameGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaRobots")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitleGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaUrlGe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Deleted");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.ToTable("ProductSeos");
                 });
 
             modelBuilder.Entity("SchoolV01.Domain.Entities.Suggestions.Suggestion", b =>
@@ -2315,6 +2795,17 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Navigation("ParentCategory");
                 });
 
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Blocks.BlockSeo", b =>
+                {
+                    b.HasOne("SchoolV01.Core.Entities.Block", "Block")
+                        .WithOne("BlockSeos")
+                        .HasForeignKey("SchoolV01.Domain.Entities.Blocks.BlockSeo", "BlockId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Block");
+                });
+
             modelBuilder.Entity("SchoolV01.Domain.Entities.Clients.Client", b =>
                 {
                     b.HasOne("SchoolV01.Domain.Entities.Identity.BlazorHeroUser", "User")
@@ -2408,6 +2899,17 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Navigation("Course");
                 });
 
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Courses.CourseSeo", b =>
+                {
+                    b.HasOne("SchoolV01.Domain.Entities.Courses.Course", "Course")
+                        .WithOne("CourseSeo")
+                        .HasForeignKey("SchoolV01.Domain.Entities.Courses.CourseSeo", "CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+                });
+
             modelBuilder.Entity("SchoolV01.Domain.Entities.ExtendedAttributes.DocumentExtendedAttribute", b =>
                 {
                     b.HasOne("SchoolV01.Domain.Entities.Misc.Document", "Entity")
@@ -2450,6 +2952,17 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Navigation("DocumentType");
                 });
 
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Pages.PageSeo", b =>
+                {
+                    b.HasOne("SchoolV01.Core.Entities.Page", "Page")
+                        .WithOne("PageSeo")
+                        .HasForeignKey("SchoolV01.Domain.Entities.Pages.PageSeo", "PageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Page");
+                });
+
             modelBuilder.Entity("SchoolV01.Domain.Entities.Products.Product", b =>
                 {
                     b.HasOne("SchoolV01.Core.Entities.ProductCategory", "ProductDefaultCategory")
@@ -2470,6 +2983,17 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.HasOne("SchoolV01.Domain.Entities.Products.Product", "Product")
                         .WithMany("ProductOffers")
                         .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("SchoolV01.Domain.Entities.Products.ProductSeo", b =>
+                {
+                    b.HasOne("SchoolV01.Domain.Entities.Products.Product", "Product")
+                        .WithOne("ProductSeos")
+                        .HasForeignKey("SchoolV01.Domain.Entities.Products.ProductSeo", "ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -2505,6 +3029,8 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Navigation("BlockAttachements");
 
                     b.Navigation("BlockPhotos");
+
+                    b.Navigation("BlockSeos");
                 });
 
             modelBuilder.Entity("SchoolV01.Core.Entities.BlockCategory", b =>
@@ -2539,6 +3065,8 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Navigation("PageAttachements");
 
                     b.Navigation("PagePhotos");
+
+                    b.Navigation("PageSeo");
                 });
 
             modelBuilder.Entity("SchoolV01.Domain.Entities.Clients.Client", b =>
@@ -2551,6 +3079,8 @@ namespace SchoolV01.Infrastructure.Migrations
             modelBuilder.Entity("SchoolV01.Domain.Entities.Courses.Course", b =>
                 {
                     b.Navigation("CourseOffers");
+
+                    b.Navigation("CourseSeo");
                 });
 
             modelBuilder.Entity("SchoolV01.Domain.Entities.Identity.BlazorHeroRole", b =>
@@ -2573,6 +3103,8 @@ namespace SchoolV01.Infrastructure.Migrations
             modelBuilder.Entity("SchoolV01.Domain.Entities.Products.Product", b =>
                 {
                     b.Navigation("ProductOffers");
+
+                    b.Navigation("ProductSeos");
                 });
 #pragma warning restore 612, 618
         }

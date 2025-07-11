@@ -76,6 +76,9 @@ namespace SchoolV01.Domain.Entities.Courses
         public virtual CourseType CourseType { get; set; }
 
 
+        public virtual CourseSeo CourseSeo { get; set; }
+
+
         public string Keywords { get; set; }
         public string SeoDescription { get; set; }
     }

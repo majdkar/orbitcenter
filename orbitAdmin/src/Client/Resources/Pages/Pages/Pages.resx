@@ -297,4 +297,13 @@
   <data name="Visible For User" xml:space="preserve">
     <value>Visible For User</value>
   </data>
+  <data name="Seo Managment" xml:space="preserve">
+    <value>Seo Managment</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Page : " xml:space="preserve">
+    <value>Page : </value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolV01.Domain.Entities.Pages;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -45,6 +46,7 @@ namespace SchoolV01.Core.Entities
         public int MenuId { get; set; }
         public string Url { get; set; }
         public List<PagePhoto> PagePhotos { get; set; }
+        public virtual PageSeo  PageSeo { get; set; }
         
         public List<PageAttachement> PageAttachements { get; set; }
     }

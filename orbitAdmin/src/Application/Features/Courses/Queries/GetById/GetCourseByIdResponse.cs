@@ -6,6 +6,7 @@ using SchoolV01.Domain.Entities;
 using SchoolV01.Domain.Entities.GeneralSettings;
 using SchoolV01.Domain.Entities.Courses;
 using SchoolV01.Domain.Enums;
+using SchoolV01.Domain.Entities.Products;
 
 namespace SchoolV01.Application.Features.Courses.Queries.GetById
 {
@@ -95,6 +96,7 @@ namespace SchoolV01.Application.Features.Courses.Queries.GetById
         public int NumMaxStudent { get; set; }
 
         public int? CourseTypeId { get; set; }
+        public virtual CourseSeo CourseSeos { get; set; }
 
         public virtual CourseType CourseType { get; set; }
 

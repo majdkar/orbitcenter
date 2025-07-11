@@ -67,6 +67,11 @@
 
             <MudButton Variant="Variant.Filled" Color="Color.Info" Size="Size.Small" @onclick="@(() => InvokeBlockSubModal(@context.Id))" Style="margin-inline:2px;">@localizer["SubBlocks"]</MudButton>
 
+
+            <MudTooltip Text="@localizer["Seo Managment"]">
+
+                <MudIconButton Icon="@Icons.Material.Outlined.Analytics" @onclick="@(() => InvokeSeosModal(@context.Id,(IsArabic ? context.NameAr : context.NameEn)))" Color="Color.Tertiary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 3px" />
+            </MudTooltip>
         </MudTd>
     </RowTemplate>
     <PagerContent>

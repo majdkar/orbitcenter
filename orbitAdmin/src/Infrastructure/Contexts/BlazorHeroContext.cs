@@ -60,12 +60,14 @@ namespace SchoolV01.Infrastructure.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ProductOffer> ProductOffers { get; set; }  
+        public DbSet<ProductSeo> ProductSeos { get; set; }  
         
         
         // Course (Service)
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseCategory> CourseCategories { get; set; }
         public DbSet<CourseOffer> CourseOffers { get; set; }  
+        public DbSet<CourseSeo> CourseSeos { get; set; }  
         
         
         // Clients (Agents)

@@ -18,6 +18,7 @@ using SchoolV01.Domain.Entities.Products;
 using SchoolV01.Shared.Constants.Application;
 using SchoolV01.Shared.Constants.Permission;
 using System.Threading;
+using System.Globalization;
 
 namespace SchoolV01.Client.Pages.Products
 {
@@ -28,6 +29,7 @@ namespace SchoolV01.Client.Pages.Products
         [Inject] private IProductCategoryManager ProductCategoryManager { get; set; }
 
         [CascadingParameter] private HubConnection HubConnection { get; set; }
+        private static bool IsArabic => CultureInfo.CurrentCulture.Name.Contains("ar");
 
         public string ProductName { get; set; }
 
@@ -285,9 +287,14 @@ namespace SchoolV01.Client.Pages.Products
         private async Task InvokeModalImage(int id = 0)
         {
             _navigationManager.NavigateTo($"/ProductAlbumImage/{id}");
-        }   private async Task InvokeDetailsModal(int id = 0)
+        }   
+        
+        private async Task InvokeDetailsModal(int id = 0)
         {
             _navigationManager.NavigateTo($"/ProductDetails/{id}");
+        }  private async Task InvokeSeosModal(int id = 0,string name = "")
+        {
+            _navigationManager.NavigateTo($"/ProductSeo/{id}/{name}");
         }
         private async Task InvokeModalOptions(int id = 0)
         {

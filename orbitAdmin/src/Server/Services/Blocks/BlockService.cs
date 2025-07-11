@@ -16,15 +16,18 @@ namespace SchoolV01.Application.Services
         private readonly IUnitOfWork<int> uow;
         private readonly IMapper mapper;
         private readonly IBlockPhotoService photoService;
+        private readonly IBlockSeoService seoService;
         private readonly IBlockAttachementService AttachementService;
 
         public BlockService(IUnitOfWork<int> uow, IMapper mapper,
             IBlockPhotoService photoService,
+            IBlockSeoService seoService,
             IBlockAttachementService attachementService)
         {
             this.uow = uow;
             this.mapper = mapper;
             this.photoService = photoService;
+            this.seoService = seoService;
             this.AttachementService = attachementService;
         }
 
@@ -90,6 +93,7 @@ namespace SchoolV01.Application.Services
             var blockVM = mapper.Map<Block, BlockViewModel>(blockEntity);
             blockVM.BlockPhotos = await photoService.GetPhotoByBlockId(blockVM.Id);
             blockVM.BlockAttachements = await AttachementService.GetAttachementByBlockId(blockVM.Id);
+            blockVM.BlockSeo = await seoService.GetSeoViewByBlockId(blockVM.Id);
             return blockVM;
         }
 
@@ -100,6 +104,8 @@ namespace SchoolV01.Application.Services
             var blockVM = mapper.Map<Block, BlockViewModel>(blockEntity);
             blockVM.BlockPhotos = await photoService.GetPhotoByBlockId(blockVM.Id);
             blockVM.BlockAttachements = await AttachementService.GetAttachementByBlockId(blockVM.Id);
+            blockVM.BlockSeo = await seoService.GetSeoViewByBlockId(blockVM.Id);
+
             return blockVM;
         }
 

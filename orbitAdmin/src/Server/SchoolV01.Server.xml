@@ -1016,6 +1016,34 @@
             <param name="retailpriceend"></param>
             <returns>Status 200 OK</returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseSeosController.GetAllByCourse(System.Int32)">
+            <summary>
+            Get All Seos By Course
+            </summary>
+            <param name="CourseId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseSeosController.GetById(System.Int32)">
+            <summary>
+            Get Course Seo By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseSeosController.Post(SchoolV01.Application.Features.Courses.Commands.AddEdit.AddEditCourseSeoCommand)">
+            <summary>
+            Add/Edit a Course Seo
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CourseSeosController.Delete(System.Int32)">
+            <summary>
+            Delete a Course Seo
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.DashboardController.GetDataAsync(System.Int32)">
             <summary>
             Get Dashboard Data
@@ -1268,6 +1296,41 @@
             <param name="retailpricestart"></param>
             <param name="retailpriceend"></param>
             <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductSeosController.GetAllByProduct(System.Int32)">
+            <summary>
+            Get All Seos By Product
+            </summary>
+            <param name="productId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductSeosController.GetAllPagedByProduct(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All PagedSeos By Product
+            </summary>
+            <param name="productId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductSeosController.GetById(System.Int32)">
+            <summary>
+            Get Product Seo By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductSeosController.Post(SchoolV01.Application.Features.Products.Commands.AddEdit.AddEditProductSeoCommand)">
+            <summary>
+            Add/Edit a Product Seo
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductSeosController.Delete(System.Int32)">
+            <summary>
+            Delete a Product Seo
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
         </member>
         <member name="M:SchoolV01.Api.Controllers.FileUploadController.CheckFileExtension(Microsoft.AspNetCore.Http.IFormFile,SchoolV01.Shared.Enums.UploadFileTypeEnum)">
             The file extension must be jpg/bmp/png for images and txt/docx/pdf for files

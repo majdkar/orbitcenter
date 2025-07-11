@@ -42,6 +42,8 @@ namespace SchoolV01.Shared.ViewModels.Pages
         public int MenuId { get; set; }
         public string Url { get; set; }
         public virtual List<PagePhotoViewModel> PagePhotos { get; set; }
+      
+        public virtual PageSeoViewModel PageSeo { get; set; }
 
         public virtual List<PageAttachementViewModel> PageAttachements { get; set; }
        

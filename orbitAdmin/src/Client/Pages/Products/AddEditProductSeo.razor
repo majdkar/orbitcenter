@@ -1,0 +1,215 @@
+﻿@page "/seo-details/{Id:int}/{ProductId:int}"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProductSeos> _localizer
+@using SchoolV01.Shared.Constants.Clients
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudGrid>
+        <MudItem xs="12" sm="12" md="12">
+            <EditForm Model="@AddEditProductSeoModel" OnValidSubmit="SaveAsync">
+                <FluentValidationValidator @ref="_fluentValidationValidator" />
+                <MudCard Elevation="4">
+                    <MudCardHeader>
+                        @if (AddEditProductSeoModel.Id == 0)
+                        {
+                            <MudText Typo="Typo.h6">
+                                <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+                                @_localizer["Add Seo"]
+                            </MudText>
+                        }
+                        else
+                        {
+                            <MudText Typo="Typo.h6">
+                                <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
+                                @_localizer["Update Seo"]
+                            </MudText>
+                        }
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudGrid>
+
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.MetaNameAr)" @bind-Value="AddEditProductSeoModel.MetaNameAr" Label="@_localizer["Meta NameAr"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.MetaNameEn)" @bind-Value="AddEditProductSeoModel.MetaNameEn" Label="@_localizer["Meta NameEn"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.MetaNameGe)" @bind-Value="AddEditProductSeoModel.MetaNameGe" Label="@_localizer["Meta NameGe"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.MetaTitleAr)" @bind-Value="AddEditProductSeoModel.MetaTitleAr" Label="@_localizer["Meta TitleAr"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.MetaTitleEn)" @bind-Value="AddEditProductSeoModel.MetaTitleEn" Label="@_localizer["Meta TitleEn"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.MetaTitleGe)" @bind-Value="AddEditProductSeoModel.MetaTitleGe" Label="@_localizer["Meta TitleGe"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.MetaUrlAr)" @bind-Value="AddEditProductSeoModel.MetaUrlAr" Label="@_localizer["Meta UrlAr"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.MetaUrlEn)" @bind-Value="AddEditProductSeoModel.MetaUrlEn" Label="@_localizer["Meta UrlEn"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.MetaUrlGe)" @bind-Value="AddEditProductSeoModel.MetaUrlGe" Label="@_localizer["Meta UrlGe"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+                                                              
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditProductSeoModel.MetaKeywordsAr)" @bind-Value="AddEditProductSeoModel.MetaKeywordsAr" Label="@_localizer["Meta KeywordsAr"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditProductSeoModel.MetaKeywordsEn)" @bind-Value="AddEditProductSeoModel.MetaKeywordsEn" Label="@_localizer["Meta KeywordsEn"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditProductSeoModel.MetaKeywordsGe)" @bind-Value="AddEditProductSeoModel.MetaKeywordsGe" Label="@_localizer["Meta KeywordsGe"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                                                             
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditProductSeoModel.MetaDescriptionsAr)" @bind-Value="AddEditProductSeoModel.MetaDescriptionsAr" MaxLength="320" Immediate="true" Label="@_localizer["Meta DescriptionsAr"]" Variant="MudBlazor.Variant.Outlined" />
+                                <MudText Typo="Typo.body1" Class="mt-2">
+                                    Character Count: @(AddEditProductSeoModel.MetaDescriptionsAr?.Length ?? 0)
+                                </MudText>
+                                    <MudText Color="Color.Error">@_localizer["320 characters maximum allowed"]</MudText>
+
+                                </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditProductSeoModel.MetaDescriptionsEn)" MaxLength="160" @bind-Value="AddEditProductSeoModel.MetaDescriptionsEn" Immediate="true" Label="@_localizer["Meta DescriptionsEn"]" Variant="MudBlazor.Variant.Outlined" />
+                                <MudText Typo="Typo.body1" Class="mt-2">
+                                    Character Count: @(AddEditProductSeoModel.MetaDescriptionsEn?.Length ?? 0)
+                                </MudText>
+                                <MudText Color="Color.Error">@_localizer["160 characters maximum allowed"]</MudText>
+
+                                </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditProductSeoModel.MetaDescriptionsGe)" @bind-Value="AddEditProductSeoModel.MetaDescriptionsGe"  MaxLength="160" Immediate="true" Label="@_localizer["Meta DescriptionsGe"]" Variant="MudBlazor.Variant.Outlined" />
+                                <MudText Typo="Typo.body1" Class="mt-2">
+                                    Character Count: @(AddEditProductSeoModel.MetaDescriptionsGe?.Length ?? 0)
+                                </MudText>
+                                    <MudText Color="Color.Error">@_localizer["160 characters maximum allowed"]</MudText>
+
+                                </MudItem>
+
+
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt1Ar)" @bind-Value="AddEditProductSeoModel.ImageAlt1Ar" Label="@_localizer["Image1 Alt Ar"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt1En)" @bind-Value="AddEditProductSeoModel.ImageAlt1En" Label="@_localizer["Image1 Alt En"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt1Ge)" @bind-Value="AddEditProductSeoModel.ImageAlt1Ge" Label="@_localizer["Image1 Alt Ge"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                            
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt2Ar)" @bind-Value="AddEditProductSeoModel.ImageAlt2Ar" Label="@_localizer["Image2 Alt Ar"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt2En)" @bind-Value="AddEditProductSeoModel.ImageAlt2En" Label="@_localizer["Image2 Alt En"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt2Ge)" @bind-Value="AddEditProductSeoModel.ImageAlt2Ge" Label="@_localizer["Image2 Alt Ge"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                       
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt3Ar)" @bind-Value="AddEditProductSeoModel.ImageAlt3Ar" Label="@_localizer["Image3 Alt Ar"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt3En)" @bind-Value="AddEditProductSeoModel.ImageAlt3En" Label="@_localizer["Image3 Alt En"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt3Ge)" @bind-Value="AddEditProductSeoModel.ImageAlt3Ge" Label="@_localizer["Image3 Alt Ge"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                            
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt4Ar)" @bind-Value="AddEditProductSeoModel.ImageAlt4Ar" Label="@_localizer["Image4 Alt Ar"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt4En)" @bind-Value="AddEditProductSeoModel.ImageAlt4En" Label="@_localizer["Image4 Alt En"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.ImageAlt4Ge)" @bind-Value="AddEditProductSeoModel.ImageAlt4Ge" Label="@_localizer["Image4 Alt Ge"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                            
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditProductSeoModel.MetaRobots)" @bind-Value="AddEditProductSeoModel.MetaRobots" Label="@_localizer["Meta Robots"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                        </MudGrid>
+
+                    </MudCardContent>
+                    <MudCardActions Class="d-flex justify-end flex-grow-1 gap-4 mr-2">
+                        <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" OnClick="Back">@_localizer["Cancel"]</MudButton>
+                            @if (AddEditProductSeoModel.Id != 0)
+                        {
+                            <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" ButtonType="MudBlazor.ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Secondary">@_localizer["Update"]</MudButton>
+                        }
+                        else
+                        {
+                            <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" ButtonType="MudBlazor.ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Success">@_localizer["Save"]</MudButton>
+
+                        }
+                    </MudCardActions>
+                </MudCard>
+            </EditForm>
+        </MudItem>
+    </MudGrid>
+}
+
+
+

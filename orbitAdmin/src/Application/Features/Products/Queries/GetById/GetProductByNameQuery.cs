@@ -82,7 +82,7 @@ namespace SchoolV01.Application.Features.Products.Queries.GetById
                  
                  SeoDescription = e.SeoDescription,
                   Keywords = e.Keywords,
-
+                   ProductSeos = e.ProductSeos
             };
 
             var product = await _unitOfWork.Repository<Product>().Entities

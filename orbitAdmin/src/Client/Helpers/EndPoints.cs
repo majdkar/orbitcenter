@@ -158,6 +158,8 @@ namespace SchoolV01.Client.Helpers
         public static string BlockCategoriesSelect = "api/blockcategories/all";
         public static string Blocks = "api/blocks";
         public static string BlocksPhoto = "api/BlockPhoto";
+        public static string BlocksSeo = "api/BlockSeo/all";
+        public static string BlocksSeoSave = "api/BlockSeo";
         public static string BlocksAttachement = "api/BlockAttachement";
 
         public static string MenuCategories = "api/v1/menucategories";
@@ -172,6 +174,9 @@ namespace SchoolV01.Client.Helpers
         public static string Pages = "api/pages";
         public static string PagesPhoto = "api/PagePhoto";
         public static string PagesAttachement = "api/PageAttachement";
+        public static string PagesSeo = "api/PageSeo/all";
+        public static string PagesSeoSave = "api/PageSeo";
+
 
         public static string EventCategories = "api/eventcategories";
         public static string EventCategoriesSelect = "api/eventcategories/all";

@@ -15,15 +15,18 @@ namespace SchoolV01.Application.Services
         private readonly IUnitOfWork<int> uow;
         private readonly IMapper mapper;
         private readonly IPagePhotoService photoService;
+        private readonly IPageSeoService seoService;
         private readonly IPageAttachementService AttachementService;
 
         public PageService(IUnitOfWork<int> uow, IMapper mapper,
             IPagePhotoService photoService,
+            IPageSeoService seoService,
             IPageAttachementService AttachementService)
         {
             this.uow = uow;
             this.mapper = mapper;
             this.photoService = photoService;
+            this.seoService = seoService;
             this.AttachementService = AttachementService;
         }
 
@@ -76,6 +79,7 @@ namespace SchoolV01.Application.Services
             var pageVM = mapper.Map<Page, PageViewModel>(pagesEntity);
             pageVM.PagePhotos = await photoService.GetPhotoByPageId(pageVM.Id);
             pageVM.PageAttachements = await AttachementService.GetAttachementByPageId(pageVM.Id);
+            pageVM.PageSeo = await seoService.GetSeoViewByPageId(pageVM.Id);
             return pageVM;
         }
 

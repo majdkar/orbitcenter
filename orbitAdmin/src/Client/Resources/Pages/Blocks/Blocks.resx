@@ -363,4 +363,13 @@
   <data name="Author Id" xml:space="preserve">
     <value>Author Id</value>
   </data>
+  <data name="Seo Managment" xml:space="preserve">
+    <value>Seo Managment</value>
+  </data>
+  <data name="Block : " xml:space="preserve">
+    <value>Block : </value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
 </root>

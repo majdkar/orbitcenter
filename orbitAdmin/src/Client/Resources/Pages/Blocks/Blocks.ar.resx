@@ -363,4 +363,13 @@
   <data name="Author Id" xml:space="preserve">
     <value>رقم المؤلف</value>
   </data>
+  <data name="Seo Managment" xml:space="preserve">
+    <value>إدارة SEO</value>
+  </data>
+  <data name="Block : " xml:space="preserve">
+    <value>البلوك : </value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
 </root>

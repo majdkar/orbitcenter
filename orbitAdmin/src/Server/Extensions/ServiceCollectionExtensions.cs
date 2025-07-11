@@ -238,6 +238,7 @@ namespace SchoolV01.Server.Extensions
 
             services.AddTransient(typeof(IBlockCategoryService), typeof(BlockCategoryService));
             services.AddTransient(typeof(IBlockPhotoService), typeof(BlockPhotoService));
+            services.AddTransient(typeof(IBlockSeoService), typeof(BlockSeoService));
             services.AddTransient(typeof(IBlockAttachementService), typeof(BlockAttachementService));
             services.AddTransient(typeof(IBlockService), typeof(BlockService));
 
@@ -249,6 +250,7 @@ namespace SchoolV01.Server.Extensions
             services.AddTransient(typeof(IPageService), typeof(PageService));
             services.AddTransient(typeof(IPagePhotoService), typeof(PagePhotoService));
             services.AddTransient(typeof(IPageAttachementService), typeof(PageAttachementService));
+            services.AddTransient(typeof(IPageSeoService), typeof(PageSeoService));
 
             services.AddTransient(typeof(ILanguageService), typeof(LanguageService));
 

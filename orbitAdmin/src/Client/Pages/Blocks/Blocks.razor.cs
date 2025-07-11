@@ -15,6 +15,7 @@ using System;
 using SchoolV01.Core.Entities;
 using System.Threading;
 using SchoolV01.Shared.ViewModels.Menus;
+using System.Globalization;
 
 
 namespace SchoolV01.Client.Pages.Blocks
@@ -26,6 +27,7 @@ namespace SchoolV01.Client.Pages.Blocks
 
         public int? BlockId { get; set; }
 
+        private static bool IsArabic => CultureInfo.CurrentCulture.Name.Contains("ar");
 
         //[Parameter] public BlockCategoryViewModel _blockCategory { get; set; } = new();
         private IEnumerable<BlockViewModel> elements;
@@ -159,6 +161,11 @@ namespace SchoolV01.Client.Pages.Blocks
             {
                 _navigationManager.NavigateTo($"/block-photo-details/{id}");
             }
+        }
+
+        private async Task InvokeSeosModal(int id = 0, string name = "")
+        {
+            _navigationManager.NavigateTo($"/BlockSeo/{id}/{name}");
         }
         private async void InvokeBlockSubModal(int? id)
         {

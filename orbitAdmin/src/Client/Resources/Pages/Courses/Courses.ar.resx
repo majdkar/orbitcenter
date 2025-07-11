@@ -237,4 +237,7 @@
   <data name="Course Name" xml:space="preserve">
     <value>اسم الدورة </value>
   </data>
+  <data name="Seo Managment" xml:space="preserve">
+    <value>إدارة SEO</value>
+  </data>
 </root>

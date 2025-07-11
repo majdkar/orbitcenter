@@ -104,6 +104,9 @@ namespace SchoolV01.Application.Features.Products.Queries.GetById
                  Keywords = e.Keywords,
                   SeoDescription = e.SeoDescription,
 
+
+
+                  ProductSeos = e.ProductSeos,
             };
 
             var product = await _unitOfWork.Repository<Product>().Entities

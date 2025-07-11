@@ -178,6 +178,31 @@ namespace SchoolV01.Client.Infrastructure.Routes
         }
         public static string SaveOffer = "api/v1/ProductOffers";
         public static string DeleteOffer = "api/v1/ProductOffers";
+        //products Seos
+        public static string GetAllProductSeos(int productId)
+        {
+            return $"api/v1/ProductSeos/GetAllByProduct/{productId}";
+        }
+        public static string GetAllPagedProductSeos(int productId,int pageNumber, int pageSize, string searchString, string[] orderBy)
+        {
+            var url = $"api/v1/ProductSeos/GetAllPagedByProduct?productId={productId}&pageNumber={pageNumber}&pageSize={pageSize}&searchString={searchString}&orderBy=";
+
+            if (orderBy?.Any() == true)
+            {
+                foreach (var orderByPart in orderBy)
+                {
+                    url += $"{orderByPart},";
+                }
+                url = url[..^1]; // loose training ,
+            }
+            return url;
+        }
+        public static string GetProductSeoById(int id)
+        {
+            return $"api/v1/ProductSeos/{id}";
+        }
+        public static string SaveSeo = "api/v1/ProductSeos";
+        public static string DeleteSeo = "api/v1/ProductSeos";
 
         //products Weights
         public static string GetAllProductWeights(int productId)

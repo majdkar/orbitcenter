@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolV01.Domain.Entities.Blocks;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -72,6 +73,7 @@ namespace SchoolV01.Core.Entities
         public Block Parent { get; set; }
 
         public List<BlockPhoto> BlockPhotos { get; set; }
+        public virtual BlockSeo BlockSeos { get; set; }
         public List<BlockAttachement> BlockAttachements { get; set; }
     }
     }

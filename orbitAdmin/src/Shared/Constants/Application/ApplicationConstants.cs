@@ -47,6 +47,8 @@ namespace SchoolV01.Shared.Constants.Application
             public const string GetAllPassportsCacheKey = "GetAllPassportsCacheKey";
             public const string GetAllCoursesCacheKey = "GetAllCoursessCacheKey";
             public const string GetAllCourseOffersCacheKey = "GetAllCourseOffersCacheKey";
+            public const string GetAllProductSeosCacheKey = "GetAllProductSeoCacheKey";
+            public const string GetAllCourseSeosCacheKey = "GetAllCourseSeoCacheKey";
   
             public static string GetAllEntityExtendedAttributesCacheKey(string entityFullName)
             {

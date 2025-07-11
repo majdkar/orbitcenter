@@ -1,0 +1,215 @@
+﻿@page "/seoCourse-details/{Id:int}/{CourseId:int}"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CourseSeos> _localizer
+@using SchoolV01.Shared.Constants.Clients
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudGrid>
+        <MudItem xs="12" sm="12" md="12">
+            <EditForm Model="@AddEditCourseSeoModel" OnValidSubmit="SaveAsync">
+                <FluentValidationValidator @ref="_fluentValidationValidator" />
+                <MudCard Elevation="4">
+                    <MudCardHeader>
+                        @if (AddEditCourseSeoModel.Id == 0)
+                        {
+                            <MudText Typo="Typo.h6">
+                                <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+                                @_localizer["Add Seo"]
+                            </MudText>
+                        }
+                        else
+                        {
+                            <MudText Typo="Typo.h6">
+                                <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
+                                @_localizer["Update Seo"]
+                            </MudText>
+                        }
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudGrid>
+
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.MetaNameAr)" @bind-Value="AddEditCourseSeoModel.MetaNameAr" Label="@_localizer["Meta NameAr"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.MetaNameEn)" @bind-Value="AddEditCourseSeoModel.MetaNameEn" Label="@_localizer["Meta NameEn"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.MetaNameGe)" @bind-Value="AddEditCourseSeoModel.MetaNameGe" Label="@_localizer["Meta NameGe"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.MetaTitleAr)" @bind-Value="AddEditCourseSeoModel.MetaTitleAr" Label="@_localizer["Meta TitleAr"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.MetaTitleEn)" @bind-Value="AddEditCourseSeoModel.MetaTitleEn" Label="@_localizer["Meta TitleEn"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.MetaTitleGe)" @bind-Value="AddEditCourseSeoModel.MetaTitleGe" Label="@_localizer["Meta TitleGe"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.MetaUrlAr)" @bind-Value="AddEditCourseSeoModel.MetaUrlAr" Label="@_localizer["Meta UrlAr"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.MetaUrlEn)" @bind-Value="AddEditCourseSeoModel.MetaUrlEn" Label="@_localizer["Meta UrlEn"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.MetaUrlGe)" @bind-Value="AddEditCourseSeoModel.MetaUrlGe" Label="@_localizer["Meta UrlGe"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+                                                              
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditCourseSeoModel.MetaKeywordsAr)" @bind-Value="AddEditCourseSeoModel.MetaKeywordsAr" Label="@_localizer["Meta KeywordsAr"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditCourseSeoModel.MetaKeywordsEn)" @bind-Value="AddEditCourseSeoModel.MetaKeywordsEn" Label="@_localizer["Meta KeywordsEn"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditCourseSeoModel.MetaKeywordsGe)" @bind-Value="AddEditCourseSeoModel.MetaKeywordsGe" Label="@_localizer["Meta KeywordsGe"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                                                             
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditCourseSeoModel.MetaDescriptionsAr)" @bind-Value="AddEditCourseSeoModel.MetaDescriptionsAr" MaxLength="320" Immediate="true" Label="@_localizer["Meta DescriptionsAr"]" Variant="MudBlazor.Variant.Outlined" />
+                                <MudText Typo="Typo.body1" Class="mt-2">
+                                    Character Count: @(AddEditCourseSeoModel.MetaDescriptionsAr?.Length ?? 0)
+                                </MudText>
+                                    <MudText Color="Color.Error">@_localizer["320 characters maximum allowed"]</MudText>
+
+                                </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditCourseSeoModel.MetaDescriptionsEn)" MaxLength="160" @bind-Value="AddEditCourseSeoModel.MetaDescriptionsEn" Immediate="true" Label="@_localizer["Meta DescriptionsEn"]" Variant="MudBlazor.Variant.Outlined" />
+                                <MudText Typo="Typo.body1" Class="mt-2">
+                                    Character Count: @(AddEditCourseSeoModel.MetaDescriptionsEn?.Length ?? 0)
+                                </MudText>
+                                <MudText Color="Color.Error">@_localizer["160 characters maximum allowed"]</MudText>
+
+                                </MudItem>
+                                  
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField Lines="3" For="@(() => AddEditCourseSeoModel.MetaDescriptionsGe)" @bind-Value="AddEditCourseSeoModel.MetaDescriptionsGe"  MaxLength="160" Immediate="true" Label="@_localizer["Meta DescriptionsGe"]" Variant="MudBlazor.Variant.Outlined" />
+                                <MudText Typo="Typo.body1" Class="mt-2">
+                                    Character Count: @(AddEditCourseSeoModel.MetaDescriptionsGe?.Length ?? 0)
+                                </MudText>
+                                    <MudText Color="Color.Error">@_localizer["160 characters maximum allowed"]</MudText>
+
+                                </MudItem>
+
+
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt1Ar)" @bind-Value="AddEditCourseSeoModel.ImageAlt1Ar" Label="@_localizer["Image1 Alt Ar"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt1En)" @bind-Value="AddEditCourseSeoModel.ImageAlt1En" Label="@_localizer["Image1 Alt En"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt1Ge)" @bind-Value="AddEditCourseSeoModel.ImageAlt1Ge" Label="@_localizer["Image1 Alt Ge"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                            
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt2Ar)" @bind-Value="AddEditCourseSeoModel.ImageAlt2Ar" Label="@_localizer["Image2 Alt Ar"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt2En)" @bind-Value="AddEditCourseSeoModel.ImageAlt2En" Label="@_localizer["Image2 Alt En"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt2Ge)" @bind-Value="AddEditCourseSeoModel.ImageAlt2Ge" Label="@_localizer["Image2 Alt Ge"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                                       
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt3Ar)" @bind-Value="AddEditCourseSeoModel.ImageAlt3Ar" Label="@_localizer["Image3 Alt Ar"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt3En)" @bind-Value="AddEditCourseSeoModel.ImageAlt3En" Label="@_localizer["Image3 Alt En"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt3Ge)" @bind-Value="AddEditCourseSeoModel.ImageAlt3Ge" Label="@_localizer["Image3 Alt Ge"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                            
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt4Ar)" @bind-Value="AddEditCourseSeoModel.ImageAlt4Ar" Label="@_localizer["Image4 Alt Ar"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt4En)" @bind-Value="AddEditCourseSeoModel.ImageAlt4En" Label="@_localizer["Image4 Alt En"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.ImageAlt4Ge)" @bind-Value="AddEditCourseSeoModel.ImageAlt4Ge" Label="@_localizer["Image4 Alt Ge"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                            
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseSeoModel.MetaRobots)" @bind-Value="AddEditCourseSeoModel.MetaRobots" Label="@_localizer["Meta Robots"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+                        </MudGrid>
+
+                    </MudCardContent>
+                    <MudCardActions Class="d-flex justify-end flex-grow-1 gap-4 mr-2">
+                        <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" OnClick="Back">@_localizer["Cancel"]</MudButton>
+                            @if (AddEditCourseSeoModel.Id != 0)
+                        {
+                            <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" ButtonType="MudBlazor.ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Secondary">@_localizer["Update"]</MudButton>
+                        }
+                        else
+                        {
+                            <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" ButtonType="MudBlazor.ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Success">@_localizer["Save"]</MudButton>
+
+                        }
+                    </MudCardActions>
+                </MudCard>
+            </EditForm>
+        </MudItem>
+    </MudGrid>
+}
+
+
+

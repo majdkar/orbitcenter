@@ -58,6 +58,7 @@ namespace SchoolV01.Domain.Entities.Products
         public string ProductImageUrl3 { get; set; }
 
         public virtual List<ProductOffer> ProductOffers { get; set; }
+        public virtual ProductSeo ProductSeos { get; set; }
 
 
         public string Keywords { get; set; }

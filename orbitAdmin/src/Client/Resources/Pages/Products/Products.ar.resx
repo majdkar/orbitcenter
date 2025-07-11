@@ -234,4 +234,7 @@
   <data name="SubSubSubCategory" xml:space="preserve">
     <value>الصنف الفرعي مستوى 3</value>
   </data>
+  <data name="Seo Managment" xml:space="preserve">
+    <value>إدارة SEO</value>
+  </data>
 </root>

@@ -11,6 +11,7 @@ using SchoolV01.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
 using SchoolV01.Shared.Constants.Role;
 using System.Threading;
+using System.Globalization;
 
 namespace SchoolV01.Client.Pages.Pages
 {
@@ -31,6 +32,7 @@ namespace SchoolV01.Client.Pages.Pages
         private bool _canSearchWebSiteManagement;
         private bool _canViewWebSiteManagement;
         private bool _isAdmin;
+        private static bool IsArabic => CultureInfo.CurrentCulture.Name.Contains("ar");
 
         protected override async Task OnInitializedAsync()
         {
@@ -171,6 +173,10 @@ namespace SchoolV01.Client.Pages.Pages
             }
         }
 
+        private async Task InvokeSeosModal(int id = 0, string name = "")
+        {
+            _navigationManager.NavigateTo($"/PageSeo/{id}/{name}");
+        }
 
         protected async Task SoftDeletePage(int id)
         {

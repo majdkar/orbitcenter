@@ -91,7 +91,7 @@ namespace SchoolV01.Application.Features.Courses.Queries.GetById
                 StartEnd = e.StartEnd,
                 NumMaxStudent = e.NumMaxStudent,
                 CourseType = e.CourseType,
-
+                 CourseSeos = e.CourseSeo,
             };
 
             var Course = await _unitOfWork.Repository<Course>().Entities

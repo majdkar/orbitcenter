@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolV01.Shared.ViewModels.Pages;
+using System;
 using System.Collections.Generic;
 
 namespace SchoolV01.Shared.ViewModels.Blocks
@@ -59,6 +60,7 @@ namespace SchoolV01.Shared.ViewModels.Blocks
         public string SeoDescription { get; set; }
         public virtual List<BlockPhotoViewModel> BlockPhotos { get; set; }
         public virtual List<BlockAttachementViewModel> BlockAttachements { get; set; }
+        public virtual BlockSeoViewModel BlockSeo { get; set; }
 
         public bool ShowTranslation { get; set; } = false;
     }

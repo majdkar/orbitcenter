@@ -246,6 +246,13 @@ else
 
                         <MudIconButton Icon="@Icons.Material.Outlined.Info" @onclick="@(() => InvokeDetailsModal(@context.Id))" Color="Color.Info" Variant="Variant.Filled" Size="Size.Small" Style="margin: 3px" />
                         </MudTooltip>
+
+
+
+                    <MudTooltip Text="@_localizer["Seo Managment"]">
+
+                        <MudIconButton Icon="@Icons.Material.Outlined.Analytics" @onclick="@(() => InvokeSeosModal(@context.Id,(IsArabic ? context.NameAr : context.NameEn)))" Color="Color.Tertiary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 3px" />
+                    </MudTooltip>
                 }
                 else
                 {

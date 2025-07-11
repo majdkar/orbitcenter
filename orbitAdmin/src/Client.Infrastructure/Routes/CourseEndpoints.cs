@@ -179,6 +179,47 @@ namespace SchoolV01.Client.Infrastructure.Routes
         public static string SaveOffer = "api/v1/CourseOffers";
         public static string DeleteOffer = "api/v1/CourseOffers";
 
+
+
+        //Courses Seos
+        public static string GetAllCourseSeos(int CourseId)
+        {
+            return $"api/v1/CourseSeos/GetAllByCourse/{CourseId}";
+        }
+        public static string GetAllPagedCourseSeos(int CourseId, int pageNumber, int pageSize, string searchString, string[] orderBy)
+        {
+            var url = $"api/v1/CourseSeos/GetAllPagedByCourse?CourseId={CourseId}&pageNumber={pageNumber}&pageSize={pageSize}&searchString={searchString}&orderBy=";
+
+            if (orderBy?.Any() == true)
+            {
+                foreach (var orderByPart in orderBy)
+                {
+                    url += $"{orderByPart},";
+                }
+                url = url[..^1]; // loose training ,
+            }
+            return url;
+        }
+        public static string GetCourseSeoById(int id)
+        {
+            return $"api/v1/CourseSeos/{id}";
+        }
+        public static string SaveSeo = "api/v1/CourseSeos";
+        public static string DeleteSeo = "api/v1/CourseSeos";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //Courses Weights
         public static string GetAllCourseWeights(int CourseId)
         {
