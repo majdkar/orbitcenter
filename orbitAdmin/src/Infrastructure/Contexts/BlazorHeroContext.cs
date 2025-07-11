@@ -103,7 +103,7 @@ namespace SchoolV01.Infrastructure.Contexts
                         break;
 
                     case EntityState.Deleted:
-                        entry.State = EntityState.Modified;
+                        entry.State = EntityState.Deleted;
                         entry.Entity.LastModifiedOn = DateTimeGlobally.Now;
                         entry.Entity.LastModifiedBy = _currentUserService.UserId;
                         entry.Entity.Deleted = true;
