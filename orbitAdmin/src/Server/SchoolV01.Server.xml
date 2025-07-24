@@ -930,6 +930,12 @@
             </summary>
             <returns>Status 200 OK</returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.GetAllEndpointCourse">
+            <summary>
+            Get All Endpoint Courses
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.GetAllRecentCourses(System.Int32,System.Int32,System.String,System.String)">
             <summary>
             Get All  Recent Courses
@@ -1208,6 +1214,12 @@
         <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.GetAll">
             <summary>
             Get All Products
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.GetAllEndpointProduct">
+            <summary>
+            Get All Endpoint Products
             </summary>
             <returns>Status 200 OK</returns>
         </member>

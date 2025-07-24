@@ -22,6 +22,7 @@ namespace SchoolV01.Application.Map
             CreateMap<BlockCategoryUpdateModel, BlockCategory>();
 
             CreateMap<Block, BlockViewModel>();
+            CreateMap<Block, BlockEndpointViewModel>();
             //.ForMember(dest => dest.FileUrl, opt => opt.MapFrom<CustomBlockFileResolver>());
             CreateMap<BlockInsertModel, Block>();
             CreateMap<BlockUpdateModel, Block>();

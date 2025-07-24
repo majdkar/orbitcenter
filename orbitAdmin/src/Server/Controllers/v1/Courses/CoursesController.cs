@@ -6,6 +6,7 @@ using SchoolV01.Application.Features.Courses.Queries.Export;
 using SchoolV01.Application.Features.Courses.Queries.GetAll;
 using SchoolV01.Application.Features.Courses.Queries.GetAllPaged;
 using SchoolV01.Application.Features.Courses.Queries.GetById;
+using SchoolV01.Application.Features.Products.Queries.GetAll;
 using SchoolV01.Shared.Constants.Permission;
 using System.Threading.Tasks;
 
@@ -29,6 +30,18 @@ namespace SchoolV01.Server.Controllers.v1.Courses
 
 
 
+
+        /// <summary>
+        /// Get All Endpoint Courses
+        /// </summary>
+        /// <returns>Status 200 OK</returns>
+        [AllowAnonymous]
+        [HttpGet("allEndpoints")]
+        public async Task<IActionResult> GetAllEndpointCourse()
+        {
+            var Courses = await Mediator.Send(new GetAllEndpointCoursesQuery());
+            return Ok(Courses);
+        }
 
 
         /// <summary>

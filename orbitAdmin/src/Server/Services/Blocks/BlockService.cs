@@ -42,6 +42,13 @@ namespace SchoolV01.Application.Services
             }
             return blocksVM;
         }
+        
+        public async Task<List<BlockEndpointViewModel>> GetEndpointBlocks(int categoryId)
+        {
+            var blockEntities = await uow.Query<Block>().Where(x => x.CategoryId == categoryId).OrderBy(x => x.RecordOrder).ToListAsync();
+            var blocksVM = mapper.Map<List<Block>, List<BlockEndpointViewModel>>(blockEntities);
+            return blocksVM;
+        }
 
         public async Task<List<BlockViewModel>> GetPagedBlocks(string searchString, string orderBy)
         {

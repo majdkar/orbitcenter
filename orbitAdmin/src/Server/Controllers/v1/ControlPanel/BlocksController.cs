@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using SchoolV01.Shared.Constants.Permission;
 using Microsoft.AspNetCore.Authorization;
 using SchoolV01.Shared.ViewModels.Menus;
+using System.Collections.Generic;
 
 namespace SchoolV01.Api.Controllers
 {
@@ -96,6 +97,26 @@ namespace SchoolV01.Api.Controllers
                 var filteredData = await blockService.GetPagedBlocks(searchString, orderBy);
                 var response = new PagedResponse<BlockViewModel>(filteredData, 0, 10, filteredData.Count());
                 return Ok(response);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data");
+            }
+        }
+        
+        [HttpGet]
+        [Route("allEndpoint")]
+        public async Task<ActionResult<List<BlockEndpointViewModel>>> GetAllEndpoint(int categoryId)
+        {
+            try
+            {
+                var result = await blockService.GetEndpointBlocks(categoryId);
+
+                if (result == null)
+                    return NotFound();
+
+                return result;
             }
             catch (Exception)
             {

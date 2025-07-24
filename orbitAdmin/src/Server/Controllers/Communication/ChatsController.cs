@@ -18,6 +18,7 @@ using SchoolV01.Domain.Entities.GeneralSettings;
 using SchoolV01.Application.Interfaces.Repositories;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Polly;
 
 namespace SchoolV01.Server.Controllers.Communication
 {
@@ -251,6 +252,7 @@ namespace SchoolV01.Server.Controllers.Communication
             await uow.CommitAsync();
 
             await _hubContext.Clients.Group(location.VehicleId).SendAsync("ReceiveLocation", location.VehicleId, location.Latitude, location.Longitude);
+            //await _hubContext.Clients.User(location.VehicleId).SendAsync("ReceiveLocation", location.VehicleId, location.Latitude, location.Longitude);
             return Ok();
         }
 
@@ -277,19 +279,56 @@ namespace SchoolV01.Server.Controllers.Communication
         [HttpPost("stop")]
         public async Task<IActionResult> StopTracking([FromBody] string vehicleId)
         {
-            // إرسال إشعار إلى جميع أعضاء مجموعة المركبة أن التتبع توقف
-            await _hubContext.Clients.Group(vehicleId).SendAsync("TrackingStopped", vehicleId);
+            var userId = _currentUserService.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (vehicleId == userId)
+            {
+                var connectionId = SignalRHub.GetConnectionId(vehicleId);
+                if (connectionId != null)
+                {
+                    // إرسال إشعار إلى جميع أعضاء مجموعة المركبة أن التتبع توقف
+                    await _hubContext.Clients.Group(vehicleId).SendAsync("TrackingStopped", vehicleId);
+                    await _hubContext.Groups.RemoveFromGroupAsync(connectionId, vehicleId);
+                    return Ok(new { message = $"Tracking stopped for vehicle {vehicleId}" });
+                }
+                else
+                {
+                    return Ok(new { message = $"No Stopped for vehicle {vehicleId}" });
 
-            return Ok(new { message = $"Tracking stopped for vehicle {vehicleId}" });
+                }
+            }
+            else
+            {
+                return Ok(new { message = $"No Stopped for vehicle {vehicleId}" });
+            }
         }
 
         [HttpPost("start")]
         public async Task<IActionResult> StartTracking([FromBody] string vehicleId)
         {
-            // إرسال إشعار إلى جميع أعضاء مجموعة المركبة أن التتبع توقف
-            await _hubContext.Clients.Group(vehicleId).SendAsync("TrackingStarted", vehicleId);
+            var userId = _currentUserService.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (vehicleId == userId)
+            {
+                var connectionId = SignalRHub.GetConnectionId(vehicleId);
+            if (connectionId != null)
+            {
 
-            return Ok(new { message = $"Tracking Started for vehicle {vehicleId}" });
+                await _hubContext.Groups.AddToGroupAsync(connectionId, vehicleId);
+                await _hubContext.Clients.Group(vehicleId).SendAsync("TrackingStarted", vehicleId);
+                return Ok(new { message = $"Tracking Started for vehicle {vehicleId}" });
+
+            }
+            // إرسال إشعار إلى جميع أعضاء مجموعة المركبة أن التتبع توقف
+            else
+            {
+                return Ok(new { message = $"No Started for vehicle {vehicleId}" });
+
+                }
+            }
+            else
+            {
+                return Ok(new { message = $"No Stopped for vehicle {vehicleId}" });
+            }
+
         }
     }
 }

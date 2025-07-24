@@ -7,6 +7,7 @@ namespace SchoolV01.Application.Services
     public interface IBlockService
     {
         Task<List<BlockViewModel>> GetBlocks();
+        Task<List<BlockEndpointViewModel>> GetEndpointBlocks(int categoryId);
 
         Task<List<BlockViewModel>> GetPagedBlocks(string searchString, string orderBy);
 

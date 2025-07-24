@@ -28,6 +28,19 @@ namespace SchoolV01.Server.Controllers.v1.Products
         }
 
 
+        /// <summary>
+        /// Get All Endpoint Products
+        /// </summary>
+        /// <returns>Status 200 OK</returns>
+        [AllowAnonymous]
+        [HttpGet("allEndpoints")]
+        public async Task<IActionResult> GetAllEndpointProduct()
+        {
+            var products = await Mediator.Send(new GetAllEndpointProductsQuery());
+            return Ok(products);
+        }
+
+
 
 
 

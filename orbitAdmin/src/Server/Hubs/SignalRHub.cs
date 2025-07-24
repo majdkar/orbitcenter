@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Collections.Concurrent;
 using System;
+using SchoolV01.Client.Pages.Identity;
 
 namespace SchoolV01.Server.Hubs
 {
@@ -32,16 +33,19 @@ namespace SchoolV01.Server.Hubs
         public override Task OnConnectedAsync()
         {
             //var userId = Context.User?.Identity?.Name; // أو من Claims
-            var userId = Context.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value; var httpContext = Context.GetHttpContext();
+            var userId = Context.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value; 
+            var httpContext = Context.GetHttpContext();
             if (userId != null)
             {
                 Groups.AddToGroupAsync(Context.ConnectionId, userId);
+                
+                
             }
             
             if (!string.IsNullOrEmpty(userId))
             {
                 UserConnections[userId] = Context.ConnectionId;
-                TrackingUsers[userId] = false;
+                //TrackingUsers[userId] = false;
             }
             return base.OnConnectedAsync();
         }
@@ -50,14 +54,14 @@ namespace SchoolV01.Server.Hubs
 
         public static string GetConnectionId(string userId)
         {
-            if (TrackingUsers[userId] == true)
-            {
+            //if (TrackingUsers[userId] == true)
+            //{
                 return UserConnections.TryGetValue(userId, out var connectionId) ? connectionId : null;
-            }
-            else
-            {
-                return null;
-            }
+            //}
+            //else
+            //{
+            //    return null;
+            //}
         }
 
 
