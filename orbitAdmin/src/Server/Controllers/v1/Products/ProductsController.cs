@@ -125,15 +125,15 @@ namespace SchoolV01.Server.Controllers.v1.Products
         }
 
         /// <summary>
-        /// Get Product By Name
+        /// Get Product By Endpoint
         /// </summary>
-        /// <param name="Name"></param>
+        /// <param name="Endpoint"></param>
         /// <returns>Status 200 OK</returns>
         //[Authorize(Policy = Permissions.Products.View)]
-        [HttpGet("GetByName/{Name}")]
-        public async Task<IActionResult> GetByName(string Name)
+        [HttpGet("GetByEndpoint/{Endpoint}")]
+        public async Task<IActionResult> GetByName(string Endpoint)
         {
-            var company = await Mediator.Send(new GetProductByNameQuery {   Name = Name });
+            var company = await Mediator.Send(new GetProductByEndpointQuery { Endpoint = Endpoint });
             return Ok(company);
         }
 

@@ -19,5 +19,6 @@ namespace SchoolV01.Application.Responses.Identity
         public int? Id { get; set; }
         public string ClientType { get; set; }
         public string Roles { get; set; }
+        public string vehicleId { get; set; }
     }
 }

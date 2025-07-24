@@ -34,7 +34,10 @@ namespace SchoolV01.Core.Entities
         public string Image3 { get; set; }
 
         public string Image { get; set; }
-       
+        public string EndpointAr { get; set; }
+        public string EndpointEn { get; set; }
+        public string EndpointGe { get; set; }
+
 
         public string GeoLink { get; set; }
 

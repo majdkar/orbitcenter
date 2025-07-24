@@ -16,6 +16,8 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using SchoolV01.Server.Filters;
 using System.Reflection;
+using Microsoft.AspNetCore.SignalR;
+using SchoolV01.Server.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 var _configuration = builder.Configuration;
@@ -25,6 +27,8 @@ var _configuration = builder.Configuration;
 builder.Host.UseSerilog();
 builder.Services.AddCors();
 builder.Services.AddSignalR();
+//builder.Services.AddSingleton<IUserIdProvider, CustomUserIdProvider>(); // Important!
+
 builder.Services.AddHealthChecks();
 builder.Services.AddLocalization(options =>
 {
@@ -75,7 +79,11 @@ var app = builder.Build();
 app.InitializeDatabase();
 
 // Configure the HTTP request pipeline.
-app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+app.UseCors(x => x
+           .AllowAnyMethod()
+           .AllowAnyHeader()
+           .SetIsOriginAllowed(origin => true)
+           .AllowCredentials());
 app.UseExceptionHandling(app.Environment);
 app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();

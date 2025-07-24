@@ -223,6 +223,9 @@ namespace SchoolV01.Client.Pages.Products
 
                        
                         Code = product.Code,
+                        EndpointAr = product.EndpointAr,
+                        EndpointGe = product.EndpointGe,
+                        EndpointEn = product.EndpointEn,
                        
 
                         ProductParentCategoryId = product.ProductParentCategoryId,

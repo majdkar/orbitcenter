@@ -158,6 +158,21 @@ else
 
 
 
+                                    
+                                       <MudItem xs="12" md="12">
+                                        <MudTextField For="@(() => AddEditCompanyProductModel.EndpointAr)" @bind-Value="AddEditCompanyProductModel.EndpointAr" Label="@_localizer["Endpoint Ar"]" />
+                                    </MudItem>
+                                    
+                                       <MudItem xs="12" md="12">
+                                        <MudTextField For="@(() => AddEditCompanyProductModel.EndpointEn)" @bind-Value="AddEditCompanyProductModel.EndpointEn" Label="@_localizer["Endpoint En"]" />
+                                    </MudItem>
+                                    
+                                       <MudItem xs="12" md="12">
+                                        <MudTextField For="@(() => AddEditCompanyProductModel.EndpointGe)" @bind-Value="AddEditCompanyProductModel.EndpointGe" Label="@_localizer["Endpoint Ge"]" />
+                                    </MudItem>
+
+
+
                                     <MudItem xs="12" md="12">
                                     <MudText Typo="Typo.body1">@_localizer["DiscriptionAr1"]</MudText>
                                         <Editor Id="editorAr1" Field="() => AddEditCompanyProductModel.DescriptionAr1" @bind-Value="AddEditCompanyProductModel.DescriptionAr1" Inline=false

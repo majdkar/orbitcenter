@@ -76,7 +76,7 @@ namespace SchoolV01.Infrastructure.Services.Identity
             user.RefreshToken = GenerateRefreshToken();
             user.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
             await _userManager.UpdateAsync(user);
-            IEnumerable<Claim> claims = [new Claim("clientId", client.Item1.ToString()), new Claim("clientId2", client.Item2.ToString())];
+            IEnumerable<Claim> claims = [new Claim("userId",user.Id), new Claim("vehicleId", "vehicle-123"),new Claim("clientId", client.Item1.ToString()), new Claim("clientId2", client.Item2.ToString())];
             var token = await GenerateJwtAsync(user, claims);
 
 
@@ -92,6 +92,7 @@ namespace SchoolV01.Infrastructure.Services.Identity
                 LastName = user.LastName,
                 UserId = user.Id,
                 ClientId = client.Item1,
+                vehicleId = "vehicle-123",
                 Id = GetIdForUser(user.Id),
                 ClientType = !string.IsNullOrEmpty(user.ClientType) ? user.ClientType : "Not Type Or Admin",
                 Roles = string.Join(",", await _userManager.GetRolesAsync(user))

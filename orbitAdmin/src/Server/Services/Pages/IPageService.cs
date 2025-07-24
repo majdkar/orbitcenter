@@ -12,6 +12,7 @@ namespace SchoolV01.Application.Services
         Task<List<PageViewModel>> GetPagedPages(string searchString, string orderBy);
 
         Task<PageViewModel> GetPageByID(int pageId);
+        Task<PageViewModel> GetPageByEndpoint(string Endpoint);
 
         Task<PageViewModel> AddPage(PageInsertModel pageInsertModel);
 

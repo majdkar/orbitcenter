@@ -304,7 +304,22 @@ namespace SchoolV01.Server.Extensions
                                 var result = JsonConvert.SerializeObject(Result.Fail(localizer["An unhandled error has occurred."]));
                                 return c.Response.WriteAsync(result);
                             }
+
                         },
+
+                        OnMessageReceived = context =>
+                            {
+                                var accessToken = context.Request.Query["access_token"];
+                                var path = context.HttpContext.Request.Path;
+                                if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/SignalRHub"))
+                                {
+                                    context.Token = accessToken;
+                                }
+                                return Task.CompletedTask;
+                            },
+
+
+                        
                         OnChallenge = context =>
                         {
                             context.HandleResponse();

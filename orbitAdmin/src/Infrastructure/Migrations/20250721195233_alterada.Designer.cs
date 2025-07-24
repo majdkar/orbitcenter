@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolV01.Infrastructure.Contexts;
 
@@ -11,9 +12,11 @@ using SchoolV01.Infrastructure.Contexts;
 namespace SchoolV01.Infrastructure.Migrations
 {
     [DbContext(typeof(BlazorHeroContext))]
-    partial class BlazorHeroContextModelSnapshot : ModelSnapshot
+    [Migration("20250721195233_alterada")]
+    partial class alterada
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,15 +165,6 @@ namespace SchoolV01.Infrastructure.Migrations
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("EndpointAr")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointGe")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("File")
                         .HasColumnType("nvarchar(max)");
@@ -721,15 +715,6 @@ namespace SchoolV01.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DescriptionGe3")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointAr")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointGe")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GeoLink")
@@ -1347,15 +1332,6 @@ namespace SchoolV01.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DescriptionGe4")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointAr")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointGe")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsRecent")
@@ -2331,15 +2307,6 @@ namespace SchoolV01.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DescriptionGe4")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointAr")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EndpointGe")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsRecent")

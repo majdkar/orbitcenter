@@ -31,6 +31,9 @@ namespace SchoolV01.Domain.Entities.Courses
         public string DescriptionGe4 { get; set; }
 
         public string Code { get; set; }
+        public string EndpointAr { get; set; }
+        public string EndpointEn { get; set; }
+        public string EndpointGe { get; set; }
 
 
 

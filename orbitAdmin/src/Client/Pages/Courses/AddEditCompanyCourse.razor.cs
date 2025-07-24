@@ -263,6 +263,10 @@ namespace SchoolV01.Client.Pages.Courses
                       CourseImageUrl1 = Course.CourseImageUrl1,
                       CourseImageUrl2 = Course.CourseImageUrl2,
                       CourseImageUrl3 = Course.CourseImageUrl3,
+
+                       EndpointAr = Course.EndpointAr,
+                       EndpointEn = Course.EndpointEn,
+                       EndpointGe = Course.EndpointGe,
                       
                     };
                     if (!string.IsNullOrEmpty(Course.CourseImageUrl1))

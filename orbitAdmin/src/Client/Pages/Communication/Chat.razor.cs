@@ -91,6 +91,7 @@ namespace SchoolV01.Client.Pages.Communication
                     StateHasChanged();
                 }
             });
+
             HubConnection.On<string>(ApplicationConstants.SignalR.DisconnectUser, (userId) =>
             {
                 var disconnectedUser = UserList.Find(x => x.Id.Equals(userId));
@@ -101,6 +102,7 @@ namespace SchoolV01.Client.Pages.Communication
                     StateHasChanged();
                 }
             });
+
             HubConnection.On<ChatHistory<IChatUser>, string>(ApplicationConstants.SignalR.ReceiveMessage, async (chatHistory, userName) =>
              {
                  if ((CId == chatHistory.ToUserId && CurrentUserId == chatHistory.FromUserId) || (CId == chatHistory.FromUserId && CurrentUserId == chatHistory.ToUserId))
@@ -118,6 +120,7 @@ namespace SchoolV01.Client.Pages.Communication
                      StateHasChanged();
                  }
              });
+
             await GetUsersAsync();
             var state = await _stateProvider.GetAuthenticationStateAsync();
             var user = state.User;

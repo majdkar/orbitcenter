@@ -1,12 +1,12 @@
-﻿using SchoolV01.Application.Features.Products.Commands.AddEdit;
+﻿using SchoolV01.Application.Features.Courses.Commands.AddEdit;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 
-namespace SchoolV01.Application.Validators.Features.Products.Commands.AddEdit
+namespace SchoolV01.Application.Validators.Features.Courses.Commands.AddEdit
 {
-    public class AddEditProductCommandValidator : AbstractValidator<AddEditCompanyProductCommand>
+    public class AddEditCourseCommandValidator : AbstractValidator<AddEditCompanyCourseCommand>
     {
-        public AddEditProductCommandValidator(IStringLocalizer<AddEditProductCommandValidator> localizer)
+        public AddEditCourseCommandValidator(IStringLocalizer<AddEditCourseCommandValidator> localizer)
         {
             RuleFor(request => request.NameAr)
                 .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Arabic Name is required!"]);

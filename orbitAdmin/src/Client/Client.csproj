@@ -32,6 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Pages\Communication\R.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
     <Content Update="Pages\Courses\AddEditCourseSeo.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>

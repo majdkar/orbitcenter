@@ -128,12 +128,12 @@ namespace SchoolV01.Api.Controllers
 
 
 
-        [HttpGet("BlockByName/{Name}")]
-        public async Task<ActionResult<BlockViewModel>> GetBlockByName(string Name)
+        [HttpGet("BlockByEndpoint/{Endpoint}")]
+        public async Task<ActionResult<BlockViewModel>> GetBlockByEndpoint(string Endpoint)
         {
             try
             {
-                var result = await blockService.GetBlockByName(Name);
+                var result = await blockService.GetBlockByEndpoint(Endpoint);
 
                 if (result == null)
                     return NotFound();

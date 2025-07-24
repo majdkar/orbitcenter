@@ -54,6 +54,13 @@ namespace SchoolV01.Core.Entities
         public string Url { get; set; }
         public string Url1 { get; set; }
 
+
+        public string EndpointAr { get; set; }
+        public string EndpointEn { get; set; }
+        public string EndpointGe { get; set; }
+
+
+
         public string File { get; set; }
 
         public bool IsActive { get; set; } = true;

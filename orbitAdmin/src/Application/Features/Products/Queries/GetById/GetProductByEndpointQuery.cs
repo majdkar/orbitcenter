@@ -17,25 +17,25 @@ using SchoolV01.Shared.Wrapper;
 
 namespace SchoolV01.Application.Features.Products.Queries.GetById
 {
-    public class GetProductByNameQuery : IRequest<Result<GetProductByIdResponse>>
+    public class GetProductByEndpointQuery : IRequest<Result<GetProductByIdResponse>>
     {
-        public string Name { get; set; }
+        public string Endpoint { get; set; }
     }
 
-    internal class GetProductByNameQueryHandler : IRequestHandler<GetProductByNameQuery, Result<GetProductByIdResponse>>
+    internal class GetProductByEndpointQueryHandler : IRequestHandler<GetProductByEndpointQuery, Result<GetProductByIdResponse>>
     {
         private readonly IUnitOfWork<int> _unitOfWork;
         private readonly IMapper _mapper;
 
-        public GetProductByNameQueryHandler(IUnitOfWork<int> unitOfWork, IMapper mapper)
+        public GetProductByEndpointQueryHandler(IUnitOfWork<int> unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<Result<GetProductByIdResponse>> Handle(GetProductByNameQuery query, CancellationToken cancellationToken)
+        public async Task<Result<GetProductByIdResponse>> Handle(GetProductByEndpointQuery query, CancellationToken cancellationToken)
         {
-            var filter = new ProductByNameFilterSpecification(query.Name);
+            var filter = new ProductByEndpointFilterSpecification(query.Endpoint);
             Expression<Func<Product, GetProductByIdResponse>> expression = e => new GetProductByIdResponse
             {
                 Id = e.Id,
@@ -67,6 +67,10 @@ namespace SchoolV01.Application.Features.Products.Queries.GetById
 
                 Price = e.Price,
                 Code = e.Code,
+
+                EndpointAr = e.EndpointAr,
+                EndpointEn = e.EndpointEn,
+                EndpointGe = e.EndpointGe,
 
                 Order = e.Order,
                 IsVisible = e.IsVisible,

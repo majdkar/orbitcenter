@@ -8,14 +8,14 @@ using SchoolV01.Domain.Entities.Courses;
 
 namespace SchoolV01.Application.Specifications.Courses
 {
-    public class CourseByNameFilterSpecification : HeroSpecification<Course>
+    public class CourseByEndpointFilterSpecification : HeroSpecification<Course>
     {
-        public CourseByNameFilterSpecification(string Name)
+        public CourseByEndpointFilterSpecification(string Endpoint)
         {
             Includes.Add(x => x.CourseDefaultCategory);
       
 
-            Criteria = x => x.NameEn == Name || x.NameAr == Name || x.NameGe == Name;
+            Criteria = x => x.EndpointAr == Endpoint || x.EndpointEn == Endpoint || x.EndpointGe == Endpoint;
         }
     }
 }

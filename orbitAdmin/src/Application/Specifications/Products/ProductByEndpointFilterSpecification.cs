@@ -8,14 +8,14 @@ using SchoolV01.Domain.Entities.Products;
 
 namespace SchoolV01.Application.Specifications.Products
 {
-    public class ProductByNameFilterSpecification : HeroSpecification<Product>
+    public class ProductByEndpointFilterSpecification : HeroSpecification<Product>
     {
-        public ProductByNameFilterSpecification(string Name)
+        public ProductByEndpointFilterSpecification(string Endpoint)
         {
             Includes.Add(x => x.ProductDefaultCategory);
       
 
-            Criteria = x => x.NameEn == Name || x.NameAr == Name || x.NameGe == Name;
+            Criteria = x => x.EndpointEn == Endpoint || x.EndpointAr == Endpoint || x.EndpointGe == Endpoint;
         }
     }
 }

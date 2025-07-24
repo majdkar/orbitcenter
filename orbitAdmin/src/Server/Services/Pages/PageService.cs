@@ -82,6 +82,15 @@ namespace SchoolV01.Application.Services
             pageVM.PageSeo = await seoService.GetSeoViewByPageId(pageVM.Id);
             return pageVM;
         }
+        public async Task<PageViewModel> GetPageByEndpoint(string Endpoint)
+        {
+            var pagesEntity = await uow.Query<Page>().Where(x => x.EndpointAr == Endpoint || x.EndpointEn == Endpoint || x.EndpointGe == Endpoint).FirstOrDefaultAsync();
+            var pageVM = mapper.Map<Page, PageViewModel>(pagesEntity);
+            pageVM.PagePhotos = await photoService.GetPhotoByPageId(pageVM.Id);
+            pageVM.PageAttachements = await AttachementService.GetAttachementByPageId(pageVM.Id);
+            pageVM.PageSeo = await seoService.GetSeoViewByPageId(pageVM.Id);
+            return pageVM;
+        }
 
         public async Task<PageViewModel> AddPage(PageInsertModel pageInsertModel)
         {
@@ -134,6 +143,9 @@ namespace SchoolV01.Application.Services
                     PageEntity.Image1 = pageUpdateModel.Image1;
                     PageEntity.Image2 = pageUpdateModel.Image2;
                     PageEntity.Image3 = pageUpdateModel.Image3;
+                    PageEntity.EndpointAr = pageUpdateModel.EndpointAr;
+                    PageEntity.EndpointEn = pageUpdateModel.EndpointEn;
+                    PageEntity.EndpointGe = pageUpdateModel.EndpointGe;
                     PageEntity.RecordOrder = pageUpdateModel.RecordOrder;
                     PageEntity.IsActive = pageUpdateModel.IsActive;
                     PageEntity.Url = string.IsNullOrEmpty(PageEntity.Url) ? $"/{PageEntity.Id}" : pageUpdateModel.Url;

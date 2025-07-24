@@ -31,6 +31,9 @@ namespace SchoolV01.Shared.ViewModels.Blocks
         public string Image2 { get; set; }
 
         public string Image3 { get; set; }
+        public string EndpointAr { get; set; }
+        public string EndpointEn { get; set; }
+        public string EndpointGe { get; set; }
 
         public DateTime? Date { set; get; }
         public DateTime? StartDate { set; get; }
@@ -62,6 +65,7 @@ namespace SchoolV01.Shared.ViewModels.Blocks
         public BlockInsertValidator()
         {
             RuleFor(p => p.NameAr).NotEmpty().WithMessage("You must enter Name");
+            RuleFor(p => p.EndpointEn).NotEmpty().WithMessage("You must enter Endpoint En");
             //RuleFor(p => p.Description).NotEmpty().WithMessage("You must enter description");
             RuleFor(p => p.CategoryId).NotEmpty().WithMessage("You must choose category");
             RuleFor(p => p.RecordOrder).GreaterThanOrEqualTo(0).WithMessage("Value Must be Greater or Equal to Zero");

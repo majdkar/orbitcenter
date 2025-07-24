@@ -61,6 +61,30 @@ namespace SchoolV01.Api.Controllers
                     "Error retrieving data");
             }
         }
+
+
+            [HttpGet("PageByEndpoint/{Endpoint}")]
+        public async Task<ActionResult<PageViewModel>> GetPageByEndpoint(string Endpoint)
+        {
+            try
+            {
+                var result = await pageService.GetPageByEndpoint(Endpoint);
+
+                if (result == null)
+                    return NotFound();
+
+                return result;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data");
+            }
+        }
+
+
+
+
         [Authorize(Policy = Permissions.WebSiteManagement.Create)]
         [HttpPost]
         public async Task<ActionResult<PageViewModel>> Create(PageInsertModel pageInsertModel)

@@ -39,7 +39,9 @@ namespace SchoolV01.Application.Features.Products.Commands.AddEdit
 
         public string Code { get; set; }
 
-
+        public string EndpointAr { get; set; }
+        public string EndpointEn { get; set; }
+        public string EndpointGe { get; set; }
 
         public int? ProductParentCategoryId { get; set; }
         public int? ProductSubCategoryId { get; set; }
@@ -189,6 +191,9 @@ namespace SchoolV01.Application.Features.Products.Commands.AddEdit
                     }
 
                     product.Code = command.Code;
+                    product.EndpointAr = command.EndpointAr;
+                    product.EndpointEn = command.EndpointEn;
+                    product.EndpointGe = command.EndpointGe;
 
                     product.ProductSubSubCategoryId = command.ProductSubSubCategoryId == 0 ? null : command.ProductSubSubCategoryId;
                     product.ProductSubSubSubCategoryId = command.ProductSubSubSubCategoryId == 0 ? null : command.ProductSubSubSubCategoryId;

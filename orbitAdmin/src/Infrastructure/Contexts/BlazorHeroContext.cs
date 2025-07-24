@@ -82,6 +82,7 @@ namespace SchoolV01.Infrastructure.Contexts
         public DbSet<Classification> Classifications { get; set; }
         public DbSet<CourseType> CourseTypes { get; set; }
         public DbSet<Suggestion> Suggestions { get; set; }
+        public DbSet<VehicleLocation> VehicleLocations { get; set; }
 
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())

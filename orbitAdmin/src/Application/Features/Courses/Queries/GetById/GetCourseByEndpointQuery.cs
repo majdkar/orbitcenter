@@ -17,25 +17,25 @@ using SchoolV01.Shared.Wrapper;
 
 namespace SchoolV01.Application.Features.Courses.Queries.GetById
 {
-    public class GetCourseByNameQuery : IRequest<Result<GetCourseByIdResponse>>
+    public class GetCourseByEndpointQuery : IRequest<Result<GetCourseByIdResponse>>
     {
-        public string Name { get; set; }
+        public string Endpoint { get; set; }
     }
 
-    internal class GetCourseByNameQueryHandler : IRequestHandler<GetCourseByNameQuery, Result<GetCourseByIdResponse>>
+    internal class GetCourseByEndpointQueryHandler : IRequestHandler<GetCourseByEndpointQuery, Result<GetCourseByIdResponse>>
     {
         private readonly IUnitOfWork<int> _unitOfWork;
         private readonly IMapper _mapper;
 
-        public GetCourseByNameQueryHandler(IUnitOfWork<int> unitOfWork, IMapper mapper)
+        public GetCourseByEndpointQueryHandler(IUnitOfWork<int> unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<Result<GetCourseByIdResponse>> Handle(GetCourseByNameQuery query, CancellationToken cancellationToken)
+        public async Task<Result<GetCourseByIdResponse>> Handle(GetCourseByEndpointQuery query, CancellationToken cancellationToken)
         {
-            var filter = new CourseByNameFilterSpecification(query.Name);
+            var filter = new CourseByEndpointFilterSpecification(query.Endpoint);
             Expression<Func<Course, GetCourseByIdResponse>> expression = e => new GetCourseByIdResponse
             {
                 Id = e.Id,
@@ -71,6 +71,10 @@ namespace SchoolV01.Application.Features.Courses.Queries.GetById
                 Order = e.Order,
                 IsVisible = e.IsVisible,
                 IsRecent = e.IsRecent,
+
+                EndpointAr = e.EndpointAr,
+                EndpointGe = e.EndpointGe,
+                EndpointEn = e.EndpointEn,
 
                 NameGe = e.NameGe,
                 Plan = e.Plan,

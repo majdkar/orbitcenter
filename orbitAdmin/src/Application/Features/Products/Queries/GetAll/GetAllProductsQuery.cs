@@ -76,7 +76,9 @@ namespace SchoolV01.Application.Features.Products.Queries.GetAll
           
                 Price = e.Price,
                 Code = e.Code,
-            
+                EndpointAr = e.EndpointAr,
+                EndpointEn = e.EndpointEn,
+                EndpointGe = e.EndpointGe,
                 Order = e.Order,
                 IsVisible = e.IsVisible,
                 IsRecent = e.IsRecent,

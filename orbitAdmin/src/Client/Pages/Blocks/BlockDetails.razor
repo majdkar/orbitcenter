@@ -189,9 +189,24 @@
                             <MudCheckBox T="bool" For="@(() => BlockModel.IsVisible)" @bind-Value="BlockModel.IsVisible" Label="@localizer["IsVisible"]" />
                         </MudItem>
 
+
                         <MudItem xs="12" md="6">
                             <MudCheckBox T="bool" For="@(() => BlockModel.IsActive)" @bind-Value="BlockModel.IsActive" Label="@localizer["IsActive"]" />
                         </MudItem>
+
+
+
+                        <MudItem xs="12" md="12">
+                    <MudTextField For="@(() => BlockModel.EndpointAr)" @bind-Value="BlockModel.EndpointAr" Label="@localizer["Endpoint Ar"]" Variant="Variant.Text" />
+                </MudItem>
+                <MudItem xs="12" md="12">
+                    <MudTextField For="@(() => BlockModel.EndpointEn)" @bind-Value="BlockModel.EndpointEn" Label="@localizer["Endpoint En"]" Variant="Variant.Text" />
+                </MudItem>
+                <MudItem xs="12" md="12">
+                    <MudTextField For="@(() => BlockModel.EndpointGe)" @bind-Value="BlockModel.EndpointGe" Label="@localizer["Endpoint Ge"]" Variant="Variant.Text" />
+                </MudItem>
+
+
 
                         <MudItem xs="12" md="12">
                             <MudTextField Lines="4" For="@(() => BlockModel.Keywords)" @bind-Value="BlockModel.Keywords" Label="@localizer["Keywords"]" Variant="Variant.Outlined" />

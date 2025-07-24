@@ -99,7 +99,9 @@ namespace SchoolV01.Application.Features.Courses.Queries.GetAllPaged
 
                 Price = e.Price,
                 Code = e.Code,
-
+                EndpointAr = e.EndpointAr,
+                EndpointGe = e.EndpointGe,
+                EndpointEn = e.EndpointEn,
                 Order = e.Order,
                 IsVisible = e.IsVisible,
                 IsRecent = e.IsRecent,

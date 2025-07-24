@@ -33,6 +33,9 @@ namespace SchoolV01.Shared.ViewModels.Blocks
         public string Image2 { get; set; }
 
         public string Image3 { get; set; }
+        public string EndpointAr { get; set; }
+        public string EndpointEn { get; set; }
+        public string EndpointGe { get; set; }
 
         public DateTime? Date { set; get; }
         public DateTime? StartDate { set; get; }

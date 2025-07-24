@@ -98,9 +98,9 @@ namespace SchoolV01.Application.Services
         }
 
 
-        public async Task<BlockViewModel> GetBlockByName(string blockName)
+        public async Task<BlockViewModel> GetBlockByEndpoint(string Endpoint)
         {
-            var blockEntity = await uow.Query<Block>().Where(x => x.NameAr == blockName || x.NameEn == blockName || x.NameGe == blockName).FirstOrDefaultAsync();
+            var blockEntity = await uow.Query<Block>().Where(x => x.EndpointAr == Endpoint || x.EndpointEn == Endpoint || x.EndpointGe == Endpoint).FirstOrDefaultAsync();
             var blockVM = mapper.Map<Block, BlockViewModel>(blockEntity);
             blockVM.BlockPhotos = await photoService.GetPhotoByBlockId(blockVM.Id);
             blockVM.BlockAttachements = await AttachementService.GetAttachementByBlockId(blockVM.Id);
@@ -155,6 +155,9 @@ namespace SchoolV01.Application.Services
                     blockEntity.DescriptionGe2 = blockUpdateModel.DescriptionGe2 ?? blockEntity.DescriptionGe2;
                     blockEntity.DescriptionGe3 = blockUpdateModel.DescriptionGe3 ?? blockEntity.DescriptionGe3;
                     blockEntity.SeoDescription = blockUpdateModel.SeoDescription ?? blockEntity.SeoDescription;
+                    blockEntity.EndpointAr = blockUpdateModel.EndpointAr ?? blockEntity.EndpointAr;
+                    blockEntity.EndpointEn = blockUpdateModel.EndpointEn ?? blockEntity.EndpointEn;
+                    blockEntity.EndpointGe = blockUpdateModel.EndpointGe ?? blockEntity.EndpointGe;
                     blockEntity.Keywords = blockUpdateModel.Keywords ?? blockEntity.Keywords;
                     blockEntity.Date = blockUpdateModel.Date;
                     blockEntity.StartDate = blockUpdateModel.StartDate;

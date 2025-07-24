@@ -1,0 +1,30 @@
+@page "/R"
+@using System.Globalization
+@attribute [Authorize(Policy = Permissions.Communication.Chat)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Chat> _localizer
+
+<div class="d-flex flex-grow-1 flex-row">
+
+    <ul>
+        @foreach (var message in messages)
+        {
+            <li>@message</li>
+        }
+    </ul>
+
+    <MudButton DisableElevation Variant="Variant.Filled" OnClick="(() => StartTracking())" ButtonType="ButtonType.Submit" Color="Color.Success">@_localizer["Start"]</MudButton>
+   
+    
+    <MudButton DisableElevation Variant="Variant.Filled" OnClick="(() => StopTracking())" ButtonType="ButtonType.Submit" Color="Color.Success">@_localizer["Stop"]</MudButton>
+
+
+    <br />
+    <br />
+    <br />
+
+    <MudCheckBox T="bool" For="@(() => _isTracking)" @bind-Value="_isTracking" Label="@_localizer["Is Tracking"]" />
+
+
+  </div>
+
+

@@ -40,7 +40,9 @@ namespace SchoolV01.Application.Features.Courses.Commands.AddEdit
         public string Code { get; set; }
 
 
-
+        public string EndpointAr { get; set; }
+        public string EndpointEn { get; set; }
+        public string EndpointGe { get; set; }
         public int? CourseParentCategoryId { get; set; }
         public int? CourseSubCategoryId { get; set; }
         public int? CourseSubSubCategoryId { get; set; }
@@ -206,6 +208,9 @@ namespace SchoolV01.Application.Features.Courses.Commands.AddEdit
                     Course.NumSesstions = command.NumSesstions;
                     Course.NumMaxStudent = command.NumMaxStudent;
                     Course.CourseTypeId = command.CourseTypeId;
+                    Course.EndpointAr = command.EndpointAr;
+                    Course.EndpointEn = command.EndpointEn;
+                    Course.EndpointGe = command.EndpointGe;
                
                   
                     await _unitOfWork.Repository<Course>().UpdateAsync(Course);

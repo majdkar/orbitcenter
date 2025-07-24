@@ -13,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="../_content/MudBlazor/MudBlazor.min.css?v=5.0.5" rel="stylesheet" />
     <link href="../css/loader.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
 </head>
 
 <body>
@@ -45,5 +47,25 @@
             set: (value) => localStorage['BlazorCulture'] = value
         };
     </script>
+
+
+    <script>
+        let map, marker;
+        function initializeMap() {
+            map = L.map('map').setView([0, 0], 2);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+            marker = L.marker([0, 0]).addTo(map);
+        }
+        function updateVehicleMarker(lat, lng) {
+            marker.setLatLng([lat, lng]);
+            map.setView([lat, lng], 15);
+        }
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
 </body>
 </html>

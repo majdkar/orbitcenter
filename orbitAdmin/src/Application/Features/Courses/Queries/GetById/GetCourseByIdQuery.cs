@@ -85,7 +85,9 @@ namespace SchoolV01.Application.Features.Courses.Queries.GetById
 
 
 
-
+                 EndpointAr = e.EndpointAr,
+                 EndpointGe = e.EndpointGe,
+                 EndpointEn = e.EndpointEn,
 
 
 

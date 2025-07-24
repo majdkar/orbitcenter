@@ -1,0 +1,133 @@
+﻿@page "/tracking"
+@using Microsoft.AspNetCore.SignalR.Client
+
+<h3>Vehicle Tracking</h3>
+
+@if (!isConnected)
+{
+    <p><em>Connecting to tracking service...</em></p>
+}
+
+<div class="mb-3">
+    <button class="btn btn-success" @onclick="StartTracking" disabled="@( !isConnected )">Start Tracking</button>
+
+    <br />
+    <button class="btn btn-danger" @onclick="StopTracking" disabled="@( !isConnected )">Stop Tracking</button>
+
+    <br />
+    <button class="btn btn-primary" @onclick="GetCurrentLocation">Get Current Location</button>
+       <MudItem xs="12" md="4">
+        <MudTextField  @bind-Value="@UserId" />
+    </MudItem>
+</div>
+
+<p><strong>Status:</strong> @trackingStatus</p>
+
+<div id="map" style="height: 500px;"></div>
+
+@code {
+    private HubConnection? _hubConnection;
+    private bool isConnected = false;
+    private string UserId;
+    private string trackingStatus = "Not started";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await InitializeMapAsync();
+            await ConnectToHub();
+        }
+    }
+
+   
+    
+    private async Task ConnectToHub()
+    {
+        var accessToken = await _localStorage.GetItemAsync<string>("authToken");
+
+
+        _hubConnection = new HubConnectionBuilder()
+                  .WithUrl(_navigationManager.ToAbsoluteUri("/SignalRHub"), options =>
+                  {
+                      options.AccessTokenProvider = () => Task.FromResult(accessToken);
+                  })
+                  .WithAutomaticReconnect()
+                  .Build();
+
+        await _hubConnection.StartAsync();
+
+        isConnected = true;
+        StateHasChanged();
+
+        _hubConnection.On<string, double, double>("ReceiveLocation", async (userId, lat, lng) =>
+        {
+            Console.WriteLine($"Received=: {userId}{lat}{lng}");
+
+            if (userId != null)
+            {
+
+
+                await JS.InvokeVoidAsync("updateVehicleMarker", lat, lng);
+            }
+        });
+
+        _hubConnection.On<string>("TrackingStarted", id =>
+        {
+            if (id == UserId) trackingStatus = "Tracking started";
+            StateHasChanged();
+        });
+
+        _hubConnection.On<string>("TrackingStopped", id =>
+        {
+            if (id == UserId) trackingStatus = "Tracking stopped";
+            StateHasChanged();
+        });
+
+      
+    }
+    
+    private async Task StartTracking()
+    {
+        if (_hubConnection is not null && isConnected)
+        {
+            await _hubConnection.InvokeAsync("StartTracking", UserId);
+            trackingStatus = "Started via Hub";
+        }
+    }
+
+    private async Task StopTracking()
+    {
+        if (_hubConnection is not null && isConnected)
+        {
+            await _hubConnection.InvokeAsync("StopTracking", UserId);
+            trackingStatus = "Stopped via Hub";
+        }
+    }
+
+    private async Task GetCurrentLocation()
+    {
+        var location = await Http.GetFromJsonAsync<VehicleLocation>(_navigationManager.ToAbsoluteUri("/SignalRHub/current"));
+        if (location != null)
+        {
+            await JS.InvokeVoidAsync("updateVehicleMarker", location.Latitude, location.Longitude);
+        }
+    }
+
+    [Inject] NavigationManager Navigation { get; set; } = default!;
+    [Inject] IJSRuntime JS { get; set; } = default!;
+    [Inject] HttpClient Http { get; set; } = default!;
+
+    private async Task InitializeMapAsync()
+    {
+        await JS.InvokeVoidAsync("initializeMap");
+    }
+
+    public class VehicleLocation
+    {
+        public string VehicleId { get; set; } = string.Empty;
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public DateTime Timestamp { get; set; }
+    }
+}

@@ -126,15 +126,15 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         }
 
         /// <summary>
-        /// Get Course By Name
+        /// Get Course By Endpoint
         /// </summary>
-        /// <param name="Name"></param>
+        /// <param name="Endpoint"></param>
         /// <returns>Status 200 OK</returns>
         //[Authorize(Policy = Permissions.Courses.View)]
-        [HttpGet("GetByName/{Name}")]
-        public async Task<IActionResult> GetByName(string Name)
+        [HttpGet("GetByEndpoint/{Endpoint}")]
+        public async Task<IActionResult> GetByName(string Endpoint)
         {
-            var company = await Mediator.Send(new GetCourseByNameQuery {   Name = Name });
+            var company = await Mediator.Send(new GetCourseByEndpointQuery { Endpoint = Endpoint });
             return Ok(company);
         }
 

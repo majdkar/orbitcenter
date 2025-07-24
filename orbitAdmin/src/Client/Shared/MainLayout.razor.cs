@@ -68,7 +68,7 @@ namespace SchoolV01.Client.Shared
                     await _authenticationManager.Logout();
                 }
 
-                await hubConnection.SendAsync(ApplicationConstants.SignalR.OnConnect, CurrentUserId);
+               //await hubConnection.SendAsync(ApplicationConstants.SignalR.OnConnect, CurrentUserId);
             }
         }
 

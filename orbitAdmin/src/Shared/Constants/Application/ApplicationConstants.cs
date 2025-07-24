@@ -16,7 +16,9 @@ namespace SchoolV01.Shared.Constants.Application
             public const string ReceiveChatNotification = "ReceiveChatNotification";
             public const string SendChatNotification = "ChatNotificationAsync";
             public const string ReceiveMessage = "ReceiveMessage";
+            public const string ReceiveTest = "ReceiveTest";
             public const string SendMessage = "SendMessageAsync";
+            public const string SendTest = "SendTest";
 
             public const string OnConnect = "OnConnectAsync";
             public const string ConnectUser = "ConnectUser";

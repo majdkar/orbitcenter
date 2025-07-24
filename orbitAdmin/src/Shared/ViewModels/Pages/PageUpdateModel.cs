@@ -30,6 +30,11 @@ namespace SchoolV01.Shared.ViewModels.Pages
         public string Image2 { get; set; }
         public string Image3 { get; set; }
         public string Image { get; set; }
+
+        public string EndpointAr { get; set; }
+        public string EndpointEn { get; set; }
+        public string EndpointGe { get; set; }
+
         public string GeoLink { get; set; } = "";
         public string Type { get; set; }
 
@@ -48,6 +53,8 @@ namespace SchoolV01.Shared.ViewModels.Pages
         public PageUpdateValidator()
         {
             RuleFor(p => p.NameAr).NotEmpty().WithMessage("You must enter Name");
+            RuleFor(p => p.EndpointEn).NotEmpty().WithMessage("You must enter Endpoint En");
+
         }
     }
 }

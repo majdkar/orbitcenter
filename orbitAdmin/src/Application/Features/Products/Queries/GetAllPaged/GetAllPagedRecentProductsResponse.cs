@@ -30,6 +30,9 @@ namespace SchoolV01.Application.Features.Products.Queries.GetAllPaged
 
         public string Code { get; set; }
 
+        public string EndpointAr { get; set; }
+        public string EndpointEn { get; set; }
+        public string EndpointGe { get; set; }
 
 
         [ForeignKey("ProductParentCategory")]

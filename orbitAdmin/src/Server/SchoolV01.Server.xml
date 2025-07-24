@@ -29,6 +29,21 @@
             <param name="message"></param>
             <returns>Status 200 OK</returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.Communication.ChatsController.SaveTestAsync(System.String,System.String)">
+            <summary>
+            Save Chat Message
+            </summary>
+            <param name="message"></param>
+            <param name="userId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.Communication.ChatsController.StartHub(System.String)">
+            <summary>
+            Start Hub
+            </summary>
+            <param name="userId"></param>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.Identity.AccountController.UpdateProfile(SchoolV01.Application.Requests.Identity.UpdateProfileRequest)">
             <summary>
             Update Profile
@@ -972,9 +987,9 @@
         </member>
         <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.GetByName(System.String)">
             <summary>
-            Get Course By Name
+            Get Course By Endpoint
             </summary>
-            <param name="Name"></param>
+            <param name="Endpoint"></param>
             <returns>Status 200 OK</returns>
         </member>
         <member name="M:SchoolV01.Server.Controllers.v1.Courses.CoursesController.Post(SchoolV01.Application.Features.Courses.Commands.AddEdit.AddEditCompanyCourseCommand)">
@@ -1253,9 +1268,9 @@
         </member>
         <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.GetByName(System.String)">
             <summary>
-            Get Product By Name
+            Get Product By Endpoint
             </summary>
-            <param name="Name"></param>
+            <param name="Endpoint"></param>
             <returns>Status 200 OK</returns>
         </member>
         <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductsController.Post(SchoolV01.Application.Features.Products.Commands.AddEdit.AddEditCompanyProductCommand)">
