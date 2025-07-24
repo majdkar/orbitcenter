@@ -272,5 +272,24 @@ namespace SchoolV01.Server.Controllers.Communication
             return Ok(history);
         }
 
+
+
+        [HttpPost("stop")]
+        public async Task<IActionResult> StopTracking([FromBody] string vehicleId)
+        {
+            // إرسال إشعار إلى جميع أعضاء مجموعة المركبة أن التتبع توقف
+            await _hubContext.Clients.Group(vehicleId).SendAsync("TrackingStopped", vehicleId);
+
+            return Ok(new { message = $"Tracking stopped for vehicle {vehicleId}" });
+        }
+
+        [HttpPost("start")]
+        public async Task<IActionResult> StartTracking([FromBody] string vehicleId)
+        {
+            // إرسال إشعار إلى جميع أعضاء مجموعة المركبة أن التتبع توقف
+            await _hubContext.Clients.Group(vehicleId).SendAsync("TrackingStarted", vehicleId);
+
+            return Ok(new { message = $"Tracking Started for vehicle {vehicleId}" });
+        }
     }
 }
