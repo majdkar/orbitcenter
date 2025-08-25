@@ -20,6 +20,7 @@ namespace SchoolV01.Api.Controllers
         {
             this.pageService = pageService;
         }
+        [AllowAnonymous]
 
         [HttpGet]
         public async Task<ActionResult> Get(int pageNumber, int pageSize, string searchString, string orderBy)
@@ -42,6 +43,7 @@ namespace SchoolV01.Api.Controllers
                     "Error retrieving data");
             }
         }
+        [AllowAnonymous]
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<PageViewModel>> Get(int id)
@@ -62,8 +64,9 @@ namespace SchoolV01.Api.Controllers
             }
         }
 
+        [AllowAnonymous]
 
-            [HttpGet("PageByEndpoint/{Endpoint}")]
+        [HttpGet("PageByEndpoint/{Endpoint}")]
         public async Task<ActionResult<PageViewModel>> GetPageByEndpoint(string Endpoint)
         {
             try

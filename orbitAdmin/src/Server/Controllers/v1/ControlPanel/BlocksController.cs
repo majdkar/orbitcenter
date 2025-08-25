@@ -21,6 +21,7 @@ namespace SchoolV01.Api.Controllers
         {
             this.blockService = blockService;
         }
+        [AllowAnonymous]
 
         [HttpGet]
         public async Task<ActionResult> Get(string categoryId, int pageNumber, int pageSize, string searchString, string orderBy)
@@ -57,6 +58,7 @@ namespace SchoolV01.Api.Controllers
             }
         }
 
+        [AllowAnonymous]
 
         [HttpGet("GetMaster")]
         public async Task<IActionResult> GetMaster(string categoryId, int? blockId, string searchString, string orderBy)
@@ -87,6 +89,7 @@ namespace SchoolV01.Api.Controllers
                     "Error retrieving data");
             }
         }
+        [AllowAnonymous]
 
         [HttpGet]
         [Route("NoCategory")]
@@ -104,7 +107,8 @@ namespace SchoolV01.Api.Controllers
                     "Error retrieving data");
             }
         }
-        
+        [AllowAnonymous]
+
         [HttpGet]
         [Route("allEndpoint")]
         public async Task<ActionResult<List<BlockEndpointViewModel>>> GetAllEndpoint(int categoryId)
@@ -127,6 +131,7 @@ namespace SchoolV01.Api.Controllers
 
 
 
+        [AllowAnonymous]
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<BlockViewModel>> Get(int id)
@@ -148,6 +153,7 @@ namespace SchoolV01.Api.Controllers
         }
 
 
+        [AllowAnonymous]
 
         [HttpGet("BlockByEndpoint/{Endpoint}")]
         public async Task<ActionResult<BlockViewModel>> GetBlockByEndpoint(string Endpoint)
@@ -233,7 +239,7 @@ namespace SchoolV01.Api.Controllers
             }
         }
 
-        [Authorize(Policy = Permissions.WebSiteManagement.Edit)]
+        [Authorize(Policy = Permissions.WebSiteManagement.Delete)]
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<BlockViewModel>> Delete(int id)
         {

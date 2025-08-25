@@ -52,12 +52,16 @@ namespace SchoolV01.Client.Pages.Pages
         readonly TextEditorConfig editorAr = new("#editorAr");
         readonly TextEditorConfig editorEn = new("#editorEn");
         readonly TextEditorConfig editorSe = new("#editorSe");
+
         readonly TextEditorConfig editorAr1 = new("#editorAr1");
         readonly TextEditorConfig editorEn1 = new("#editorEn1");
         readonly TextEditorConfig editorSe1 = new("#editorSe1");
+
         readonly TextEditorConfig editorAr2 = new("#editorAr2");
         readonly TextEditorConfig editorEn2 = new("#editorEn2");
         readonly TextEditorConfig editorSe2 = new("#editorSe2");
+
+
         readonly TextEditorConfig editorAr3 = new("#editorAr3");
         readonly TextEditorConfig editorEn3 = new("#editorEn3");
         readonly TextEditorConfig editorSe3 = new("#editorSe3");

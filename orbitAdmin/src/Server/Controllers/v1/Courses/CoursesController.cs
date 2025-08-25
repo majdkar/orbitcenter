@@ -20,7 +20,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// Get All Courses
         /// </summary>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -52,7 +52,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// <param name="searchString"></param>
         /// <param name="orderBy"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllRecentCourses")]
         public async Task<IActionResult> GetAllRecentCourses(int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -71,7 +71,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// <param name="orderBy"></param>
         /// <param name="categoryId"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllPagedCourseByCategoryId")]
         public async Task<IActionResult> GetAllPagedCourseByCategoryId(int categoryId, int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -91,7 +91,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// <param name="searchString"></param>
         /// <param name="orderBy"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllPaged")]
         public async Task<IActionResult> GetAllPaged(int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -143,7 +143,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// </summary>
         /// <param name="Endpoint"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetByEndpoint/{Endpoint}")]
         public async Task<IActionResult> GetByName(string Endpoint)
         {
@@ -181,7 +181,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
      
         /// <param name="searchString"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.Export)]
+        [AllowAnonymous]
         [HttpGet("export")]
         public async Task<IActionResult> Export(string searchString = "")
         {
@@ -204,7 +204,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// <param name="retailpricestart"></param>
         /// <param name="retailpriceend"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("CoursesBySearch")]
         public async Task<IActionResult> CoursesBySearch(string nameEn, int CourseParentCategoryId, int CourseSubCategoryId, int CourseSubSubCategoryId, int CourseSubSubSubCategoryId, int brandId, decimal retailpricestart, decimal retailpriceend, int pageNumber, int pageSize, string searchString, string orderBy = null)
         {

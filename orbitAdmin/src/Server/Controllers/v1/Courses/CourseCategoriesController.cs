@@ -22,7 +22,7 @@ namespace SchoolV01.Server.Controllers.v1.GeneralSettings
         /// <param name="searchString"></param>
         /// <param name="orderBy"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.CourseCategories.View)]
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAllPaged(int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -37,7 +37,7 @@ namespace SchoolV01.Server.Controllers.v1.GeneralSettings
         /// <param name="searchString"></param>
         /// <param name="orderBy"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.CourseCategories.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllMainCourseCategories")]
         public async Task<IActionResult> GetAllPagedMain(int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -52,7 +52,7 @@ namespace SchoolV01.Server.Controllers.v1.GeneralSettings
         /// <param name="orderBy"></param>
         /// <param name="categoryId"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.CourseCategories.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllSonsAndClassification")]
         public async Task<IActionResult> GetAllSonsAndClassification(int categoryId, int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -64,7 +64,7 @@ namespace SchoolV01.Server.Controllers.v1.GeneralSettings
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.CourseCategories.View)]
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -75,7 +75,7 @@ namespace SchoolV01.Server.Controllers.v1.GeneralSettings
         /// Get All Categories
         /// </summary>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.CourseCategories.View)]
+        [AllowAnonymous]
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
@@ -88,7 +88,7 @@ namespace SchoolV01.Server.Controllers.v1.GeneralSettings
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.CourseCategories.View)]
+        [AllowAnonymous]
         [HttpGet("GetCategorySons/{id}")]
         public async Task<IActionResult> GetCategorySons(int id)
         {
@@ -128,7 +128,7 @@ namespace SchoolV01.Server.Controllers.v1.GeneralSettings
         /// </summary>
         /// <param name="searchString"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.CourseCategories.View)]
+        [AllowAnonymous]
         [HttpGet("export")]
         public async Task<IActionResult> Export(string searchString = "")
         {

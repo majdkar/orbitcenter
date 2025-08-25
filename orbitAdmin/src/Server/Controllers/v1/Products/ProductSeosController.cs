@@ -22,7 +22,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// </summary>
         /// <param name="productId"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllByProduct/{productId}")]
         public async Task<IActionResult> GetAllByProduct(int productId)
         {
@@ -36,7 +36,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// </summary>
         /// <param name="productId"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllPagedByProduct/{productId}")]
         public async Task<IActionResult> GetAllPagedByProduct(int productId, int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -49,7 +49,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

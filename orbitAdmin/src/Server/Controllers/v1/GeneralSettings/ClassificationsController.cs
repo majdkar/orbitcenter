@@ -26,7 +26,7 @@ namespace SchoolV01.Server.Controllers.v1.GeneralSettings
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Status 200 Ok</returns>
-        [Authorize(Policy = Permissions.Classifications.View)]
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -63,7 +63,7 @@ namespace SchoolV01.Server.Controllers.v1.GeneralSettings
         /// </summary>
         /// <param name="searchString"></param>
         /// <returns></returns>
-        [Authorize(Policy = Permissions.Classifications.View)]
+        [AllowAnonymous]
         [HttpGet("export")]
         public async Task<IActionResult> Export(string searchString = "")
         {

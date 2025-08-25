@@ -19,7 +19,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// Get All Products
         /// </summary>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -52,7 +52,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// <param name="searchString"></param>
         /// <param name="orderBy"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllRecentProducts")]
         public async Task<IActionResult> GetAllRecentProducts(int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -61,7 +61,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         }
 
 
-      
+
         /// <summary>
         /// Get All  Paged  Products By CategoryId
         /// </summary>
@@ -71,7 +71,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// <param name="orderBy"></param>
         /// <param name="categoryId"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllPagedProductByCategoryId")]
         public async Task<IActionResult> GetAllPagedProductByCategoryId(int categoryId, int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -91,7 +91,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// <param name="searchString"></param>
         /// <param name="orderBy"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllPaged")]
         public async Task<IActionResult> GetAllPaged(int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -114,7 +114,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// <param name="fromprice"></param> 
         /// <param name="toprice"></param>        
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllPagedSearchProduct")]
         public async Task<IActionResult> GetAllPagedSearchProduct( string productname, int propductcategoryid,int propductSubcategoryid, int propductSubSubcategoryid, int propductSubSubSubcategoryid, decimal fromprice, decimal toprice,int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -142,7 +142,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// </summary>
         /// <param name="Endpoint"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet("GetByEndpoint/{Endpoint}")]
         public async Task<IActionResult> GetByName(string Endpoint)
         {
@@ -180,7 +180,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
      
         /// <param name="searchString"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Products.Export)]
+        [AllowAnonymous]
         [HttpGet("export")]
         public async Task<IActionResult> Export(string searchString = "")
         {
@@ -203,7 +203,7 @@ namespace SchoolV01.Server.Controllers.v1.Products
         /// <param name="retailpricestart"></param>
         /// <param name="retailpriceend"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Products.View)]
+        [AllowAnonymous]
         [HttpGet("ProductsBySearch")]
         public async Task<IActionResult> ProductsBySearch(string nameEn, int productParentCategoryId, int productSubCategoryId, int productSubSubCategoryId, int productSubSubSubCategoryId, int brandId, decimal retailpricestart, decimal retailpriceend, int pageNumber, int pageSize, string searchString, string orderBy = null)
         {

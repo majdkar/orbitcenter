@@ -22,7 +22,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// </summary>
         /// <param name="CourseId"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllByCourse/{CourseId}")]
         public async Task<IActionResult> GetAllByCourse(int CourseId)
         {
@@ -38,7 +38,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

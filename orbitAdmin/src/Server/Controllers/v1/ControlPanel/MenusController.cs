@@ -23,6 +23,7 @@ namespace SchoolV01.Api.Controllers
         {
             this.menuService = menuService;
         }
+        [AllowAnonymous]
 
         [HttpGet]
         [Route("all")]
@@ -47,6 +48,7 @@ namespace SchoolV01.Api.Controllers
                     "Error retrieving data");
             }
         }
+        [AllowAnonymous]
 
         [HttpGet]
         public async Task<IActionResult> Get(string categoryId, string searchString, string orderBy)
@@ -77,6 +79,8 @@ namespace SchoolV01.Api.Controllers
                     "Error retrieving data");
             }
         }
+        [AllowAnonymous]
+
         [HttpGet("GetMaster")]
         public async Task<IActionResult> GetMaster(string categoryId, int? menuId, string searchString, string orderBy)
         {
@@ -106,6 +110,7 @@ namespace SchoolV01.Api.Controllers
                     "Error retrieving data");
             }
         }
+        [AllowAnonymous]
 
         [HttpGet]
         [Route("NoCategory")]
@@ -125,6 +130,7 @@ namespace SchoolV01.Api.Controllers
         }
 
 
+        [AllowAnonymous]
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<MenuViewModel>> Get(int id)

@@ -21,7 +21,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// </summary>
         /// <param name="CourseId"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllByCourse/{CourseId}")]
         public async Task<IActionResult> GetAllByCourse(int CourseId)
         {
@@ -33,7 +33,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// Get All Active Offers
         /// </summary>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllActive")]
         public async Task<IActionResult> GetAllActive()
         {
@@ -49,7 +49,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// <param name="searchString"></param>
         /// <param name="orderBy"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllPaged")]
         public async Task<IActionResult> GetAllPaged(int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -65,7 +65,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// <param name="searchString"></param>
         /// <param name="orderBy"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllPagedActive")]
         public async Task<IActionResult> GetAllPagedActive(int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -78,7 +78,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// </summary>
         /// <param name="CourseId"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetActive/{CourseId}")]
         public async Task<IActionResult> GetActive(int CourseId)
         {
@@ -91,7 +91,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// </summary>
         /// <param name="CourseId"></param>
         /// <returns>Status 200 OK</returns>
-        //[Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("GetAllPagedByCourse/{CourseId}")]
         public async Task<IActionResult> GetAllPagedByCourse(int CourseId, int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
@@ -104,7 +104,7 @@ namespace SchoolV01.Server.Controllers.v1.Courses
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Status 200 OK</returns>
-        [Authorize(Policy = Permissions.Courses.View)]
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
