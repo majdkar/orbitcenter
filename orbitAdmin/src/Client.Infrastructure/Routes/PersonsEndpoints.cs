@@ -4,9 +4,9 @@ namespace SchoolV01.Client.Infrastructure.Routes
 {
     public static class PersonsEndpoints
     {
-        public static string GetAllPaged(string personName, string email, string phoneNumber, int pageNumber, int pageSize, string searchString, string[] orderBy)
+        public static string GetAllPaged(string personName, string email, string phoneNumber,string Status, int pageNumber, int pageSize, string searchString, string[] orderBy)
         {
-            var url = $"api/v1/persons?personName={personName}&email={email}&phoneNumber={phoneNumber}&pageNumber={pageNumber}&pageSize={pageSize}&searchString={searchString}&orderBy=";
+            var url = $"api/v1/persons?personName={personName}&email={email}&phoneNumber={phoneNumber}&Status={Status}&pageNumber={pageNumber}&pageSize={pageSize}&searchString={searchString}&orderBy=";
             if (orderBy?.Any() == true)
             {
                 foreach (var orderByPart in orderBy)
@@ -38,6 +38,8 @@ namespace SchoolV01.Client.Infrastructure.Routes
         public static string GetAll = "api/v1/persons/GetAll";
         public static string Save = "api/v1/persons";
         public static string Delete = "api/v1/persons";
+        public static string Accept = "api/v1/persons/accept";
+        public static string Refuse = "api/v1/persons/refuse";
         public static string Export = "api/v1/persons/export";
         public static string ChangePassword = "api/identity/account/changepassword";
         public static string UpdateProfile = "api/identity/account/updateprofile";

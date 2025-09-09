@@ -20,7 +20,9 @@ namespace SchoolV01.Application.Specifications.Clients
                                 (string.IsNullOrEmpty(request.Email) ? true : p.Email.Contains(request.Email)) &&
                                 (string.IsNullOrEmpty(request.PhoneNumber) ? true : p.Phone.Contains(request.PhoneNumber)) &&
                                
-                                (string.IsNullOrEmpty(request.PersonName) ? true : p.FullName.Contains(request.PersonName)) &&
+                                (string.IsNullOrEmpty(request.PersonName) ? true : p.FullName.Contains(request.PersonName)  ||
+                                string.IsNullOrEmpty(request.PersonName) ? true : p.FullNameEn.Contains(request.PersonName)) &&
+                                                                (string.IsNullOrEmpty(request.Status) ? true : p.Client.Status.Contains(request.Status)) &&
 
                                 (
                                 p.Email.Contains(request.SearchString) || p.Phone.Contains(request.PhoneNumber) || p.FullName.Contains(request.PersonName))
@@ -32,7 +34,9 @@ namespace SchoolV01.Application.Specifications.Clients
                 Criteria = p => 
                                 (string.IsNullOrEmpty(request.Email) ? true : p.Email.Contains(request.Email)) &&
                                 (string.IsNullOrEmpty(request.PhoneNumber) ? true : p.Phone.Contains(request.PhoneNumber)) &&
-                                (string.IsNullOrEmpty(request.PersonName) ? true : p.FullName.Contains(request.PersonName)) &&
+                                (string.IsNullOrEmpty(request.PersonName) ? true : p.FullName.Contains(request.PersonName) ||
+                                string.IsNullOrEmpty(request.PersonName) ? true : p.FullNameEn.Contains(request.PersonName)) &&
+                                (string.IsNullOrEmpty(request.Status) ? true : p.Client.Status.Contains(request.Status)) &&
 
                                 !p.Deleted;
             }

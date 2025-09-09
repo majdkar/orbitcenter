@@ -1,0 +1,36 @@
+﻿@page "/individuals"
+@attribute [Authorize(Policy = Permissions.Person.View)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Persons> _localizer
+@using SchoolV01.Domain.Enums
+@using SchoolV01.Shared.Constants.Clients
+
+<style>
+    .mud-table-container {
+        overflow: auto;
+    }
+</style>
+<HeroTitle Title="@_localizer["Persons"]" />
+
+    <MudTabs Elevation="25" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6">
+
+
+    <MudTabPanel Text=@_localizer["Accepted"]>
+        <Persons Status="@ClientStatusEnum.Accepted.ToString()" />
+        </MudTabPanel>
+
+    <MudTabPanel Text=@_localizer["Pending"]>
+        <Persons Status="@ClientStatusEnum.Pending.ToString()" />
+        </MudTabPanel>
+
+    <MudTabPanel Text=@_localizer["Refused"]>
+        <Persons Status="@ClientStatusEnum.Refused.ToString()" />
+        </MudTabPanel>
+    
+        
+
+     
+    </MudTabs>
+
+
+
+

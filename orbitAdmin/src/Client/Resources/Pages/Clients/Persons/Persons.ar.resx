@@ -135,9 +135,6 @@
   <data name="Delete Content" xml:space="preserve">
     <value>حذف المحتوى</value>
   </data>
-  <data name="Delete Selected" xml:space="preserve">
-    <value>حذف المحدد</value>
-  </data>
   <data name="Dense" xml:space="preserve">
     <value>مركز</value>
   </data>
@@ -182,5 +179,41 @@
   </data>
   <data name="Striped" xml:space="preserve">
     <value>مخطط</value>
+  </data>
+  <data name="English Father Name" xml:space="preserve">
+    <value>اسم الاب انكليزي</value>
+  </data>
+  <data name="English Full Name" xml:space="preserve">
+    <value>الاسم الكامل انكليزي</value>
+  </data>
+  <data name="Arabic Full Name" xml:space="preserve">
+    <value>الاسم الكامل عربي</value>
+  </data>
+  <data name="Classification" xml:space="preserve">
+    <value>التصنيف</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>قبول</value>
+  </data>
+  <data name="Refuse" xml:space="preserve">
+    <value>رفض</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>المقبولين</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>قيد الأنتظار</value>
+  </data>
+  <data name="Refused" xml:space="preserve">
+    <value>مرفوضة</value>
+  </data>
+  <data name="Refuse Confirmation" xml:space="preserve">
+    <value>تأكيد الرفض</value>
+  </data>
+  <data name="Accept Confirmation" xml:space="preserve">
+    <value>تأكيد القبول</value>
+  </data>
+  <data name="Phone Number" xml:space="preserve">
+    <value>رقم الهاتف</value>
   </data>
 </root>

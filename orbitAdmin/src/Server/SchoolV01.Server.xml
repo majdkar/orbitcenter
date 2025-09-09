@@ -96,7 +96,7 @@
         <member name="M:SchoolV01.Server.Controllers.Identity.TokenController.Get(SchoolV01.Application.Requests.Identity.TokenRequest)">
             <summary>
             Get Token (Email, Password)
-            ClientType: (Employee, Student, Guardian, Not Type Or Admin)
+            ClientType: (Person, Company, Not Type Or Admin)
             ClientId is the the Identity for Client type
             </summary>
             <param name="model"></param>
@@ -508,13 +508,14 @@
             <param name="searchString"></param>
             <returns>Status 200 OK</returns>
         </member>
-        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.GetAllPaged(System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String)">
+        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.GetAllPaged(System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String)">
             <summary>
             Get All Persons Paged Result
             </summary>
             <param name="personName"></param>
             <param name="email"></param>
             <param name="phoneNumber"></param>
+            <param name="Status"></param>
             <param name="pageNumber"></param>
             <param name="pageSize"></param>
             <param name="searchString"></param>
@@ -561,6 +562,20 @@
             </summary>
             <param name="searchString"></param>
             <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.Accept(System.Int32)">
+            <summary>
+            Accept a Person
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.PersonsManagement.PersonsController.Refuse(System.Int32)">
+            <summary>
+            Refuse a Person
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
         </member>
         <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseCategoriesController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
             <summary>

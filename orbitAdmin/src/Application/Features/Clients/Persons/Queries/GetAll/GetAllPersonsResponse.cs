@@ -22,13 +22,18 @@ namespace SchoolV01.Application.Features.Clients.Persons.Queries.GetAll
 
         public string Sex { get; set; }
 
-        public string IdentifierImageUrl { get; set; }
         public string PersomImageUrl { get; set; }
         public string CvFileUrl { get; set; }
 
         public string Phone { get; set; }
 
+
         public string FullName { get; set; }
+        public string FullNameEn { get; set; }
+        public string FatherName { get; set; }
+        public string FatherNameEn { get; set; }
+        public string NickName { get; set; }
+        public string NickNameEn { get; set; }
         public string Mobile1 { get; set; }
         public string Mobile2 { get; set; }
         public string Qualification { get; set; }

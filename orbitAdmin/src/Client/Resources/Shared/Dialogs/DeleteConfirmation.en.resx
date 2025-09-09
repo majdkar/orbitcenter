@@ -126,4 +126,10 @@
   <data name="Delete Confirmation" xml:space="preserve">
     <value>Delete Confirmation</value>
   </data>
+  <data name="Refuse Confirmation" xml:space="preserve">
+    <value>Refuse Confirmation</value>
+  </data>
+  <data name="Accept Confirmation" xml:space="preserve">
+    <value>Accept Confirmation</value>
+  </data>
 </root>

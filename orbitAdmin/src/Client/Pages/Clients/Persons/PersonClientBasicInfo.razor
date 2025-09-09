@@ -6,7 +6,26 @@
     <MudCardContent>
         <MudGrid>
             <MudItem xs="12" md="4">
-                <strong>@_localizer["Full Name"] : </strong> @Model.FullName
+                <strong>@_localizer["Arabic Full Name"] : </strong> @Model.FullName
+            </MudItem> 
+            
+            
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["English Full Name"] : </strong> @Model.FullNameEn
+            </MudItem>
+            
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Arabic Father Name"] : </strong> @Model.FatherName
+            </MudItem>  
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["English Father Name"] : </strong> @Model.FatherNameEn
+            </MudItem>
+                  
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["Arabic NickName"] : </strong> @Model.NickName
+            </MudItem>  
+            <MudItem xs="12" md="4">
+                <strong>@_localizer["English NickName"] : </strong> @Model.NickNameEn
             </MudItem>
 
             <MudItem xs="12" md="4">

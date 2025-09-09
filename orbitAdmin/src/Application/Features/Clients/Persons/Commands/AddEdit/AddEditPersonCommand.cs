@@ -50,6 +50,11 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
         public string Phone { get; set; }
 
         public string FullName { get; set; }
+        public string FullNameEn { get; set; }
+        public string FatherName { get; set; }
+        public string FatherNameEn { get; set; }
+        public string NickName { get; set; }
+        public string NickNameEn { get; set; }
         public string Mobile1 { get; set; }
         public string Mobile2 { get; set; }
         public string Qualification { get; set; }
@@ -160,6 +165,11 @@ namespace SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit
                 if (person != null)
                 {
                     person.FullName = command.FullName ?? person.FullName;
+                    person.FatherNameEn = command.FatherNameEn ?? person.FatherNameEn;
+                    person.FatherName = command.FatherName ?? person.FatherName;
+                    person.FullNameEn = command.FullNameEn ?? person.FullNameEn;
+                    person.NickName = command.NickName ?? person.NickName;
+                    person.NickNameEn = command.NickNameEn ?? person.NickNameEn;
                     person.Mobile1 = command.Mobile1 ?? person.Mobile1;
                     person.Mobile2 = command.Mobile2 ?? person.Mobile2;
                     person.Qualification = command.Qualification ?? person.Qualification;

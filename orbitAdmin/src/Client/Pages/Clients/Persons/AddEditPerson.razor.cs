@@ -110,7 +110,11 @@ namespace SchoolV01.Client.Pages.Clients.Persons
                         Fax = person.Fax,
                         MailBox = person.MailBox,
                         Email = person.Email,
-                        
+                         FatherName = person.FatherName,
+                         FatherNameEn = person.FatherNameEn,
+                         FullNameEn = person.FullNameEn,
+                          NickName = person.NickName,
+                          NickNameEn = person.NickNameEn,
                         Address = person.Address,
                         AdditionalInfo = person.AdditionalInfo,
                         Status = person.Client.Status ?? ClientStatusEnum.Pending.ToString(),

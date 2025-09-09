@@ -25,7 +25,9 @@ namespace SchoolV01.Client.Infrastructure.Managers.Clients.Persons
 
 
         Task<IResult<int>> DeleteAsync(int id);
+        Task<IResult<int>> AcceptAsync(int id);
 
+        Task<IResult<int>> RefuseAsync(int id);
         Task<IResult<string>> ExportToExcelAsync(string searchString = "");
     }
 }

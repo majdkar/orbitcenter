@@ -57,8 +57,19 @@ namespace SchoolV01.Client.Infrastructure.Managers.Clients.Persons
 
         public async Task<PaginatedResult<GetAllPersonsResponse>> GetPersonsAsync(GetAllPagedPersonsRequest request)
         {
-            var response = await _httpClient.GetAsync(Routes.PersonsEndpoints.GetAllPaged(request.PersonName, request.Email, request.PhoneNumber, request.PageNumber, request.PageSize, request.SearchString, request.Orderby));
+            var response = await _httpClient.GetAsync(Routes.PersonsEndpoints.GetAllPaged(request.PersonName, request.Email, request.PhoneNumber,request.Status, request.PageNumber, request.PageSize, request.SearchString, request.Orderby));
             return await response.ToPaginatedResult<GetAllPersonsResponse>();
+        }
+        public async Task<IResult<int>> AcceptAsync(int id)
+        {
+            var response = await _httpClient.DeleteAsync($"{Routes.PersonsEndpoints.Accept}/{id}");
+            return await response.ToResult<int>();
+        }
+
+        public async Task<IResult<int>> RefuseAsync(int id)
+        {
+            var response = await _httpClient.DeleteAsync($"{Routes.PersonsEndpoints.Refuse}/{id}");
+            return await response.ToResult<int>();
         }
 
         public async Task<IResult<GetAllPersonsResponse>> GetByClientIdAsync(int clientId)

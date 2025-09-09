@@ -135,4 +135,10 @@
   <data name="Set As Seen" xml:space="preserve">
     <value>تعيين كمقروء</value>
   </data>
+  <data name="Refuse Confirmation" xml:space="preserve">
+    <value>تأكيد الرفض</value>
+  </data>
+  <data name="Accept Confirmation" xml:space="preserve">
+    <value>تأكيد القبول</value>
+  </data>
 </root>

@@ -23,6 +23,8 @@ using Microsoft.EntityFrameworkCore;
 using SchoolV01.Domain.Enums;
 using SchoolV01.Shared.Constants.Role;
 using Microsoft.Extensions.Logging;
+using SchoolV01.Domain.Entities.Clients;
+using SchoolV01.Shared.Constants.Clients;
 
 namespace SchoolV01.Infrastructure.Services.Identity
 {
@@ -54,17 +56,41 @@ namespace SchoolV01.Infrastructure.Services.Identity
                     return await Result<TokenResponse>.FailAsync(_localizer["Login By User Name."]);
                 }
             }
+
             if (user is null)
                 return await Result<TokenResponse>.FailAsync(_localizer["User Not Found."]);
+
+            var clientstatus = await _unitOfWork.Repository<Client>()
+                .Entities
+                .Where(x => x.UserId == user.Id)
+                .Select(x => x.Status)
+                .FirstOrDefaultAsync();
+
+            if (!string.IsNullOrEmpty(clientstatus))
+            {
+                if (clientstatus == ClientStatusEnum.Pending.ToString())
+                {
+                    return await Result<TokenResponse>.FailAsync(_localizer["User Pending. Please contact the administrator."]);
+                }
+
+                if (clientstatus == ClientStatusEnum.Refused.ToString())
+                {
+                    return await Result<TokenResponse>.FailAsync(_localizer["User Refused. Please contact the administrator."]);
+                }
+            }
 
             if (!user.IsActive)
             {
                 return await Result<TokenResponse>.FailAsync(_localizer["User Not Active. Please contact the administrator."]);
             }
+
             if (!user.EmailConfirmed)
             {
                 return await Result<TokenResponse>.FailAsync(_localizer["E-Mail not confirmed."]);
             }
+
+
+
             var passwordValid = await _userManager.CheckPasswordAsync(user, model.Password);
             if (!passwordValid)
                 return await Result<TokenResponse>.FailAsync(_localizer["Invalid Credentials."]);

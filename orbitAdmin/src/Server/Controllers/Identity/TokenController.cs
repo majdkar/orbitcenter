@@ -19,7 +19,7 @@ namespace SchoolV01.Server.Controllers.Identity
 
         /// <summary>
         /// Get Token (Email, Password)
-        /// ClientType: (Employee, Student, Guardian, Not Type Or Admin)
+        /// ClientType: (Person, Company, Not Type Or Admin)
         /// ClientId is the the Identity for Client type
         /// </summary>
         /// <param name="model"></param>

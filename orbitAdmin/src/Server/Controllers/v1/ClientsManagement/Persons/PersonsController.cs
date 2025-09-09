@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SchoolV01.Application.Features.Clients.Companies.Commands.AcceptCompanyRequest;
+using SchoolV01.Application.Features.Clients.Companies.Commands.AcceptPersonRequest;
+using SchoolV01.Application.Features.Clients.Companies.Commands.RefuseCompanyRequest;
+using SchoolV01.Application.Features.Clients.Companies.Commands.RefusePersonRequest;
 using SchoolV01.Application.Features.Clients.Persons.Commands.AddEdit;
 using SchoolV01.Application.Features.Clients.Persons.Commands.Delete;
 using SchoolV01.Application.Features.Clients.Persons.Queries.Export;
@@ -20,6 +24,7 @@ namespace SchoolV01.Server.Controllers.v1.PersonsManagement
         /// <param name="personName"></param>
         /// <param name="email"></param>
         /// <param name="phoneNumber"></param>
+        /// <param name="Status"></param>
         /// <param name="pageNumber"></param>
         /// <param name="pageSize"></param>
         /// <param name="searchString"></param>
@@ -27,9 +32,9 @@ namespace SchoolV01.Server.Controllers.v1.PersonsManagement
         /// <returns>Status 200 OK</returns>
         [Authorize(Policy = Permissions.Person.View)]
         [HttpGet]
-        public async Task<IActionResult> GetAllPaged(string personName, string email, string phoneNumber, int pageNumber, int pageSize, string searchString, string orderBy = null)
+        public async Task<IActionResult> GetAllPaged(string personName, string email, string phoneNumber,string Status, int pageNumber, int pageSize, string searchString, string orderBy = null)
         {
-            var persons = await Mediator.Send(new GetAllPagedPersonsQuery(personName, email, phoneNumber, pageNumber, pageSize, searchString, orderBy));
+            var persons = await Mediator.Send(new GetAllPagedPersonsQuery(personName, email, phoneNumber,Status, pageNumber, pageSize, searchString, orderBy));
             return Ok(persons);
         }
         /// <summary>
@@ -106,6 +111,33 @@ namespace SchoolV01.Server.Controllers.v1.PersonsManagement
         public async Task<IActionResult> Export(string searchString = "")
         {
             return Ok(await Mediator.Send(new ExportPersonsQuery(searchString)));
+        }
+
+
+
+
+        /// <summary>
+        /// Accept a Person
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Status 200 OK response</returns>
+        [Authorize(Policy = Permissions.Person.Edit)]
+        [HttpDelete("accept/{id}")]
+        public async Task<IActionResult> Accept(int id)
+        {
+            return Ok(await Mediator.Send(new AcceptPersonRequestCommand { Id = id }));
+        }
+
+        /// <summary>
+        /// Refuse a Person
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Status 200 OK response</returns>
+        [Authorize(Policy = Permissions.Person.Edit)]
+        [HttpDelete("refuse/{id}")]
+        public async Task<IActionResult> Refuse(int id)
+        {
+            return Ok(await Mediator.Send(new RefusePersonRequestCommand { Id = id }));
         }
 
     }

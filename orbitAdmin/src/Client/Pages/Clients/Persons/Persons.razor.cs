@@ -18,6 +18,9 @@ using SchoolV01.Client.Infrastructure.Managers.Products;
 using System.Linq;
 using System.Threading;
 using SchoolV01.Application.Features.Clients.Persons.Queries.GetAll;
+using System.Globalization;
+using SchoolV01.Shared.Constants.Clients;
+using SchoolV01.Client.Infrastructure.Managers.Clients.Companies;
 
 namespace SchoolV01.Client.Pages.Clients.Persons
 {
@@ -27,6 +30,7 @@ namespace SchoolV01.Client.Pages.Clients.Persons
         public string PersonName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        [Parameter] public string Status { get; set; }
 
         private IEnumerable<GetAllPersonsResponse> _pagedData;
         private MudTable<GetAllPersonsResponse> _table;
@@ -49,6 +53,7 @@ namespace SchoolV01.Client.Pages.Clients.Persons
         public bool checkedForDelete { get; set; } = false;
         private List<string> clickedEvents = new();
         private HashSet<GetAllPersonsResponse> selectedItems = new HashSet<GetAllPersonsResponse>();
+        private static bool IsArabic => CultureInfo.CurrentCulture.Name.Contains("ar");
 
         protected override async Task OnInitializedAsync()
         {
@@ -88,7 +93,7 @@ namespace SchoolV01.Client.Pages.Clients.Persons
                     PhoneNumber = PhoneNumber.Replace('+', '0');
                 }
             }
-            var request = new GetAllPagedPersonsRequest { PersonName = PersonName, PhoneNumber = PhoneNumber, Email = Email, PageSize = pageSize, PageNumber = pageNumber + 1, SearchString = _searchString, Orderby = orderings };
+            var request = new GetAllPagedPersonsRequest { PersonName = PersonName, PhoneNumber = PhoneNumber, Email = Email, PageSize = pageSize, PageNumber = pageNumber + 1, SearchString = _searchString, Orderby = orderings,Status = Status };
             var response = await PersonManager.GetPersonsAsync(request);
             if (response.Succeeded)
             {
@@ -146,6 +151,63 @@ namespace SchoolV01.Client.Pages.Clients.Persons
             _navigationManager.NavigateTo($"/individual-details/{personId}");
         }
 
+
+        private async Task Accept(int id)
+        {
+            string deleteContent = _localizer["Accept Confirmation"];
+            var parameters = new DialogParameters
+            {
+                {nameof(Shared.Dialogs.AcceptedConfirmation.ContentText), string.Format(deleteContent, id)}
+            };
+            var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
+            var dialog = _dialogService.Show<Shared.Dialogs.AcceptedConfirmation>(_localizer["Confirm"], parameters, options);
+            var result = await dialog.Result;
+            if (!result.Canceled)
+            {
+                var response = await PersonManager.AcceptAsync(id);
+                if (response.Succeeded)
+                {
+                    OnSearch("");
+                    _snackBar.Add(response.Messages[0], Severity.Success);
+                }
+                else
+                {
+                    OnSearch("");
+                    foreach (var message in response.Messages)
+                    {
+                        _snackBar.Add(message, Severity.Error);
+                    }
+                }
+            }
+        }
+        private async Task Refuse(int id)
+        {
+            string deleteContent = _localizer["Refuse Confirmation"];
+            var parameters = new DialogParameters
+            {
+                {nameof(Shared.Dialogs.RefusedConfirmation.ContentText), string.Format(deleteContent, id)}
+            };
+            var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
+            var dialog = _dialogService.Show<Shared.Dialogs.RefusedConfirmation>(_localizer["Confirm"], parameters, options);
+            var result = await dialog.Result;
+            if (!result.Canceled)
+            {
+                var response = await PersonManager.RefuseAsync(id);
+                if (response.Succeeded)
+                {
+                    OnSearch("");
+                    _snackBar.Add(response.Messages[0], Severity.Success);
+                }
+                else
+                {
+                    OnSearch("");
+                    foreach (var message in response.Messages)
+                    {
+                        _snackBar.Add(message, Severity.Error);
+                    }
+                }
+            }
+        }
 
 
         private async Task Delete(int id)

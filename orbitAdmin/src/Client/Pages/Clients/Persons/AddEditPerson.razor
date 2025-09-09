@@ -32,8 +32,33 @@ else
                         <MudGrid>
                             <MudItem xs="12" sm="12" md="9">
                                 <MudGrid>
+
+
                                     <MudItem xs="12" md="4">
-                                        <MudTextField For="@(() => AddEditPersonModel.FullName)" @bind-Value="AddEditPersonModel.FullName" Label="@_localizer["Full Name"]" Variant="MudBlazor.Variant.Outlined" />
+                                        <MudTextField For="@(() => AddEditPersonModel.FullName)" @bind-Value="AddEditPersonModel.FullName" Label="@_localizer["Arabic Full Name"]" Variant="MudBlazor.Variant.Outlined" />
+                                        <MudText Color="Color.Error">*</MudText>
+                                    </MudItem> 
+                                    
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditPersonModel.FullNameEn)" @bind-Value="AddEditPersonModel.FullNameEn" Label="@_localizer["English Full Name"]" Variant="MudBlazor.Variant.Outlined" />
+                                        <MudText Color="Color.Error">*</MudText>
+                                    </MudItem>  
+                                    
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditPersonModel.FatherName)" @bind-Value="AddEditPersonModel.FatherName" Label="@_localizer["Arabic Father Name"]" Variant="MudBlazor.Variant.Outlined" />
+                                        <MudText Color="Color.Error">*</MudText>
+                                    </MudItem>     
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditPersonModel.FatherNameEn)" @bind-Value="AddEditPersonModel.FatherNameEn" Label="@_localizer["English Father Name"]" Variant="MudBlazor.Variant.Outlined" />
+                                        <MudText Color="Color.Error">*</MudText>
+                                    </MudItem>       
+                                    
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditPersonModel.NickName)" @bind-Value="AddEditPersonModel.NickName" Label="@_localizer["Arabic NickName"]" Variant="MudBlazor.Variant.Outlined" />
+                                        <MudText Color="Color.Error">*</MudText>
+                                    </MudItem>    
+                                    <MudItem xs="12" md="4">
+                                        <MudTextField For="@(() => AddEditPersonModel.NickNameEn)" @bind-Value="AddEditPersonModel.NickNameEn" Label="@_localizer["English NickName"]" Variant="MudBlazor.Variant.Outlined" />
                                         <MudText Color="Color.Error">*</MudText>
                                     </MudItem>
                                   

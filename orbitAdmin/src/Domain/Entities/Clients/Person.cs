@@ -30,6 +30,16 @@ namespace SchoolV01.Domain.Entities.Clients
         public string Phone { get; set; }
 
         public string FullName { get; set; }
+        public string FullNameEn { get; set; }
+        public string FatherName { get; set; }
+        public string FatherNameEn { get; set; }
+        public string NickName { get; set; }
+        public string NickNameEn { get; set; }
+
+
+
+
+
         public string Mobile1 { get; set; }
         public string Mobile2 { get; set; }
         public string Qualification { get; set; }

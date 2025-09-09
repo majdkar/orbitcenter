@@ -21,17 +21,19 @@ namespace SchoolV01.Application.Features.Clients.Persons.Queries.GetAllPaged
         public string PersonName { get; }
         public string Email { get; }
         public string PhoneNumber { get; }
+        public string Status { get; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
         public string SearchString { get; set; }
         public string[] OrderBy { get; set; } // of the form fieldname [ascending|descending],fieldname [ascending|descending]...
 
-        public GetAllPagedPersonsQuery(string personName, string email, string phoneNumber, int pageNumber, int pageSize, string searchString, string orderBy)
+        public GetAllPagedPersonsQuery(string personName, string email, string phoneNumber,string status, int pageNumber, int pageSize, string searchString, string orderBy)
         {
             PersonName = personName;
             Email = email;
             PhoneNumber = phoneNumber;
             PageNumber = pageNumber;
+            Status = status;
             PageSize = pageSize;
             SearchString = searchString;
             if (!string.IsNullOrWhiteSpace(orderBy))
@@ -77,8 +79,13 @@ namespace SchoolV01.Application.Features.Clients.Persons.Queries.GetAllPaged
                 Job = e.Job,
                 Qualification = e.Qualification,
                 Mobile1 = e.Mobile1,
-                Mobile2 = e.Mobile2
-
+                Mobile2 = e.Mobile2,
+                 FatherName = e.FatherName,
+                 NickNameEn = e.NickNameEn,
+                 NickName = e.NickName,
+                  FullNameEn = e.FullNameEn,
+                  FatherNameEn = e.FatherNameEn
+                 
             };
             var ownerFilterSpec = new SearchPersonFilterSpecification(request);
             if (request.OrderBy?.Any() != true)

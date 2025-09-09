@@ -1,5 +1,4 @@
-﻿@page "/individuals"
-@attribute [Authorize(Policy = Permissions.Person.View)]
+﻿@attribute [Authorize(Policy = Permissions.Person.View)]
 @inject Microsoft.Extensions.Localization.IStringLocalizer<Persons> _localizer
 @using SchoolV01.Application.Features.Clients.Persons.Queries.GetAll
 @using SchoolV01.Application.Features.Clients.Persons.Queries.GetAllPaged;
@@ -11,7 +10,6 @@
     }
 </style>
 
-<HeroTitle Title="@_localizer["Persons"]"  />
 @if (!_loaded)
 {
         <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
@@ -21,7 +19,7 @@ else
      <MudExpansionPanel Text=@_localizer["Advanced Search"] IsExpanded="true" Class="mb-2">
         <MudGrid>
             <MudItem xs="12" md="4">
-                <MudTextField For="@(() => PersonName)" @bind-Value="PersonName" Label="@_localizer["Name"]" Variant="Variant.Outlined" />
+                <MudTextField For="@(() => PersonName)" @bind-Value="PersonName" Label="@_localizer["Full Name"]" Variant="Variant.Outlined" />
             </MudItem>
             <MudItem xs="12" md="4">
                 <MudTextField For="@(() => PhoneNumber)" @bind-Value="PhoneNumber" Label="@_localizer["Phone Number"]" Variant="Variant.Outlined" />
@@ -69,25 +67,35 @@ else
             } *@
             </ToolBarContent>
             <HeaderContent>
-                <MudTh><MudTableSortLabel T="GetAllPersonsResponse" SortLabel="FullNameAr"><strong>@_localizer["Full Name"]</strong></MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel T="GetAllPersonsResponse" SortLabel="FullNameAr"><strong>@_localizer["Arabic Full Name"]</strong></MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel T="GetAllPersonsResponse" SortLabel="FullNameAr"><strong>@_localizer["English Full Name"]</strong></MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPersonsResponse" SortLabel="LegalForm"><strong>@_localizer["Email"]</strong></MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel T="GetAllPersonsResponse" SortLabel="LegalForm"><strong>@_localizer["Phone"]</strong></MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel T="GetAllPersonsResponse" SortLabel="LegalForm"><strong>@_localizer["Classification"]</strong></MudTableSortLabel></MudTh>
 
             <MudTh Style="text-align:right"><strong>@_localizer["Actions"]</strong></MudTh>
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="FullName">
                 <MudLink Href="@($"/person-details/{context.Id}")" Color="Color.Dark" Underline="Underline.Hover"><strong>@context.FullName</strong></MudLink>
+                </MudTd>  
+                
+                <MudTd DataLabel="FullName">
+                <MudLink Href="@($"/person-details/{context.Id}")" Color="Color.Dark" Underline="Underline.Hover"><strong>@context.FullNameEn</strong></MudLink>
                 </MudTd>
-           @*  <MudTd   DataLabel="FullNameAr"  @onclick="@(() => _navigationManager.NavigateTo($"/person-details/{context.Id}"))">
-                    <MudHighlighter Style=""  Text="@context.FullNameAr" HighlightedText="@_searchString" />
-                </MudTd> *@
+          
                  <MudTd DataLabel="Email">
                     <MudHighlighter Text="@context.Email" HighlightedText="@_searchString" />
                 </MudTd>
             <MudTd DataLabel="Phone">
                 <MudHighlighter Text="@context.Phone" HighlightedText="@_searchString" />
+            </MudTd>    
+            
+            <MudTd DataLabel="Classification">
+                <MudHighlighter Text="@(IsArabic ? @context.Classification?.NameAr : @context.Classification?.NameEn)" HighlightedText="@_searchString" />
             </MudTd>
+
+
                 <MudTd DataLabel="Actions" Style="text-align: right">
                 @if (_canEditPersons || _canDeletePersons)
                 {
@@ -112,10 +120,21 @@ else
 
                             <MudIconButton Icon="@Icons.Material.Filled.Delete" @onclick="@(() => Delete(@context.Id))" Color="Color.Secondary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
                         </MudTooltip>
-
-
                      
                     }
+
+
+                    @if (Status == ClientStatusEnum.Pending.ToString())
+                    {
+                        <MudTooltip Text="@_localizer["Accept"]">
+                            <MudIconButton Icon="@Icons.Material.Filled.Check" @onclick="@(() => Accept(@context.Id))" Color="Color.Success" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>
+                        <MudTooltip Text="@_localizer["Refuse"]">
+                            <MudIconButton Icon="@Icons.Material.Filled.Cancel" @onclick="@(() => Refuse(@context.Id))" Color="Color.Error" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>
+                    }
+
+
 
                 }
                 else

@@ -135,6 +135,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="Client Details" xml:space="preserve">
+    <value>Client Details</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
@@ -233,5 +236,23 @@
   </data>
   <data name="Upload Personal Image" xml:space="preserve">
     <value>Upload Personal Image</value>
+  </data>
+  <data name="Arabic Full Name" xml:space="preserve">
+    <value>Arabic Full Name</value>
+  </data>
+  <data name="English Full Name" xml:space="preserve">
+    <value>English Full Name</value>
+  </data>
+  <data name="Arabic Father Name" xml:space="preserve">
+    <value>Arabic Father Name</value>
+  </data>
+  <data name="English Father Name" xml:space="preserve">
+    <value>English Father Name</value>
+  </data>
+  <data name="Arabic NickName" xml:space="preserve">
+    <value>Arabic NickName</value>
+  </data>
+  <data name="English NickName" xml:space="preserve">
+    <value>English NickName</value>
   </data>
 </root>
