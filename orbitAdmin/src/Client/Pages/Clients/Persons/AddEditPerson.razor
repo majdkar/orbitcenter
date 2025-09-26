@@ -34,6 +34,9 @@ else
                                 <MudGrid>
 
 
+
+
+
                                     <MudItem xs="12" md="4">
                                         <MudTextField For="@(() => AddEditPersonModel.FullName)" @bind-Value="AddEditPersonModel.FullName" Label="@_localizer["Arabic Full Name"]" Variant="MudBlazor.Variant.Outlined" />
                                         <MudText Color="Color.Error">*</MudText>
@@ -46,20 +49,16 @@ else
                                     
                                     <MudItem xs="12" md="4">
                                         <MudTextField For="@(() => AddEditPersonModel.FatherName)" @bind-Value="AddEditPersonModel.FatherName" Label="@_localizer["Arabic Father Name"]" Variant="MudBlazor.Variant.Outlined" />
-                                        <MudText Color="Color.Error">*</MudText>
                                     </MudItem>     
                                     <MudItem xs="12" md="4">
                                         <MudTextField For="@(() => AddEditPersonModel.FatherNameEn)" @bind-Value="AddEditPersonModel.FatherNameEn" Label="@_localizer["English Father Name"]" Variant="MudBlazor.Variant.Outlined" />
-                                        <MudText Color="Color.Error">*</MudText>
                                     </MudItem>       
                                     
                                     <MudItem xs="12" md="4">
                                         <MudTextField For="@(() => AddEditPersonModel.NickName)" @bind-Value="AddEditPersonModel.NickName" Label="@_localizer["Arabic NickName"]" Variant="MudBlazor.Variant.Outlined" />
-                                        <MudText Color="Color.Error">*</MudText>
                                     </MudItem>    
                                     <MudItem xs="12" md="4">
                                         <MudTextField For="@(() => AddEditPersonModel.NickNameEn)" @bind-Value="AddEditPersonModel.NickNameEn" Label="@_localizer["English NickName"]" Variant="MudBlazor.Variant.Outlined" />
-                                        <MudText Color="Color.Error">*</MudText>
                                     </MudItem>
                                   
                                     <MudItem xs="12" md="4">
@@ -85,15 +84,9 @@ else
                                     <MudItem xs="12" md="4">
                                         <MudTextField For="@(() => AddEditPersonModel.Mobile2)" @bind-Value="AddEditPersonModel.Mobile2" Label="@_localizer["Mobile2"]" Variant="MudBlazor.Variant.Outlined" />
                                     </MudItem>
-                                     <MudItem xs="12" md="4">
-                                        <MudTextField For="@(() => _registerUserModel.Password)" InputType="@_passwordInput" Adornment="Adornment.End" AdornmentIcon="@_passwordInputIcon" OnAdornmentClick="TogglePasswordVisibility" @bind-Value="_registerUserModel.Password" Label="@_localizer["Password"]" Variant="MudBlazor.Variant.Outlined" />
-                                        <MudText Color="Color.Error">*</MudText>
-                                    </MudItem>
 
-                                    <MudItem xs="12" md="4">
-                                        <MudTextField For="@(() => _registerUserModel.ConfirmPassword)" InputType="@_passwordInput" Adornment="Adornment.End" AdornmentIcon="@_passwordInputIcon" @bind-Value="_registerUserModel.ConfirmPassword" OnAdornmentClick="TogglePasswordVisibility" Label="@_localizer["ConfirmPassword"]" Variant="MudBlazor.Variant.Outlined" />
-                                        <MudText Color="Color.Error">*</MudText>
-                                    </MudItem>
+
+                              
                        
                                     <MudItem xs="12" md="4">
                                         <MudDatePicker @bind-Date="AddEditPersonModel.BirthDate" Culture="System.Globalization.CultureInfo.InvariantCulture" DateFormat="d/MM/yyyy" Label="@_localizer["BirthDate"]" DisableToolbar="true" AutoClose="true" Elevation="12" InputVariant="MudBlazor.Variant.Outlined" />
@@ -134,10 +127,7 @@ else
                                     <MudItem xs="12" md="4">
                                         <MudTextField For="@(() => AddEditPersonModel.Address)" @bind-Value="AddEditPersonModel.Address" Label="@_localizer["Address"]" Variant="MudBlazor.Variant.Outlined" />
                                     </MudItem>
-                                    <MudItem xs="12" md="4">
-                                        <MudTextField For="@(() => AddEditPersonModel.Email)" @bind-Value="AddEditPersonModel.Email" Label="@_localizer["Email"]" Variant="MudBlazor.Variant.Outlined" />
-                                       
-                                    </MudItem>
+                                  
 
 
                                     <MudItem xs="12" md="4">
@@ -155,6 +145,48 @@ else
                                     <MudItem xs="12" md="12">
                                         <MudTextField Lines="2" For="@(() => AddEditPersonModel.AdditionalInfo)" @bind-Value="AddEditPersonModel.AdditionalInfo" Label="@_localizer["AdditionalInfo"]" Variant="MudBlazor.Variant.Outlined" />
                                     </MudItem>
+
+
+                                    <MudCard Class="pa-4 my-4" Style="padding:26px !important">
+                                        <MudCardHeader>
+                                            <MudText Typo="Typo.h6">@_localizer["بيانات الحساب"]</MudText>
+                                        </MudCardHeader>
+
+                                        <MudCardContent>
+                                            <MudGrid>
+                                                <MudItem xs="12" md="4">
+                                                    <MudTextField For="@(() => AddEditPersonModel.Email)"
+                                                                  @bind-Value="AddEditPersonModel.Email"
+                                                                  Label="@_localizer["Email"]"
+                                                                  Variant="Variant.Outlined" />
+                                                </MudItem>
+
+                                                <MudItem xs="12" md="4">
+                                                    <MudTextField For="@(() => _registerUserModel.Password)"
+                                                                  InputType="@_passwordInput"
+                                                                  Adornment="Adornment.End"
+                                                                  AdornmentIcon="@_passwordInputIcon"
+                                                                  OnAdornmentClick="TogglePasswordVisibility"
+                                                                  @bind-Value="_registerUserModel.Password"
+                                                                  Label="@_localizer["Password"]"
+                                                                  Variant="Variant.Outlined" />
+                                                    <MudText Color="Color.Error">*</MudText>
+                                                </MudItem>
+
+                                                <MudItem xs="12" md="4">
+                                                    <MudTextField For="@(() => _registerUserModel.ConfirmPassword)"
+                                                                  InputType="@_passwordInput"
+                                                                  Adornment="Adornment.End"
+                                                                  AdornmentIcon="@_passwordInputIcon"
+                                                                  OnAdornmentClick="TogglePasswordVisibility"
+                                                                  @bind-Value="_registerUserModel.ConfirmPassword"
+                                                                  Label="@_localizer["ConfirmPassword"]"
+                                                                  Variant="Variant.Outlined" />
+                                                    <MudText Color="Color.Error">*</MudText>
+                                                </MudItem>
+                                            </MudGrid>
+                                        </MudCardContent>
+                                    </MudCard>
                                    
                                 </MudGrid>
                             </MudItem>

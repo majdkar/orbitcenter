@@ -95,14 +95,14 @@ namespace SchoolV01.Infrastructure.Services.Identity
             if (!passwordValid)
                 return await Result<TokenResponse>.FailAsync(_localizer["Invalid Credentials."]);
 
-            var client = await GetClientIdAsync(user);
-            if (client.Item1 == 0)
-                return await Result<TokenResponse>.FailAsync(_localizer["User Not Found."]);
+            int client =  GetClientId(user.Id);
+            //if (client == 0)
+            //    return await Result<TokenResponse>.FailAsync(_localizer["User Not Found."]);
 
             user.RefreshToken = GenerateRefreshToken();
             user.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
             await _userManager.UpdateAsync(user);
-            IEnumerable<Claim> claims = [new Claim("userId",user.Id), new Claim("vehicleId", "vehicle-123"),new Claim("clientId", client.Item1.ToString()), new Claim("clientId2", client.Item2.ToString())];
+            IEnumerable<Claim> claims = [new Claim("userId",user.Id), new Claim("vehicleId", "vehicle-123"),new Claim("clientId", client.ToString())];
             var token = await GenerateJwtAsync(user, claims);
 
 
@@ -117,7 +117,7 @@ namespace SchoolV01.Infrastructure.Services.Identity
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 UserId = user.Id,
-                ClientId = client.Item1,
+                ClientId = client,
                 vehicleId = "vehicle-123",
                 Id = GetIdForUser(user.Id),
                 ClientType = !string.IsNullOrEmpty(user.ClientType) ? user.ClientType : "Not Type Or Admin",
@@ -128,106 +128,54 @@ namespace SchoolV01.Infrastructure.Services.Identity
         }
 
 
-        private async Task<(int?, int)> GetClientIdAsync(BlazorHeroUser user)
+        public int GetClientId(string userid)
         {
-            switch (user.ClientType)
+            var client = _unitOfWork.Repository<Client>().Entities
+                          .FirstOrDefault(x => x.UserId == userid);
+            if (client == null)
             {
-               
-                
-                
-                default:
-                    return (null, 0);
+                return 0;
+            }
+            else
+            {
+                return client.Id;
             }
         }
 
-        //private async Task<(int?, int)> GetClientIdAsync(BlazorHeroUser user)
-        //{
-        //    switch (user.ClientType)
-        //    {
-        //        case RoleConstants.StudentRole:
-        //            var student = await _unitOfWork.Repository<Student>().Entities
-        //                .Where(c => c.UserId == user.Id)
-        //                .Select(c => new
-        //                {
-        //                    c.Id,
-        //                    c.Status,
-        //                    StudentEnrollment = c.StudentEnrollments.FirstOrDefault(x => x.Season.IsActive)
-        //                })
-        //                .FirstOrDefaultAsync();
-        //            var allow = (student?.Status == StudentStatus.Pending || student?.Status == StudentStatus.Accepted);
-        //            return (allow ? student.StudentEnrollment?.Id ?? student?.Id ?? 0 : 0, student?.Id ?? 0);
-        //        case RoleConstants.GuardianRole:
-        //            var guardian = await _unitOfWork.Repository<Guardian>().Entities
-        //                .Where(c => c.UserId == user.Id)
-        //                .AsNoTracking()
-        //                .FirstOrDefaultAsync();
-        //            //var allow = (student?.Status == StudentStatus.Pending || student?.Status == StudentStatus.Accepted) && student?.State == StudentState.Register;
-        //            return (guardian?.Id ?? 0, 0);
 
-        //        case RoleConstants.EmployeeRole:
-        //            var employee = await _unitOfWork.Repository<Employee>().Entities
-        //                .Where(c => c.UserId == user.Id)
-        //                .AsNoTracking()
-        //                .FirstOrDefaultAsync();
-        //            return (employee?.Id ?? 0, 0);
-
-        //        default:
-        //            return (null, 0);
-        //    }
-        //}
 
         public string GetTypeClient(string userId)
         {
-
-            if (userId != null)
+            var client = _unitOfWork.Repository<Client>().Entities
+                                    .FirstOrDefault(x => x.UserId == userId);
+            if (client == null)
             {
-
                 return "Not Type Or Admin";
             }
             else
             {
-                return "Not Type Or Admin";
+                if (client.Type == ClientTypesEnum.Person.ToString())
+                {
+                    return ClientTypesEnum.Person.ToString();
+                }
+                else if (client.Type == ClientTypesEnum.Company.ToString())
+                {
+                    return ClientTypesEnum.Company.ToString();
+                }
+
+                else { return "Not Type Or Admin"; }
             }
         }
 
-        public int GetClientId(string userId)
-        {
-            //var person = _unitOfWork.Repository<Person>().Entities
-            //    .AsNoTracking()
-            //    .Include(p => p.User)
-            //    .FirstOrDefault(p => p.User.Id == userId);
-
-            return  0;
-        }
+  
 
         public int GetIdForUser(string userId)
         {
-            return 0;
-            /*
-            var person = _unitOfWork.Repository<Person>().Entities
+            return _unitOfWork.Repository<Client>().Entities
                 .AsNoTracking()
-                .Include(p => p.User)
-                .FirstOrDefault(p => p.User.Id == userId);
-
-            int id = 0;
-
-            switch (person)
-            {
-                case Employee employee:
-                    id = employee.Id;
-                    break;
-
-                case Student student:
-                    id = student.Id;
-                    break;
-
-                default:
-                    id = 0;
-                    break;
-            }
-
-            return id;
-            */
+                .Include(p => p.User).Include(x => x.Person)
+                .FirstOrDefault(p => p.User.Id == userId)?
+                .Person?.Id ?? 0;
         }
 
         public async Task<Result<TokenResponse>> GetRefreshTokenAsync(RefreshTokenRequest model)

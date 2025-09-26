@@ -21,6 +21,7 @@ namespace SchoolV01.Domain.Entities.Clients
 
         [JsonIgnore]
         public virtual Person Person { get; set; }
+
         [JsonIgnore]
         public virtual Company Company { get; set; } 
         
