@@ -13,8 +13,8 @@ namespace SchoolV01.Application.Validators.Features.Clients.Persons.Commands.Add
                .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Mobile is required!"]);
 
 
-            RuleFor(request => request.FullName)
-               .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["Arabic Name is required!"]);
+            RuleFor(request => request.FullNameEn)
+               .Must(x => !string.IsNullOrWhiteSpace(x)).WithMessage(x => localizer["English Name is required!"]);
 
             RuleFor(request => request.ClassificationId)
                .NotEmpty().NotNull().WithMessage(x => localizer["Classification is required!"]);

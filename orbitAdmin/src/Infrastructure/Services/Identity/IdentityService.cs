@@ -119,8 +119,8 @@ namespace SchoolV01.Infrastructure.Services.Identity
                 UserId = user.Id,
                 ClientId = client,
                 vehicleId = "vehicle-123",
-                Id = GetIdForUser(user.Id),
-                ClientType = !string.IsNullOrEmpty(user.ClientType) ? user.ClientType : "Not Type Or Admin",
+                Id = GetEntityIdForUser(user.Id),
+                ClientType = GetTypeClient(user.Id),
                 Roles = string.Join(",", await _userManager.GetRolesAsync(user))
             };
 
@@ -167,15 +167,20 @@ namespace SchoolV01.Infrastructure.Services.Identity
             }
         }
 
-  
 
-        public int GetIdForUser(string userId)
+        public int GetEntityIdForUser(string userId)
         {
-            return _unitOfWork.Repository<Client>().Entities
+            var client = _unitOfWork.Repository<Client>().Entities
                 .AsNoTracking()
-                .Include(p => p.User).Include(x => x.Person)
-                .FirstOrDefault(p => p.User.Id == userId)?
-                .Person?.Id ?? 0;
+                .Include(c => c.User)
+                .Include(c => c.Person)
+                .Include(c => c.Company)
+                .FirstOrDefault(c => c.User.Id == userId);
+
+            if (client == null)
+                return 0;
+
+            return client.Type == "Company" ? client.Company?.Id ?? 0 : client.Person?.Id ?? 0;
         }
 
         public async Task<Result<TokenResponse>> GetRefreshTokenAsync(RefreshTokenRequest model)

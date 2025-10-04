@@ -89,13 +89,13 @@ else
                 <MudHighlighter Text="@context.Email" HighlightedText="@_searchString" />
             </MudTd>
             <MudTd DataLabel="City">
-                <MudHighlighter Text="@context.City.NameEn" HighlightedText="@_searchString" />
+                <MudHighlighter Text="@context.City?.NameEn" HighlightedText="@_searchString" />
             </MudTd>
 
      
            
             <MudTd DataLabel="Country">
-                <MudHighlighter Text="@context.Country.NameEn" HighlightedText="@_searchString" />
+                <MudHighlighter Text="@context.Country?.NameEn" HighlightedText="@_searchString" />
             </MudTd>
 
             <MudTd DataLabel="Actions" Style="text-align: right">
