@@ -117,20 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Accept" xml:space="preserve">
+    <value>قبول</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>الخيارات</value>
   </data>
-  <data name="Add Suggestion" xml:space="preserve">
-    <value>إضافة أقتراح</value>
+  <data name="Album" xml:space="preserve">
+    <value>ألبوم الصور</value>
+  </data>
+  <data name="Album Video" xml:space="preserve">
+    <value>ألبوم الفيديو</value>
   </data>
   <data name="Bordered" xml:space="preserve">
     <value>محدد</value>
   </data>
-  <data name="Brands exported" xml:space="preserve">
-    <value>تصدير الماركات</value>
+  <data name="Brand" xml:space="preserve">
+    <value>الماركة</value>
   </data>
-  <data name="Complaints and Suggestions" xml:space="preserve">
-    <value>الشكاوى والاقتراحات</value>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="ConfirmOperatio" xml:space="preserve">
+    <value>هل أنت متأكد ؟</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>إضافة</value>
@@ -139,90 +148,105 @@
     <value>حذف</value>
   </data>
   <data name="Delete Content" xml:space="preserve">
-    <value>حذف المضمون</value>
+    <value>حذف المحتوى</value>
   </data>
   <data name="Dense" xml:space="preserve">
-    <value>مكثف</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>الوصف</value>
-  </data>
-  <data name="Details" xml:space="preserve">
-    <value>تفاصيل</value>
+    <value>مركز</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>تعديل</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>الإيميل</value>
-  </data>
   <data name="Export" xml:space="preserve">
     <value>تصدير</value>
   </data>
-  <data name="Filtered Suggestions exported" xml:space="preserve">
-    <value>جرى تصدير الأقتراحات المرشحة </value>
+  <data name="Filtered Products exported" xml:space="preserve">
+    <value>جرى التصدير</value>
   </data>
-  <data name="Id" xml:space="preserve">
-    <value>Id</value>
+  <data name="From Price" xml:space="preserve">
+    <value>من السعر</value>
   </data>
-  <data name="Manage Complaints and Suggestions." xml:space="preserve">
-    <value>إدارة الشكاوى والاقتراحات</value>
-  </data>
-  <data name="Manage Suggestions." xml:space="preserve">
-    <value>إدارة الأقتراحات</value>
-  </data>
-  <data name="Mobile" xml:space="preserve">
-    <value>رقم الموبايل</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>الاسم</value>
+  <data name="Manage Courses." xml:space="preserve">
+    <value>إدارة الدورات</value>
   </data>
   <data name="NameAr" xml:space="preserve">
-    <value>الأسم العربي</value>
+    <value>الاسم بالعربي</value>
   </data>
   <data name="NameEn" xml:space="preserve">
-    <value>الأسم الإنكليزي</value>
+    <value>الاسم بالانكليزي</value>
   </data>
   <data name="No Allowed Actions" xml:space="preserve">
     <value>خيارات غير مسموحة</value>
   </data>
-  <data name="Reload" xml:space="preserve">
-    <value>تحديث</value>
+  <data name="Options" xml:space="preserve">
+    <value>الخيارات</value>
   </data>
-  <data name="Reply" xml:space="preserve">
-    <value>رد</value>
+  <data name="Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="Course Category" xml:space="preserve">
+    <value>فئة الدورة</value>
+  </data>
+  <data name="Courses" xml:space="preserve">
+    <value>الدورات</value>
+  </data>
+  <data name="Products exported" xml:space="preserve">
+    <value>جرى التصدر</value>
+  </data>
+  <data name="Refuse" xml:space="preserve">
+    <value>رفض</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>إعادة تحميل</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>البحث عن الأقتراحات</value>
+    <value>البحث</value>
+  </data>
+  <data name="Search Advanced" xml:space="preserve">
+    <value>البحث المتقدم</value>
   </data>
   <data name="Striped" xml:space="preserve">
     <value>مخطط</value>
   </data>
-  <data name="Suggestions" xml:space="preserve">
-    <value>الأقتراحات</value>
+  <data name="To Price" xml:space="preserve">
+    <value>ألى السعر</value>
   </data>
-  <data name="Tax" xml:space="preserve">
-    <value>الضريبة</value>
+  <data name="Details" xml:space="preserve">
+    <value>تفاصيل</value>
   </data>
-  <data name="UserName" xml:space="preserve">
-    <value>الأسم</value>
+  <data name="Product Name" xml:space="preserve">
+    <value>اسم المنتج</value>
   </data>
-  <data name="Send Date" xml:space="preserve">
-    <value>تاريخ الإرسال</value>
+  <data name="Course Name" xml:space="preserve">
+    <value>اسم الدورة </value>
   </data>
-  <data name="Inquiry" xml:space="preserve">
-    <value>إستفسار</value>
+  <data name="Seo Managment" xml:space="preserve">
+    <value>إدارة SEO</value>
   </data>
-  <data name="Appointment" xml:space="preserve">
-    <value>حجز موعد</value>
+  <data name="Filtered Owners exported" xml:space="preserve">
+    <value>تصدير</value>
   </data>
-  <data name="Complaint" xml:space="preserve">
-    <value>شكوى</value>
+  <data name="Course Orders" xml:space="preserve">
+    <value>طلبات الدورات</value>
   </data>
-  <data name="Suggestion" xml:space="preserve">
-    <value>إقتراح</value>
+  <data name="ClientType" xml:space="preserve">
+    <value>نوع العميل</value>
   </data>
-  <data name="Appointment Date" xml:space="preserve">
-    <value>تاريخ الموعد</value>
+  <data name="Person" xml:space="preserve">
+    <value>الفرد</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>الشركة</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>الدورة</value>
+  </data>
+  <data name="Manage Course Orders." xml:space="preserve">
+    <value>إدارة طلبات الدورات</value>
+  </data>
+  <data name="OrderNumber" xml:space="preserve">
+    <value>رقم الطلب</value>
+  </data>
+  <data name="Client Name" xml:space="preserve">
+    <value>أسم العميل</value>
   </data>
 </root>

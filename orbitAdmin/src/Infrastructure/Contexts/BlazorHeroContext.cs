@@ -10,6 +10,7 @@ using SchoolV01.Domain.Entities.ExtendedAttributes;
 using SchoolV01.Domain.Entities.GeneralSettings;
 using SchoolV01.Domain.Entities.Identity;
 using SchoolV01.Domain.Entities.Misc;
+using SchoolV01.Domain.Entities.Orders;
 using SchoolV01.Domain.Entities.Products;
 using SchoolV01.Domain.Entities.Suggestions;
 using SchoolV01.Domain.Models.Chat;
@@ -67,9 +68,15 @@ namespace SchoolV01.Infrastructure.Contexts
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseCategory> CourseCategories { get; set; }
         public DbSet<CourseOffer> CourseOffers { get; set; }  
-        public DbSet<CourseSeo> CourseSeos { get; set; }  
-        
-        
+        public DbSet<CourseSeo> CourseSeos { get; set; }
+
+
+        // Orders 
+
+        public DbSet<CourseOrder> CourseOrders { get; set; }
+
+
+
         // Clients (Agents)
         public DbSet<Client> Clients { get; set; }
         public DbSet<Domain.Entities.Clients.Person> People { get; set; }

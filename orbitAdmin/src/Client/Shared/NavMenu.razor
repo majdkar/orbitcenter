@@ -66,7 +66,7 @@
 
     @if (_canViewCountrys || _canViewCities)
     {
-        <MudNavGroup Title="@_localizer["GeneralSettings Management"]" Icon="@Icons.Material.Filled.Settings">
+        <MudNavGroup Title="@_localizer["GeneralSettings"]" Icon="@Icons.Material.Filled.Settings">
             @if (_canViewCountrys)
             {
                 <MudNavLink Href="/General-Settings/Countries" Match="NavLinkMatch.Prefix">
@@ -117,8 +117,26 @@
             }
         </MudNavGroup>
             
+        }    
+
+      @if (_canViewOrders)
+        {
+         
+            <MudNavGroup Title="@_localizer["Orders Management"]" Icon="@Icons.Material.Outlined.People">
+
+            <MudNavLink Href="/CourseOrders">
+                        @_localizer["Courses Orders"]
+                    </MudNavLink>
+              
+
+          
+          
+        </MudNavGroup>
+            
         }
  
+
+
 
     @if (_canViewProducts || _canViewProductCategories)
     {
@@ -185,7 +203,7 @@
     @if (_canViewSuggestions)
     {
         <MudNavLink Href="/Suggestions" Icon="@Icons.Material.Outlined.SettingsSuggest">
-            @_localizer["Complaints and Suggestions List"]
+            @_localizer["Complaints and Suggestions"]
     </MudNavLink>
     }
     @if (_isAdmin)
@@ -235,6 +253,7 @@
     private bool _canViewSuggestions;
     private bool _canViewCourses;
     private bool _canViewCourseCategories;
+    private bool _canViewOrders;
     @*/*s0012s*/*@
     private bool _canViewOwners;
 
@@ -267,6 +286,7 @@
         _canViewSuggestions = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Suggestions.View)).Succeeded;
         _canViewCourseCategories = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.CourseCategories.View)).Succeeded;
         _canViewCourses = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Courses.View)).Succeeded;
+        _canViewOrders = (await _authorizationService.AuthorizeAsync(_authenticationStateProviderUser, Permissions.Orders.View)).Succeeded;
         
 
         _currentUser = await _authenticationManager.CurrentUser();

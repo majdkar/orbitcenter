@@ -117,10 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Complaints" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
   <data name="Departments &amp; Private Lessons" xml:space="preserve">
     <value>Departments &amp; Private Lessons</value>
   </data>
@@ -142,6 +138,10 @@
   <data name="Blocks List" xml:space="preserve">
     <value>Blocks List</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Dashboard" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -150,9 +150,6 @@
   </data>
   <data name="Pages" xml:space="preserve">
     <value>Pages</value>
-  </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Roles</value>
   </data>
   <data name="Services Management" xml:space="preserve">
     <value>Services Management</value>
@@ -178,9 +175,6 @@
   <data name="Change Date Of Lesson Application" xml:space="preserve">
     <value>Change Date Of Lesson Application</value>
   </data>
-  <data name="Excellence" xml:space="preserve">
-    <value>Excellence</value>
-  </data>
   <data name="More Information" xml:space="preserve">
     <value>More Information</value>
   </data>
@@ -202,10 +196,34 @@
   <data name="Classifications" xml:space="preserve">
     <value>Classifications</value>
   </data>
-  <data name="Complaints and Suggestions List" xml:space="preserve">
-    <value>Complaints and Suggestions List</value>
-  </data>
   <data name="Courses Management" xml:space="preserve">
     <value>Courses Management</value>
+  </data>
+  <data name="GeneralSettings" xml:space="preserve">
+    <value>General Settings</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="Cities" xml:space="preserve">
+    <value>Cities</value>
+  </data>
+  <data name="Clients Management" xml:space="preserve">
+    <value>Clients Management</value>
+  </data>
+  <data name="Individuals" xml:space="preserve">
+    <value>Individuals</value>
+  </data>
+  <data name="Companies" xml:space="preserve">
+    <value>Companies</value>
+  </data>
+  <data name="Orders Management" xml:space="preserve">
+    <value>Orders Management</value>
+  </data>
+  <data name="Courses Orders" xml:space="preserve">
+    <value>Courses Orders</value>
+  </data>
+  <data name="Complaints and Suggestions" xml:space="preserve">
+    <value>Complaints and Suggestions</value>
   </data>
 </root>

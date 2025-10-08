@@ -1,0 +1,133 @@
+﻿@page "/CourseOrder-details/{CourseOrderId:int}"
+@using System.Globalization
+@using SchoolV01.Shared.Constants.Clients
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditCourseOrder> _localizer
+<style>
+    .mud-popover-fixed {
+        position: fixed !important;
+    }</style>
+
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudGrid>
+        <MudItem xs="12" sm="12" md="12">
+            <EditForm Model="@AddEditCourseOrderModel" OnValidSubmit="SaveAsync">
+                <FluentValidationValidator @ref="_fluentValidationValidator" />
+                <MudCard Elevation="4">
+                    <MudCardHeader>
+                        @if (AddEditCourseOrderModel.Id == 0)
+                        {
+                            <MudText Typo="Typo.h6">
+                                <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+                                @_localizer["Add Course Order"]
+                            </MudText>
+                        }
+                        else
+                        {
+                            <MudText Typo="Typo.h6">
+                                <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
+                                @_localizer["Update Course Order"]
+                            </MudText>
+                        }
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudGrid>
+                            <MudItem xs="12" md="6">
+                                <MudSelect T="string" Label="@_localizer["ClientType"]" TransformOrigin="Origin.TopCenter" PopoverClass="mud-popover-fixed" @bind-Value="AddEditCourseOrderModel.ClientType" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                                    @foreach (var value in ClientTypes.Values)
+                                    {
+                                        <MudSelectItem T="string" Value="@value.Key">@_localizer[@value.Value]</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+                            @if (AddEditCourseOrderModel.ClientType == ClientTypesEnum.Person.ToString())
+                            {
+                                <MudItem xs="12" md="6">
+                                    @if (_persons != null)
+                                    {
+                                            <MudAutocomplete T="int" Label="@_localizer["Person"]"
+                                                             @bind-Value="@AddEditCourseOrderModel.ClientId"
+                                                             ResetValueOnEmptyText="true"
+                                                             SearchFunc="@SearchPersons"
+                                                             ToStringFunc="PersonToString" OffsetY="true" Variant="MudBlazor.Variant.Outlined" />
+                                    }
+                                </MudItem>
+
+                            }
+
+                            else
+                            {
+                                <MudItem xs="12" md="6">
+                                    <MudAutocomplete T="int" Label="@_localizer["Company"]"
+                                                     @bind-Value="@AddEditCourseOrderModel.ClientId"
+                                                     ResetValueOnEmptyText="true"
+                                                     SearchFunc="@SearchCompanies"
+                                                     ToStringFunc="CompanyToString" OffsetY="true" Variant="MudBlazor.Variant.Outlined" />
+                                </MudItem>
+
+                            }
+
+
+
+
+                            <MudItem xs="12" md="6">
+                                <MudAutocomplete T="int" Label="@_localizer["Course"]"
+                                                 @bind-Value="@AddEditCourseOrderModel.CourseId"
+                                                  ResetValueOnEmptyText="true"
+                                                 SearchFunc="@SearchCourses"
+                                                 ToStringFunc="CourseToString" OffsetY="true" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+
+
+                            <MudItem xs="12" md="6">
+                                <MudDatePicker  @bind-Date="AddEditCourseOrderModel.OrderDate" Culture="System.Globalization.CultureInfo.InvariantCulture" Label="@_localizer["OrderDate"]" DisableToolbar="true" AutoClose="true" Elevation="12" InputVariant="Variant.Outlined" />
+                            </MudItem>
+
+
+
+
+                            <MudItem xs="12" md="6">
+                                <MudTextField For="@(() => AddEditCourseOrderModel.Price)" @bind-Value="AddEditCourseOrderModel.Price" Label="@_localizer["Price"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+                            <MudItem xs="12" md="6">
+                                <MudSelect @bind-Value="@AddEditCourseOrderModel.PaymentStatus" TransformOrigin="Origin.TopCenter" PopoverClass="mud-popover-fixed" For="@(() => AddEditCourseOrderModel.PaymentStatus)" T="string" Label="@_localizer["PaymentStatus"]" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
+                                    @foreach (var value in PaymentStatus.Values)
+                                    {
+                                        <MudSelectItem T="string" Value="@value.Key">@_localizer[@value.Value]</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+
+                            <MudItem xs="12" md="12">
+                                <MudTextField For="@(() => AddEditCourseOrderModel.Notes)" @bind-Value="AddEditCourseOrderModel.Notes" Label="@_localizer["Notes"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+                  
+                        </MudGrid>
+
+                    </MudCardContent>
+                    <MudCardActions Class="d-flex justify-end flex-grow-1 gap-4 mr-2">
+                        <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" OnClick="Cancel">@_localizer["Cancel"]</MudButton>
+                        @if (AddEditCourseOrderModel.Id != 0)
+                        {
+                            <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" ButtonType="MudBlazor.ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Secondary">@_localizer["Update"]</MudButton>
+                        }
+                        else
+                        {
+                            <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" ButtonType="MudBlazor.ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Success">@_localizer["Save"]</MudButton>
+
+                        }
+                    </MudCardActions>
+                </MudCard>
+            </EditForm>
+        </MudItem>
+    </MudGrid>
+}
+

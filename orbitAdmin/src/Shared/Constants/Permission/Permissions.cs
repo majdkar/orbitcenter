@@ -47,6 +47,13 @@ namespace SchoolV01.Shared.Constants.Permission
             public const string Edit = "Permissions.Courses.Edit";
             public const string Delete = "Permissions.Courses.Delete";
         }
+                public static class Orders
+        {
+            public const string View = "Permissions.Orders.View";
+            public const string Create = "Permissions.Orders.Create";
+            public const string Edit = "Permissions.Orders.Edit";
+            public const string Delete = "Permissions.Orders.Delete";
+        }
                    
         public static class CourseCategories
         {

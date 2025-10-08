@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using SchoolV01.Core.Entities;
 using SchoolV01.Domain.Contracts;
 using SchoolV01.Domain.Entities.GeneralSettings;
+using SchoolV01.Domain.Entities.Orders;
 
 
 namespace SchoolV01.Domain.Entities.Courses
@@ -84,5 +85,9 @@ namespace SchoolV01.Domain.Entities.Courses
 
         public string Keywords { get; set; }
         public string SeoDescription { get; set; }
+
+
+        public ICollection<CourseOrder> CourseRequests { get; set; } = new List<CourseOrder>();
+
     }
 }

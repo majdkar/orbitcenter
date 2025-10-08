@@ -6,24 +6,17 @@ using System.Threading.Tasks;
 
 namespace SchoolV01.Shared.Constants.Clients
 {
-    public static class ClientTypes
+    public static class PaymentStatus
     {
         public static Dictionary<string, string> Values = new Dictionary<string, string>
         {
-            {"Person", "Person" },
-            {"Company", "Company" }
+            {"Paid", "Paid" },
+            {"UnPaid", "UnPaid" }
         };
     }
-    public enum ClientTypesEnum
+    public enum PaymentStatusEnum
     {
-        Person,
-        Company
-    }
-
-    public enum CompanyActivityCodeEnum
-    { 
-        client,
-        supplier,
-        recovery
+        Paid,
+        UnPaid
     }
 }

@@ -1,0 +1,80 @@
+﻿@page "/CourseOrderDetails/{CourseOrderId:int}"
+@using System.Globalization;
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditCourseOrder> _localizer
+
+@if (Model is not null)
+{
+
+  <MudCard Elevation="4">
+        <MudCardHeader>
+            <CardHeaderAvatar>
+                <MudAvatar Color="Color.Primary">
+                    <MudIcon Icon="@Icons.Material.Outlined.PublishedWithChanges" />
+                </MudAvatar>
+            </CardHeaderAvatar>
+            <CardHeaderContent>
+                                 <MudButton DisableElevation Variant="Variant.Filled" Style="float: left !important;" Color="Color.Primary" OnClick="(() => Back())" StartIcon=@Icons.Material.Filled.ArrowBack IconColor="Color.Surface">@_localizer["Back"]</MudButton>
+
+                <MudText Typo="Typo.body1" Style="font-size:18px">@_localizer["Basic Information"] : <strong> @Model.OrderNumber </strong> </MudText>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudGrid>
+              
+                 
+                
+                 <MudItem xs="12" md="4">
+                    <strong>@_localizer["ClientNameAr"] : </strong> @Model.ClientNameAr
+                </MudItem>
+                
+                
+                 <MudItem xs="12" md="4">
+                    <strong>@_localizer["ClientNameEn"] : </strong> @Model.ClientNameEn
+                </MudItem>
+                
+                 <MudItem xs="12" md="4">
+                    <strong>@_localizer["CourseNameAr"] : </strong> @Model.Course.NameAr
+                </MudItem>
+
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["CourseNameEn"] : </strong> @Model.Course.NameEn
+                </MudItem>
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["OrderDate"] : </strong> @Model.OrderDate?.ToShortDateString()
+                </MudItem>
+
+                      
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Price"] : </strong> @Model.Price
+                </MudItem>  
+                      
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Status"] : </strong> @Model.Status
+                </MudItem>  
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["PaymentStatus"] : </strong> @Model.PaymentStatus
+                </MudItem>
+
+                      <MudItem xs="12" md="12">
+                    <strong>@_localizer["Notes"] : </strong> @Model.Notes
+                </MudItem>
+
+              
+
+
+            </MudGrid>
+
+        </MudCardContent>
+    </MudCard>
+
+    <br />
+}
+  
+
+  
+
+
+
+

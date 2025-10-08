@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SchoolV01.Shared.Constants.Clients
 {
-    public static class CompanyRequestStatus
+    public static class OrderStatus
     {
         public static Dictionary<string, string> Values = new Dictionary<string, string>
         {
@@ -14,7 +14,7 @@ namespace SchoolV01.Shared.Constants.Clients
         };
     }
 
-    public enum CompanyRequestStatusEnum
+    public enum OrderStatusEnum
     {
         Pending,
         Accepted,
