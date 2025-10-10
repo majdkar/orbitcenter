@@ -13,9 +13,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using SchoolV01.Domain.Entities.GeneralSettings;
 
-namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
+namespace SchoolV01.Application.Features.ProductOrders.Queries.GetAllPaged
 {
-    public class GetAllPagedCourseOrdersQuery : IRequest<PaginatedResult<GetAllPagedCourseOrdersResponse>>
+    public class GetAllPagedProductOrdersQuery : IRequest<PaginatedResult<GetAllPagedProductOrdersResponse>>
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
@@ -23,7 +23,7 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
         
         public string[] OrderBy { get; set; } // of the form fieldname [ascending|descending],fieldname [ascending|descending]...
 
-        public GetAllPagedCourseOrdersQuery(int pageNumber, int pageSize, string searchString, string orderBy)
+        public GetAllPagedProductOrdersQuery(int pageNumber, int pageSize, string searchString, string orderBy)
         {
             PageNumber = pageNumber;
             PageSize = pageSize;
@@ -36,24 +36,23 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
         }
     }
 
-    internal class GetAllCourseOrdersQueryHandler : IRequestHandler<GetAllPagedCourseOrdersQuery, PaginatedResult<GetAllPagedCourseOrdersResponse>>
+    internal class GetAllProductOrdersQueryHandler : IRequestHandler<GetAllPagedProductOrdersQuery, PaginatedResult<GetAllPagedProductOrdersResponse>>
     {
         private readonly IUnitOfWork<int> _unitOfWork;
 
-        public GetAllCourseOrdersQueryHandler(IUnitOfWork<int> unitOfWork)
+        public GetAllProductOrdersQueryHandler(IUnitOfWork<int> unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<PaginatedResult<GetAllPagedCourseOrdersResponse>> Handle(GetAllPagedCourseOrdersQuery request, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<GetAllPagedProductOrdersResponse>> Handle(GetAllPagedProductOrdersQuery request, CancellationToken cancellationToken)
         {
-            Expression<Func<CourseOrder, GetAllPagedCourseOrdersResponse>> expression = e => new GetAllPagedCourseOrdersResponse
+            Expression<Func<ProductOrder, GetAllPagedProductOrdersResponse>> expression = e => new GetAllPagedProductOrdersResponse
             {
                 Id = e.Id,
-                Price = e.Price,
                 Notes = e.Notes,
-                Course = e.Course,
-                CourseId = e.CourseId,
+                TotalPrice = e.TotalPrice,
+                Items = e.Items,
                 ClientId = e.ClientId,
                 Status = e.Status,
                 PaymentStatus = e.PaymentStatus,
@@ -65,11 +64,11 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
                 ClientType = e.ClientType,
 
             };
-            var CourseOrderFilterSpec = new CourseOrderByCompanyFilterSpecification(request.SearchString);
+            var ProductOrderFilterSpec = new ProductOrderByCompanyFilterSpecification(request.SearchString);
             if (request.OrderBy?.Any() != true)
             {
-                var data = await _unitOfWork.Repository<CourseOrder>().Entities
-                   //.Specify(CourseOrderFilterSpec)
+                var data = await _unitOfWork.Repository<ProductOrder>().Entities
+                   //.Specify(ProductOrderFilterSpec)
                    .Select(expression)
                    .ToPaginatedListAsync(request.PageNumber, request.PageSize);
                 return data;
@@ -77,8 +76,8 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
             else
             {
                 var ordering = string.Join(",", request.OrderBy); // of the form fieldname [ascending|descending], ...
-                var data = await _unitOfWork.Repository<CourseOrder>().Entities
-                   .Specify(CourseOrderFilterSpec)
+                var data = await _unitOfWork.Repository<ProductOrder>().Entities
+                   .Specify(ProductOrderFilterSpec)
                    .OrderBy(ordering) // require system.linq.dynamic.core
                    .Select(expression)
                    .ToPaginatedListAsync(request.PageNumber, request.PageSize);

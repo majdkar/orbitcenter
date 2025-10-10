@@ -74,6 +74,7 @@ namespace SchoolV01.Infrastructure.Contexts
         // Orders 
 
         public DbSet<CourseOrder> CourseOrders { get; set; }
+        public DbSet<ProductOrder> ProductOrders { get; set; }
 
 
 

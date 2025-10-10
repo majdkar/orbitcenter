@@ -1,6 +1,6 @@
 ﻿using SchoolV01.Domain.Contracts;
 using SchoolV01.Domain.Entities.Clients;
-using SchoolV01.Domain.Entities.Courses;
+using SchoolV01.Domain.Entities.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +9,15 @@ using System.Threading.Tasks;
 
 namespace SchoolV01.Domain.Entities.Orders
 {
-    public class CourseOrder : AuditableEntity<int>
+    public class ProductOrder : AuditableEntity<int>
     {
         public int ClientId { get; set; }
         public Client Client { get; set; }
 
-        public int CourseId { get; set; }
-        public Course Course { get; set; }
 
-        public string Status { get; set; }
-        public string ClientType { get; set; }
+        public string Status { get; set; } 
+        public string ClientType { get; set; } 
+
         public DateTime? OrderDate { get; set; } = DateTime.UtcNow;
 
         public string Notes { get; set; }
@@ -26,7 +25,11 @@ namespace SchoolV01.Domain.Entities.Orders
         public string  PaymentStatus { get; set; }
         public string  OrderNumber { get; set; }
 
-        public decimal Price { get; set; } 
+        // المجموع الكلي للطلب
+        public decimal TotalPrice { get; set; }
+
+        // كل العناصر (المنتجات) داخل الطلب
+        public ICollection<ProductOrderItem> Items { get; set; } = new List<ProductOrderItem>();
 
     }
 }

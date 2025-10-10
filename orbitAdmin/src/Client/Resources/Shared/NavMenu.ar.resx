@@ -234,4 +234,7 @@
   <data name="Complaints and Suggestions" xml:space="preserve">
     <value>الشكاوى والاقتراحات</value>
   </data>
+  <data name="Services Orders" xml:space="preserve">
+    <value>طلبات الخدمات</value>
+  </data>
 </root>

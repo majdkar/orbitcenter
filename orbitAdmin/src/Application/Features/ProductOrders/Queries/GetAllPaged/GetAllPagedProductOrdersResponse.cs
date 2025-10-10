@@ -4,31 +4,33 @@ using System.ComponentModel.DataAnnotations.Schema;
 using SchoolV01.Core.Entities;
 using SchoolV01.Domain.Entities;
 using SchoolV01.Domain.Entities.Clients;
-using SchoolV01.Domain.Entities.Courses;
+using SchoolV01.Domain.Entities.Products;
 using SchoolV01.Domain.Entities.GeneralSettings;
+using SchoolV01.Domain.Entities.Orders;
 
-namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
+namespace SchoolV01.Application.Features.ProductOrders.Queries.GetAllPaged
 {
-    public class GetAllPagedCourseOrdersResponse
+    public class GetAllPagedProductOrdersResponse
     {
         public int Id { get; set; }
         public int ClientId { get; set; }
         public Client Client { get; set; }
         public string ClientNameEn { get; set; }
         public string ClientNameAr { get; set; }
-        public int CourseId { get; set; }
-        public Course Course { get; set; }
 
+        public string ClientType { get; set; }
         public string Status { get; set; }
 
         public DateTime? OrderDate { get; set; } = DateTime.UtcNow;
-        public string ClientType { get; set; }
+
         public string Notes { get; set; }
 
         public string PaymentStatus { get; set; }
         public string OrderNumber { get; set; }
 
-        public decimal Price { get; set; }
+        public decimal TotalPrice { get; set; }
 
+        // كل العناصر (المنتجات) داخل الطلب
+        public ICollection<ProductOrderItem> Items { get; set; } = new List<ProductOrderItem>();
     }
 }

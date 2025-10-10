@@ -1,0 +1,175 @@
+﻿@page "/ProductOrder-details/{ProductOrderId:int}"
+@using System.Globalization
+@using SchoolV01.Shared.Constants.Clients
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditProductOrder> _localizer
+<style>
+    .mud-popover-fixed {
+        position: fixed !important;
+    }</style>
+
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudGrid>
+        <MudItem xs="12" sm="12" md="12">
+            <EditForm Model="@AddEditProductOrderModel" OnValidSubmit="SaveAsync">
+                <FluentValidationValidator @ref="_fluentValidationValidator" />
+                <MudCard Elevation="4">
+                    <MudCardHeader>
+                        @if (AddEditProductOrderModel.Id == 0)
+                        {
+                            <MudText Typo="Typo.h6">
+                                <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-3 mb-n1" />
+                                @_localizer["Add Product Order"]
+                            </MudText>
+                        }
+                        else
+                        {
+                            <MudText Typo="Typo.h6">
+                                <MudIcon Icon="@Icons.Material.Filled.Update" Class="mr-3 mb-n1" />
+                                @_localizer["Update Product Order"]
+                            </MudText>
+                        }
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudGrid Spacing="3">
+
+                            <!-- Client & Type -->
+                            <MudItem xs="12" md="6">
+                                <MudSelect T="string" Label="@_localizer["ClientType"]"
+                                           @bind-Value="AddEditProductOrderModel.ClientType"
+                                           Variant="Variant.Outlined">
+                                    @foreach (var value in ClientTypes.Values)
+                                    {
+                                        <MudSelectItem T="string" Value="@value.Key">@_localizer[@value.Value]</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+
+                            <MudItem xs="12" md="6">
+                                @if (AddEditProductOrderModel.ClientType == ClientTypesEnum.Person.ToString())
+                                {
+                                    <MudAutocomplete T="int" Label="@_localizer["Person"]"
+                                                     @bind-Value="AddEditProductOrderModel.ClientId"
+                                                     SearchFunc="@SearchPersons"
+                                                     ToStringFunc="PersonToString"
+                                                     Variant="Variant.Outlined" />
+                                }
+                                else
+                                {
+                                    <MudAutocomplete T="int" Label="@_localizer["Company"]"
+                                                     @bind-Value="AddEditProductOrderModel.ClientId"
+                                                     SearchFunc="@SearchCompanies"
+                                                     ToStringFunc="CompanyToString"
+                                                     Variant="Variant.Outlined" />
+                                }
+                            </MudItem>
+
+                            <!-- Products Table -->
+                            <MudItem xs="12">
+                                <MudPaper Elevation="1" Class="pa-3">
+                                    <MudText Typo="Typo.subtitle1" Class="mb-2">@_localizer["Products in Order"]</MudText>
+                                    <MudTable Items="AddEditProductOrderModel.Items" Hover="true" Dense="true">
+                                        <HeaderContent>
+                                            <MudTh>#</MudTh>
+                                            <MudTh>@_localizer["Product"]</MudTh>
+                                            <MudTh>@_localizer["Quantity"]</MudTh>
+                                            <MudTh>@_localizer["Unit Price"]</MudTh>
+                                            <MudTh>@_localizer["Subtotal"]</MudTh>
+                                            <MudTh>@_localizer["Actions"]</MudTh>
+                                        </HeaderContent>
+                                        <RowTemplate Context="item">
+                                            <MudTd>@(AddEditProductOrderModel.Items.ToList().IndexOf(item) + 1)</MudTd>
+                                            <MudTd>@item.Product?.NameEn</MudTd>
+                                            <MudTd>@item.Quantity</MudTd>
+                                            <MudTd>@item.UnitPrice.ToString("N2")</MudTd>
+                                            <MudTd>@((item.Quantity * item.UnitPrice).ToString("N2"))</MudTd>
+                                            <MudTd>
+                                                <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error"
+                                                               OnClick="() => RemoveItem(item)" />
+                                            </MudTd>
+                                        </RowTemplate>
+                                    </MudTable>
+                                </MudPaper>
+                            </MudItem>
+
+                            <!-- Add Product Row -->
+                            <MudItem xs="12" Class="mt-3">
+                                <MudPaper Elevation="1" Class="pa-3 d-flex flex-wrap align-center gap-3">
+                                    <MudAutocomplete T="int" Label="@_localizer["Select Product"]"
+                                                     @bind-Value="SelectedProductId"
+                                                     SearchFunc="@SearchProducts"
+                                                     ToStringFunc="ProductToString"
+                                                     Variant="Variant.Outlined"
+                                                     Class="flex-grow-1" />
+
+                                    <MudNumericField T="int" Label="@_localizer["Quantity"]"
+                                                     @bind-Value="SelectedQuantity"
+                                                     Variant="Variant.Outlined"
+                                                     Class="mw-100" />
+
+                                    <MudNumericField T="decimal" Label="@_localizer["Unit Price"]"
+                                                     @bind-Value="SelectedPrice"
+                                                     Variant="Variant.Outlined"
+                                                     Class="mw-100" />
+
+                                    <MudButton Color="Color.Primary" OnClick="AddItem" Variant="Variant.Filled"
+                                               Class="mt-2 mt-md-0">@_localizer["New"]</MudButton>
+                                </MudPaper>
+                            </MudItem>
+
+                            <!-- Total & Payment Status -->
+                            <MudItem xs="12" Class="mt-3">
+                                <MudGrid>
+                                    <MudItem xs="12" md="6">
+                                        <MudPaper Elevation="1" Class="pa-3 d-flex justify-between align-center">
+                                            <MudText Typo="Typo.h6">@_localizer["Total:"]</MudText>
+                                            <MudText Typo="Typo.h6" Color="Color.Primary">@AddEditProductOrderModel.TotalPrice.ToString("N2")</MudText>
+                                        </MudPaper>
+                                    </MudItem>
+
+                                 
+                                </MudGrid>
+                            </MudItem>
+
+                            <MudItem xs="12" md="6">
+                                <MudSelect @bind-Value="@AddEditProductOrderModel.PaymentStatus" T="string"
+                                           Label="@_localizer["PaymentStatus"]" Variant="Variant.Outlined">
+                                    @foreach (var value in PaymentStatus.Values)
+                                    {
+                                        <MudSelectItem T="string" Value="@value.Key">@_localizer[@value.Value]</MudSelectItem>
+                                    }
+                                </MudSelect>
+                            </MudItem>
+
+                            <!-- Notes -->
+                            <MudItem xs="12">
+                                <MudTextField For="@(() => AddEditProductOrderModel.Notes)"
+                                              @bind-Value="AddEditProductOrderModel.Notes"
+                                              Label="@_localizer["Notes"]"
+                                              Variant="Variant.Outlined" />
+                            </MudItem>
+
+                        </MudGrid>
+                    </MudCardContent>
+                    <MudCardActions Class="d-flex justify-end flex-grow-1 gap-4 mr-2">
+                        <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" OnClick="Cancel">@_localizer["Cancel"]</MudButton>
+                        @if (AddEditProductOrderModel.Id != 0)
+                        {
+                            <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" ButtonType="MudBlazor.ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Secondary">@_localizer["Update"]</MudButton>
+                        }
+                        else
+                        {
+                            <MudButton DisableElevation Variant="MudBlazor.Variant.Filled" ButtonType="MudBlazor.ButtonType.Submit" Disabled="@(!Validated)" Color="Color.Success">@_localizer["Save"]</MudButton>
+
+                        }
+                    </MudCardActions>
+                </MudCard>
+            </EditForm>
+        </MudItem>
+    </MudGrid>
+}
+

@@ -117,124 +117,94 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Departments &amp; Private Lessons" xml:space="preserve">
-    <value>Departments &amp; Private Lessons</value>
+  <data name="Add Product Order" xml:space="preserve">
+    <value>Add Product Order</value>
   </data>
-  <data name="Teachers" xml:space="preserve">
-    <value />
+  <data name="Update Product Order" xml:space="preserve">
+    <value>Update Product Order</value>
   </data>
-  <data name="CourseTypes" xml:space="preserve">
-    <value>CourseTypes</value>
+  <data name="ClientNameAr" xml:space="preserve">
+    <value>ClientNameAr</value>
   </data>
-  <data name="Add Menu Categories" xml:space="preserve">
-    <value>Add Menu Categories</value>
+  <data name="ClientNameEn" xml:space="preserve">
+    <value>ClientNameEn</value>
   </data>
-  <data name="Administrator" xml:space="preserve">
-    <value>Administrator</value>
+  <data name="ProductNameAr" xml:space="preserve">
+    <value>ProductNameAr</value>
   </data>
-  <data name="Block Categories List" xml:space="preserve">
-    <value>Block Categories List</value>
+  <data name="ProductNameEn" xml:space="preserve">
+    <value>ProductNameEn</value>
   </data>
-  <data name="Blocks" xml:space="preserve">
-    <value />
+  <data name="OrderDate" xml:space="preserve">
+    <value>OrderDate</value>
   </data>
-  <data name="Blocks List" xml:space="preserve">
-    <value>Blocks List</value>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
   </data>
-  <data name="Dashboard" xml:space="preserve">
-    <value />
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
+  <data name="PaymentStatus" xml:space="preserve">
+    <value>PaymentStatus</value>
   </data>
-  <data name="Menu Categories" xml:space="preserve">
-    <value>Menu Categories</value>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
   </data>
-  <data name="Menus" xml:space="preserve">
-    <value />
+  <data name="Basic Information" xml:space="preserve">
+    <value>Basic Information</value>
   </data>
-  <data name="Pages" xml:space="preserve">
-    <value>Pages</value>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
   </data>
-  <data name="Services Management" xml:space="preserve">
-    <value>Services Management</value>
+  <data name="Person" xml:space="preserve">
+    <value>Person</value>
   </data>
-  <data name="Swagger" xml:space="preserve">
-    <value>Swagger</value>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
   </data>
-  <data name="Users" xml:space="preserve">
-    <value>Users</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="WebSite Management" xml:space="preserve">
-    <value>WebSite Management</value>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
   </data>
-  <data name="Pages Management" xml:space="preserve">
-    <value>Pages Management</value>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
-  <data name="Blocks Management" xml:space="preserve">
-    <value>Blocks Management</value>
+  <data name="ClientType" xml:space="preserve">
+    <value>ClientType</value>
   </data>
-  <data name="Menus Management" xml:space="preserve">
-    <value>Menus Management</value>
+  <data name="Course" xml:space="preserve">
+    <value>Course</value>
   </data>
-  <data name="Change Date Of Lesson Application" xml:space="preserve">
-    <value />
+  <data name="Products in this Order" xml:space="preserve">
+    <value>Products in this Order</value>
   </data>
-  <data name="More Information" xml:space="preserve">
-    <value />
+  <data name="Products in Order" xml:space="preserve">
+    <value>Products in Order</value>
   </data>
-  <data name="Evaluations" xml:space="preserve">
-    <value />
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
   </data>
-  <data name="Courses Categories" xml:space="preserve">
-    <value />
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
   </data>
-  <data name="Courses List" xml:space="preserve">
-    <value />
+  <data name="Unit Price" xml:space="preserve">
+    <value>Unit Price</value>
   </data>
-  <data name="Courses" xml:space="preserve">
-    <value />
+  <data name="Subtotal" xml:space="preserve">
+    <value>Subtotal</value>
   </data>
-  <data name="Services Categories" xml:space="preserve">
-    <value>Services Categories</value>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
   </data>
-  <data name="Services List" xml:space="preserve">
-    <value>Services List</value>
+  <data name="Select Product" xml:space="preserve">
+    <value>Select Product</value>
   </data>
-  <data name="Classifications" xml:space="preserve">
-    <value>Classifications</value>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
   </data>
-  <data name="Courses Management" xml:space="preserve">
-    <value>Courses Management</value>
-  </data>
-  <data name="GeneralSettings" xml:space="preserve">
-    <value>GeneralSettings</value>
-  </data>
-  <data name="Countries" xml:space="preserve">
-    <value>Countries</value>
-  </data>
-  <data name="Cities" xml:space="preserve">
-    <value>Cities</value>
-  </data>
-  <data name="Clients Management" xml:space="preserve">
-    <value>Clients Management</value>
-  </data>
-  <data name="Individuals" xml:space="preserve">
-    <value>Individuals</value>
-  </data>
-  <data name="Companies" xml:space="preserve">
-    <value>Companies</value>
-  </data>
-  <data name="Orders Management" xml:space="preserve">
-    <value>Orders Management</value>
-  </data>
-  <data name="Courses Orders" xml:space="preserve">
-    <value>Courses Orders</value>
-  </data>
-  <data name="Complaints and Suggestions" xml:space="preserve">
-    <value>Complaints and Suggestions</value>
-  </data>
-  <data name="Services Orders" xml:space="preserve">
-    <value>Services Orders</value>
+  <data name="Total:" xml:space="preserve">
+    <value>Total:</value>
   </data>
 </root>

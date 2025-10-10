@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,124 +117,94 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Departments &amp; Private Lessons" xml:space="preserve">
-    <value>Departments &amp; Private Lessons</value>
+  <data name="Add Product Order" xml:space="preserve">
+    <value>إضافة طلب خدمة</value>
   </data>
-  <data name="Teachers" xml:space="preserve">
-    <value />
+  <data name="Update Product Order" xml:space="preserve">
+    <value>تعديل طلب خدمة</value>
   </data>
-  <data name="CourseTypes" xml:space="preserve">
-    <value>CourseTypes</value>
+  <data name="ClientNameAr" xml:space="preserve">
+    <value>أسم العميل العربي</value>
   </data>
-  <data name="Add Menu Categories" xml:space="preserve">
-    <value>Add Menu Categories</value>
+  <data name="ClientNameEn" xml:space="preserve">
+    <value>أسم العميل الإنكليزي</value>
   </data>
-  <data name="Administrator" xml:space="preserve">
-    <value>Administrator</value>
+  <data name="ProductNameAr" xml:space="preserve">
+    <value>أسم الخدمة العربي</value>
   </data>
-  <data name="Block Categories List" xml:space="preserve">
-    <value>Block Categories List</value>
+  <data name="ProductNameEn" xml:space="preserve">
+    <value>أسم الخدمة الإنكليزي</value>
   </data>
-  <data name="Blocks" xml:space="preserve">
-    <value />
+  <data name="OrderDate" xml:space="preserve">
+    <value>تاريخ الطلب</value>
   </data>
-  <data name="Blocks List" xml:space="preserve">
-    <value>Blocks List</value>
+  <data name="Price" xml:space="preserve">
+    <value>السعر</value>
   </data>
-  <data name="Dashboard" xml:space="preserve">
-    <value />
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
+  <data name="PaymentStatus" xml:space="preserve">
+    <value>حالة الدفع</value>
   </data>
-  <data name="Menu Categories" xml:space="preserve">
-    <value>Menu Categories</value>
+  <data name="Notes" xml:space="preserve">
+    <value>ملاحظات</value>
   </data>
-  <data name="Menus" xml:space="preserve">
-    <value />
+  <data name="Basic Information" xml:space="preserve">
+    <value>المعلومات الأساسية</value>
   </data>
-  <data name="Pages" xml:space="preserve">
-    <value>Pages</value>
+  <data name="Back" xml:space="preserve">
+    <value>رجوع</value>
   </data>
-  <data name="Services Management" xml:space="preserve">
-    <value>Services Management</value>
+  <data name="Person" xml:space="preserve">
+    <value>الفرد</value>
   </data>
-  <data name="Swagger" xml:space="preserve">
-    <value>Swagger</value>
+  <data name="Company" xml:space="preserve">
+    <value>الشركة</value>
   </data>
-  <data name="Users" xml:space="preserve">
-    <value>Users</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
   </data>
-  <data name="WebSite Management" xml:space="preserve">
-    <value>WebSite Management</value>
+  <data name="Update" xml:space="preserve">
+    <value>تعديل</value>
   </data>
-  <data name="Pages Management" xml:space="preserve">
-    <value>Pages Management</value>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
   </data>
-  <data name="Blocks Management" xml:space="preserve">
-    <value>Blocks Management</value>
+  <data name="ClientType" xml:space="preserve">
+    <value>نوع العميل</value>
   </data>
-  <data name="Menus Management" xml:space="preserve">
-    <value>Menus Management</value>
+  <data name="Course" xml:space="preserve">
+    <value>الدورة</value>
   </data>
-  <data name="Change Date Of Lesson Application" xml:space="preserve">
-    <value />
+  <data name="Products in this Order" xml:space="preserve">
+    <value>الخدمات في الطلب</value>
   </data>
-  <data name="More Information" xml:space="preserve">
-    <value />
+  <data name="Products in Order" xml:space="preserve">
+    <value>الخدمات في الطلب</value>
   </data>
-  <data name="Evaluations" xml:space="preserve">
-    <value />
+  <data name="Product" xml:space="preserve">
+    <value>الخدمة</value>
   </data>
-  <data name="Courses Categories" xml:space="preserve">
-    <value />
+  <data name="Quantity" xml:space="preserve">
+    <value>الكمية</value>
   </data>
-  <data name="Courses List" xml:space="preserve">
-    <value />
+  <data name="Unit Price" xml:space="preserve">
+    <value>سعر الوحدة</value>
   </data>
-  <data name="Courses" xml:space="preserve">
-    <value />
+  <data name="Subtotal" xml:space="preserve">
+    <value>السعر الفرعي</value>
   </data>
-  <data name="Services Categories" xml:space="preserve">
-    <value>Services Categories</value>
+  <data name="Actions" xml:space="preserve">
+    <value>خيارات</value>
   </data>
-  <data name="Services List" xml:space="preserve">
-    <value>Services List</value>
+  <data name="Select Product" xml:space="preserve">
+    <value>أختر الخدمة</value>
   </data>
-  <data name="Classifications" xml:space="preserve">
-    <value>Classifications</value>
+  <data name="New" xml:space="preserve">
+    <value>جديد</value>
   </data>
-  <data name="Courses Management" xml:space="preserve">
-    <value>Courses Management</value>
-  </data>
-  <data name="GeneralSettings" xml:space="preserve">
-    <value>GeneralSettings</value>
-  </data>
-  <data name="Countries" xml:space="preserve">
-    <value>Countries</value>
-  </data>
-  <data name="Cities" xml:space="preserve">
-    <value>Cities</value>
-  </data>
-  <data name="Clients Management" xml:space="preserve">
-    <value>Clients Management</value>
-  </data>
-  <data name="Individuals" xml:space="preserve">
-    <value>Individuals</value>
-  </data>
-  <data name="Companies" xml:space="preserve">
-    <value>Companies</value>
-  </data>
-  <data name="Orders Management" xml:space="preserve">
-    <value>Orders Management</value>
-  </data>
-  <data name="Courses Orders" xml:space="preserve">
-    <value>Courses Orders</value>
-  </data>
-  <data name="Complaints and Suggestions" xml:space="preserve">
-    <value>Complaints and Suggestions</value>
-  </data>
-  <data name="Services Orders" xml:space="preserve">
-    <value>Services Orders</value>
+  <data name="Total:" xml:space="preserve">
+    <value>الإجمالي :</value>
   </data>
 </root>

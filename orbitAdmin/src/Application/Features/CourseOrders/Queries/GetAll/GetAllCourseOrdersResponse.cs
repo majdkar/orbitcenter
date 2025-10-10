@@ -21,7 +21,7 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAll
         public Course Course { get; set; }
 
         public string Status { get; set; }
-
+        public string ClientType { get; set; }
         public DateTime? OrderDate { get; set; } = DateTime.UtcNow;
 
         public string Notes { get; set; }

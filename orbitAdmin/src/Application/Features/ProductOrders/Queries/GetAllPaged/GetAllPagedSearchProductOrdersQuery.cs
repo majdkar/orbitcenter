@@ -14,9 +14,9 @@ using SchoolV01.Domain.Entities.GeneralSettings;
 using SchoolV01.Domain.Entities.Orders;
 using SchoolV01.Shared.Wrapper;
 
-namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
+namespace SchoolV01.Application.Features.ProductOrders.Queries.GetAllPaged
 {
-    public class GetAllPagedSearchCourseOrdersQuery : IRequest<PaginatedResult<GetAllPagedCourseOrdersResponse>>
+    public class GetAllPagedSearchProductOrdersQuery : IRequest<PaginatedResult<GetAllPagedProductOrdersResponse>>
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
@@ -26,14 +26,14 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
 
         public string OrderNumber { get; set; }
         public int ClientId { get; set; }
-        public int CourseId { get; set; }
+        public int ProductId { get; set; }
 
         public decimal FromPrice { get; set; }
 
         public decimal ToPrice { get; set; }
 
 
-        public GetAllPagedSearchCourseOrdersQuery(int pageNumber, int pageSize, string searchString, string orderBy, string orderNumber, int clientId, int courseId, decimal fromprice, decimal toprice)
+        public GetAllPagedSearchProductOrdersQuery(int pageNumber, int pageSize, string searchString, string orderBy, string orderNumber, int clientId, int productId, decimal fromprice, decimal toprice)
         {
             PageNumber = pageNumber;
             PageSize = pageSize;
@@ -44,32 +44,31 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
             }
              OrderNumber = orderNumber;
             ClientId = clientId;
-            CourseId = courseId;
+            ProductId = productId;
             FromPrice = fromprice;
             ToPrice = toprice;
         }
     }
 
-    internal class GetAllPagedSearchCourseOrdersQueryHandler : IRequestHandler<GetAllPagedSearchCourseOrdersQuery, PaginatedResult<GetAllPagedCourseOrdersResponse>>
+    internal class GetAllPagedSearchProductOrdersQueryHandler : IRequestHandler<GetAllPagedSearchProductOrdersQuery, PaginatedResult<GetAllPagedProductOrdersResponse>>
     {
         private readonly IUnitOfWork<int> _unitOfWork;
 
-        public GetAllPagedSearchCourseOrdersQueryHandler(IUnitOfWork<int> unitOfWork)
+        public GetAllPagedSearchProductOrdersQueryHandler(IUnitOfWork<int> unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<PaginatedResult<GetAllPagedCourseOrdersResponse>> Handle(GetAllPagedSearchCourseOrdersQuery request, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<GetAllPagedProductOrdersResponse>> Handle(GetAllPagedSearchProductOrdersQuery request, CancellationToken cancellationToken)
         {
 
 
-            Expression<Func<CourseOrder, GetAllPagedCourseOrdersResponse>> expression = e => new GetAllPagedCourseOrdersResponse
+            Expression<Func<ProductOrder, GetAllPagedProductOrdersResponse>> expression = e => new GetAllPagedProductOrdersResponse
             {
                 Id = e.Id,
-                Price = e.Price,
                 Notes = e.Notes,
-                Course = e.Course,
-                CourseId = e.CourseId,
+                TotalPrice = e.TotalPrice,
+                Items = e.Items,
                 ClientId = e.ClientId,
                 Status = e.Status,
                 PaymentStatus = e.PaymentStatus,
@@ -81,11 +80,11 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
                 ClientNameAr = e.Client.Type == "Person" ? e.Client.Person.FullName : e.Client.Company.NameAr,
                 ClientNameEn = e.Client.Type == "Person" ? e.Client.Person.FullNameEn : e.Client.Company.NameEn,
             };
-            var CourseOrderFilterSpec = new CourseOrderSearchFilterSpecification(request.SearchString, request.OrderNumber, request.CourseId, request.ClientId, request.FromPrice, request.ToPrice);
+            var ProductOrderFilterSpec = new ProductOrderSearchFilterSpecification(request.SearchString, request.OrderNumber, request.ProductId, request.ClientId, request.FromPrice, request.ToPrice);
             if (request.OrderBy?.Any() != true)
             {
-                var data = await _unitOfWork.Repository<CourseOrder>().Entities
-                   .Specify(CourseOrderFilterSpec)
+                var data = await _unitOfWork.Repository<ProductOrder>().Entities
+                   .Specify(ProductOrderFilterSpec)
                    .Select(expression).AsNoTracking()
                    .ToPaginatedListAsync(request.PageNumber, request.PageSize);
                 return data;
@@ -93,8 +92,8 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
             else
             {
                 var ordering = string.Join(",", request.OrderBy); // of the form fieldname [ascending|descending], ...
-                var data = await _unitOfWork.Repository<CourseOrder>().Entities
-                   .Specify(CourseOrderFilterSpec)
+                var data = await _unitOfWork.Repository<ProductOrder>().Entities
+                   .Specify(ProductOrderFilterSpec)
                    .OrderBy(ordering) // require system.linq.dynamic.core
                    .Select(expression).AsNoTracking()
                    .ToPaginatedListAsync(request.PageNumber, request.PageSize);

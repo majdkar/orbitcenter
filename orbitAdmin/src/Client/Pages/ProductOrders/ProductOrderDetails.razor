@@ -1,0 +1,96 @@
+﻿@page "/ProductOrderDetails/{ProductOrderId:int}"
+@using System.Globalization;
+@using SchoolV01.Application.Features.ProductOrders.Queries.GetById
+@using SchoolV01.Domain.Entities.Orders
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddEditProductOrder> _localizer
+
+@if (Model is not null)
+{
+
+  <MudCard Elevation="4">
+        <MudCardHeader>
+            <CardHeaderAvatar>
+                <MudAvatar Color="Color.Primary">
+                    <MudIcon Icon="@Icons.Material.Outlined.PublishedWithChanges" />
+                </MudAvatar>
+            </CardHeaderAvatar>
+            <CardHeaderContent>
+                                 <MudButton DisableElevation Variant="Variant.Filled" Style="float: left !important;" Color="Color.Primary" OnClick="(() => Back())" StartIcon=@Icons.Material.Filled.ArrowBack IconColor="Color.Surface">@_localizer["Back"]</MudButton>
+
+                <MudText Typo="Typo.body1" Style="font-size:18px">@_localizer["Basic Information"] : <strong> @Model.OrderNumber </strong> </MudText>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudGrid>
+              
+                 
+                
+                 <MudItem xs="12" md="4">
+                    <strong>@_localizer["ClientNameAr"] : </strong> @Model.ClientNameAr
+                </MudItem>
+                
+                
+                 <MudItem xs="12" md="4">
+                    <strong>@_localizer["ClientNameEn"] : </strong> @Model.ClientNameEn
+                </MudItem>
+                
+      
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["OrderDate"] : </strong> @Model.OrderDate?.ToShortDateString()
+                </MudItem>
+
+                      
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Price"] : </strong> @Model.TotalPrice
+                </MudItem>  
+                      
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["Status"] : </strong> @Model.Status
+                </MudItem>  
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["PaymentStatus"] : </strong> @Model.PaymentStatus
+                </MudItem>
+
+                      <MudItem xs="12" md="12">
+                    <strong>@_localizer["Notes"] : </strong> @Model.Notes
+                </MudItem>
+
+                <MudItem xs="12" md="12" Class="mt-4">
+                    <MudText Typo="Typo.h6" Class="mb-2">@_localizer["Products in this Order"]</MudText>
+
+                    <MudTable T="ProductOrderItem" Items="Model.Items" Dense="true" Bordered="true" Hover="true">
+                        <HeaderContent>
+                            <MudTh>@_localizer["#"]</MudTh>
+                            <MudTh>@_localizer["ProductNameAr"]</MudTh>
+                            <MudTh>@_localizer["ProductNameEn"]</MudTh>
+                            <MudTh>@_localizer["Quantity"]</MudTh>
+                            <MudTh>@_localizer["Price"]</MudTh>
+                        </HeaderContent>
+                        <RowTemplate Context="item">
+                            <MudTd>@(Model.Items.ToList().IndexOf(item) + 1)</MudTd>
+                            <MudTd>@item.Product.NameAr</MudTd>
+                            <MudTd>@item.Product.NameEn</MudTd>
+                            <MudTd>@item.Quantity</MudTd>
+                            <MudTd>@item.UnitPrice.ToString("N2")</MudTd>
+                        </RowTemplate>
+                    </MudTable>
+
+                 
+                </MudItem>
+
+
+            </MudGrid>
+
+        </MudCardContent>
+    </MudCard>
+
+    <br />
+}
+  
+
+  
+
+
+
+

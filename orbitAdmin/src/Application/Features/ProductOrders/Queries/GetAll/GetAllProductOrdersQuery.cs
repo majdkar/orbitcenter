@@ -17,40 +17,40 @@ using Microsoft.EntityFrameworkCore;
 using SchoolV01.Domain.Entities.GeneralSettings;
 using System.Text.Json;
 using SchoolV01.Domain.Entities.Orders;
-using SchoolV01.Application.Specifications.Courses;
+using SchoolV01.Application.Specifications.Products;
+using SchoolV01.Application.Specifications.Catalog;
 
-namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAll
+namespace SchoolV01.Application.Features.ProductOrders.Queries.GetAll
 {
-    public class GetAllCourseOrdersQuery : IRequest<Result<List<GetAllCourseOrdersResponse>>>
+    public class GetAllProductOrdersQuery : IRequest<Result<List<GetAllProductOrdersResponse>>>
     {
-        public GetAllCourseOrdersQuery()
+        public GetAllProductOrdersQuery()
         {
 
         }
     }
-    public class GetAllCourseOrdersCachedQueryHandler : IRequestHandler<GetAllCourseOrdersQuery, Result<List<GetAllCourseOrdersResponse>>>
+    public class GetAllProductOrdersCachedQueryHandler : IRequestHandler<GetAllProductOrdersQuery, Result<List<GetAllProductOrdersResponse>>>
     {
         private readonly IUnitOfWork<int> _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IAppCache _cache;
 
-        public GetAllCourseOrdersCachedQueryHandler(IUnitOfWork<int> unitOfWork, IMapper mapper, IAppCache cache)
+        public GetAllProductOrdersCachedQueryHandler(IUnitOfWork<int> unitOfWork, IMapper mapper, IAppCache cache)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _cache = cache;
         }
 
-        public async Task<Result<List<GetAllCourseOrdersResponse>>> Handle(GetAllCourseOrdersQuery request, CancellationToken cancellationToken)
+        public async Task<Result<List<GetAllProductOrdersResponse>>> Handle(GetAllProductOrdersQuery request, CancellationToken cancellationToken)
         {
-            var filter = new CourseOrderFilterSpecification();
-            Expression<Func<CourseOrder, GetAllCourseOrdersResponse>> expression =  e => new GetAllCourseOrdersResponse
+            var filter = new ProductOrderFilterSpecification();
+            Expression<Func<ProductOrder, GetAllProductOrdersResponse>> expression =  e => new GetAllProductOrdersResponse
             {
                 Id = e.Id,
-                Price = e.Price,
                 Notes =e.Notes,
-                Course =e.Course,
-                CourseId =e.CourseId,
+               TotalPrice = e.TotalPrice,
+               Items = e.Items,
                 ClientId =e.ClientId,
                 Status =e.Status,
                 PaymentStatus =e.PaymentStatus,
@@ -63,12 +63,12 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAll
                 ClientNameEn = e.Client.Type == "Person" ? e.Client.Person.FullNameEn : e.Client.Company.NameEn,
             };
 
-            var  getAllCourseOrders = await _unitOfWork.Repository<CourseOrder>().Entities
+            var  getAllProductOrders = await _unitOfWork.Repository<ProductOrder>().Entities
                 .Specify(filter)
                 .Select(expression)
                 .ToListAsync();
 
-            return await Result<List<GetAllCourseOrdersResponse>>.SuccessAsync(getAllCourseOrders);
+            return await Result<List<GetAllProductOrdersResponse>>.SuccessAsync(getAllProductOrders);
 
         }
 

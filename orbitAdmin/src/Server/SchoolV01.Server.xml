@@ -1217,6 +1217,65 @@
             <param name="searchString"></param>
             <returns></returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.ProductOrders.ProductOrdersController.GetAll">
+            <summary>
+            Get All ProductOrders
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.ProductOrders.ProductOrdersController.GetAllPaged(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged ProductOrders
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.ProductOrders.ProductOrdersController.GetAllPagedSearchProductOrder(System.String,System.Int32,System.Int32,System.Decimal,System.Decimal,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged Search ProductOrders
+            </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <param name="orderNumber"></param>
+            <param name="clientId"></param>
+            <param name="ProductId"></param>
+            <param name="fromprice"></param> 
+            <param name="toprice"></param>        
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.ProductOrders.ProductOrdersController.GetById(System.Int32)">
+            <summary>
+            Get ProductOrder By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.ProductOrders.ProductOrdersController.Post(SchoolV01.Application.Features.Products.Commands.AddEdit.AddEditProductOrderCommand)">
+            <summary>
+            Add/Edit a ProductOrder
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.ProductOrders.ProductOrdersController.Delete(System.Int32)">
+            <summary>
+            Delete a ProductOrder
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK response</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.ProductOrders.ProductOrdersController.Export(System.String)">
+            <summary>
+            Search ProductOrders and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.Products.ProductOffersController.GetAllByProduct(System.Int32)">
             <summary>
             Get All Offers By Product

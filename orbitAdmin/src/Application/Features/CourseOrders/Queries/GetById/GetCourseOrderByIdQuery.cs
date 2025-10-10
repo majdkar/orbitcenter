@@ -47,6 +47,7 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetById
                 PaymentStatus = e.PaymentStatus,
                 OrderNumber = e.OrderNumber,
                 Client = e.Client,
+                 ClientType =e.ClientType,
                 OrderDate = e.OrderDate,
                 ClientNameAr = e.Client.Type == "Person" ? e.Client.Person.FullName : e.Client.Company.NameAr,
                 ClientNameEn = e.Client.Type == "Person" ? e.Client.Person.FullNameEn : e.Client.Company.NameEn,
