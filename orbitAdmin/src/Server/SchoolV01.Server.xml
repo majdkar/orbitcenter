@@ -766,6 +766,12 @@
             <param name="searchString"></param>
             <returns></returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.ContactUSController.Post(SchoolV01.Application.Features.ContactUs.Commands.AddEdit.SendContactUsCommand)">
+            <summary>
+            Send Email For More User
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CountriesController.GetAll">
             <summary>
             Get All Countries

@@ -48,6 +48,7 @@ using SchoolV01.Application.Serialization.Settings;
 using WkHtmlToPdfDotNet;
 using SchoolV01.Application.Services;
 using SchoolV01.Application.GeneralInterfaces;
+using SchoolV01.Application.Requests.Mail;
 
 namespace SchoolV01.Server.Extensions
 {

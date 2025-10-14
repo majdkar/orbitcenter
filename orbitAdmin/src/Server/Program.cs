@@ -18,6 +18,8 @@ using SchoolV01.Server.Filters;
 using System.Reflection;
 using Microsoft.AspNetCore.SignalR;
 using SchoolV01.Server.Hubs;
+using SchoolV01.Application.Interfaces.Common;
+using SchoolV01.Application.Requests.Mail;
 
 var builder = WebApplication.CreateBuilder(args);
 var _configuration = builder.Configuration;
@@ -45,6 +47,8 @@ builder.Services.AddScoped<ServerPreferenceManager>();
 builder.Services.AddServerLocalization();
 builder.Services.AddIdentity();
 builder.Services.AddJwtAuthentication(builder.Services.GetApplicationSettings(_configuration));
+builder.Services.Configure<MailSettings>(_configuration.GetSection("MailSettings"));
+
 builder.Services.AddApplicationLayer();
 builder.Services.AddApplicationServices();
 builder.Services.AddRepositories();
