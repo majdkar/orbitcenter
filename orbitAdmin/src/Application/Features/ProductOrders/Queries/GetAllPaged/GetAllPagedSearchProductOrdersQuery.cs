@@ -79,6 +79,10 @@ namespace SchoolV01.Application.Features.ProductOrders.Queries.GetAllPaged
                 OrderDate = e.OrderDate,
                 ClientNameAr = e.Client.Type == "Person" ? e.Client.Person.FullName : e.Client.Company.NameAr,
                 ClientNameEn = e.Client.Type == "Person" ? e.Client.Person.FullNameEn : e.Client.Company.NameEn,
+
+                PaymentTransactionNumber = e.PaymentTransactionNumber,
+                PayTypeId = e.PayTypeId,
+                PayType = e.PayType,
             };
             var ProductOrderFilterSpec = new ProductOrderSearchFilterSpecification(request.SearchString, request.OrderNumber, request.ProductId, request.ClientId, request.FromPrice, request.ToPrice);
             if (request.OrderBy?.Any() != true)

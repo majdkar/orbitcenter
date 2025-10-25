@@ -237,4 +237,7 @@
   <data name="Services Orders" xml:space="preserve">
     <value>طلبات الخدمات</value>
   </data>
+  <data name="PayTypes" xml:space="preserve">
+    <value>أنواع الدفع</value>
+  </data>
 </root>

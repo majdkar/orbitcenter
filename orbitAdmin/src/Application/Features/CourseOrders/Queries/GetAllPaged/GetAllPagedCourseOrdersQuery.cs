@@ -15,17 +15,19 @@ using SchoolV01.Domain.Entities.GeneralSettings;
 
 namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
 {
-    public class GetAllPagedCourseOrdersQuery : IRequest<PaginatedResult<GetAllPagedCourseOrdersResponse>>
+    public class GetAllPagedCourseOrdersByClientQuery : IRequest<PaginatedResult<GetAllPagedCourseOrdersResponse>>
     {
+        public int ClientId { get; set; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
         public string SearchString { get; set; }
         
         public string[] OrderBy { get; set; } // of the form fieldname [ascending|descending],fieldname [ascending|descending]...
 
-        public GetAllPagedCourseOrdersQuery(int pageNumber, int pageSize, string searchString, string orderBy)
+        public GetAllPagedCourseOrdersByClientQuery(int pageNumber, int pageSize, string searchString, string orderBy,int clientId)
         {
             PageNumber = pageNumber;
+            ClientId = clientId;
             PageSize = pageSize;
             SearchString = searchString;
             if (!string.IsNullOrWhiteSpace(orderBy))
@@ -36,16 +38,16 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
         }
     }
 
-    internal class GetAllCourseOrdersQueryHandler : IRequestHandler<GetAllPagedCourseOrdersQuery, PaginatedResult<GetAllPagedCourseOrdersResponse>>
+    internal class GetAllPagedCourseOrdersByClientQueryHandler : IRequestHandler<GetAllPagedCourseOrdersByClientQuery, PaginatedResult<GetAllPagedCourseOrdersResponse>>
     {
         private readonly IUnitOfWork<int> _unitOfWork;
 
-        public GetAllCourseOrdersQueryHandler(IUnitOfWork<int> unitOfWork)
+        public GetAllPagedCourseOrdersByClientQueryHandler(IUnitOfWork<int> unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<PaginatedResult<GetAllPagedCourseOrdersResponse>> Handle(GetAllPagedCourseOrdersQuery request, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<GetAllPagedCourseOrdersResponse>> Handle(GetAllPagedCourseOrdersByClientQuery request, CancellationToken cancellationToken)
         {
             Expression<Func<CourseOrder, GetAllPagedCourseOrdersResponse>> expression = e => new GetAllPagedCourseOrdersResponse
             {
@@ -63,9 +65,11 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAllPaged
                  ClientNameAr = e.Client.Type == "Person" ? e.Client.Person.FullName : e.Client.Company.NameAr,
                  ClientNameEn = e.Client.Type == "Person" ? e.Client.Person.FullNameEn : e.Client.Company.NameEn,
                 ClientType = e.ClientType,
-
+                PaymentTransactionNumber = e.PaymentTransactionNumber,
+                PayTypeId = e.PayTypeId,
+                PayType = e.PayType,
             };
-            var CourseOrderFilterSpec = new CourseOrderByCompanyFilterSpecification(request.SearchString);
+            var CourseOrderFilterSpec = new CourseOrderByClientFilterSpecification(request.SearchString,request.ClientId);
             if (request.OrderBy?.Any() != true)
             {
                 var data = await _unitOfWork.Repository<CourseOrder>().Entities

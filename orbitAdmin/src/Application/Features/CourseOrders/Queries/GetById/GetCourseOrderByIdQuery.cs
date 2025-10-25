@@ -51,6 +51,9 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetById
                 OrderDate = e.OrderDate,
                 ClientNameAr = e.Client.Type == "Person" ? e.Client.Person.FullName : e.Client.Company.NameAr,
                 ClientNameEn = e.Client.Type == "Person" ? e.Client.Person.FullNameEn : e.Client.Company.NameEn,
+                PaymentTransactionNumber = e.PaymentTransactionNumber,
+                PayTypeId = e.PayTypeId,
+                PayType = e.PayType,
             };
 
             var CourseOrder = await _unitOfWork.Repository<CourseOrder>().Entities

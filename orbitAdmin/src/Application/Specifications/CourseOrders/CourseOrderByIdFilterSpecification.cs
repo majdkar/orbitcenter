@@ -13,6 +13,7 @@ namespace SchoolV01.Application.Specifications.Courses
     {
         public CourseOrderByIdFilterSpecification(int id)
         {
+            Includes.Add(x => x.PayType);
             Includes.Add(x => x.Course);
             Includes.Add(x => x.Client);
             IncludeStrings.Add("Client.Person");

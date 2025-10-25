@@ -1,0 +1,101 @@
+﻿@page "/general-settings/pay-types"
+@attribute [Authorize(Policy = Permissions.PayTypes.View)]
+@inject Microsoft.Extensions.Localization.IStringLocalizer<PayTypes> _localizer
+@using SchoolV01.Application.Features.PayTypes.Queries.GetAll
+
+<style>
+    .mud-table-container {
+        overflow: auto;
+    }
+</style>
+@* <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => Back())" StartIcon=@Icons.Material.Filled.ArrowBack IconColor="Color.Surface">@_localizer["Back"]</MudButton>
+ *@
+<HeroTitle Title="@_localizer["PayTypes"]" Description="@_localizer["Manage PayTypes."]" />
+@if (!_loaded)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <MudTable RowsPerPage="100" Hover="true" Elevation="25" Items="_PayTypeList" Dense="@_dense" Bordered="@_bordered" Striped="@_striped" Filter="new Func<GetAllPayTypesResponse, bool>(Search)" @bind-color="_PayType">
+        <ToolBarContent>
+            <div class="justify-center mud-text-align-center">
+                @if (_canCreatePayTypes)
+                {
+                    <MudButton DisableElevation Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => InvokeModal())" StartIcon="@Icons.Material.Filled.Add" IconColor="Color.Surface">@_localizer["Create"]</MudButton>
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="GetPayTypesAsync" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Reload"]</MudButton>
+                    @if (_canExportPayTypes)
+                    {
+                        <MudButton DisableElevation Variant="Variant.Filled" OnClick="ExportToExcel" StartIcon="@Icons.Custom.FileFormats.FileExcel" IconColor="Color.Secondary" Color="Color.Surface" Style="margin-left: 5px;">@_localizer["Export"]</MudButton>
+                    }
+                }
+                else
+                {
+                    <MudButton DisableElevation Variant="Variant.Filled" OnClick="GetPayTypesAsync" StartIcon="@Icons.Material.Filled.Refresh" IconColor="Color.Surface" Color="Color.Secondary">@_localizer["Reload"]</MudButton>
+                    @if (_canExportPayTypes)
+                    {
+                        <MudButton DisableElevation Variant="Variant.Filled" OnClick="ExportToExcel" StartIcon="@Icons.Custom.FileFormats.FileExcel" IconColor="Color.Secondary" Color="Color.Surface" Style="margin-left: 5px;">@_localizer["Export"]</MudButton>
+                    }
+                }
+            </div>
+            <MudToolBarSpacer />
+            @if (_canSearchPayTypes)
+            {
+                <MudTextField @bind-Value="_searchString" Immediate="true" Placeholder="@_localizer["Search for PayTypes"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 mb-3"></MudTextField>
+            }
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh><MudTableSortLabel SortBy="new Func<GetAllPayTypesResponse, object>(x=>x.NameAr)">@_localizer["NameAr"]</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel SortBy="new Func<GetAllPayTypesResponse, object>(x => x.NameEn)">@_localizer["NameEn"]</MudTableSortLabel></MudTh>
+               
+                <MudTh Style="text-align:right">@_localizer["Actions"]</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+
+                <MudTd DataLabel="ArabicName">
+                    <MudHighlighter Text="@context.NameAr" HighlightedText="@_searchString" />
+                </MudTd>
+                <MudTd DataLabel="Name">
+                    <MudHighlighter Text="@context.NameEn" HighlightedText="@_searchString" />
+                </MudTd>
+                
+
+            <MudTd DataLabel="Actions" Style="text-align: right">
+                    @if (_canEditPayTypes || _canDeletePayTypes)
+                {
+                    @if (_canEditPayTypes)
+                    {
+                        <MudTooltip Text="@_localizer["Edit"]">
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit" @onclick="@(() => InvokeModal(@context.Id))" Color="Color.Primary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>
+                    }
+                    @if (_canDeletePayTypes)
+                    {
+                        <MudTooltip Text="@_localizer["Delete"]">
+                            <MudIconButton Icon="@Icons.Material.Filled.Delete" @onclick="@(() => Delete(@context.Id))" Color="Color.Secondary" Variant="Variant.Filled" Size="Size.Small" Style="margin: 7px" />
+                        </MudTooltip>
+                    }
+                }
+                else
+                {
+                    <MudButton Variant="Variant.Filled"
+                               DisableElevation="true"
+                               StartIcon="@Icons.Material.Filled.DoNotTouch"
+                               IconColor="Color.Secondary"
+                               Size="Size.Small"
+                               Color="Color.Surface">
+                        @_localizer["No Allowed Actions"]
+                    </MudButton>
+                }
+            </MudTd>
+        </RowTemplate>
+        <FooterContent>
+            <MudSwitch T="bool" @bind-Checked="@_dense" Color="Color.Secondary" Style="margin-left: 5px;">@_localizer["Dense"]</MudSwitch>
+            <MudSwitch T="bool" @bind-Checked="@_striped" Color="Color.Tertiary" Style="margin-left: 5px;">@_localizer["Striped"]</MudSwitch>
+            <MudSwitch T="bool" @bind-Checked="@_bordered" Color="Color.Warning" Style="margin-left: 5px;">@_localizer["Bordered"]</MudSwitch>
+            </FooterContent>
+            <PagerContent>
+                <TablePager />
+            </PagerContent>
+        </MudTable>
+}

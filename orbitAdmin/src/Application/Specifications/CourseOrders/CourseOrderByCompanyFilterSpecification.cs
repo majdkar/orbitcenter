@@ -4,11 +4,12 @@ using SchoolV01.Domain.Entities.Orders;
 
 namespace SchoolV01.Application.Specifications.Catalog
 {
-    public class CourseOrderByCompanyFilterSpecification : HeroSpecification<CourseOrder>
+    public class CourseOrderByClientFilterSpecification : HeroSpecification<CourseOrder>
     {
-        public CourseOrderByCompanyFilterSpecification(string searchString)
+        public CourseOrderByClientFilterSpecification(string searchString,int clientId)
         {
             Includes.Add(x => x.Client);
+            Includes.Add(x => x.PayType);
             IncludeStrings.Add("Client.Person");
             IncludeStrings.Add("Client.Company");
 
@@ -16,6 +17,7 @@ namespace SchoolV01.Application.Specifications.Catalog
             if (!string.IsNullOrEmpty(searchString))
             {
                 Criteria = p =>  !p.Deleted &&
+                                   p.ClientId == clientId &&
                                 (p.Course.NameAr.Contains(searchString) ||
                                 p.Course.NameEn.Contains(searchString) ||
                                 p.OrderNumber.Contains(searchString)
@@ -23,7 +25,7 @@ namespace SchoolV01.Application.Specifications.Catalog
             }
             else
             {
-                Criteria = p =>  !p.Deleted;
+                Criteria = p =>  !p.Deleted && p.ClientId == clientId;
             }
         }
     }

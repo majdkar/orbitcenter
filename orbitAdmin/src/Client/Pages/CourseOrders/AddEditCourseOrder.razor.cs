@@ -30,6 +30,8 @@ using SchoolV01.Application.Features.Courses.Queries.GetAll;
 using SchoolV01.Domain.Entities.GeneralSettings;
 using System.Threading;
 using SchoolV01.Shared.Constants.Clients;
+using SchoolV01.Client.Infrastructure.Managers.GeneralSettings.PayType;
+using SchoolV01.Application.Features.PayTypes.Queries.GetAll;
 
 namespace SchoolV01.Client.Pages.CourseOrders
 {
@@ -39,6 +41,7 @@ namespace SchoolV01.Client.Pages.CourseOrders
         [Inject] private ICourseManager CourseManager { get; set; }
         [Inject] private IPersonManager PersonManager { get; set; }
         [Inject] private ICompanyManager CompanyManager { get; set; }
+        [Inject] private IPayTypeManager PayTypeManager { get; set; }
 
         private bool IsArabic => CultureInfo.CurrentCulture.Name.Contains("ar-");
 
@@ -55,6 +58,8 @@ namespace SchoolV01.Client.Pages.CourseOrders
         private List<GetAllCompaniesResponse> _companies = new();
 
         private List<GetAllCoursesResponse> _courses = new();
+
+        private List<GetAllPayTypesResponse> _payTypes = new();
 
 
 
@@ -91,7 +96,8 @@ namespace SchoolV01.Client.Pages.CourseOrders
              LoadCourseOrderDetails(),
              LoadPerson(),
              LoadCompanies(),
-             LoadCourse()
+             LoadCourse(),
+             LoadPayType()
             );
         }
 
@@ -102,6 +108,16 @@ namespace SchoolV01.Client.Pages.CourseOrders
             if (data.Succeeded)
             {
                 _courses = data.Data.ToList();
+            }
+        }
+
+        private async Task LoadPayType()
+        {
+
+            var data = await PayTypeManager.GetAllAsync();
+            if (data.Succeeded)
+            {
+                _payTypes = data.Data.ToList();
             }
         }
 
@@ -160,10 +176,31 @@ namespace SchoolV01.Client.Pages.CourseOrders
             return _courses.Where(x => x.NameAr.Contains(value, StringComparison.InvariantCultureIgnoreCase) || x.NameEn.Contains(value, StringComparison.InvariantCultureIgnoreCase))
                 .Select(x => x.Id);
         }
+        
+        private async Task<IEnumerable<int?>> SearchPayType(string value, CancellationToken token)
+        {
+            await Task.Delay(5);
+
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return _payTypes.Select(x => x?.Id);
+
+            return _payTypes.Where(x => x.NameAr.Contains(value, StringComparison.InvariantCultureIgnoreCase) || x.NameEn.Contains(value, StringComparison.InvariantCultureIgnoreCase))
+                .Select(x => x?.Id);
+        }
 
         string CourseToString(int id)
         {
             var student = _courses.FirstOrDefault(b => b.Id == id);
+            if (student is null)
+                return string.Empty;
+
+            return $"{student.NameEn} - {student.NameAr}";
+        }
+
+        string PayTypeToString(int? id)
+        {
+            var student = _payTypes.FirstOrDefault(b => b.Id == id);
             if (student is null)
                 return string.Empty;
 
@@ -206,6 +243,8 @@ namespace SchoolV01.Client.Pages.CourseOrders
                           PaymentStatus = CourseOrder.PaymentStatus,
                           Price = CourseOrder.Price,
                           Status = CourseOrder.Status,
+                           PayTypeId =CourseOrder.PayTypeId,
+                           PaymentTransactionNumber = CourseOrder.PaymentTransactionNumber,
                     };
                 }
                     

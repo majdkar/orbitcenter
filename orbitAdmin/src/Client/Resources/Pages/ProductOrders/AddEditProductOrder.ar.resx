@@ -207,4 +207,10 @@
   <data name="Total:" xml:space="preserve">
     <value>الإجمالي :</value>
   </data>
+  <data name="PaymentType" xml:space="preserve">
+    <value>نوع الدفع</value>
+  </data>
+  <data name="PaymentTransactionNumber" xml:space="preserve">
+    <value>رقم عملية الدفع</value>
+  </data>
 </root>

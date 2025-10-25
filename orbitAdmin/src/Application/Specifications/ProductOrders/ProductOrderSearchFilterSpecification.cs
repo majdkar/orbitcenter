@@ -15,7 +15,9 @@ namespace SchoolV01.Application.Specifications.Catalog
                 decimal fromPrice,
                 decimal toPrice)
             {
-                Includes.Add(x => x.Client);
+            Includes.Add(x => x.PayType);
+
+            Includes.Add(x => x.Client);
                 IncludeStrings.Add("Client.Person");
                 IncludeStrings.Add("Client.Company");
                 IncludeStrings.Add("Items.Product"); // تضمين المنتجات داخل عناصر الطلب

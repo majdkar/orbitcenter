@@ -9,6 +9,7 @@ namespace SchoolV01.Application.Specifications.Catalog
     {
         public ProductOrderByCompanyFilterSpecification(string searchString)
         {
+            Includes.Add(x => x.PayType);
             Includes.Add(x => x.Client);
             IncludeStrings.Add("Client.Person");
             IncludeStrings.Add("Client.Company");

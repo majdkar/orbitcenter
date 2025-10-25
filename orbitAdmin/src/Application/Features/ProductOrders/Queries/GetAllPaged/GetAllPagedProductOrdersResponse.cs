@@ -27,7 +27,10 @@ namespace SchoolV01.Application.Features.ProductOrders.Queries.GetAllPaged
 
         public string PaymentStatus { get; set; }
         public string OrderNumber { get; set; }
+        public int? PayTypeId { get; set; }
+        public PayType PayType { get; set; }
 
+        public string PaymentTransactionNumber { get; set; }
         public decimal TotalPrice { get; set; }
 
         // كل العناصر (المنتجات) داخل الطلب

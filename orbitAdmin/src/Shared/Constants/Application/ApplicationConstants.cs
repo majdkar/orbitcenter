@@ -36,6 +36,7 @@ namespace SchoolV01.Shared.Constants.Application
         public static class Cache
         {
             
+            public const string GetAllPayTypesCacheKey = "all-PayTypes";
             public const string GetAllDocumentTypesCacheKey = "all-document-types";
             public const string GetAllProductCategoriesCacheKey = "all-ProductCategories";
             public const string GetAllCourseOrdersCacheKey = "all-CourseOrders";

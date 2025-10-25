@@ -9,6 +9,7 @@ namespace SchoolV01.Application.Specifications.Catalog
         public CourseOrderSearchFilterSpecification(string searchString, string OrderNumber, int CourseId, int ClientId,  decimal fromprice, decimal toprice)
         {
             Includes.Add(x => x.Client);
+            Includes.Add(x => x.PayType);
             IncludeStrings.Add("Client.Person");
             IncludeStrings.Add("Client.Company");
 

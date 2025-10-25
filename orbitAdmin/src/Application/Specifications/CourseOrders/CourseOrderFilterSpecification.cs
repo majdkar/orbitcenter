@@ -15,6 +15,7 @@ namespace SchoolV01.Application.Specifications.Courses
         public CourseOrderFilterSpecification()
         {
             Includes.Add(x => x.Client);
+            Includes.Add(x => x.PayType);
             IncludeStrings.Add("Client.Person");
             IncludeStrings.Add("Client.Company");
      

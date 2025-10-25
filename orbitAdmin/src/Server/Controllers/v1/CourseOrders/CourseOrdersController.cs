@@ -48,6 +48,24 @@ namespace SchoolV01.Server.Controllers.v1.CourseOrders
             return Ok(CourseOrders);
         }
 
+
+        /// <summary>
+        /// Get All Paged Course Orders By Clinet
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="searchString"></param>
+        /// <param name="orderBy"></param>
+        /// <returns>Status 200 OK</returns>
+        [AllowAnonymous]
+        [HttpGet("GetAllPagedByClient")]
+        public async Task<IActionResult> GetAllPagedByClient(int clientId,int pageNumber, int pageSize, string searchString, string orderBy = null)
+        {
+            var CourseOrders = await Mediator.Send(new GetAllPagedCourseOrdersByClientQuery(pageNumber, pageSize, searchString, orderBy, clientId));
+            return Ok(CourseOrders);
+        }
+
         /// <summary>
         /// Get All Paged Search CourseOrders
         /// </summary>

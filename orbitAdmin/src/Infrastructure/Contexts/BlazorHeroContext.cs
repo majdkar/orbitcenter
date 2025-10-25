@@ -86,6 +86,7 @@ namespace SchoolV01.Infrastructure.Contexts
 
         // General Settings
         public DbSet<Country> Countries { get; set; }
+        public DbSet<PayType> PayTypes { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Classification> Classifications { get; set; }
         public DbSet<CourseType> CourseTypes { get; set; }

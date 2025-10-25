@@ -145,6 +145,23 @@ else
                                 </MudSelect>
                             </MudItem>
 
+
+                            <MudItem xs="12" md="6">
+                                <MudAutocomplete T="int?" Label="@_localizer["PaymentType"]"
+                                                 @bind-Value="@AddEditProductOrderModel.PayTypeId"
+                                                 ResetValueOnEmptyText="true"
+                                                 SearchFunc="@SearchPayType"
+                                                 ToStringFunc="PayTypeToString" OffsetY="true" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+
+                            <MudItem xs="12" md="6">
+                                <MudTextField For="@(() => AddEditProductOrderModel.PaymentTransactionNumber)" @bind-Value="AddEditProductOrderModel.PaymentTransactionNumber" Label="@_localizer["PaymentTransactionNumber"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+
                             <!-- Notes -->
                             <MudItem xs="12">
                                 <MudTextField For="@(() => AddEditProductOrderModel.Notes)"

@@ -207,4 +207,10 @@
   <data name="Total:" xml:space="preserve">
     <value>Total:</value>
   </data>
+  <data name="PaymentType" xml:space="preserve">
+    <value>Payment Type</value>
+  </data>
+  <data name="PaymentTransactionNumber" xml:space="preserve">
+    <value>Payment Transaction Number</value>
+  </data>
 </root>

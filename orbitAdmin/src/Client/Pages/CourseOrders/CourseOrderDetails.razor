@@ -56,6 +56,14 @@
                 <MudItem xs="12" md="4">
                     <strong>@_localizer["PaymentStatus"] : </strong> @Model.PaymentStatus
                 </MudItem>
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["PaymentType"] : </strong> @(IsArabic? Model.PayType.NameAr : Model.PayType.NameEn)
+                </MudItem>
+                
+                <MudItem xs="12" md="4">
+                    <strong>@_localizer["PaymentTransactionNumber"] : </strong> @(Model.PaymentTransactionNumber)
+                </MudItem>
 
                       <MudItem xs="12" md="12">
                     <strong>@_localizer["Notes"] : </strong> @Model.Notes

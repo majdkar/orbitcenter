@@ -4,33 +4,31 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.JSInterop;
 using MudBlazor;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-
-
+using SchoolV01.Application.Features.Clients.Companies.Queries.GetAllPaged;
+using SchoolV01.Application.Features.Clients.Persons.Queries.GetAll;
+using SchoolV01.Application.Features.PayTypes.Queries.GetAll;
+using SchoolV01.Application.Features.Products.Commands.AddEdit;
+using SchoolV01.Application.Features.Products.Queries.GetAll;
 using SchoolV01.Application.Requests;
 using SchoolV01.Client.Extensions;
-
-
-using SchoolV01.Client.Infrastructure.Managers.ProductOrders;
-using SchoolV01.Shared.Constants;
-using SchoolV01.Client.Infrastructure.Managers.GeneralSettings;
-using System.Globalization;
-using SchoolV01.Domain.Entities.Products;
-using SchoolV01.Application.Features.Products.Commands.AddEdit;
-using SchoolV01.Client.Infrastructure.Managers.Products;
-using SchoolV01.Client.Infrastructure.Managers.Clients.Persons;
 using SchoolV01.Client.Infrastructure.Managers.Clients.Companies;
-using SchoolV01.Application.Features.Clients.Persons.Queries.GetAll;
-using SchoolV01.Application.Features.Clients.Companies.Queries.GetAllPaged;
-using SchoolV01.Application.Features.Products.Queries.GetAll;
+using SchoolV01.Client.Infrastructure.Managers.Clients.Persons;
+using SchoolV01.Client.Infrastructure.Managers.GeneralSettings;
+using SchoolV01.Client.Infrastructure.Managers.GeneralSettings.PayType;
+using SchoolV01.Client.Infrastructure.Managers.ProductOrders;
+using SchoolV01.Client.Infrastructure.Managers.Products;
 using SchoolV01.Domain.Entities.GeneralSettings;
-using System.Threading;
-using SchoolV01.Shared.Constants.Clients;
 using SchoolV01.Domain.Entities.Orders;
+using SchoolV01.Domain.Entities.Products;
+using SchoolV01.Shared.Constants;
+using SchoolV01.Shared.Constants.Clients;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SchoolV01.Client.Pages.ProductOrders
 {
@@ -40,6 +38,7 @@ namespace SchoolV01.Client.Pages.ProductOrders
         [Inject] private IProductManager ProductManager { get; set; }
         [Inject] private IPersonManager PersonManager { get; set; }
         [Inject] private ICompanyManager CompanyManager { get; set; }
+        [Inject] private IPayTypeManager PayTypeManager { get; set; }
 
         private bool IsArabic => CultureInfo.CurrentCulture.Name.Contains("ar-");
 
@@ -56,6 +55,7 @@ namespace SchoolV01.Client.Pages.ProductOrders
         private List<GetAllCompaniesResponse> _companies = new();
 
         private List<GetAllProductsResponse> _Products = new();
+        private List<GetAllPayTypesResponse> _payTypes = new();
 
 
 
@@ -95,10 +95,21 @@ namespace SchoolV01.Client.Pages.ProductOrders
              LoadProductOrderDetails(),
              LoadPerson(),
              LoadCompanies(),
-             LoadProduct()
+             LoadProduct(),
+             LoadPayType()
             );
         }
 
+
+        private async Task LoadPayType()
+        {
+
+            var data = await PayTypeManager.GetAllAsync();
+            if (data.Succeeded)
+            {
+                _payTypes = data.Data.ToList();
+            }
+        }
 
         private async Task AddItem()
         {
@@ -141,6 +152,18 @@ namespace SchoolV01.Client.Pages.ProductOrders
             AddEditProductOrderModel.TotalPrice = AddEditProductOrderModel.Items.Sum(i => i.UnitPrice * i.Quantity);
         }
 
+
+        private async Task<IEnumerable<int?>> SearchPayType(string value, CancellationToken token)
+        {
+            await Task.Delay(5);
+
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return _payTypes.Select(x => x?.Id);
+
+            return _payTypes.Where(x => x.NameAr.Contains(value, StringComparison.InvariantCultureIgnoreCase) || x.NameEn.Contains(value, StringComparison.InvariantCultureIgnoreCase))
+                .Select(x => x?.Id);
+        }
 
         private async Task LoadProduct()
         {
@@ -208,6 +231,17 @@ namespace SchoolV01.Client.Pages.ProductOrders
                 .Select(x => x.Id);
         }
 
+
+     
+
+        string PayTypeToString(int? id)
+        {
+            var student = _payTypes.FirstOrDefault(b => b.Id == id);
+            if (student is null)
+                return string.Empty;
+
+            return $"{student.NameEn} - {student.NameAr}";
+        }
         string ProductToString(int id)
         {
             var student = _Products.FirstOrDefault(b => b.Id == id);
@@ -254,6 +288,8 @@ namespace SchoolV01.Client.Pages.ProductOrders
                             TotalPrice = ProductOrder.TotalPrice,
                           Status = ProductOrder.Status,
                            ClientType = ProductOrder.ClientType,
+                        PayTypeId = ProductOrder.PayTypeId,
+                        PaymentTransactionNumber = ProductOrder.PaymentTransactionNumber,
                     };
                 }
                     

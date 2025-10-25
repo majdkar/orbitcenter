@@ -30,5 +30,10 @@ namespace SchoolV01.Application.Features.CourseOrders.Queries.GetAll
         public string OrderNumber { get; set; }
 
         public decimal Price { get; set; }
+
+        public int? PayTypeId { get; set; }
+        public PayType PayType { get; set; }
+
+        public string PaymentTransactionNumber { get; set; }
     }
 }

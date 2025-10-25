@@ -177,4 +177,10 @@
   <data name="Course" xml:space="preserve">
     <value>Course</value>
   </data>
+  <data name="PaymentTransactionNumber" xml:space="preserve">
+    <value>PaymentTransactionNumber</value>
+  </data>
+  <data name="PaymentType" xml:space="preserve">
+    <value>PaymentType</value>
+  </data>
 </root>

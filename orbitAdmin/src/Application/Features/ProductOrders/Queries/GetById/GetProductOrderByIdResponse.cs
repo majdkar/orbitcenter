@@ -30,6 +30,11 @@ namespace SchoolV01.Application.Features.ProductOrders.Queries.GetById
         public string OrderNumber { get; set; }
         public decimal TotalPrice { get; set; }
 
+        public int? PayTypeId { get; set; }
+        public PayType PayType { get; set; }
+
+        public string PaymentTransactionNumber { get; set; }
+
         // كل العناصر (المنتجات) داخل الطلب
         public ICollection<ProductOrderItem> Items { get; set; } = new List<ProductOrderItem>();
     }

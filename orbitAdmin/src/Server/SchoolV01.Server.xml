@@ -593,6 +593,17 @@
             <param name="orderBy"></param>
             <returns>Status 200 OK</returns>
         </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.CourseOrders.CourseOrdersController.GetAllPagedByClient(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged Course Orders By Clinet
+            </summary>
+            <param name="clientId"></param>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
         <member name="M:SchoolV01.Server.Controllers.v1.CourseOrders.CourseOrdersController.GetAllPagedSearchCourseOrder(System.String,System.Int32,System.Int32,System.Decimal,System.Decimal,System.Int32,System.Int32,System.String,System.String)">
             <summary>
             Get All Paged Search CourseOrders
@@ -836,6 +847,40 @@
         <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.CourseTypesController.Export(System.String)">
             <summary>
             Search CourseTypes and Export to Excel
+            </summary>
+            <param name="searchString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.PayTypesController.GetAll">
+            <summary>
+            Get All PayTypes
+            </summary>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.PayTypesController.GetById(System.Int32)">
+            <summary>
+            Get a PayType By Id
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 Ok</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.PayTypesController.Post(SchoolV01.Application.Features.PayTypes.Commands.AddEdit.AddEditPayTypeCommand)">
+            <summary>
+            Create/Update a PayType
+            </summary>
+            <param name="command"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.PayTypesController.Delete(System.Int32)">
+            <summary>
+            Delete a PayType
+            </summary>
+            <param name="id"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.GeneralSettings.PayTypesController.Export(System.String)">
+            <summary>
+            Search PayTypes and Export to Excel
             </summary>
             <param name="searchString"></param>
             <returns></returns>
@@ -1233,6 +1278,17 @@
             <summary>
             Get All Paged ProductOrders
             </summary>
+            <param name="pageNumber"></param>
+            <param name="pageSize"></param>
+            <param name="searchString"></param>
+            <param name="orderBy"></param>
+            <returns>Status 200 OK</returns>
+        </member>
+        <member name="M:SchoolV01.Server.Controllers.v1.ProductOrders.ProductOrdersController.GetAllPagedByClient(System.Int32,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Get All Paged Product Orders By Client
+            </summary>
+            <param name="clientId"></param>
             <param name="pageNumber"></param>
             <param name="pageSize"></param>
             <param name="searchString"></param>

@@ -229,4 +229,7 @@
   <data name="Services Orders" xml:space="preserve">
     <value>Services Orders</value>
   </data>
+  <data name="PayTypes" xml:space="preserve">
+    <value>Payment Types</value>
+  </data>
 </root>

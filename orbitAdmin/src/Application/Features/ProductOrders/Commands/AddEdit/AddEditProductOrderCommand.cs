@@ -1,21 +1,22 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using SchoolV01.Application.Interfaces.Repositories;
 using SchoolV01.Application.Interfaces.Services;
 using SchoolV01.Application.Requests;
+using SchoolV01.Domain.Entities.Clients;
+using SchoolV01.Domain.Entities.GeneralSettings;
+using SchoolV01.Domain.Entities.Orders;
 using SchoolV01.Domain.Entities.Products;
 using SchoolV01.Shared.Constants.Application;
 using SchoolV01.Shared.Wrapper;
 using System;
-using SchoolV01.Domain.Entities.Clients;
-using SchoolV01.Domain.Entities.Orders;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SchoolV01.Application.Features.Products.Commands.AddEdit
 {
@@ -35,6 +36,10 @@ namespace SchoolV01.Application.Features.Products.Commands.AddEdit
         public string PaymentStatus { get; set; }
         public string OrderNumber { get; set; }
 
+
+        public int? PayTypeId { get; set; }
+
+        public string PaymentTransactionNumber { get; set; }
         public decimal TotalPrice { get; set; }
 
         // كل العناصر (المنتجات) داخل الطلب
@@ -116,6 +121,8 @@ namespace SchoolV01.Application.Features.Products.Commands.AddEdit
                 productOrder.PaymentStatus = command.PaymentStatus ?? productOrder.PaymentStatus;
                 productOrder.ClientId = command.ClientId;
                 productOrder.OrderDate = command.OrderDate;
+                productOrder.PayTypeId = command.PayTypeId;
+                productOrder.PaymentTransactionNumber = command.PaymentTransactionNumber;
                 productOrder.Notes = command.Notes ?? productOrder.Notes;
 
                 // تحديث العناصر بدون تكرار

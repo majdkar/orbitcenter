@@ -1,20 +1,21 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using SchoolV01.Application.Interfaces.Repositories;
 using SchoolV01.Application.Interfaces.Services;
 using SchoolV01.Application.Requests;
+using SchoolV01.Domain.Entities.Clients;
 using SchoolV01.Domain.Entities.Courses;
+using SchoolV01.Domain.Entities.GeneralSettings;
+using SchoolV01.Domain.Entities.Orders;
 using SchoolV01.Shared.Constants.Application;
 using SchoolV01.Shared.Wrapper;
 using System;
-using SchoolV01.Domain.Entities.Clients;
-using SchoolV01.Domain.Entities.Orders;
+using System.IO;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SchoolV01.Application.Features.Courses.Commands.AddEdit
 {
@@ -36,7 +37,9 @@ namespace SchoolV01.Application.Features.Courses.Commands.AddEdit
         public string OrderNumber { get; set; }
 
         public decimal Price { get; set; }
+        public int? PayTypeId { get; set; }
 
+        public string PaymentTransactionNumber { get; set; }
     }
 
     internal class AddEditCourseOrderCommandHandler : IRequestHandler<AddEditCourseOrderCommand, Result<int>>
@@ -100,6 +103,8 @@ namespace SchoolV01.Application.Features.Courses.Commands.AddEdit
                     Course.OrderDate = command.OrderDate;
                     Course.Notes = command.Notes ?? Course.Notes;
                     Course.Price = command.Price;
+                    Course.PayTypeId = command.PayTypeId;
+                    Course.PaymentTransactionNumber = command.PaymentTransactionNumber;
 
                     await _unitOfWork.Repository<CourseOrder>().UpdateAsync(Course);
                     await _unitOfWork.CommitAndRemoveCache(cancellationToken, ApplicationConstants.Cache.GetAllCourseOrdersCacheKey);

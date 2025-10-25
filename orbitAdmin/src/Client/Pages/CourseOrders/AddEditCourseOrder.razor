@@ -96,6 +96,11 @@ else
                                 <MudTextField For="@(() => AddEditCourseOrderModel.Price)" @bind-Value="AddEditCourseOrderModel.Price" Label="@_localizer["Price"]" Variant="MudBlazor.Variant.Outlined" />
                             </MudItem>
 
+
+
+
+
+
                             <MudItem xs="12" md="6">
                                 <MudSelect @bind-Value="@AddEditCourseOrderModel.PaymentStatus" TransformOrigin="Origin.TopCenter" PopoverClass="mud-popover-fixed" For="@(() => AddEditCourseOrderModel.PaymentStatus)" T="string" Label="@_localizer["PaymentStatus"]" AnchorOrigin="Origin.BottomCenter" Variant="Variant.Outlined">
                                     @foreach (var value in PaymentStatus.Values)
@@ -104,6 +109,24 @@ else
                                     }
                                 </MudSelect>
                             </MudItem>
+
+
+
+
+                            <MudItem xs="12" md="6">
+                                <MudAutocomplete T="int?" Label="@_localizer["PaymentType"]"
+                                                 @bind-Value="@AddEditCourseOrderModel.PayTypeId"
+                                                 ResetValueOnEmptyText="true"
+                                                 SearchFunc="@SearchPayType"
+                                                 ToStringFunc="PayTypeToString" OffsetY="true" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+
+
+
+                            <MudItem xs="12" md="6">
+                                <MudTextField For="@(() => AddEditCourseOrderModel.PaymentTransactionNumber)" @bind-Value="AddEditCourseOrderModel.PaymentTransactionNumber" Label="@_localizer["PaymentTransactionNumber"]" Variant="MudBlazor.Variant.Outlined" />
+                            </MudItem>
+                            
 
                             <MudItem xs="12" md="12">
                                 <MudTextField For="@(() => AddEditCourseOrderModel.Notes)" @bind-Value="AddEditCourseOrderModel.Notes" Label="@_localizer["Notes"]" Variant="MudBlazor.Variant.Outlined" />

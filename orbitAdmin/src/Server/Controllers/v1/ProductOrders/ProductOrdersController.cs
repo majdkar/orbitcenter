@@ -48,6 +48,30 @@ namespace SchoolV01.Server.Controllers.v1.ProductOrders
             return Ok(ProductOrders);
         }
 
+
+
+
+        /// <summary>
+        /// Get All Paged Product Orders By Client
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="searchString"></param>
+        /// <param name="orderBy"></param>
+        /// <returns>Status 200 OK</returns>
+        [AllowAnonymous]
+        [HttpGet("GetAllPagedByClient")]
+        public async Task<IActionResult> GetAllPagedByClient(int clientId, int pageNumber, int pageSize, string searchString, string orderBy = null)
+        {
+            var ProductOrders = await Mediator.Send(new GetAllPagedProductOrdersByClientQuery(pageNumber, pageSize, searchString, orderBy,clientId));
+            return Ok(ProductOrders);
+        }
+
+
+
+
+
         /// <summary>
         /// Get All Paged Search ProductOrders
         /// </summary>

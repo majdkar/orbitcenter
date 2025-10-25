@@ -100,6 +100,14 @@ namespace SchoolV01.Shared.Constants.Permission
             public const string Edit = "Permissions.CourseTypes.Edit";
             public const string Delete = "Permissions.CourseTypes.Delete";
         }
+                            
+        public static class PayTypes
+        {
+            public const string View = "Permissions.CourseTypes.View";
+            public const string Create = "Permissions.CourseTypes.Create";
+            public const string Edit = "Permissions.CourseTypes.Edit";
+            public const string Delete = "Permissions.CourseTypes.Delete";
+        }
 
                               
         public static class Countries

@@ -1842,6 +1842,42 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.ToTable("CourseTypes");
                 });
 
+            modelBuilder.Entity("SchoolV01.Domain.Entities.GeneralSettings.PayType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NameAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Deleted");
+
+                    b.ToTable("PayTypes");
+                });
+
             modelBuilder.Entity("SchoolV01.Domain.Entities.GeneralSettings.VehicleLocation", b =>
                 {
                     b.Property<int>("Id")
@@ -2213,7 +2249,13 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Property<string>("OrderNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("PayTypeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("PaymentStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentTransactionNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
@@ -2229,6 +2271,8 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.HasIndex("CourseId");
 
                     b.HasIndex("Deleted");
+
+                    b.HasIndex("PayTypeId");
 
                     b.ToTable("CourseOrders");
                 });
@@ -2271,7 +2315,13 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.Property<string>("OrderNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("PayTypeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("PaymentStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentTransactionNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
@@ -2285,6 +2335,8 @@ namespace SchoolV01.Infrastructure.Migrations
                     b.HasIndex("ClientId");
 
                     b.HasIndex("Deleted");
+
+                    b.HasIndex("PayTypeId");
 
                     b.ToTable("ProductOrders");
                 });
@@ -3222,9 +3274,15 @@ namespace SchoolV01.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SchoolV01.Domain.Entities.GeneralSettings.PayType", "PayType")
+                        .WithMany()
+                        .HasForeignKey("PayTypeId");
+
                     b.Navigation("Client");
 
                     b.Navigation("Course");
+
+                    b.Navigation("PayType");
                 });
 
             modelBuilder.Entity("SchoolV01.Domain.Entities.Orders.ProductOrder", b =>
@@ -3235,7 +3293,13 @@ namespace SchoolV01.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SchoolV01.Domain.Entities.GeneralSettings.PayType", "PayType")
+                        .WithMany()
+                        .HasForeignKey("PayTypeId");
+
                     b.Navigation("Client");
+
+                    b.Navigation("PayType");
                 });
 
             modelBuilder.Entity("SchoolV01.Domain.Entities.Orders.ProductOrderItem", b =>

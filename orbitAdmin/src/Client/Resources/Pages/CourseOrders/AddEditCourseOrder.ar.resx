@@ -177,4 +177,10 @@
   <data name="Course" xml:space="preserve">
     <value>الدورة</value>
   </data>
+  <data name="PaymentTransactionNumber" xml:space="preserve">
+    <value>رقم عملية الدفع</value>
+  </data>
+  <data name="PaymentType" xml:space="preserve">
+    <value>نوع الدفع</value>
+  </data>
 </root>
